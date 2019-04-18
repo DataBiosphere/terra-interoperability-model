@@ -12,12 +12,24 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+DSPCore:Experiment
+  DSPCore:hasAssay Encode:OBI_0002142_1 ;
+.
 DSPCore:File
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality 1 ;
-      owl:onProperty Encode:mappedReadLength ;
-    ] ;
+  Encode:hasDataQuality "{\"orange\",\"red\",\"white\",\"yellow\"}" ;
+.
+DSPCore:derivedFrom
+  rdfs:domain DSPCore:Library ;
+.
+DSPCore:ethnicity
+  rdfs:comment "Use string for now; will be an ontology in future" ;
+.
+DSPCore:hasResultFile
+  rdfs:range DSPCore:File ;
+.
+<http://datamodel.broadinstitute.org/DSPCoreDataModelNoRestriction>
+  rdfs:label "no restriction" ;
+  skos:prefLabel "no restriction" ;
 .
 <http://datamodel.broadinstitute.org/Encode>
   a owl:Ontology ;
@@ -26,17 +38,17 @@ DSPCore:File
 .
 Encode:Age_1
   a DSPCore:Age ;
-  DSPCore:hasLowerBound "54"^^xsd:decimal ;
   DSPCore:hasUnit "years" ;
-  DSPCore:hasUpperBound "54"^^xsd:decimal ;
+  DSPCore:hasValue "54"^^xsd:decimal ;
   rdfs:label "Age_1" ;
-  skos:prefLabel "Age_1" ;
+  skos:prefLabel "sex" ;
 .
 Encode:ENCBS562VSE
   a DSPCore:BioSample ;
   DSPCore:bioSampleType "tissue" ;
   DSPCore:dateObtained "2015-10-30T00:00:00"^^xsd:dateTime ;
   DSPCore:donatedBy Encode:ENCD0451RUA ;
+  DSPCore:hasConsentCode <http://datamodel.broadinstitute.org/DSPCoreDataModelNoRestriction> ;
   DSPCore:hasLibrary Encode:ENCBS719AMH ;
   DSPCore:organ "UBERON: 0002369" ;
   dcterms:source "http://www.encodeproject.org/sources/kristin-ardlie/" ;
@@ -49,6 +61,7 @@ Encode:ENCBS719AMH
   DSPCore:alias "gtex: ENC-1K2DA-016-SM-9JLPP" ;
   DSPCore:bioSampleType "tissue" ;
   DSPCore:closeMatch "http://www.encodeproject.org/biosamples/ENCBS719AMH" ;
+  DSPCore:hasConsentCode <http://datamodel.broadinstitute.org/DSPCoreDataModelNoRestriction> ;
   DSPCore:hasLibrary Encode:ENCLB011GAL ;
   DSPCore:hasResultFile Encode:ENCFF043TPA ;
   DSPCore:hasResultFile Encode:ENCFF147BDY ;
@@ -61,6 +74,7 @@ Encode:ENCBS719AMH
   DSPCore:usedBy Encode:ENCSR895SFC ;
   Encode:biologicalReplicate "2" ;
   Encode:hasLab "http://www.encodeproject.org/labs/barbara-wold/" ;
+  Encode:hasSponsor "http://www.encodeproject.org/awards/U54HG006998/" ;
   Encode:hasStatus "released" ;
   Encode:submittedBy "http://www.encodeproject.org/users/bc5b62f7-ce28-4a1e-b6b3-81c9c5a86d7a/" ;
   Encode:technicalReplicate "1" ;
@@ -87,68 +101,43 @@ Encode:ENCD0451RUA
 .
 Encode:ENCFF043TPA
   a DSPCore:File ;
-  DSPCore:alias "ali-mortazavi:human-adrenal-gland-ENTEX51-rep1" ;
   DSPCore:closeMatch "https://www.encodeproject.org/files/ENCFF043TPA/" ;
-  DSPCore:experiment Encode:ENCSR895SFC ;
-  DSPCore:fileSize 37286 ;
-  DSPCore:format "bidBed" ;
-  DSPCore:hasSponsor "http://www.encodeproject.org/awards/U54HG006998/" ;
-  DSPCore:md5sum "310d26fe00a7a26d8c0aed73b03ad607" ;
-  Encode:hasLab "http://www.encodeproject.org/labs/ali-mortazavi/" ;
-  Encode:hasStatus "released" ;
-  Encode:outputType "reporter code counts" ;
-  Encode:submittedBy "/users/bc444477-f652-484c-84c8-b8fc601fc493/" ;
-  dcterms:created "2016-07-25T22:17:41.090202+00:00" ;
+  DSPCore:hasFormat "bidBed" ;
   rdfs:label "ENCFF043TPA" ;
   skos:prefLabel "ENCFF043TPA" ;
 .
 Encode:ENCFF147BDY
   a DSPCore:File ;
   DSPCore:closeMatch "https://www.encodeproject.org/files/ENCFF147BDY/" ;
-  DSPCore:experiment Encode:ENCSR895SFC ;
-  DSPCore:fileSize 75877 ;
-  DSPCore:format "bidBed" ;
-  DSPCore:hasReferenceAssembly "GRCh38" ;
-  DSPCore:hasSponsor "http://www.encodeproject.org/awards/U54HG006998/" ;
-  DSPCore:md5sum "0a7b91b3238f36e1bdc91d7918224a25" ;
-  Encode:fileSubType "bed6+" ;
-  Encode:hasLab "http://www.encodeproject.org//labs/ali-mortazavi/" ;
-  Encode:hasStatus "released" ;
-  Encode:outputType "microRNA quantifications" ;
-  Encode:submittedBy "http://www.encodeproject.org/users/bc5b62f7-ce28-4a1e-b6b3-81c9c5a86d7a/" ;
-  dcterms:created "2015-11-06T19:49:53.013309+00:00" ;
+  DSPCore:hasFormat "bidBed" ;
   rdfs:label "ENCFF147BDY" ;
   skos:prefLabel "ENCFF147BDY" ;
 .
 Encode:ENCFF213BVA
   a DSPCore:File ;
   DSPCore:closeMatch "https://www.encodeproject.org/files/ENCFF213BVA/" ;
-  DSPCore:experiment Encode:ENCSR895SFC ;
-  DSPCore:format "bed" ;
+  DSPCore:hasFormat "bed" ;
   rdfs:label "ENCFF213BVA" ;
   skos:prefLabel "ENCFF213BVA" ;
 .
 Encode:ENCFF424QYJ
   a DSPCore:File ;
   DSPCore:closeMatch "https://www.encodeproject.org/files/ENCFF424QYJ/" ;
-  DSPCore:experiment Encode:ENCSR895SFC ;
-  DSPCore:format "bed" ;
+  DSPCore:hasFormat "bed" ;
   rdfs:label "ENCFF424QYJ" ;
   skos:prefLabel "ENCFF424QYJ" ;
 .
 Encode:ENCFF488IYR
   a DSPCore:File ;
   DSPCore:closeMatch "https://www.encodeproject.org/files/ENCFF488IYR/" ;
-  DSPCore:experiment Encode:ENCSR895SFC ;
-  DSPCore:format "rcc" ;
+  DSPCore:hasFormat "rcc" ;
   rdfs:label "ENCFF488IYR" ;
   skos:prefLabel "ENCFF488IYR" ;
 .
 Encode:ENCFF660GHH
   a DSPCore:File ;
   DSPCore:closeMatch "https://www.encodeproject.org/files/ENCFF660GHH/" ;
-  DSPCore:experiment Encode:ENCSR895SFC ;
-  DSPCore:format "rcc" ;
+  DSPCore:hasFormat "rcc" ;
   rdfs:label "ENCFF660GHH" ;
   skos:prefLabel "ENCFF660GHH" ;
 .
@@ -158,6 +147,7 @@ Encode:ENCLB011GAL
   DSPCore:closeMatch "http://www.encodeproject.org/libraries/ENCLB011GAL/" ;
   DSPCore:hasAssay Encode:OBI_0002142_1 ;
   Encode:hasLab "http://www.encodeproject.org/labs/ali-mortazavi/" ;
+  Encode:hasSponsor "http://www.encodeproject.org/awards/U54HG006998/" ;
   Encode:hasStatus "released" ;
   Encode:strandSpecificity false ;
   Encode:submittedBy "http://www.encodeproject.org/users/bc5b62f7-ce28-4a1e-b6b3-81c9c5a86d7a/" ;
@@ -173,11 +163,16 @@ Encode:ENCSR895SFC
   DSPCore:dateReleased "2016-08-01T00:00:00"^^xsd:dateTime ;
   DSPCore:hasTarget "http://www.encodeproject.org/targets/STAT5A-human/" ;
   DSPCore:usesSample Encode:ENCBS719AMH ;
+  Encode:hasSponsor "http://www.encodeproject.org/awards/U54HG006998/" ;
   Encode:hasStatus "released" ;
   dcterms:created "2016-07-25T22:17:18.167352+00" ;
   dcterms:dateSubmitted "2016-07-31" ;
   rdfs:label "ENCSR895SFC" ;
   skos:prefLabel "ENCSR895SFC" ;
+.
+Encode:EncodeDataSet
+  a DSPCore:BroadDataset ;
+  DSPCore:hasConsentCode <http://datamodel.broadinstitute.org/DSPCoreDataModelNoRestriction> ;
 .
 Encode:Homo_sapiens
   a obo:NCBITaxon_9606 ;
@@ -202,61 +197,6 @@ Encode:biologicalReplicate
   rdfs:range xsd:string ;
   skos:prefLabel "biologicalReplicate" ;
 .
-Encode:constructionPlatform
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Library ;
-  rdfs:label "constructionPlatform" ;
-  rdfs:range xsd:string ;
-  skos:prefLabel "constructionPlatform" ;
-.
-Encode:crossLinkingMethod
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Library ;
-  rdfs:label "crossLinkingMethod" ;
-  rdfs:range xsd:string ;
-  skos:prefLabel "crossLinkingMethod" ;
-.
-Encode:fileSubType
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:File ;
-  rdfs:label "fileSubType" ;
-  rdfs:range [
-      a rdfs:Datatype ;
-      owl:oneOf (
-          "bed12"
-          "bed3"
-          "bed3+"
-          "bed5"
-          "bed6"
-          "bed6+"
-          "bed9"
-          "bed9+"
-          "bedGraph"
-          "bedLogR"
-          "bedMethyl"
-          "broadPeak"
-          "candidateenhancerpredictions"
-          "enhancerpredictions"
-          "enhancerAssay"
-          "gappedPeak"
-          "gff2"
-          "gff3"
-          "idr_peak"
-          "narrowPeak"
-          "tss_peak"
-          "bedExonScore"
-          "bedRnaElements"
-          "mango"
-          "modPepMap"
-          "openChromCombinedPeaks"
-          "pepMap"
-          "peptideMapping"
-          "shortFrags"
-          "unknown"
-        ) ;
-    ] ;
-  skos:prefLabel "fileSubType" ;
-.
 Encode:hasDataQuality
   a owl:DatatypeProperty ;
   rdfs:domain DSPCore:File ;
@@ -266,22 +206,18 @@ Encode:hasDataQuality
 .
 Encode:hasLab
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:domain DSPCore:Donor ;
-  rdfs:domain DSPCore:Experiment ;
-  rdfs:domain DSPCore:File ;
-  rdfs:domain DSPCore:Library ;
   rdfs:label "hasLab" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasLab" ;
 .
+Encode:hasSponsor
+  a owl:AnnotationProperty ;
+  rdfs:label "hasSponsor" ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "hasSponsor" ;
+.
 Encode:hasStatus
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:domain DSPCore:Donor ;
-  rdfs:domain DSPCore:Experiment ;
-  rdfs:domain DSPCore:File ;
-  rdfs:domain DSPCore:Library ;
   rdfs:label "hasStatus" ;
   rdfs:range [
       a rdfs:Datatype ;
@@ -298,7 +234,7 @@ Encode:hasStatus
   skos:prefLabel "hasStatus" ;
 .
 Encode:lifeStage
-  a owl:DatatypeProperty ;
+  a rdf:Property ;
   rdfs:comment "Varies per species; temporary solution" ;
   rdfs:domain DSPCore:BioSample ;
   rdfs:label "lifeStage" ;
@@ -314,133 +250,8 @@ Encode:lifeStage
     ] ;
   skos:prefLabel "lifeStage" ;
 .
-Encode:mappedPairedEnd
-  a owl:DatatypeProperty ;
-  rdfs:label "mappedPairedEnd" ;
-  rdfs:subPropertyOf DSPCore:pairedEnd ;
-  skos:prefLabel "mappedPairedEnd" ;
-.
-Encode:mappedReadLength
-  a owl:DatatypeProperty ;
-  rdfs:label "mappedReadLength" ;
-  rdfs:subPropertyOf DSPCore:readLength ;
-  skos:prefLabel "mappedReadLength" ;
-.
-Encode:outputType
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:File ;
-  rdfs:label "outputType" ;
-  rdfs:range [
-      a rdfs:Datatype ;
-      owl:oneOf (
-          "alignments"
-          "blacklisted regions"
-          "candidate enhancers"
-          "candidate promoters"
-          "candidate regulatory elements"
-          "chromatin interactions"
-          "mapping quality thresholded chromatin interactions"
-          "conservative idr thresholded peaks"
-          "control normalized signal"
-          "DHS peaks"
-          "differential expression quantifications"
-          "differential splicing quantifications"
-          "enhancer validation"
-          "enrichment"
-          "exon quantifications"
-          "female genome index"
-          "female genome reference"
-          "filtered indels"
-          "filtered peaks"
-          "filtered regions"
-          "filtered SNPs"
-          "fold change over control"
-          "gene quantifications"
-          "genome compartments"
-          "genome index"
-          "genome reference"
-          "hotspots"
-          "idat green channel"
-          "idat red channel"
-          "intensity values"
-          "library fraction"
-          "long range chromatin interactions"
-          "male genome index"
-          "male genome reference"
-          "maternal haplotype mapping"
-          "maternal variant calls"
-          "methylation state at CHG"
-          "methylation state at CHH"
-          "methylation state at CpG"
-          "microRNA quantifications"
-          "minus strand signal of all reads"
-          "minus strand signal of unique reads"
-          "mitochondria blacklisted regions"
-          "motif model"
-          "nested topologically associated domains"
-          "normalized signal of all reads"
-          "open chromatin regions"
-          "optimal idr thresholded peaks"
-          "paternal haplotype mapping"
-          "paternal variant calls"
-          "peaks"
-          "peaks and background as input for IDR"
-          "phased mapping"
-          "phased variant calls"
-          "plus strand signal of all reads"
-          "plus strand signal of unique reads"
-          "predicted enhancers"
-          "pseudoreplicated idr thresholded peaks"
-          "raw minus strand signal"
-          "raw normalized signal"
-          "raw plus strand signal"
-          "raw signal"
-          "read-depth normalized signal"
-          "reads"
-          "reference variants"
-          "relative replication signal"
-          "replicated peaks"
-          "replication timing profile"
-          "reporter code counts"
-          "representative dnase hypersensitivity sites"
-          "RNA-binding protein associated mRNAs"
-          "rRNA reference"
-          "semi-automated genome annotation"
-          "signal of all reads"
-          "signal of unique reads"
-          "signal p-value"
-          "spike-in sequence"
-          "splice junctions"
-          "stable peaks"
-          "topologically associated domains"
-          "transcript quantifications"
-          "transcription start sites"
-          "transcriptome alignments"
-          "transcriptome index"
-          "transcriptome reference"
-          "TSS reference"
-          "unfiltered alignments"
-          "variant calls"
-        ) ;
-    ] ;
-  skos:prefLabel "outputType" ;
-.
-Encode:pairedEndIdentifier
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:File ;
-  rdfs:label "pairedEndIdentifier" ;
-  rdfs:range xsd:string ;
-  skos:prefLabel "pairedEndIdentifier" ;
-.
-Encode:pairedFile
-  a owl:ObjectProperty ;
-  rdfs:domain DSPCore:File ;
-  rdfs:label "pairedFile" ;
-  rdfs:range DSPCore:File ;
-  skos:prefLabel "pairedFile" ;
-.
 Encode:strandSpecificity
-  a owl:DatatypeProperty ;
+  a owl:AnnotationProperty ;
   rdfs:domain DSPCore:Library ;
   rdfs:domain DSPCore:LibraryPrep ;
   rdfs:label "strandSpecificity" ;
@@ -448,12 +259,7 @@ Encode:strandSpecificity
   skos:prefLabel "strandSpecificity" ;
 .
 Encode:submittedBy
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:domain DSPCore:Donor ;
-  rdfs:domain DSPCore:Experiment ;
-  rdfs:domain DSPCore:File ;
-  rdfs:domain DSPCore:Library ;
+  a rdf:Property ;
   rdfs:label "submittedBy" ;
   rdfs:range xsd:string ;
   skos:prefLabel "submittedBy" ;
