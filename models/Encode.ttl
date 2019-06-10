@@ -14,9 +14,13 @@
 
 DSPCore:Experiment
   DSPCore:hasAssay Encode:OBI_0002142_1 ;
+  DSPCore:hasSponsor "\"http://www.encodeproject.org/awards/U54HG006998/\"" ;
 .
 DSPCore:File
   Encode:hasDataQuality "{\"orange\",\"red\",\"white\",\"yellow\"}" ;
+.
+DSPCore:Library
+  DSPCore:hasSponsor "\"http://www.encodeproject.org/awards/U54HG006998/\"" ;
 .
 DSPCore:derivedFrom
   rdfs:domain DSPCore:Library ;
@@ -41,7 +45,7 @@ Encode:Age_1
   DSPCore:hasUnit "years" ;
   DSPCore:hasValue "54"^^xsd:decimal ;
   rdfs:label "Age_1" ;
-  skos:prefLabel "sex" ;
+  skos:prefLabel "Age_1" ;
 .
 Encode:ENCBS562VSE
   a DSPCore:BioSample ;
@@ -69,12 +73,12 @@ Encode:ENCBS719AMH
   DSPCore:hasResultFile Encode:ENCFF424QYJ ;
   DSPCore:hasResultFile Encode:ENCFF488IYR ;
   DSPCore:hasResultFile Encode:ENCFF660GHH ;
+  DSPCore:hasSponsor "\"http://www.encodeproject.org/awards/U54HG006998/\"" ;
   DSPCore:replicateOf Encode:ENCBS562VSE ;
   DSPCore:replicationType "isogenic" ;
   DSPCore:usedBy Encode:ENCSR895SFC ;
   Encode:biologicalReplicate "2" ;
   Encode:hasLab "http://www.encodeproject.org/labs/barbara-wold/" ;
-  Encode:hasSponsor "http://www.encodeproject.org/awards/U54HG006998/" ;
   Encode:hasStatus "released" ;
   Encode:submittedBy "http://www.encodeproject.org/users/bc5b62f7-ce28-4a1e-b6b3-81c9c5a86d7a/" ;
   Encode:technicalReplicate "1" ;
@@ -92,7 +96,7 @@ Encode:ENCD0451RUA
   DSPCore:closeMatch "http://www.encodeproject.org/human-donors/ENCDO451RUA/" ;
   DSPCore:donated Encode:ENCBS562VSE ;
   DSPCore:hasAge Encode:Age_1 ;
-  DSPCore:organism Encode:Homo_sapiens ;
+  DSPCore:organism DSPCore:Homo_sapiens ;
   Encode:hasLab "http://www.encodeproject.org/labs/encode-consortium/" ;
   Encode:lifeStage "adult" ;
   dcterms:created "2015-02-14T00:31:58.584355+00:00" ;
@@ -147,7 +151,6 @@ Encode:ENCLB011GAL
   DSPCore:closeMatch "http://www.encodeproject.org/libraries/ENCLB011GAL/" ;
   DSPCore:hasAssay Encode:OBI_0002142_1 ;
   Encode:hasLab "http://www.encodeproject.org/labs/ali-mortazavi/" ;
-  Encode:hasSponsor "http://www.encodeproject.org/awards/U54HG006998/" ;
   Encode:hasStatus "released" ;
   Encode:strandSpecificity false ;
   Encode:submittedBy "http://www.encodeproject.org/users/bc5b62f7-ce28-4a1e-b6b3-81c9c5a86d7a/" ;
@@ -163,7 +166,6 @@ Encode:ENCSR895SFC
   DSPCore:dateReleased "2016-08-01T00:00:00"^^xsd:dateTime ;
   DSPCore:hasTarget "http://www.encodeproject.org/targets/STAT5A-human/" ;
   DSPCore:usesSample Encode:ENCBS719AMH ;
-  Encode:hasSponsor "http://www.encodeproject.org/awards/U54HG006998/" ;
   Encode:hasStatus "released" ;
   dcterms:created "2016-07-25T22:17:18.167352+00" ;
   dcterms:dateSubmitted "2016-07-31" ;
@@ -173,11 +175,6 @@ Encode:ENCSR895SFC
 Encode:EncodeDataSet
   a DSPCore:BroadDataset ;
   DSPCore:hasConsentCode <http://datamodel.broadinstitute.org/DSPCoreDataModelNoRestriction> ;
-.
-Encode:Homo_sapiens
-  a obo:NCBITaxon_9606 ;
-  rdfs:label "Homo sapiens" ;
-  skos:prefLabel "Homo sapiens" ;
 .
 Encode:OBI_0002142_1
   a obo:OBI_0002142 ;
@@ -209,12 +206,6 @@ Encode:hasLab
   rdfs:label "hasLab" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasLab" ;
-.
-Encode:hasSponsor
-  a owl:AnnotationProperty ;
-  rdfs:label "hasSponsor" ;
-  rdfs:range xsd:string ;
-  skos:prefLabel "hasSponsor" ;
 .
 Encode:hasStatus
   a owl:DatatypeProperty ;
