@@ -1,0 +1,7 @@
+{
+    "name": "activities",
+    "columns": [
+        {"name": "used", "datatype": "string", "array_of": true},
+        {"name": "generated", "datatype": "string", "array_of": true}
+    ]
+}

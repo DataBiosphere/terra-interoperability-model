@@ -1,0 +1,9 @@
+{
+    "name": "biosamples",
+    "columns": [
+        {"name": "donated_by", "datatype": "string", "array_of": true},
+        {"name": "derived_from", "datatype": "string"},
+        {"name": "derived", "datatype": "string", "array_of": true},
+        {"name": "used_by", "datatype": "string"}
+    ]
+}

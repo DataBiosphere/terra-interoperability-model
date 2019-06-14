@@ -1,0 +1,6 @@
+{
+    "name": "donors",
+    "columns": [
+        {"name": "donated", "datatype": "string", "array_of": true}
+    ]
+}
