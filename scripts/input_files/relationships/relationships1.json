@@ -1,0 +1,6 @@
+{
+    "name": "table_1_to_table_2",
+    "from": {"table": "table_1", "column": "column_1", "cardinality": "one"},
+    "to": {"table": "table_2", "column": "column_1", "cardinality": "one"}
+}
+

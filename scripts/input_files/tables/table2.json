@@ -1,0 +1,7 @@
+{
+    "name": "table_2",
+    "columns": [
+        {"name": "column_1", "datatype": "string", "array_of": true},
+        {"name": "column_2", "datatype": "float"}
+    ]
+}
