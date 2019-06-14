@@ -142,12 +142,6 @@ DSPCore:BroadDataset
   rdfs:subClassOf <http://www.w3.org/ns/dcat#Dataset> ;
   skos:prefLabel "BroadDataset" ;
 .
-DSPCore:BroadProject
-  a owl:Class ;
-  rdfs:label "BroadProject" ;
-  rdfs:subClassOf <http://xmlns.com/foaf/0.1/Project> ;
-  skos:prefLabel "BroadProject" ;
-.
 DSPCore:ChIP
   a owl:Class ;
   rdfs:label "Chromatin Immunoprecipitation" ;
@@ -357,18 +351,6 @@ DSPCore:NoRestriction
   rdfs:label "NoRestriction" ;
   skos:prefLabel "NoRestriction" ;
 .
-DSPCore:Project
-  a owl:Class ;
-  rdfs:label "Project" ;
-  rdfs:subClassOf DSPCore:BroadProject ;
-  skos:prefLabel "Project" ;
-.
-DSPCore:Result
-  a owl:Class ;
-  rdfs:label "Result" ;
-  rdfs:subClassOf owl:Thing ;
-  skos:prefLabel "Result" ;
-.
 DSPCore:SequenceFile
   a owl:Class ;
   rdfs:label "SequenceFile" ;
@@ -380,18 +362,6 @@ DSPCore:Sequencing
   rdfs:label "Sequencing" ;
   rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ;
   skos:prefLabel "Sequencing" ;
-.
-DSPCore:Study
-  a owl:Class ;
-  rdfs:label "Study" ;
-  rdfs:subClassOf DSPCore:BroadProject ;
-  skos:prefLabel "Study" ;
-.
-DSPCore:Target
-  a owl:Class ;
-  rdfs:label "Target" ;
-  rdfs:subClassOf obo:BFO_0000040 ;
-  skos:prefLabel "Target" ;
 .
 DSPCore:UserRestriction
   a obo:DUO_0000026 ;
@@ -435,7 +405,6 @@ DSPCore:alignedFragments
 DSPCore:bioSample
   a owl:ObjectProperty ;
   rdfs:domain DSPCore:BroadDataset ;
-  rdfs:domain DSPCore:BroadProject ;
   rdfs:label "bioSample" ;
   rdfs:range DSPCore:BioSample ;
   skos:prefLabel "bioSample" ;
@@ -488,7 +457,6 @@ DSPCore:closeMatch
   rdfs:domain DSPCore:BioSample ;
   rdfs:domain DSPCore:Donor ;
   rdfs:domain DSPCore:Experiment ;
-  rdfs:domain DSPCore:Target ;
   rdfs:label "closeMatch" ;
   rdfs:range xsd:string ;
   skos:prefLabel "closeMatch" ;
@@ -673,7 +641,6 @@ DSPCore:hasConsentPrimary
   a owl:ObjectProperty ;
   rdfs:domain DSPCore:BioSample ;
   rdfs:domain DSPCore:BroadDataset ;
-  rdfs:domain DSPCore:BroadProject ;
   rdfs:domain DSPCore:File ;
   rdfs:label "hasConsentPrimary" ;
   rdfs:range obo:DUO_0000002 ;
@@ -683,7 +650,6 @@ DSPCore:hasConsentSecondary
   a owl:ObjectProperty ;
   rdfs:domain DSPCore:BioSample ;
   rdfs:domain DSPCore:BroadDataset ;
-  rdfs:domain DSPCore:BroadProject ;
   rdfs:domain DSPCore:File ;
   rdfs:label "hasConsentSecondary" ;
   rdfs:range obo:DUO_0000003 ;
@@ -693,7 +659,6 @@ DSPCore:hasDataUseRequirement
   a owl:ObjectProperty ;
   rdfs:domain DSPCore:BioSample ;
   rdfs:domain DSPCore:BroadDataset ;
-  rdfs:domain DSPCore:BroadProject ;
   rdfs:domain DSPCore:File ;
   rdfs:label "hasDataUseRequirement" ;
   rdfs:range obo:DUO_0000017 ;
@@ -807,7 +772,6 @@ DSPCore:hash
 DSPCore:investigatedBy
   a owl:ObjectProperty ;
   rdfs:label "investigatedBy" ;
-  rdfs:range DSPCore:BroadProject ;
   skos:prefLabel "investigatedBy" ;
 .
 DSPCore:mappedPairedEnd
