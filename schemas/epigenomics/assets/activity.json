@@ -4,7 +4,6 @@
     "rootColumn": "id",
     "tables": [
         {"name": "activities", "columns": []},
-        {"name": "antibodies", "columns": []},
         {"name": "biosamples", "columns": []},
         {"name": "donors", "columns": []},
         {"name": "files", "columns": []},
@@ -13,7 +12,6 @@
     "follow": [
         "activities_to_files",
         "activities_to_libraries_generated",
-        "activities_to_antibodies",
         "activities_to_biosamples",
         "activities_to_files",
         "activities_to_libraries_used",
