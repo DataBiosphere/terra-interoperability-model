@@ -1,0 +1,14 @@
+{
+    "name": "table_1",
+    "columns": [
+        {
+            "name": "column_1",
+            "datatype": "string"
+        },
+        {
+            "name": "column_2",
+            "datatype": "string",
+            "array_of": true
+        }
+    ]
+}

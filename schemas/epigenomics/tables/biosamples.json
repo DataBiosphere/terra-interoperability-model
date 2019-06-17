@@ -1,6 +1,20 @@
 {
     "name": "biosamples",
     "columns": [
+        {"name": "id", "datatype": "string"},
+        {"name": "aliases", "datatype": "string", "array_of": true},
+        {"name": "created_at", "datatype": "timestamp"},
+        {"name": "modified_at", "datatype": "timestamp"},
+        {"name": "data_use_requirement", "datatype": "string"},
+        {"name": "primary_consent", "datatype": "string"},
+        {"name": "secondary_consent", "datatype": "string"},
+
+        {"name": "sponsor", "datatype": "string"},
+        {"name": "date_obtained", "datatype": "date"},
+        {"name": "cell_isolation_method", "datatype": "string"},
+        {"name": "organ", "datatype": "string"},
+        {"name": "replication_type", "datatype": "string"},
+
         {"name": "donated_by", "datatype": "string", "array_of": true},
         {"name": "derived_from", "datatype": "string"},
         {"name": "derived", "datatype": "string", "array_of": true},

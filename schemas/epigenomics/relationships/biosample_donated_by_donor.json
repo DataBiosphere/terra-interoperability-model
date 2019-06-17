@@ -1,0 +1,13 @@
+{
+  "name": "biosamples_to_donors",
+  "from": {
+    "table": "biosamples",
+    "column": "donated_by",
+    "cardinality": "one"
+  },
+  "to": {
+    "table": "donors",
+    "column": "id",
+    "cardinality": "many"
+  }
+}
