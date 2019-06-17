@@ -1,0 +1,93 @@
+{
+  "name": "dataset_name",
+  "description": "dataset_description",
+  "schema": {
+    "tables": [
+      {
+        "name": "table_1",
+        "columns": [
+          {
+            "name": "column_1",
+            "datatype": "string"
+          },
+          {
+            "name": "column_2",
+            "datatype": "string",
+            "array_of": true
+          }
+        ]
+      },
+      {
+        "name": "table_2",
+        "columns": [
+          {
+            "name": "column_1",
+            "datatype": "string",
+            "array_of": true
+          },
+          {
+            "name": "column_2",
+            "datatype": "float"
+          }
+        ]
+      },
+      {
+        "name": "table_3",
+        "columns": []
+      }
+    ],
+    "relationships": [
+      {
+        "name": "table_1_to_table_2",
+        "from": {
+          "table": "table_1",
+          "column": "column_1",
+          "cardinality": "one"
+        },
+        "to": {
+          "table": "table_2",
+          "column": "column_1",
+          "cardinality": "one"
+        }
+      },
+      {
+        "name": "table_1_to_table_3",
+        "from": {
+          "table": "table_1",
+          "column": "column_2",
+          "cardinality": "one"
+        },
+        "to": {
+          "table": "table_3",
+          "column": "column_1",
+          "cardinality": "many"
+        }
+      }
+    ],
+    "assets": [
+      {
+        "name": "Kobe Bryant",
+        "rootTable": "table_1",
+        "rootColumn": "column_1",
+        "tables": [
+          {
+            "name": "table_1",
+            "columns": []
+          },
+          {
+            "name": "table_2",
+            "columns": []
+          },
+          {
+            "name": "table_3",
+            "columns": []
+          }
+        ],
+        "follow": [
+          "table_1_to_table_2",
+          "table_1_to_table_3"
+        ]
+      }
+    ]
+  }
+}

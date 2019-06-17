@@ -1,18 +1,20 @@
+#!/usr/bin/env python2
+
 import os
 import argparse
 import json
 
 
-def make_new_dataset(study_name, study_description, parent_directory, output_name):
+def make_new_dataset(dataset_name, dataset_description, parent_directory, output_name):
     """
     Gets JSON file(s) for assets, tables and relationships, combines them and then write the combined JSON to disk.
-    :param study_name: name of the dataset
-    :param study_description: description of the dataset
+    :param dataset_name: the schema name for the dataset
+    :param dataset_description: description of the schema
     :param parent_directory: the directory containing assets, relationships and tables JSON files
     :param output_name: the name of the output JSON, containing the combined assets, relationships and tables JSONs
     """
-    dataset = init_dataset(study_name=study_name,
-                           study_description=study_description)
+    dataset = init_dataset(dataset_name=dataset_name,
+                           dataset_description=dataset_description)
     dataset_with_tables = add_to_schema(dataset,
                                         schema_type="tables",
                                         parent_directory=parent_directory,
@@ -29,15 +31,15 @@ def make_new_dataset(study_name, study_description, parent_directory, output_nam
                          output_name)
 
 
-def init_dataset(study_name, study_description):
+def init_dataset(dataset_name, dataset_description):
     """
     Creates any empty dataset as a dict that has a study name, description, and schema.
-    :param study_name: name of the dataset
-    :param study_description: description of the dataset
+    :param dataset_name: the schema name for the dataset
+    :param dataset_description: description of the schema
     """
     dataset = {
-        "name": study_name,
-        "description": study_description,
+        "name": dataset_name,
+        "description": dataset_description,
         "schema": {
             "tables": [],
             "relationships": [],
@@ -80,29 +82,29 @@ def save_dataset_as_json(dataset, output_name):
 if __name__ == "__main__":
     # get the argument inputs
     parser = argparse.ArgumentParser()
-    parser.add_argument("--study-name",
+    parser.add_argument("--dataset-name",
                         "-n",
-                        dest="study_name",
+                        dest="dataset_name",
                         required=True,
-                        help="name of the dataset")
-    parser.add_argument("--study-description",
+                        help="the schema name for the dataset")
+    parser.add_argument("--dataset-description",
                         "-d",
-                        dest="study_description",
+                        dest="dataset_description",
                         required=True,
-                        help="description of the dataset")
+                        help="description of the schema")
     parser.add_argument("--input-directory",
                         "-i",
                         dest="input_directory",
                         required=True,
                         help="the directory containing assets, relationships and tables JSON files")
     parser.add_argument("--output-name",
-                        "-0",
+                        "-o",
                         dest="output_name",
                         required=True,
                         help="the name of the output JSON, containing the combined assets, relationships and tables")
     args = parser.parse_args()
 
-    make_new_dataset(study_name=args.study_name,
-                     study_description=args.study_description,
+    make_new_dataset(dataset_name=args.dataset_name,
+                     dataset_description=args.dataset_description,
                      parent_directory=args.input_directory,
                      output_name=args.output_name)

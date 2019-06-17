@@ -1,0 +1,13 @@
+{
+  "name": "activities_to_files",
+  "from": {
+    "table": "activities",
+    "column": "generated",
+    "cardinality": "one"
+  },
+  "to": {
+    "table": "files",
+    "column": "id",
+    "cardinality": "many"
+  }
+}
