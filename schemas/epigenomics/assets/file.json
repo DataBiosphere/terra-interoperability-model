@@ -1,0 +1,30 @@
+{
+    "name": "File",
+    "rootTable": "files",
+    "rootColumn": "id",
+    "tables": [
+        {"name": "activities", "columns": []},
+        {"name": "antibodies", "columns": []},
+        {"name": "biosamples", "columns": []},
+        {"name": "donors", "columns": []},
+        {"name": "files", "columns": []},
+        {"name": "libraries", "columns": []}
+    ],
+    "follow": [
+        "activities_to_files",
+        "activities_to_libraries_generated",
+        "activities_to_antibodies",
+        "activities_to_biosamples",
+        "activities_to_files",
+        "activities_to_libraries_used",
+        "biosamples_to_biosamples_derived",
+        "biosamples_to_biosamples_derived_from",
+        "biosamples_to_donors",
+        "biosamples_to_activities",
+        "donors_to_biosamples",
+        "files_to_activities_generated_by",
+        "files_to_activities_used_by",
+        "libraries_to_activities_generated_by",
+        "libraries_to_activities_used_by"
+    ]
+}

@@ -12,6 +12,7 @@
         {"name": "sponsor", "datatype": "string"},
         {"name": "type", "datatype": "string"},
         {"name": "format", "datatype": "string"},
+        {"name": "path", "datatype": "fileref"},
         {"name": "size", "datatype": "integer"},
         {"name": "md5sum", "datatype": "string"},
         {"name": "reference_assembly", "datatype": "string"},

@@ -10,4 +10,4 @@
     "column": "id",
     "cardinality": "many"
   }
-},
+}
