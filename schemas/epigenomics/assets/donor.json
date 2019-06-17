@@ -13,7 +13,7 @@
         "activities_to_files",
         "activities_to_libraries_generated",
         "activities_to_biosamples",
-        "activities_to_files",
+        "activities_used_files",
         "activities_to_libraries_used",
         "biosamples_to_biosamples_derived",
         "biosamples_to_biosamples_derived_from",

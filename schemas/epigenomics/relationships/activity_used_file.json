@@ -1,5 +1,5 @@
 {
-  "name": "activities_to_files",
+  "name": "activities_used_files",
   "from": {
     "table": "activities",
     "column": "used",
