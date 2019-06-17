@@ -1,0 +1,7 @@
+{
+    "name": "files",
+    "columns": [
+        {"name": "generated_by", "datatype": "string"},
+        {"name": "used_by", "datatype": "string", "array_of": true}
+    ]
+}

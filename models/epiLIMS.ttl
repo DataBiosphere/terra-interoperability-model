@@ -1,0 +1,310 @@
+# baseURI: http://datamodel.broadinstitute.org/epiLIMS
+# imports: http://datamodel.broadinstitute.org/DSPCoreDataModel
+# imports: http://datamodel.broadinstitute.org/OBI_ontofox.owl
+# imports: http://www.w3.org/2002/07/owl
+# prefix: epiLIMS
+
+@prefix DSPCore: <http://datamodel.broadinstitute.org/DSPCoreDataModel#> .
+@prefix DSPCoreDataMode: <http://datamodel.broadinstitute.org/DSPCoreDataModel> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix epiLIMS: <http://datamodel.broadinstitute.org/epiLIMS#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+DSPCore:BioSample
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality 1 ;
+      owl:onProperty DSPCore:contributedBy ;
+    ] ;
+.
+DSPCore:BroadDataset
+  dcterms:contains epiLIMS:BioSam_3164 ;
+.
+DSPCore:ChIP
+  prov:generated epiLIMS:Library_9367 ;
+.
+DSPCore:Donor
+  DSPCore:donated epiLIMS:BioSam_3164 ;
+  dcterms:created "2018-10-16T19:52:18.000Z"^^xsd:dateTime ;
+  dcterms:isPartOf epiLIMS:Cohort_349 ;
+.
+DSPCore:Library
+  DSPCore:usedBy epiLIMS:Sequencing_CoPA_13999 ;
+  DSPCore:usedBy epiLIMS:Sequencing_CoPA_14339 ;
+  prov:wasGeneratedBy epiLIMS:ChIP_6802 ;
+.
+DSPCore:usedBy
+  rdfs:range prov:Activity ;
+.
+<http://datamodel.broadinstitute.org/epiLIMS>
+  a owl:Ontology ;
+  owl:imports <http://datamodel.broadinstitute.org/DSPCoreDataModel> ;
+  owl:imports <http://datamodel.broadinstitute.org/OBI_ontofox.owl> ;
+  owl:imports <http://www.w3.org/2002/07/owl> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+epiLIMS:Age_1
+  a DSPCore:Age ;
+  DSPCore:ageCategory "Postnatal" ;
+  DSPCore:hasLowerBound "78"^^xsd:decimal ;
+  DSPCore:hasUnit "years" ;
+  DSPCore:hasUpperBound "78"^^xsd:decimal ;
+  rdfs:label "Age_1" ;
+  skos:prefLabel "Age_1" ;
+.
+epiLIMS:AlignmentFile_19487
+  a DSPCore:AlignmentFile ;
+  DSPCore:format "bam" ;
+  DSPCore:hasReferenceAssembly "hg19_picard" ;
+  DSPCore:percentDuplicateFragments 8.8798 ;
+  dcterms:created "2018-07-12T12:11:20.000Z" ;
+  dcterms:modified "2019-06-04T17:53:38.000Z" ;
+  rdfs:label "AlignmentFile_19487" ;
+  skos:prefLabel "AlignmentFile_19487" ;
+.
+epiLIMS:AlignmentFile_19487_1
+  a DSPCore:AlignmentFile ;
+  DSPCore:usedBy epiLIMS:AlignmentPostProcessing_19487 ;
+  rdfs:label "AlignmentFile_19487_1" ;
+  skos:prefLabel "AlignmentFile_19487_1" ;
+.
+epiLIMS:AlignmentFile_19487_2
+  a DSPCore:AlignmentFile ;
+  DSPCore:usedBy epiLIMS:AlignmentPostProcessing_19487 ;
+  rdfs:label "AlignmentFile_19487_2" ;
+  skos:prefLabel "AlignmentFile_19487_2" ;
+.
+epiLIMS:AlignmentFile_19667
+  a DSPCore:AlignmentFile ;
+  DSPCore:format "bam" ;
+  DSPCore:hasReferenceAssembly "hg19_picard" ;
+  DSPCore:percentDuplicateFragments 7.1352 ;
+  rdfs:label "AlignmentFile_19667" ;
+  skos:prefLabel "AlignmentFile_19667" ;
+.
+epiLIMS:AlignmentFile_19667_1
+  a DSPCore:AlignmentFile ;
+  DSPCore:usedBy epiLIMS:AlignmentPostProcessing_19667 ;
+  rdfs:label "AlignmentFile_19667_1" ;
+  skos:prefLabel "AlignmentFile_19667_1" ;
+.
+epiLIMS:AlignmentFile_19667_2
+  a DSPCore:AlignmentFile ;
+  DSPCore:usedBy epiLIMS:AlignmentPostProcessing_19667 ;
+  rdfs:label "AlignmentFile_19667_2" ;
+  skos:prefLabel "AlignmentFile_19667_2" ;
+.
+epiLIMS:AlignmentPostProcessing_19487
+  a DSPCore:AlignmentPostProcessing ;
+  rdfs:label "AlignmentPostProcessing_19487" ;
+  skos:prefLabel "AlignmentPostProcessing_19487" ;
+  prov:generated epiLIMS:AlignmentFile_19487 ;
+.
+epiLIMS:AlignmentPostProcessing_19667
+  a DSPCore:AlignmentPostProcessing ;
+  rdfs:label "AlignmentPostProcessing_19667" ;
+  skos:prefLabel "AlignmentPostProcessing_19667" ;
+  prov:generated epiLIMS:AlignmentFile_19667 ;
+.
+epiLIMS:Aln_37341
+  a DSPCore:Alignment ;
+  rdfs:label "Aln_37341" ;
+  skos:prefLabel "Aln_37341" ;
+  prov:generated epiLIMS:AlignmentFile_19487_1 ;
+.
+epiLIMS:Aln_37342
+  a DSPCore:Alignment ;
+  rdfs:label "Aln_37342" ;
+  skos:prefLabel "Aln_37342" ;
+  prov:generated epiLIMS:AlignmentFile_19487_2 ;
+.
+epiLIMS:Aln_37855
+  a DSPCore:Alignment ;
+  rdfs:label "Aln_37855" ;
+  skos:prefLabel "Aln_37855" ;
+  prov:generated epiLIMS:AlignmentFile_19667_1 ;
+.
+epiLIMS:Aln_37856
+  a DSPCore:Alignment ;
+  rdfs:label "Aln_37856" ;
+  skos:prefLabel "Aln_37856" ;
+  prov:generated epiLIMS:AlignmentFile_19667_2 ;
+.
+epiLIMS:BioSAli_6648
+  a DSPCore:BioSample ;
+  DSPCore:derived epiLIMS:BioSAli_6793 ;
+  DSPCore:derivedFrom epiLIMS:BioSam_3164 ;
+  dcterms:created "2018-06-12T20:12:54.000Z"^^xsd:dateTime ;
+  dcterms:isPartOf epiLIMS:Cohort_349 ;
+  rdfs:label "BioSAli 6648" ;
+  skos:prefLabel "BioSAli 6648" ;
+.
+epiLIMS:BioSAli_6793
+  a DSPCore:BioSample ;
+  DSPCore:derived epiLIMS:BioSAli_6802 ;
+  DSPCore:derivedFrom epiLIMS:BioSAli_6648 ;
+  dcterms:created "2018-06-12T18:51:41.000Z"^^xsd:dateTime ;
+  dcterms:isPartOf epiLIMS:Cohort_349 ;
+  rdfs:label "BioSAli 6793" ;
+  skos:prefLabel "BioSAli 6793" ;
+.
+epiLIMS:BioSAli_6802
+  a DSPCore:BioSample ;
+  DSPCore:derivedFrom epiLIMS:BioSAli_6793 ;
+  DSPCore:usedBy epiLIMS:ChIPSeq_6802 ;
+  dcterms:created "2018-06-13T20:37:50.000Z"^^xsd:dateTime ;
+  dcterms:isPartOf epiLIMS:Cohort_349 ;
+  rdfs:label "BioSAli 6802" ;
+  skos:prefLabel "BioSAli 6802" ;
+.
+epiLIMS:BioSam_3164
+  a DSPCore:BioSample ;
+  DSPCore:bioSampleType "tissue" ;
+  DSPCore:dateObtained "2018-04-04T04:00:00.000Z"^^xsd:dateTime ;
+  DSPCore:derived epiLIMS:BioSAli_6648 ;
+  DSPCore:donatedBy epiLIMS:Donor_963 ;
+  dcterms:created "2018-04-09T18:50:31.000Z"^^xsd:dateTime ;
+  dcterms:isPartOf epiLIMS:Cohort_349 ;
+  rdfs:label "BioSam_3164" ;
+  skos:prefLabel "BioSam_3164" ;
+.
+epiLIMS:ChIPSeq_6802
+  a DSPCore:ChIPSeq ;
+  rdfs:label "ChIPSeq_6802" ;
+  skos:prefLabel "ChIPSeq_6802" ;
+  prov:generated epiLIMS:AlignmentFile_19487 ;
+  prov:generated epiLIMS:AlignmentFile_19667 ;
+  prov:generated epiLIMS:SequenceFile_CoPA_13999_1 ;
+  prov:generated epiLIMS:SequenceFile_CoPA_13999_2 ;
+  prov:generated epiLIMS:SequenceFile_CoPA_14339_1 ;
+  prov:generated epiLIMS:SequenceFile_CoPA_14339_2 ;
+  prov:wasInformedBy epiLIMS:AlignmentPostProcessing_19487 ;
+  prov:wasInformedBy epiLIMS:AlignmentPostProcessing_19667 ;
+  prov:wasInformedBy epiLIMS:ChIP_6802 ;
+  prov:wasInformedBy epiLIMS:Sequencing_CoPA_13999 ;
+  prov:wasInformedBy epiLIMS:Sequencing_CoPA_14339 ;
+.
+epiLIMS:ChIP_6802
+  a DSPCore:ChIP ;
+  rdfs:label "ChIP 6802" ;
+  skos:prefLabel "ChIP 6802" ;
+  prov:generated epiLIMS:Library_9367 ;
+.
+epiLIMS:Cohort_349
+  a DSPCore:BroadDataset ;
+  DSPCore:hasConsentPrimary DSPCore:GeneralResearchUse ;
+  DSPCore:hasDataUseRequirement DSPCore:UserRestriction ;
+  dcterms:contains epiLIMS:BioSam_3164 ;
+  dcterms:contains epiLIMS:Donor_963 ;
+  rdfs:label "Cohort 349 of keratinocyte carcinoma surgical patients" ;
+  skos:prefLabel "Cohort 349" ;
+.
+epiLIMS:Donor_963
+  a DSPCore:Donor ;
+  DSPCore:hasAge epiLIMS:Age_1 ;
+  DSPCore:organism DSPCore:Homo_sapiens ;
+  DSPCore:sex DSPCore:Male ;
+  rdfs:label "Donor_963" ;
+  skos:prefLabel "Donor_963" ;
+.
+epiLIMS:Library_9367
+  a DSPCore:Library ;
+  DSPCore:usedBy epiLIMS:Sequencing_CoPA_13999 ;
+  DSPCore:usedBy epiLIMS:Sequencing_CoPA_14339 ;
+  dcterms:created "2018-07-12T04:06:15.000Z" ;
+  dcterms:modified "2019-05-31T11:21:25.000Z" ;
+  rdfs:label "Library 9367" ;
+  skos:prefLabel "Library 9367" ;
+.
+epiLIMS:PurchasableAntibody
+  a owl:Class ;
+  rdfs:comment "Purchasable antibody which is a protein, but the salient attributes are about the vendor and the target." ;
+  rdfs:label "PurchasableAntibody" ;
+  rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000040> ;
+  skos:prefLabel "PurchasableAntibody" ;
+.
+epiLIMS:SequenceFile_CoPA_13999_1
+  a DSPCore:SequenceFile ;
+  DSPCore:usedBy epiLIMS:Aln_37341 ;
+  epiLIMS:averageReadLength 76.0 ;
+  rdfs:label "SequenceFile_CoPA_13999_1" ;
+  skos:prefLabel "SequenceFile_CoPA_13999_1" ;
+.
+epiLIMS:SequenceFile_CoPA_13999_2
+  a DSPCore:SequenceFile ;
+  DSPCore:usedBy epiLIMS:Aln_37342 ;
+  epiLIMS:averageReadLength 76.0 ;
+  rdfs:label "SequenceFile_CoPA_13999_2" ;
+  skos:prefLabel "SequenceFile_CoPA_13999_2" ;
+.
+epiLIMS:SequenceFile_CoPA_14339_1
+  a DSPCore:SequenceFile ;
+  DSPCore:usedBy epiLIMS:Aln_37855 ;
+  epiLIMS:averageReadLength 76.0 ;
+  rdfs:label "SequenceFile_CoPA_14339_1" ;
+  skos:prefLabel "SequenceFile_CoPA_14339_1" ;
+.
+epiLIMS:SequenceFile_CoPA_14339_2
+  a DSPCore:SequenceFile ;
+  DSPCore:usedBy epiLIMS:Aln_37856 ;
+  epiLIMS:averageReadLength 76.0 ;
+  rdfs:label "SequenceFile_CoPA_14339_2" ;
+  skos:prefLabel "SequenceFile_CoPA_14339_2" ;
+.
+epiLIMS:Sequencing_CoPA_13999
+  a DSPCore:Sequencing ;
+  rdfs:label "Sequencing_CoPA_13999" ;
+  skos:prefLabel "Sequencing_CoPA_13999" ;
+  prov:generated epiLIMS:SequenceFile_CoPA_13999_1 ;
+  prov:generated epiLIMS:SequenceFile_CoPA_13999_2 ;
+.
+epiLIMS:Sequencing_CoPA_14339
+  a DSPCore:Sequencing ;
+  rdfs:label "Sequencing_CoPA_14339" ;
+  skos:prefLabel "Sequencing_CoPA_14339" ;
+  prov:generated epiLIMS:SequenceFile_CoPA_14339_1 ;
+  prov:generated epiLIMS:SequenceFile_CoPA_14339_2 ;
+.
+epiLIMS:averageReadLength
+  a owl:DatatypeProperty ;
+  rdfs:label "averageReadLength" ;
+  rdfs:range xsd:decimal ;
+  skos:prefLabel "averageReadLength" ;
+.
+<http://purl.obolibrary.org/obo/BFO_0000001>
+  owl:equivalentClass prov:Entity ;
+.
+dcterms:contains
+  a rdf:Property ;
+  rdfs:domain DSPCore:BroadDataset ;
+  rdfs:label "contains" ;
+  rdfs:range DSPCore:BioSample ;
+  rdfs:range DSPCore:Donor ;
+  rdfs:subPropertyOf dcterms:hasPart ;
+  skos:prefLabel "contains" ;
+.
+rdfs:hasPurchasableAntibody
+  a owl:ObjectProperty ;
+  rdfs:domain DSPCore:LibraryPrep ;
+  rdfs:label "hasPurchasableAntibody" ;
+  rdfs:range epiLIMS:PurchasableAntibody ;
+  skos:prefLabel "PurchasableAntibody" ;
+.
+prov:generated
+  rdfs:range <http://purl.obolibrary.org/obo/BFO_0000001> ;
+.
+prov:influenced
+  rdfs:range <http://purl.obolibrary.org/obo/BFO_0000001> ;
+.
+prov:wasGeneratedBy
+  rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
+.
+prov:wasInfluencedBy
+  rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
+  rdfs:range <http://purl.obolibrary.org/obo/BFO_0000001> ;
+.
