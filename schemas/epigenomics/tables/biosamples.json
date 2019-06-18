@@ -10,7 +10,7 @@
         {"name": "secondary_consent", "datatype": "string"},
 
         {"name": "sponsor", "datatype": "string"},
-        {"name": "date_obtained", "datatype": "date"},
+        {"name": "obtained_at", "datatype": "timestamp"},
         {"name": "cell_isolation_method", "datatype": "string"},
         {"name": "organ", "datatype": "string"},
         {"name": "replication_type", "datatype": "string"},

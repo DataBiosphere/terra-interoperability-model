@@ -1,0 +1,10 @@
+{
+    "id": "Donor_963",
+    "age_category": "Postnatal",
+    "age_unit": "years",
+    "age_lower_bound": 78.0,
+    "age_upper_bound": 78.0,
+    "sex": "Male",
+    "organism": "NCBITaxon_9606",
+    "donated": ["BioSam_3164"]
+}

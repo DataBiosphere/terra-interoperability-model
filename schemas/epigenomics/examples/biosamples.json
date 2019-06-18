@@ -1,0 +1,26 @@
+{
+    "id": "BioSam_3164",
+    "sample_type": "tissue",
+    "created_at": "2018-04-09T18:50:31.000Z",
+    "obtained_at": "2018-04-04T04:00:00.000Z",
+    "donated_by": ["Donor_963"],
+    "derived": ["BioSAli_6648"]
+}
+{
+    "id": "BioSAli_6648",
+    "created_at": "2018-06-12T20:12:54.000Z",
+    "derived": ["BioSAli_6793"],
+    "derived_from": "BioSam_3164"
+}
+{
+    "id": "BioSAli_6793",
+    "created_at": "2018-06-12T18:51:41.000Z",
+    "derived": ["BioSAli_6802"],
+    "derived_from": "BioSAli_6648"
+}
+{
+    "id": "BioSAli_6802",
+    "created_at": "2018-06-13T20:37:50.000Z",
+    "used_by": "ChIP_6802",
+    "derived_from": "BioSAli_6793"
+}
