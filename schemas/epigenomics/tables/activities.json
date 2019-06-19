@@ -12,6 +12,7 @@
         {"name": "type", "datatype": "string"},
 
         {"name": "used", "datatype": "string", "array_of": true},
-        {"name": "generated", "datatype": "string", "array_of": true}
+        {"name": "generated", "datatype": "string", "array_of": true},
+        {"name": "antibody", "datatype": "string", "array_of": true}
     ]
 }
