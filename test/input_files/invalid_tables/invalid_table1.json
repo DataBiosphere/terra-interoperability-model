@@ -1,0 +1,19 @@
+{
+    "name": "table_1",
+    "columns": [
+        {
+            "name": "column_1",
+            "datatype": "link",
+            "relationships": [
+                {
+                    "table_name": "table_2",
+                    "column_name": "column_1"
+                },
+                {
+                    "table_name": "table_2",
+                    "column_name": "column_2"
+                }
+            ]
+        }
+    ]
+}

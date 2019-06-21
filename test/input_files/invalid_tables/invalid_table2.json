@@ -1,14 +1,13 @@
 {
-    "name": "table_1",
+    "name": "table_2",
     "columns": [
         {
             "name": "column_1",
             "datatype": "string"
         },
         {
-            "name": "column_2",
-            "datatype": "string",
-            "array_of": true
+            "name": "column_1",
+            "datatype": "float"
         }
     ]
 }

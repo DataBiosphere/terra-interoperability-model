@@ -1,7 +1,17 @@
 {
     "name": "table_2",
     "columns": [
-        {"name": "column_1", "datatype": "string", "array_of": true},
-        {"name": "column_2", "datatype": "float"}
+        {"name": "column_1", "datatype": "string"},
+        {
+            "name": "column_2",
+            "datatype": "float",
+            "array_of": true,
+            "links": [
+                {
+                    "table_name": "table_4",
+                    "column_name": "column_1"
+                }
+            ]
+        }
     ]
 }

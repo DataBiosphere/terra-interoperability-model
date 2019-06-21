@@ -1,4 +1,6 @@
 {
     "name": "table_3",
-    "columns": []
+    "columns": [
+        {"name": "column_1", "datatype": "string"}
+    ]
 }

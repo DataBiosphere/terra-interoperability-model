@@ -1,5 +1,0 @@
-{
-    "name": "table_1_to_table_3",
-    "from": {"table": "table_1", "column": "column_2", "cardinality": "one"},
-    "to": {"table": "table_3", "column": "column_1", "cardinality": "many"}
-}

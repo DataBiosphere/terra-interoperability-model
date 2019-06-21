@@ -8,40 +8,62 @@
         "columns": [
           {
             "name": "column_1",
-            "datatype": "string"
+            "datatype": "string",
+            "array_of": false
           },
           {
             "name": "column_2",
             "datatype": "string",
+            "array_of": false
+          },
+          {
+            "name": "column_3",
+            "datatype": "float",
             "array_of": true
+          },
+          {
+            "name": "column_4",
+            "datatype": "boolean",
+            "array_of": false
+          },
+          {
+            "name": "column_5",
+            "datatype": "int",
+            "array_of": false
           }
         ]
       },
       {
         "name": "table_2",
         "columns": [
-          {
-            "name": "column_1",
-            "datatype": "string",
-            "array_of": true
-          },
+          {"name": "column_1", "datatype": "string", "array_of": false},
           {
             "name": "column_2",
-            "datatype": "float"
+            "datatype": "float",
+            "array_of": true
           }
         ]
       },
       {
         "name": "table_3",
-        "columns": []
+        "columns": [
+          {"name": "column_1", "datatype": "string", "array_of": false}
+        ]
+      },
+      {
+        "name": "table_4",
+        "columns": [
+          {"name": "column_1", "datatype": "float", "array_of": false}
+        ]
       }
+
     ],
     "relationships": [
       {
-        "name": "table_1_to_table_2",
+        "name": "table_1_column_2_to_table_2_column_1",
         "from": {
           "table": "table_1",
-          "column": "column_1",
+          "column": "column_2",
           "cardinality": "one"
         },
         "to": {
@@ -51,7 +73,7 @@
         }
       },
       {
-        "name": "table_1_to_table_3",
+        "name": "table_1_column_2_to_table_3_column_1",
         "from": {
           "table": "table_1",
           "column": "column_2",
@@ -59,6 +81,32 @@
         },
         "to": {
           "table": "table_3",
+          "column": "column_1",
+          "cardinality": "one"
+        }
+      },
+      {
+        "name": "table_1_column_3_to_table_4_column_1",
+        "from": {
+          "table": "table_1",
+          "column": "column_3",
+          "cardinality": "one"
+        },
+        "to": {
+          "table": "table_4",
+          "column": "column_1",
+          "cardinality": "many"
+        }
+      },
+      {
+        "name": "table_2_column_2_to_table_4_column_1",
+        "from": {
+          "table": "table_2",
+          "column": "column_2",
+          "cardinality": "one"
+        },
+        "to": {
+          "table": "table_4",
           "column": "column_1",
           "cardinality": "many"
         }
@@ -81,11 +129,46 @@
           {
             "name": "table_3",
             "columns": []
+          },
+          {
+            "name": "table_4",
+            "columns": []
           }
         ],
         "follow": [
-          "table_1_to_table_2",
-          "table_1_to_table_3"
+          "table_1_column_2_to_table_2_column_1",
+          "table_1_column_2_to_table_3_column_1",
+          "table_1_column_3_to_table_4_column_1",
+          "table_2_column_2_to_table_4_column_1"
+        ]
+      },
+      {
+        "name": "this_is_not_funny",
+        "rootTable": "table_2",
+        "rootColumn": "column_1",
+        "tables": [
+          {
+            "name": "table_1",
+            "columns": []
+          },
+          {
+            "name": "table_2",
+            "columns": []
+          },
+          {
+            "name": "table_3",
+            "columns": []
+          },
+          {
+            "name": "table_4",
+            "columns": []
+          }
+        ],
+        "follow": [
+          "table_1_column_2_to_table_2_column_1",
+          "table_1_column_2_to_table_3_column_1",
+          "table_1_column_3_to_table_4_column_1",
+          "table_2_column_2_to_table_4_column_1"
         ]
       }
     ]

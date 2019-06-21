@@ -8,7 +8,37 @@
         {
             "name": "column_2",
             "datatype": "string",
-            "array_of": true
+            "links": [
+                {
+                    "table_name": "table_2",
+                    "column_name": "column_1"
+                },
+                {
+                    "table_name": "table_3",
+                    "column_name": "column_1"
+                }
+            ]
+        },
+        {
+            "name": "column_3",
+            "datatype": "float",
+            "array_of": true,
+            "links": [
+                {
+                    "table_name": "table_4",
+                    "column_name": "column_1"
+                }
+            ]
+        },
+        {
+            "name": "column_4",
+            "datatype": "boolean",
+            "array_of": false,
+            "links": []
+        },
+        {
+            "name": "column_5",
+            "datatype": "int"
         }
     ]
 }
