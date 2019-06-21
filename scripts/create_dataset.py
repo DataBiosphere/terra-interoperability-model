@@ -181,12 +181,12 @@ if __name__ == "__main__":
                         required=True,
                         help="description of the schema")
     parser.add_argument("--input-tables-directory",
-                        "-i",
+                        "-t",
                         dest="input_tables_directory",
                         required=True,
                         help="the directory containing tables JSON files")
     parser.add_argument("--input-assets-directory",
-                        "-i",
+                        "-a",
                         dest="input_assets_directory",
                         required=True,
                         help="the directory containing assets JSON file(s)")
@@ -199,6 +199,6 @@ if __name__ == "__main__":
 
     make_new_dataset(dataset_name=args.dataset_name,
                      dataset_description=args.dataset_description,
-                     input_tables_directory=args.input_directory,
+                     input_tables_directory=args.input_tables_directory,
                      input_assets_directory=args.input_assets_directory,
                      output_name=args.output_name)
