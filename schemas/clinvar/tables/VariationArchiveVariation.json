@@ -1,0 +1,60 @@
+ {
+    "name": "variation_archive_variation",
+    "columns": [
+	{
+	    "name": "variation_archive_variation_id",
+	    "datatype": "int",
+	    "links": [
+		{
+		    "table_name": "variation_archive_variation",
+		    "column_name": "parent_id"
+		},
+		{
+		    "table_name": "clinical_assertion",
+		    "column_name": "variation_archive_variation_id"
+		}
+	    ]
+	},
+	{
+	    "name": "name",
+	    "datatype": "string"
+	},
+	{
+	    "name": "variation_type",
+	    "datatype": "string"
+	},
+	{
+	    "name": "subclass_type",
+	    "datatype": "string"
+	},
+	{
+	    "name": "allele_id",
+	    "datatype": "int"
+	},
+	{
+	    "name": "protein_change",
+	    "datatype": "string",
+	    "array_of": true
+	},
+	{
+	    "name": "num_copies",
+	    "datatype": "int"
+	},
+	{
+	    "name": "content",
+	    "datatype": "string"
+	},
+	{
+	    "name": "parent_id",
+	    "datatype": "int"
+	},
+	{
+	    "name": "variation_archive_id",
+	    "datatype": "string"
+	},
+	{
+	    "name": "rcv_accession_id",
+	    "datatype": "string"
+	}
+    ]
+}

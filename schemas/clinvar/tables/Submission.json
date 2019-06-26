@@ -1,0 +1,22 @@
+ {
+    "name": "submission",
+    "columns": [
+		{
+			"name": "submission_date",
+			"datatype": "date"
+		},
+		{
+			"name": "submission_names",
+			"datatype": "string",
+			"array_of": true
+		},
+		{
+			"name": "clinical_assertion_id",
+			"datatype": "string"
+		},
+		{
+			 "name": "submitter_id",
+			 "datatype": "int"
+		}
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "name": "variation_archive_release",
+    "columns": [
+	{
+	    "name": "release_date",
+	    "datatype": "date",
+	    "links": [
+		{
+		    "table_name": "variation_archive",
+		    "column_name": "variation_archive_release_date"
+		}
+	    ]
+	}
+    ]
+}

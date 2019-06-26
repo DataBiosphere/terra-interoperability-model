@@ -1,0 +1,35 @@
+ {
+    "name": "clinical_assertion_variation",
+    "columns": [
+	{
+	    "name": "clinical_assertion_variation_id",
+	    "datatype": "int",
+	    "links": [
+		{
+		    "table_name": "clinical_assertion_variation",
+		    "column_name": "parent_id"
+		}
+	    ]
+	},
+	{
+	    "name": "variation_type",
+	    "datatype": "string"
+	},
+	{
+	    "name": "subclass_type",
+	    "datatype": "string"
+	},
+	{
+	    "name": "content",
+	    "datatype": "string"
+	},
+	{
+	    "name": "parent_id",
+	    "datatype": "int"
+	},
+	{
+	    "name": "clinical_assertion_id",
+	    "datatype": "int"
+	}
+    ]
+}

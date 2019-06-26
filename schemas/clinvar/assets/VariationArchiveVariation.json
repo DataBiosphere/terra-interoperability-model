@@ -1,0 +1,9 @@
+{
+    "name": "VariationArchiveVariation",
+    "rootTable": "variation_archive_variation",
+    "rootColumn": "variation_archive_variation_id",
+    "tables": [
+    ],
+    "follow": [
+    ]
+}

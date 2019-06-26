@@ -1,0 +1,9 @@
+{
+    "name": "ClinicalAssertion",
+    "rootTable": "clinical_assertion",
+    "rootColumn": "clinical_assertion_id",
+    "tables": [
+    ],
+    "follow": [
+    ]
+}

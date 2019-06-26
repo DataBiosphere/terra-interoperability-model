@@ -1,0 +1,9 @@
+{
+    "name": "RCVAccession",
+    "rootTable": "rcv_accession",
+    "rootColumn": "rcv_accession_id",
+    "tables": [
+    ],
+    "follow": [
+    ]
+}

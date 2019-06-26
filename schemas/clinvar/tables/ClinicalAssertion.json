@@ -1,0 +1,103 @@
+ {
+    "name": "clinical_assertion",
+    "columns": [
+	{
+	    "name": "clinical_assertion_id",
+	    "datatype": "string",
+	    "links": [
+		{
+		    "table_name": "clinical_assertion_variation",
+		    "column_name": "clinical_assertion_id"
+		},
+		{
+		    "table_name": "clinical_assertion_trait_set",
+		    "column_name": "clinical_assertion_id"
+		},
+		{
+		    "table_name": "submitter",
+		    "column_name": "clinical_assertion_id"
+		},
+		{
+		    "table_name": "submission",
+		    "column_name": "clinical_assertion_id"
+		}
+	    ]
+	},
+	{
+	    "name": "accession",
+	    "datatype": "string"
+	},
+	{
+	    "name": "version",
+	    "datatype": "int"
+	},
+	{
+	    "name": "title",
+	    "datatype": "string"
+	},
+	{
+	    "name": "local_key",
+	    "datatype": "string"
+	},
+	{
+	    "name": "assertion_type",
+	    "datatype": "string"
+	},
+	{
+	    "name": "date_created",
+	    "datatype": "date"
+	},
+	{
+	    "name": "date_last_updated",
+	    "datatype": "date"
+	},
+	{
+	    "name": "submitted_assembly",
+	    "datatype": "string"
+	},
+	{
+	    "name": "record_status",
+	    "datatype": "string"
+	},
+	{
+	    "name": "review_status",
+	    "datatype": "string"
+	},
+	{
+	    "name": "interp_description",
+	    "datatype": "string"
+	},
+	{
+	    "name": "interp_date_last_evaluated",
+	    "datatype": "date"
+	},
+	{
+	    "name": "interp_explanation_of_interp",
+	    "datatype": "string"
+	},
+	{
+	    "name": "interp_comment",
+	    "datatype": "string"
+	},
+	{
+	    "name": "interp_comment_type",
+	    "datatype": "string"
+	},
+	{
+	    "name": "content",
+	    "datatype": "string"
+	},
+	{
+	    "name": "rcv_accession_id",
+	    "datatype": "string"
+	},
+	{
+	    "name": "variation_archive_id",
+	    "datatype": "string"
+	},
+	{
+	    "name": "variation_archive_variation_id",
+	    "datatype": "int"
+	}
+    ]
+}

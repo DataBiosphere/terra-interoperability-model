@@ -1,0 +1,37 @@
+ {
+    "name": "clinical_assertion_trait",
+    "columns": [
+	{
+	    "name": "clinical_assertion_trait_id",
+	    "datatype": "int"
+	},
+	{
+	    "name": "type",
+	    "datatype": "string"
+	},
+	{
+	    "name": "name",
+	    "datatype": "string"
+	},
+	{
+	    "name": "xrefDB",
+	    "datatype": "string"
+	},
+	{
+	    "name": "xrefID",
+	    "datatype": "string"
+	},
+	{
+	    "name": "content",
+	    "datatype": "string"
+	},
+	{
+	    "name": "clinical_assertion_trait_set_id",
+	    "datatype": "int"
+	},
+	{
+	    "name": "variation_archive_trait_id",
+	    "datatype": "int"
+	}
+    ]
+}

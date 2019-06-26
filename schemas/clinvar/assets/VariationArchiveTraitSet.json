@@ -1,0 +1,9 @@
+{
+    "name": "VariationArchiveTraitSet",
+    "rootTable": "variation_archive_trait_set",
+    "rootColumn": "variation_archive_trait_set_id",
+    "tables": [
+    ],
+    "follow": [
+    ]
+}
