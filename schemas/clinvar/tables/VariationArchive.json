@@ -1,71 +1,53 @@
- {
-    "name": "variation_archive",
-    "columns": [
-	{
-	    "name": "variant_archive_id",
-	    "datatype": "string",
-	    "links": [
-		{
-		    "table_name": "variation_archive_variation",
-		    "column_name": "variation_archive_id"
-		},
-		{
-		    "table_name": "rcv_accession",
-		    "column_name": "variation_archive_id"
-		},
-		{
-		    "table_name": "variation_archive_trait_set",
-		    "column_name": "variation_archive_id"
-		},
-		{
-		    "table_name": "clinical_assertion",
-		    "column_name": "variation_archive_id"
-		}
-	    ]
-	},
-	{
-	    "name": "accession",
-	    "datatype": "string"
-	},
-	{
-	    "name": "version",
-	    "datatype": "int"
-	},
-	{
-	    "name": "date_created",
-	    "datatype": "date"
-	},
-	{
-	    "name": "date_last_updated",
-	    "datatype": "date"
-	},
-	{
-	    "name": "num_submissions",
-	    "datatype": "int"
-	},
-	{
-	    "name": "num_submitters",
-	    "datatype": "int"
-	},
-	{
-	    "name": "record_status",
-	    "datatype": "string"
-	},
-	{
-	    "name": "review_status",
-	    "datatype": "string"
-	},
-	{
-	    "name": "species",
-	    "datatype": "string"
-	},
-	{
-	    "name": "content",
-	    "datatype": "string"
-	},
-	{
-	    "name": "variation_archive_release_date",
-	    "datatype": "date"
-	}
-    ]
+{
+  "name": "variation_archive",
+  "columns": [
+    {
+      "name": "id",
+      "datatype": "string"
+    },
+    {
+      "name": "accession",
+      "datatype": "string"
+    },
+    {
+      "name": "version",
+      "datatype": "integer"
+    },
+    {
+      "name": "date_created",
+      "datatype": "date"
+    },
+    {
+      "name": "date_last_updated",
+      "datatype": "date"
+    },
+    {
+      "name": "num_submissions",
+      "datatype": "integer"
+    },
+    {
+      "name": "num_submitters",
+      "datatype": "integer"
+    },
+    {
+      "name": "record_status",
+      "datatype": "string"
+    },
+    {
+      "name": "review_status",
+      "datatype": "string"
+    },
+    {
+      "name": "species",
+      "datatype": "string"
+    },
+    {
+      "name": "content",
+      "datatype": "string"
+    },
+    {
+      "name": "variation_archive_release_date",
+      "datatype": "date"
+    }
+  ]
 }

@@ -1,9 +1,0 @@
-{
-    "name": "VariationArchiveRelease",
-    "rootTable": "variation_archive_release",
-    "rootColumn": "release_date",
-    "tables": [
-    ],
-    "follow": [
-    ]
-}

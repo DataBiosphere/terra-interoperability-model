@@ -1,9 +1,5 @@
 {
-    "name": "ClinicalAssertionTrait",
-    "rootTable": "clinical_assertion_trait",
-    "rootColumn": "clinical_assertion_trait_id",
-    "tables": [
-    ],
-    "follow": [
-    ]
+  "name": "ClinicalAssertionTrait",
+  "rootTable": "clinical_assertion_trait",
+  "rootColumn": "id"
 }

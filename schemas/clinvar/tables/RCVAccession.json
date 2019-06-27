@@ -1,63 +1,55 @@
 {
-    "name": "rcv_accession",
-    "columns": [
-	{
-	    "name": "rcv_accession_id",
-	    "datatype": "string",
-	    "links": [
-		{
-		    "table_name": "variation_archive_variation",
-		    "column_name": "rcv_accession_id"
-		},
-		{
-		    "table_name": "variation_archive_trait_set",
-		    "column_name": "rcv_accession_id"
-		},
-		{
-		    "table_name": "clinical_assertion",
-		    "column_name": "rcv_accession_id"
-		}
-	    ]
-	},
-	{
-	    "name": "accession",
-	    "datatype": "string"
-	},
-	{
-	    "name": "version",
-	    "datatype": "int"
-	},
-	{
-	    "name": "title",
-	    "datatype": "string"
-	},
-	{
-	    "name": "date_last_evaluated",
-	    "datatype": "date"
-	},
-	{
-	    "name": "review_status",
-	    "datatype": "string"
-	},
-	{
-	    "name": "interpretation",
-	    "datatype": "string"
-	},
-	{
-	    "name": "submission_count",
-	    "datatype": "int"
-	},
-	{
-	    "name": "independent_observations",
-	    "datatype": "int"
-	},
-	{
-	    "name": "content",
-	    "datatype": "string"
-	},
-	{
-	    "name": "variation_archive_id",
-	    "datatype": "string"
-	}
-    ]
+  "name": "rcv_accession",
+  "columns": [
+    {
+      "name": "id",
+      "datatype": "string"
+    },
+    {
+      "name": "accession",
+      "datatype": "string"
+    },
+    {
+      "name": "version",
+      "datatype": "integer"
+    },
+    {
+      "name": "title",
+      "datatype": "string"
+    },
+    {
+      "name": "date_last_evaluated",
+      "datatype": "date"
+    },
+    {
+      "name": "review_status",
+      "datatype": "string"
+    },
+    {
+      "name": "interpretation",
+      "datatype": "string"
+    },
+    {
+      "name": "submission_count",
+      "datatype": "integer"
+    },
+    {
+      "name": "independent_observations",
+      "datatype": "integer"
+    },
+    {
+      "name": "content",
+      "datatype": "string"
+    },
+    {
+      "name": "variation_archive_id",
+      "datatype": "string",
+      "links": [
+        {
+          "table_name": "variation_archive",
+          "column_name": "id"
+        }
+      ]
+    }
+  ]
 }

@@ -1,9 +1,5 @@
 {
-    "name": "VariationArchive",
-    "rootTable": "variation_archive",
-    "rootColumn": "variation_archive_id",
-    "tables": [
-    ],
-    "follow": [
-    ]
+  "name": "VariationArchive",
+  "rootTable": "variation_archive",
+  "rootColumn": "id"
 }

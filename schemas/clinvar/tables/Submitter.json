@@ -1,31 +1,31 @@
- {
-    "name": "submitter",
-    "columns": [
-	{
-	    "name": "org_id",
-	    "datatype": "int",
-	    "links": [
-		{
-		    "table_name": "submission",
-		    "column_name": "submitter_id"
-		}
-	    ]
-	},
-	{
-	    "name": "submitter_name",
-	    "datatype": "string"
-	},
-	{
-	    "name": "org_category",
-	    "datatype": "string"
-	},
-	{
-	    "name": "org_abbrev",
-	    "datatype": "string"
-	},
-	{
-	    "name": "clinical_assertion_id",
-	    "datatype": "int"
-	}
-    ]
+{
+  "name": "submitter",
+  "columns": [
+    {
+      "name": "id",
+      "datatype": "integer"
+    },
+    {
+      "name": "submitter_name",
+      "datatype": "string"
+    },
+    {
+      "name": "org_category",
+      "datatype": "string"
+    },
+    {
+      "name": "org_abbrev",
+      "datatype": "string"
+    },
+    {
+      "name": "clinical_assertion_id",
+      "datatype": "string",
+      "links": [
+        {
+          "table_name": "clinical_assertion",
+          "column_name": "id"
+        }
+      ]
+    }
+  ]
 }

@@ -1,39 +1,41 @@
- {
-    "name": "variation_archive_trait_set",
-    "columns": [
-	{
-	    "name": "variation_archive_trait_set_id",
-	    "datatype": "int",
-	    "links": [
-		{
-		    "table_name": "variation_archive_trait",
-		    "column_name": "variation_archive_trait_set_id"
-		},
-		{
-		    "table_name": "clinical_assertion_trait_set",
-		    "column_name": "variation_archive_trait_set_id"
-		}
-		]
-	},
-	{
-	    "name": "type",
-	    "datatype": "string"
-	},
-	{
-	    "name": "date_last_evaluated",
-	    "datatype": "date"
-	},
-	{
-	    "name": "content",
-	    "datatype": "string"
-	},
-	{
-	    "name": "variation_archive_id",
-	    "datatype": "string"
-	},
-	{
-	    "name": "rcv_accession_id",
-	    "datatype": "string"
-	}
-    ]
- }
+{
+  "name": "variation_archive_trait_set",
+  "columns": [
+    {
+      "name": "id",
+      "datatype": "integer"
+    },
+    {
+      "name": "type",
+      "datatype": "string"
+    },
+    {
+      "name": "date_last_evaluated",
+      "datatype": "date"
+    },
+    {
+      "name": "content",
+      "datatype": "string"
+    },
+    {
+      "name": "variation_archive_id",
+      "datatype": "string",
+      "links": [
+        {
+          "table_name": "variation_archive",
+          "column_name": "id"
+        }
+      ]
+    },
+    {
+      "name": "rcv_accession_id",
+      "datatype": "string",
+      "links": [
+        {
+          "table_name": "rcv_accession",
+          "column_name": "id"
+        }
+      ]
+    }
+  ]
+}

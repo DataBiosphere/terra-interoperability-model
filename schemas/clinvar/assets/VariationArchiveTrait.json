@@ -1,9 +1,5 @@
 {
-    "name": "VariationArchiveTrait",
-    "rootTable": "variation_archive_trait",
-    "rootColumn": "release_date",
-    "tables": [
-    ],
-    "follow": [
-    ]
+  "name": "VariationArchiveTrait",
+  "rootTable": "variation_archive_trait",
+  "rootColumn": "id"
 }

@@ -1,9 +1,5 @@
 {
-    "name": "Submission",
-    "rootTable": "submission",
-    "rootColumn": "submission_date",
-    "tables": [
-    ],
-    "follow": [
-    ]
+  "name": "Submission",
+  "rootTable": "submission",
+  "rootColumn": "id"
 }
