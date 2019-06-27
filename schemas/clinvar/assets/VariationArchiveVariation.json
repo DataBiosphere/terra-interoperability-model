@@ -1,0 +1,5 @@
+{
+  "name": "VariationArchiveVariation",
+  "rootTable": "variation_archive_variation",
+  "rootColumn": "id"
+}

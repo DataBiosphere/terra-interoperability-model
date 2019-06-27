@@ -1,0 +1,31 @@
+{
+  "name": "submitter",
+  "columns": [
+    {
+      "name": "id",
+      "datatype": "integer"
+    },
+    {
+      "name": "submitter_name",
+      "datatype": "string"
+    },
+    {
+      "name": "org_category",
+      "datatype": "string"
+    },
+    {
+      "name": "org_abbrev",
+      "datatype": "string"
+    },
+    {
+      "name": "clinical_assertion_id",
+      "datatype": "string",
+      "links": [
+        {
+          "table_name": "clinical_assertion",
+          "column_name": "id"
+        }
+      ]
+    }
+  ]
+}

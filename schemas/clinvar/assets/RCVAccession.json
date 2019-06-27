@@ -1,0 +1,5 @@
+{
+  "name": "RCVAccession",
+  "rootTable": "rcv_accession",
+  "rootColumn": "id"
+}

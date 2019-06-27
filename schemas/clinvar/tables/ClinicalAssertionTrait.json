@@ -1,0 +1,49 @@
+{
+  "name": "clinical_assertion_trait",
+  "columns": [
+    {
+      "name": "id",
+      "datatype": "integer"
+    },
+    {
+      "name": "type",
+      "datatype": "string"
+    },
+    {
+      "name": "name",
+      "datatype": "string"
+    },
+    {
+      "name": "xref_db",
+      "datatype": "string"
+    },
+    {
+      "name": "xref_id",
+      "datatype": "string"
+    },
+    {
+      "name": "content",
+      "datatype": "string"
+    },
+    {
+      "name": "clinical_assertion_trait_set_id",
+      "datatype": "integer",
+      "links": [
+        {
+          "table_name": "clinical_assertion_trait_set",
+          "column_name": "id"
+        }
+      ]
+    },
+    {
+      "name": "variation_archive_trait_id",
+      "datatype": "integer",
+      "links": [
+        {
+          "table_name": "variation_archive_trait",
+          "column_name": "id"
+        }
+      ]
+    }
+  ]
+}

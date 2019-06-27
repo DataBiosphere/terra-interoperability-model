@@ -1,0 +1,5 @@
+{
+  "name": "Submission",
+  "rootTable": "submission",
+  "rootColumn": "id"
+}
