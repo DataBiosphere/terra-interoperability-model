@@ -1,0 +1,245 @@
+# baseURI: http://datamodel.terra.bio/DSPdcat_ap
+# imports: http://purl.obolibrary.org/obo/duo-basic.owl
+# imports: http://www.w3.org/ns/dcat
+# prefix: DSPdcat_ap
+
+@prefix DSPdcat_ap: <http://datamodel.terra.bio/DSPdcat_ap#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix duo: <http://purl.obolibrary.org/obo/duo-basic.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://datamodel.terra.bio/DSPdcat_ap>
+  a owl:Ontology ;
+  rdfs:comment "DSP DCAT AP is the Broad Data Sciences Platform's application profile.  It is an RDF vocabulary which extends the W3C's Data Catalog Vocabulary (https://www.w3.org/TR/vocab-dcat/)." ;
+  owl:imports <http://purl.obolibrary.org/obo/duo-basic.owl> ;
+  owl:imports <http://www.w3.org/ns/dcat> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+DSPdcat_ap:BiomedicalResearch
+  a skos:Concept ;
+  rdfs:label "BiomedicalResearch" ;
+  skos:prefLabel "BioMedicalResearch" ;
+  skos:topConceptOf DSPdcat_ap:DSPThemeTaxonomy ;
+.
+DSPdcat_ap:DSPThemeTaxonomy
+  a skos:ConceptScheme ;
+  rdfs:label "DSPThemeTaxonomy" ;
+  skos:hasTopConcept DSPdcat_ap:BiomedicalResearch ;
+  skos:prefLabel "DSPThemeTaxonomy" ;
+.
+DSPdcat_ap:DataCollection
+  a rdfs:Class ;
+  a owl:Class ;
+  rdfs:label "DataCollection" ;
+  rdfs:subClassOf dcat:Catalog ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:allValuesFrom prov:Person ;
+      owl:onProperty dcterms:creator ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:creator ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:description ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:issued ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:modified ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:publisher ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPdcat_ap:dataCollection ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPdcat_ap:dataSnapshot ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPdcat_ap:dataset ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:title ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:themeTaxonomy ;
+    ] ;
+  skos:prefLabel "DataCollection" ;
+  dcat:themeTaxonomy DSPdcat_ap:DSPThemeTaxonomy ;
+.
+DSPdcat_ap:DataSnapshot
+  a rdfs:Class ;
+  a owl:Class ;
+  rdfs:label "DataSnapshot" ;
+  rdfs:subClassOf dcat:Distribution ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:allValuesFrom prov:Person ;
+      owl:onProperty dcterms:creator ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:creator ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:description ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:issued ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:modified ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:accessURL ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:byteSize ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:compressFormat ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:downloadURL ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://purl.org/dc/elements/1.1/format> ;
+    ] ;
+  skos:prefLabel "DataSnapshot" ;
+.
+DSPdcat_ap:Dataset
+  a rdfs:Class ;
+  a owl:Class ;
+  rdfs:label "Dataset" ;
+  rdfs:subClassOf dcat:Dataset ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom prov:Person ;
+      owl:onProperty dcterms:creator ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:accrualPeriodicity ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:creator ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:description ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:issued ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:modified ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:publisher ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:title ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPdcat_ap:dataSnapshot ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:hasPart ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:theme ;
+    ] ;
+  skos:prefLabel "Dataset" ;
+.
+DSPdcat_ap:dataCollection
+  a owl:ObjectProperty ;
+  rdfs:domain DSPdcat_ap:DataCollection ;
+  rdfs:label "Dataset" ;
+  rdfs:range DSPdcat_ap:DataCollection ;
+  rdfs:subPropertyOf dcat:catalog ;
+  skos:prefLabel "dataCollection" ;
+.
+DSPdcat_ap:dataSnapshot
+  a owl:ObjectProperty ;
+  rdfs:domain DSPdcat_ap:Dataset ;
+  rdfs:label "dataSnapshot" ;
+  rdfs:range DSPdcat_ap:DataSnapshot ;
+  rdfs:subPropertyOf dcat:distribution ;
+  skos:prefLabel "dataSnapshot" ;
+.
+DSPdcat_ap:dataset
+  a owl:ObjectProperty ;
+  rdfs:domain DSPdcat_ap:DataCollection ;
+  rdfs:label "dataset" ;
+  rdfs:range DSPdcat_ap:DataCollection ;
+  rdfs:range DSPdcat_ap:Dataset ;
+  rdfs:subPropertyOf dcat:dataset ;
+  skos:prefLabel "dataset" ;
+.
+prov:value
+  rdfs:subPropertyOf prov:influenced ;
+.
