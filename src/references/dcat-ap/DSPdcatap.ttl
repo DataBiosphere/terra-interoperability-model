@@ -1,3 +1,4 @@
+##
 # baseURI: http://datamodel.terra.bio/DSPdcat_ap
 # imports: http://purl.obolibrary.org/obo/duo-basic.owl
 # imports: http://www.w3.org/ns/dcat
@@ -287,6 +288,8 @@ DSPdcat_ap:dataset
 .
 DSPdcat_ap:hasDataUseRequirement
   a owl:ObjectProperty ;
+  rdfs:domain DSPdcat_ap:DataCollection ;
+  rdfs:domain DSPdcat_ap:DataSnapshot ;
   rdfs:domain DSPdcat_ap:Dataset ;
   rdfs:label "hasDataUseRequirement" ;
   rdfs:range <http://purl.obolibrary.org/obo/DUO_0000017> ;
@@ -303,6 +306,8 @@ DSPdcat_ap:hasPrimaryConsent
 .
 DSPdcat_ap:hasSecondaryConsent
   a owl:ObjectProperty ;
+  rdfs:domain DSPdcat_ap:DataCollection ;
+  rdfs:domain DSPdcat_ap:DataSnapshot ;
   rdfs:domain DSPdcat_ap:Dataset ;
   rdfs:label "hasSecondaryConsent" ;
   rdfs:range <http://purl.obolibrary.org/obo/DUO_0000003> ;
