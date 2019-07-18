@@ -1,4 +1,3 @@
-##
 # baseURI: http://datamodel.terra.bio/DSPdcat_ap
 # imports: http://purl.obolibrary.org/obo/duo-basic.owl
 # imports: http://www.w3.org/ns/dcat
@@ -179,7 +178,7 @@ DSPdcat_ap:DataSnapshot
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty <http://purl.org/dc/elements/1.1/format> ;
     ] ;
   skos:prefLabel "DataSnapshot" ;
@@ -194,9 +193,9 @@ DSPdcat_ap:Dataset
       owl:allValuesFrom prov:Person ;
       owl:onProperty dcterms:creator ;
     ] ;
-  rdfs:subClassOf [
+    rdfs:subClassOf [
       a owl:Restriction ;
-      owl:cardinality "0"^^xsd:nonNegativeInteger ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dcterms:accrualPeriodicity ;
     ] ;
   rdfs:subClassOf [
