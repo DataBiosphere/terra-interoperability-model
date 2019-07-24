@@ -76,6 +76,21 @@ DSPdcat_ap:DataCollection
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPdcat_ap:hasDataUseRequirement ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPdcat_ap:hasSecondaryConsent ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:themeTaxonomy ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPdcat_ap:dataCollection ;
     ] ;
   owl:equivalentClass [
@@ -91,22 +106,12 @@ DSPdcat_ap:DataCollection
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPdcat_ap:hasDataUseRequirement ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPdcat_ap:hasSecondaryConsent ;
+      owl:onProperty dcat:theme ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dcterms:title ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcat:themeTaxonomy ;
     ] ;
   skos:prefLabel "DataCollection" ;
   dcat:themeTaxonomy DSPdcat_ap:DSPThemeTaxonomy ;
@@ -120,6 +125,16 @@ DSPdcat_ap:DataSnapshot
       a owl:Restriction ;
       owl:allValuesFrom prov:Person ;
       owl:onProperty dcterms:creator ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:decimal ;
+      owl:onProperty dcat:byteSize ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:string ;
+      owl:onProperty dcat:mediaType ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -153,6 +168,16 @@ DSPdcat_ap:DataSnapshot
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:accessURL ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:landingPage ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPdcat_ap:hasDataUseRequirement ;
     ] ;
@@ -179,7 +204,7 @@ DSPdcat_ap:DataSnapshot
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://purl.org/dc/elements/1.1/format> ;
+      owl:onProperty dcat:mediaType ;
     ] ;
   skos:prefLabel "DataSnapshot" ;
 .
@@ -193,15 +218,15 @@ DSPdcat_ap:Dataset
       owl:allValuesFrom prov:Person ;
       owl:onProperty dcterms:creator ;
     ] ;
-    rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:accrualPeriodicity ;
-    ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality 1 ;
       owl:onProperty DSPdcat_ap:hasPrimaryConsent ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:conformsTo ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -232,6 +257,11 @@ DSPdcat_ap:Dataset
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dcterms:title ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:accrualPeriodicity ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
