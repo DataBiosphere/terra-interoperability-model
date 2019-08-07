@@ -1,13 +1,12 @@
-# baseURI: http://datamodel.broadinstitute.org/epiLIMS
-# imports: http://datamodel.broadinstitute.org/DSPCoreDataModel
-# imports: http://datamodel.broadinstitute.org/OBI_ontofox.owl
-# imports: http://www.w3.org/2002/07/owl
+# baseURI: http://datamodel.terra.bio/epiLIMS
+# imports: http://datamodel.terra.bio/DSPCore
 # prefix: epiLIMS
 
-@prefix DSPCore: <http://datamodel.broadinstitute.org/DSPCoreDataModel#> .
-@prefix DSPCoreDataMode: <http://datamodel.broadinstitute.org/DSPCoreDataModel> .
+@prefix : <http://datamodel.terra.bio/epiLIMS#> .
+@prefix DSPCore: <http://datamodel.terra.bio/DSPCore#> .
+@prefix DSPdcat_ap: <http://datamodel.terra.bio/DSPdcat_ap/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix epiLIMS: <http://datamodel.broadinstitute.org/epiLIMS#> .
+@prefix epiLIMS: <http://datamodel.terra.bio/epiLIMS#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -15,38 +14,10 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-DSPCore:BioSample
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality 1 ;
-      owl:onProperty DSPCore:contributedBy ;
-    ] ;
-.
-DSPCore:BroadDataset
-  dcterms:contains epiLIMS:BioSam_3165 ;
-.
-DSPCore:ChIP
-  epiLIMS:hasPurchasableAntibody "Pch WCE" ;
-  prov:generated epiLIMS:DNA_Lib_9367 ;
-.
-DSPCore:Donor
-  DSPCore:donated epiLIMS:BioSam_3165 ;
-  dcterms:created "2018-10-16T19:52:18.000Z"^^xsd:dateTime ;
-  dcterms:isPartOf epiLIMS:Cohort_349 ;
-.
-DSPCore:Library
-  DSPCore:usedBy epiLIMS:Sequencing_CoPA_13999 ;
-  DSPCore:usedBy epiLIMS:Sequencing_CoPA_14339 ;
-  prov:wasGeneratedBy epiLIMS:ChIP_9523 ;
-.
-DSPCore:usedBy
-  rdfs:range prov:Activity ;
-.
-<http://datamodel.broadinstitute.org/epiLIMS>
+
+<http://datamodel.terra.bio/epiLIMS>
   a owl:Ontology ;
-  owl:imports <http://datamodel.broadinstitute.org/DSPCoreDataModel> ;
-  owl:imports <http://datamodel.broadinstitute.org/OBI_ontofox.owl> ;
-  owl:imports <http://www.w3.org/2002/07/owl> ;
+  owl:imports <http://datamodel.terra.bio/DSPCore> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
 epiLIMS:Age_1
@@ -185,11 +156,11 @@ epiLIMS:ChIP_9523
   prov:generated epiLIMS:DNA_Lib_9367 ;
 .
 epiLIMS:Cohort_349
-  a DSPCore:BroadDataset ;
-  DSPCore:hasConsentPrimary DSPCore:GeneralResearchUse ;
+  a DSPdcat_ap:Dataset ;
   DSPCore:hasDataUseRequirement DSPCore:UserRestriction ;
-  dcterms:contains epiLIMS:BioSam_3165 ;
-  dcterms:contains epiLIMS:Donor_963 ;
+  <http://datamodel.terra.bio/DSPdcat_ap#hasPrimaryConsent> DSPCore:GeneralResearchUse ;
+  dcterms:hasPart epiLIMS:BioSam_3165 ;
+  dcterms:hasPart epiLIMS:Donor_963 ;
   rdfs:label "Cohort 349 of keratinocyte carcinoma surgical patients" ;
   skos:prefLabel "Cohort 349" ;
 .
@@ -207,6 +178,7 @@ epiLIMS:Donor_963
   DSPCore:hasAge epiLIMS:Age_1 ;
   DSPCore:organism DSPCore:Homo_sapiens ;
   DSPCore:sex DSPCore:Male ;
+  dcterms:isPartOf epiLIMS:Cohort_349 ;
   rdfs:label "Donor_963" ;
   skos:prefLabel "Donor_963" ;
 .
@@ -273,15 +245,6 @@ epiLIMS:hasPurchasableAntibody
 .
 <http://purl.obolibrary.org/obo/BFO_0000001>
   owl:equivalentClass prov:Entity ;
-.
-dcterms:contains
-  a rdf:Property ;
-  rdfs:domain DSPCore:BroadDataset ;
-  rdfs:label "contains" ;
-  rdfs:range DSPCore:BioSample ;
-  rdfs:range DSPCore:Donor ;
-  rdfs:subPropertyOf dcterms:hasPart ;
-  skos:prefLabel "contains" ;
 .
 prov:generated
   rdfs:range <http://purl.obolibrary.org/obo/BFO_0000001> ;
