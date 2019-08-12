@@ -1,16 +1,34 @@
 {
-    "name": "V2F",
-    "description": "Snapshot of V2F summary statistics",
+    "name": "V2F-Year1",
+    "description": "Snapshot of V2F summary statistics for the project's Year 1 goals",
     "schema": {
         "tables": [
             {
-                "name": "variants",
+                "name": "variant",
                 "columns": [
                     {"name": "id", "datatype": "string"},
                     {"name": "alt", "datatype": "string"},
                     {"name": "chromosome", "datatype": "string"},
                     {"name": "position", "datatype": "integer"},
                     {"name": "reference", "datatype": "string"}
+                ]
+            },
+            {
+                "name": "dataset_specific_analysis",
+                "columns": [
+                    {"name": "variant_id", "datatype": "string"},
+                    {"name": "multi_allelic", "datatype": "boolean"},
+                    {"name": "dataset", "datatype": "string"},
+                    {"name": "phenotype", "datatype": "string"},
+                    {"name": "ancestry", "datatype": "string"},
+                    {"name": "p_value", "datatype": "float"},
+                    {"name": "beta", "datatype": "float"},
+                    {"name": "odds_ratio", "datatype": "float"},
+                    {"name": "eaf", "datatype": "float"},
+                    {"name": "maf", "datatype": "float"},
+                    {"name": "std_err", "datatype": "float"},
+                    {"name": "z_score", "datatype": "float"},
+                    {"name": "n", "datatype": "integer"}
                 ]
             },
             {
@@ -32,7 +50,7 @@
                     {"name": "p_value", "datatype": "float"},
                     {"name": "beta", "datatype": "float"},
                     {"name": "std_err", "datatype": "float"},
-                    {"name": "n", "datatype": "float"}
+                    {"name": "n", "datatype": "integer"}
                 ]
             },
             {
@@ -223,37 +241,43 @@
         ],
         "relationships": [
             {
-                "name": "frequency_analysis_to_variants",
+                "name": "dataset_specific_analysis_to_variant",
+                "from": {"table": "dataset_specific_analysis", "column": "variant_id", "cardinality": "many"},
+                "to": {"table": "variant", "column": "id", "cardinality": "one"}
+            },
+            {
+                "name": "frequency_analysis_to_variant",
                 "from": {"table": "frequency_analysis", "column": "variant_id", "cardinality": "one"},
-                "to": {"table": "variants", "column": "id", "cardinality": "one"}
+                "to": {"table": "variant", "column": "id", "cardinality": "one"}
             },
             {
-                "name": "ancestry_specific_meta_analysis_to_variants",
+                "name": "ancestry_specific_meta_analysis_to_variant",
                 "from": {"table": "ancestry_specific_meta_analysis", "column": "variant_id", "cardinality": "one"},
-                "to": {"table": "variants", "column": "id", "cardinality": "one"}
+                "to": {"table": "variant", "column": "id", "cardinality": "one"}
             },
             {
-                "name": "trans_ethnic_meta_analysis_to_variants",
+                "name": "trans_ethnic_meta_analysis_to_variant",
                 "from": {"table": "trans_ethnic_meta_analysis", "column": "variant_id", "cardinality": "one"},
-                "to": {"table": "variants", "column": "id", "cardinality": "one"}
+                "to": {"table": "variant", "column": "id", "cardinality": "one"}
             },
             {
-                "name": "feature_consequence_to_variants",
+                "name": "feature_consequence_to_variant",
                 "from": {"table": "feature_consequence", "column": "variant_id", "cardinality": "one"},
-                "to": {"table": "variants", "column": "id", "cardinality": "one"}
+                "to": {"table": "variant", "column": "id", "cardinality": "one"}
             },
             {
-                "name": "transcript_consequence_to_variants",
+                "name": "transcript_consequence_to_variant",
                 "from": {"table": "transcript_consequence", "column": "variant_id", "cardinality": "one"},
-                "to": {"table": "variants", "column": "id", "cardinality": "one"}
+                "to": {"table": "variant", "column": "id", "cardinality": "one"}
             }
         ],
         "assets": [
             {
-                "name": "Variant Frequency Analysis",
-                "rootTable": "variants",
+                "name": "Variant",
+                "rootTable": "variant",
                 "rootColumn": "id",
                 "tables": [
+                    {"name": "dataset_specific_analysis", "columns": []},
                     {"name": "frequency_analysis", "columns": []},
                     {"name": "ancestry_specific_meta_analysis", "columns": []},
                     {"name": "trans_ethnic_meta_analysis", "columns": []},
@@ -261,11 +285,12 @@
                     {"name": "transcript_consequence", "columns": []}
                 ],
                 "follow": [
-                    "frequency_analysis_to_variants",
-                    "ancestry_specific_meta_analysis_to_variants",
-                    "trans_ethnic_meta_analysis_to_variants",
-                    "feature_consequence_to_variants",
-                    "transcript_consequence_to_variants"
+                    "dataset_specific_analysis_to_variant",
+                    "frequency_analysis_to_variant",
+                    "ancestry_specific_meta_analysis_to_variant",
+                    "trans_ethnic_meta_analysis_to_variant",
+                    "feature_consequence_to_variant",
+                    "transcript_consequence_to_variant"
                 ]
             }
         ]
