@@ -1,6 +1,6 @@
 {
-    "name": "V2F-Year1",
-    "description": "Snapshot of V2F summary statistics for the project's Year 1 goals",
+    "name": "V2F-GWAS-Summary-Stats",
+    "description": "Summary statistics from V2F datasets",
     "schema": {
         "tables": [
             {
