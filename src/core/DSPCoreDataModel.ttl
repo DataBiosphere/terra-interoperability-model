@@ -923,6 +923,24 @@ DSPCore:usesSample
   owl:inverseOf DSPCore:usedBy ;
   skos:prefLabel "usesSample" ;
 .
+<http://datamodel.terra.bio/DSPdcat_ap#hasDataUseRequirement>
+  rdfs:domain DSPCore:Donor ;
+  rdfs:domain DSPCore:File ;
+  rdfs:domain DSPCore:Library ;
+  rdfs:domain DSPCore:Sample ;
+.
+<http://datamodel.terra.bio/DSPdcat_ap#hasPrimaryConsent>
+  rdfs:domain DSPCore:Donor ;
+  rdfs:domain DSPCore:File ;
+  rdfs:domain DSPCore:Library ;
+  rdfs:domain DSPCore:Sample ;
+.
+<http://datamodel.terra.bio/DSPdcat_ap#hasSecondaryConsent>
+  rdfs:domain DSPCore:Donor ;
+  rdfs:domain DSPCore:File ;
+  rdfs:domain DSPCore:Library ;
+  rdfs:domain DSPCore:Sample ;
+.
 obo:BFO_0000001
   owl:equivalentClass <http://www.w3.org/ns/prov#Entity> ;
 .
