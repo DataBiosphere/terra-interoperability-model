@@ -1,5 +1,5 @@
 {
-    "name": "V2F-GWAS-Summary-Stats",
+    "name": "V2F_GWAS_Summary_Stats",
     "description": "Summary statistics from V2F datasets",
     "schema": {
         "tables": [
@@ -277,6 +277,7 @@
                 "rootTable": "variant",
                 "rootColumn": "id",
                 "tables": [
+                    {"name": "variant", "columns": []},
                     {"name": "dataset_specific_analysis", "columns": []},
                     {"name": "frequency_analysis", "columns": []},
                     {"name": "ancestry_specific_meta_analysis", "columns": []},
