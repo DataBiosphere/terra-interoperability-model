@@ -70,7 +70,7 @@
                 "columns": [
                     {"name": "variant_id", "datatype": "string"},
                     {"name": "biotype", "datatype": "string"},
-                    {"name": "consequence_terms", "datatype": "string"},
+                    {"name": "consequence_terms", "datatype": "string", "array_of":  true},
                     {"name": "impact", "datatype": "string"},
                     {"name": "pick", "datatype": "boolean"},
                     {"name": "regulatory_feature_id", "datatype": "string"},
@@ -157,7 +157,7 @@
                     {"name": "integrated_fitcons_score", "datatype": "float"},
                     {"name": "integrated_fitcons_score_rankscore", "datatype": "float"},
 
-                    {"name": "interpro_domain", "datatype": "string"},
+                    {"name": "interpro_domain", "datatype": "string", "array_of":  true},
 
                     {"name": "lof", "datatype": "string"},
                     {"name": "lof_filter", "datatype": "string"},
@@ -177,17 +177,17 @@
                     {"name": "metasvm_rankscore", "datatype": "float"},
                     {"name": "metasvm_score", "datatype": "float"},
 
-                    {"name": "mutation_accessor_pred", "datatype": "string"},
-                    {"name": "mutation_accessor_score", "datatype": "float"},
-                    {"name": "mutation_accessor_score_rankscore", "datatype": "float"},
-                    {"name": "mutation_accessor_uniprot_id", "datatype": "string"},
-                    {"name": "mutation_accessor_variant", "datatype": "string"},
+                    {"name": "mutationaccessor_pred", "datatype": "string"},
+                    {"name": "mutationaccessor_score", "datatype": "float"},
+                    {"name": "mutationaccessor_score_rankscore", "datatype": "float"},
+                    {"name": "mutationaccessor_uniprot_id", "datatype": "string"},
+                    {"name": "mutationaccessor_variant", "datatype": "string"},
 
-                    {"name": "mutation_taster_aae", "datatype": "string", "array_of": true},
-                    {"name": "mutation_taster_converted_rankscore", "datatype": "float"},
-                    {"name": "mutation_taster_model", "datatype": "string", "array_of": true},
-                    {"name": "mutation_taster_pred", "datatype": "string", "array_of": true},
-                    {"name": "mutation_taster_score", "datatype": "float", "array_of": true},
+                    {"name": "mutationtaster_aae", "datatype": "string", "array_of": true},
+                    {"name": "mutationtaster_converted_rankscore", "datatype": "float"},
+                    {"name": "mutationtaster_model", "datatype": "string", "array_of": true},
+                    {"name": "mutationtaster_pred", "datatype": "string", "array_of": true},
+                    {"name": "mutationtaster_score", "datatype": "float", "array_of": true},
 
                     {"name": "phastcons_100_way_vertebrate", "datatype": "float"},
                     {"name": "phastcons_100_way_vertebrate_rankscore", "datatype": "float"},
@@ -205,7 +205,11 @@
 
                     {"name": "polyphen_2_hdiv_pred", "datatype": "string"},
                     {"name": "polyphen_2_hdiv_rankscore", "datatype": "float"},
-                    {"name": "polyphen_2_hdiv_score", "datatype": "float"},
+                    {"name": "polyphen_2_hdiv_score", "datatype": "float", "array_of":  true},
+
+                    {"name": "polyphen_2_hvar_pred", "datatype": "string"},
+                    {"name": "polyphen_2_hvar_rankscore", "datatype": "float"},
+                    {"name": "polyphen_2_hvar_score", "datatype": "float", "array_of":  true},
 
                     {"name": "polyphen_prediction", "datatype": "string"},
                     {"name": "polyphen_score", "datatype": "float"},
