@@ -61,7 +61,7 @@
                     {"name": "p_value", "datatype": "float"},
                     {"name": "beta", "datatype": "float"},
                     {"name": "std_err", "datatype": "float"},
-                    {"name": "n", "datatype": "float"},
+                    {"name": "n", "datatype": "integer"},
                     {"name": "top", "datatype": "boolean"}
                 ]
             },
