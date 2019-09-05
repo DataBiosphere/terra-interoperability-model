@@ -68,24 +68,24 @@ DSPCore:Age
   a owl:Class ;
   rdfs:label "Age" ;
   rdfs:subClassOf obo:OBI_0001167 ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
-      owl:cardinality 1 ;
-      owl:onProperty DSPCore:ageCategory ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasAgeCategory ;
     ] ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
-      owl:cardinality 1 ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasLowerBound ;
     ] ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
-      owl:cardinality 1 ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasUnit ;
     ] ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
-      owl:cardinality 1 ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasUpperBound ;
     ] ;
   skos:prefLabel "Age " ;
@@ -116,29 +116,23 @@ DSPCore:Assay
 .
 DSPCore:BioSample
   a owl:Class ;
-  DSPCore:closeMatch "Use for non URI references to very close match objects; e.g. Encode link" ;
   dc:identifier "DSPCore:BioSample" ;
   rdfs:label "BioSample" ;
   rdfs:subClassOf DSPCore:Sample ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality 1 ;
-      owl:onProperty DSPCore:dateObtained ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality 1 ;
-      owl:onProperty DSPCore:cellIsolationMethod ;
-    ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:organ ;
+      owl:onProperty DSPCore:dateObtained ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:replicateOf ;
+      owl:onProperty DSPCore:hasAnatomicalSite ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasCellIsolationMethod ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -167,37 +161,32 @@ DSPCore:Donor
   a owl:Class ;
   rdfs:label "Donor" ;
   rdfs:subClassOf obo:OBI_0100026 ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
-      owl:cardinality 1 ;
-      owl:onProperty DSPCore:organism ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasOrganism ;
     ] ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
-      owl:cardinality 1 ;
-      owl:onProperty DSPCore:sex ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality 1 ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasAge ;
     ] ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
-      owl:maxCardinality 1 ;
-      owl:onProperty DSPCore:phenotype ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasSex ;
     ] ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
-      owl:minCardinality 1 ;
-      owl:onProperty DSPCore:closeMatch ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasPhenotype ;
     ] ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
-      owl:minCardinality 1 ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:donated ;
     ] ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty <http://purl.org/dc/terms/isPartOf> ;
@@ -208,25 +197,25 @@ DSPCore:Experiment
   a owl:Class ;
   rdfs:label "Experiment" ;
   rdfs:subClassOf DSPCore:Activity ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
-      owl:minCardinality 1 ;
-      owl:onProperty DSPCore:hasAssay ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality 1 ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasProtocol ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality 1 ;
-      owl:onProperty DSPCore:usesSample ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty <http://www.w3.org/ns/prov#generated> ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasAssay ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:usesSample ;
     ] ;
   skos:prefLabel "Experiment" ;
 .
@@ -235,65 +224,50 @@ DSPCore:File
   rdfs:comment "Used definition from http://semanticscience.org/resource/SIO_000396 but equivalence to http://www.w3.org/ns/dcat#Distribution doesn't make sense to me; thus we have our own object.  Also added electronic.  This will be subclassed for different file types to allow for file type-specific metadata, but for now, all metadata is an option for all Files." ;
   rdfs:label "File" ;
   rdfs:subClassOf obo:IAO_0000030 ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
-      owl:cardinality 1 ;
-      owl:onProperty DSPCore:fileSize ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasFormat ;
     ] ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
-      owl:cardinality 1 ;
-      owl:onProperty DSPCore:format ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://www.w3.org/ns/dcat#byteSize> ;
     ] ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
-      owl:cardinality 1 ;
-      owl:onProperty DSPCore:hash ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasPercentAlignedReads ;
     ] ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
-      owl:maxCardinality 1 ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasChecksum ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasReadCount ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasReadLength ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasReferenceAssembly ;
     ] ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
-      owl:maxCardinality 1 ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasSponsor ;
     ] ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
-      owl:maxCardinality 1 ;
-      owl:onProperty DSPCore:mappedPairedEnd ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality 1 ;
-      owl:onProperty DSPCore:mappedReadLength ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality 1 ;
-      owl:onProperty DSPCore:pairedEnd ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality 1 ;
-      owl:onProperty DSPCore:percentAlignedReads ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality 1 ;
-      owl:onProperty DSPCore:platform ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality 1 ;
-      owl:onProperty DSPCore:readCount ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality 1 ;
-      owl:onProperty DSPCore:readLength ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:isPairedEnd ;
     ] ;
   skos:definition "A file is an information-bearing electronic object that contains a physical embodiment of some information using a particular character encoding." ;
   skos:prefLabel "File" ;
@@ -312,24 +286,19 @@ DSPCore:Library
   a owl:Class ;
   rdfs:label "Library" ;
   rdfs:subClassOf obo:BFO_0000040 ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
-      owl:cardinality 1 ;
-      owl:onProperty DSPCore:experiment ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasExperiment ;
     ] ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
-      owl:maxCardinality 1 ;
-      owl:onProperty DSPCore:molecule ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality 1 ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasAssay ;
     ] ;
-  rdfs:subClassOf [
+  owl:equivalentClass [
       a owl:Restriction ;
-      owl:minCardinality 1 ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasLibraryPrep ;
     ] ;
   skos:prefLabel "Library" ;
@@ -389,104 +358,27 @@ DSPCore:UserRestriction
   rdfs:label "User Restriction" ;
   skos:prefLabel "User Restriction" ;
 .
-DSPCore:ageCategory
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Age ;
-  rdfs:label "PositiveDecimal" ;
-  rdfs:range [
-      a rdfs:Datatype ;
-      owl:oneOf (
-          "Embryonic"
-          "Postnatal"
-        ) ;
+DSPCore:VariantCallSet
+  a owl:Class ;
+  rdfs:label "VariantCallSet" ;
+  rdfs:subClassOf DSPCore:File ;
+  skos:prefLabel "VariantCallSet" ;
+.
+DSPCore:VariantCalling
+  a owl:Class ;
+  rdfs:label "VariantCalling" ;
+  rdfs:subClassOf DSPCore:Activity ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty <http://www.w3.org/ns/prov#generated> ;
+      owl:someValuesFrom DSPCore:VariantCallSet ;
     ] ;
-  skos:prefLabel "ageCategory" ;
-.
-DSPCore:alias
-  a owl:AnnotationProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:domain DSPCore:Donor ;
-  rdfs:domain DSPCore:Experiment ;
-  rdfs:domain DSPCore:Library ;
-  rdfs:domain DSPCore:LibraryPrep ;
-  rdfs:label "alias" ;
-  rdfs:range xsd:string ;
-  skos:prefLabel "alias" ;
-.
-DSPCore:alignedFragments
-  a owl:DatatypeProperty ;
-  rdfs:comment "For alignment file types." ;
-  rdfs:domain DSPCore:AlignmentFile ;
-  rdfs:domain DSPCore:File ;
-  rdfs:label "alignedFragments" ;
-  rdfs:range xsd:integer ;
-  skos:prefLabel "alignedFragments" ;
-.
-DSPCore:bioSample
-  a owl:ObjectProperty ;
-  rdfs:label "bioSample" ;
-  rdfs:range DSPCore:BioSample ;
-  skos:prefLabel "bioSample" ;
-.
-DSPCore:bioSampleType
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:label "bioSampleType" ;
-  rdfs:range [
-      a rdfs:Datatype ;
-      owl:oneOf (
-          "cell line"
-          "in vitro differentiated cells"
-          "organoid"
-          "primary cell"
-          "single cell"
-          "tissue"
-          "whole organism"
-        ) ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty <http://www.w3.org/ns/prov#used> ;
+      owl:someValuesFrom <http://www.w3.org/ns/prov#SoftwareAgent> ;
     ] ;
-  skos:prefLabel "bioSampleType" ;
-.
-DSPCore:catalog
-  a owl:ObjectProperty ;
-  rdfs:comment "Part of DCAT V2; switch to DCAT term when V2 is included" ;
-  rdfs:domain <http://www.w3.org/ns/dcat#Catalog> ;
-  rdfs:label "catalog" ;
-  rdfs:range <http://www.w3.org/ns/dcat#Catalog> ;
-  rdfs:subPropertyOf <http://purl.org/dc/terms/hasPart> ;
-  skos:prefLabel "catalog" ;
-.
-DSPCore:cellIsolationMethod
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:label "cellIsolationMethod" ;
-  rdfs:range [
-      a rdfs:Datatype ;
-      owl:oneOf (
-          "micropipetting"
-          "microfluidic cell sorting"
-          "dilution"
-          "laser capture microdissection"
-          "fluorescence activated cell sorting"
-        ) ;
-    ] ;
-  skos:prefLabel "cellIsolationMethod" ;
-.
-DSPCore:closeMatch
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:domain DSPCore:Donor ;
-  rdfs:domain DSPCore:Experiment ;
-  rdfs:label "closeMatch" ;
-  rdfs:range xsd:string ;
-  skos:prefLabel "closeMatch" ;
-.
-DSPCore:constructsLibrary
-  a owl:ObjectProperty ;
-  rdfs:domain DSPCore:Experiment ;
-  rdfs:label "constructsLibrary" ;
-  rdfs:range DSPCore:Library ;
-  rdfs:subPropertyOf <http://www.w3.org/ns/prov#hadActivity> ;
-  skos:prefLabel "constructsLibrary" ;
+  skos:prefLabel "VariantCalling" ;
 .
 DSPCore:dateObtained
   a rdf:Property ;
@@ -508,7 +400,7 @@ DSPCore:derivedFrom
   rdfs:domain DSPCore:Library ;
   rdfs:label "derivedFrom" ;
   rdfs:range DSPCore:BioSample ;
-  owl:inverseOf DSPCore:hasLibrary ;
+  owl:inverseOf DSPCore:derived ;
   skos:prefLabel "derivedFrom" ;
 .
 DSPCore:donated
@@ -527,50 +419,144 @@ DSPCore:donatedBy
   owl:inverseOf DSPCore:donated ;
   skos:prefLabel "donatedBy" ;
 .
-DSPCore:duplicateFragments
-  a owl:DatatypeProperty ;
-  rdfs:comment "For alignment data types." ;
-  rdfs:domain DSPCore:AlignmentFile ;
-  rdfs:domain DSPCore:File ;
-  rdfs:label "duplicateFragments" ;
-  rdfs:range xsd:integer ;
-  skos:prefLabel "duplicateFragments" ;
+DSPCore:hasAge
+  a owl:ObjectProperty ;
+  rdfs:domain DSPCore:Donor ;
+  rdfs:label "hasAge" ;
+  rdfs:range DSPCore:Age ;
+  skos:prefLabel "hasAge" ;
 .
-DSPCore:estimatedLibrarySize
+DSPCore:hasAgeCategory
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:Age ;
+  rdfs:label "hasAgeCategory" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "Embryonic"
+          "Postnatal"
+        ) ;
+    ] ;
+  skos:prefLabel "hasAgeCategory" ;
+.
+DSPCore:hasAlignedFragments
   a owl:DatatypeProperty ;
   rdfs:comment "For alignment file types." ;
   rdfs:domain DSPCore:AlignmentFile ;
   rdfs:domain DSPCore:File ;
-  rdfs:label "estimatedLibrarySize" ;
+  rdfs:label "hasAlignedFragments" ;
   rdfs:range xsd:integer ;
-  skos:prefLabel "estimatedLibrarySize" ;
+  skos:prefLabel "hasAlignedFragments" ;
 .
-DSPCore:ethnicity
+DSPCore:hasAnatomicalSite
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:BioSample ;
+  rdfs:label "hasAnatomicalSite" ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "hasAnatomicalSite" ;
+.
+DSPCore:hasAntibody
+  a owl:DatatypeProperty ;
+  rdfs:comment "Antibodies are strings for now but may become classes in future." ;
+  rdfs:domain obo:OBI_0001954 ;
+  rdfs:label "hasAntibody" ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf <http://www.w3.org/ns/prov#used> ;
+  skos:prefLabel "hasAntibody" ;
+.
+DSPCore:hasAssay
+  a owl:ObjectProperty ;
+  rdfs:domain DSPCore:Experiment ;
+  rdfs:domain DSPCore:Library ;
+  rdfs:label "hasAssay" ;
+  rdfs:range obo:OBI_0000070 ;
+  rdfs:subPropertyOf <http://www.w3.org/ns/prov#hadActivity> ;
+  skos:prefLabel "hasAssay" ;
+.
+DSPCore:hasBioSampleType
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:BioSample ;
+  rdfs:label "hasBioSampleType" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "cell line"
+          "in vitro differentiated cells"
+          "organoid"
+          "primary cell"
+          "single cell"
+          "tissue"
+          "whole organism"
+        ) ;
+    ] ;
+  skos:prefLabel "hasBioSampleType" ;
+.
+DSPCore:hasCellIsolationMethod
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:BioSample ;
+  rdfs:label "hasCellIsolationMethod" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "micropipetting"
+          "microfluidic cell sorting"
+          "dilution"
+          "laser capture microdissection"
+          "fluorescence activated cell sorting"
+        ) ;
+    ] ;
+  skos:prefLabel "hasCellIsolationMethod" ;
+.
+DSPCore:hasChecksum
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:File ;
+  rdfs:label "hasChecksum" ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "hasChecksum" ;
+.
+DSPCore:hasCloseMatch
+  a owl:DatatypeProperty ;
+  rdfs:label "hasCloseMatch" ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "hasCloseMatch" ;
+.
+DSPCore:hasDuplicateFragments
+  a owl:DatatypeProperty ;
+  rdfs:comment "For alignment data types." ;
+  rdfs:domain DSPCore:AlignmentFile ;
+  rdfs:domain DSPCore:File ;
+  rdfs:label "hasDuplicateFragments" ;
+  rdfs:range xsd:integer ;
+  skos:prefLabel "hasDuplicateFragments" ;
+.
+DSPCore:hasEstimatedLibrarySize
+  a owl:DatatypeProperty ;
+  rdfs:comment "For alignment file types." ;
+  rdfs:domain DSPCore:AlignmentFile ;
+  rdfs:domain DSPCore:File ;
+  rdfs:label "hasEstimatedLibrarySize" ;
+  rdfs:range xsd:integer ;
+  skos:prefLabel "hasEstimatedLibrarySize" ;
+.
+DSPCore:hasEthnicity
   a owl:DatatypeProperty ;
   rdfs:domain DSPCore:Donor ;
-  rdfs:label "ethnicity" ;
+  rdfs:label "hasEthnicity" ;
   rdfs:range xsd:string ;
-  skos:prefLabel "ethnicity" ;
+  skos:prefLabel "hasEthnicity" ;
 .
-DSPCore:experiment
+DSPCore:hasExperiment
   a owl:ObjectProperty ;
   rdfs:domain DSPCore:File ;
   rdfs:domain DSPCore:Library ;
-  rdfs:label "experiment" ;
+  rdfs:label "hasExperiment" ;
   rdfs:range DSPCore:Experiment ;
-  skos:prefLabel "experiment" ;
+  skos:prefLabel "hasExperiment" ;
 .
-DSPCore:fileSize
+DSPCore:hasFormat
   a owl:DatatypeProperty ;
   rdfs:domain DSPCore:File ;
-  rdfs:label "fileSize" ;
-  rdfs:range xsd:integer ;
-  skos:prefLabel "fileSize" ;
-.
-DSPCore:format
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:File ;
-  rdfs:label "format" ;
+  rdfs:label "hasFormat" ;
   rdfs:range [
       a rdfs:Datatype ;
       owl:oneOf (
@@ -606,38 +592,17 @@ DSPCore:format
           "sra"
         ) ;
     ] ;
-  skos:prefLabel "format" ;
+  rdfs:subPropertyOf <http://purl.org/dc/terms/format> ;
+  skos:prefLabel "hasFormat" ;
 .
-DSPCore:hasAge
-  a owl:ObjectProperty ;
-  rdfs:domain DSPCore:Donor ;
-  rdfs:label "hasAge" ;
-  rdfs:range DSPCore:Age ;
-  skos:prefLabel "hasAge" ;
-.
-DSPCore:hasAntibody
+DSPCore:hasFragments
   a owl:DatatypeProperty ;
-  rdfs:comment "Antibodies are strings for now but may become classes in future." ;
-  rdfs:domain obo:OBI_0001954 ;
-  rdfs:label "hasAntibody" ;
-  rdfs:range xsd:string ;
-  rdfs:subPropertyOf <http://www.w3.org/ns/prov#used> ;
-  skos:prefLabel "hasAntibody" ;
-.
-DSPCore:hasAssay
-  a owl:ObjectProperty ;
-  rdfs:domain DSPCore:Experiment ;
-  rdfs:domain DSPCore:Library ;
-  rdfs:label "hasAssay" ;
-  rdfs:range obo:OBI_0000070 ;
-  rdfs:subPropertyOf <http://www.w3.org/ns/prov#hadActivity> ;
-  skos:prefLabel "hasAssay" ;
-.
-DSPCore:hasCloseMatch
-  a owl:DatatypeProperty ;
-  rdfs:label "hasCloseMatch" ;
-  rdfs:range xsd:string ;
-  skos:prefLabel "hasCloseMatch" ;
+  rdfs:comment "For alignment file types." ;
+  rdfs:domain DSPCore:AlignmentFile ;
+  rdfs:domain DSPCore:File ;
+  rdfs:label "hasFragments" ;
+  rdfs:range xsd:integer ;
+  skos:prefLabel "hasFragments" ;
 .
 DSPCore:hasLibrary
   a owl:ObjectProperty ;
@@ -662,6 +627,49 @@ DSPCore:hasLowerBound
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasLowerBound" ;
 .
+DSPCore:hasNonDuplicatedFragments
+  a owl:DatatypeProperty ;
+  rdfs:comment "For alignment file types." ;
+  rdfs:domain DSPCore:AlignmentFile ;
+  rdfs:domain DSPCore:File ;
+  rdfs:label "hasNonDuplicatedFragments" ;
+  rdfs:range xsd:integer ;
+  skos:prefLabel "hasNonDuplicatedFragments" ;
+.
+DSPCore:hasOrganism
+  a owl:ObjectProperty ;
+  rdfs:comment "For example: Homo sapiens from obo:NCBITaxon_9606" ;
+  rdfs:domain DSPCore:Donor ;
+  rdfs:label "hasOrganism" ;
+  rdfs:range obo:OBI_0100026 ;
+  skos:prefLabel "hasOrganism" ;
+.
+DSPCore:hasPercentAlignedReads
+  a owl:DatatypeProperty ;
+  rdfs:comment "Domain will change from File to SequencingOutputFile or SequenceActivity in future." ;
+  rdfs:domain DSPCore:AlignmentFile ;
+  rdfs:domain DSPCore:File ;
+  rdfs:label "hasPercentAlignedReads" ;
+  rdfs:range xsd:decimal ;
+  skos:prefLabel "hasPercentAlignedReads" ;
+.
+DSPCore:hasPercentDuplicateFragments
+  a owl:DatatypeProperty ;
+  rdfs:comment "For alignment file types." ;
+  rdfs:domain DSPCore:AlignmentFile ;
+  rdfs:domain DSPCore:File ;
+  rdfs:label "hasPercentDuplicateFragments" ;
+  rdfs:range xsd:decimal ;
+  skos:prefLabel "hasPercentDuplicateFragments" ;
+.
+DSPCore:hasPhenotype
+  a owl:DatatypeProperty ;
+  rdfs:comment "Use string for now; will be an ontology in future" ;
+  rdfs:domain DSPCore:Donor ;
+  rdfs:label "hasPhenotype" ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "hasPhenotype" ;
+.
 DSPCore:hasProtocol
   a owl:DatatypeProperty ;
   rdfs:domain DSPCore:Experiment ;
@@ -670,6 +678,23 @@ DSPCore:hasProtocol
   rdfs:range xsd:string ;
   rdfs:subPropertyOf <http://www.w3.org/ns/prov#used> ;
   skos:prefLabel "hasProtocol" ;
+.
+DSPCore:hasReadCount
+  a owl:DatatypeProperty ;
+  rdfs:comment "Domain will change from File to SequencingOutputFile or SequenceActivity in future." ;
+  rdfs:domain DSPCore:File ;
+  rdfs:label "hasReadCount" ;
+  rdfs:range xsd:integer ;
+  skos:prefLabel "hasReadCount" ;
+.
+DSPCore:hasReadLength
+  a owl:DatatypeProperty ;
+  rdfs:comment "Domain will change from File to SequencingOutputFile or SequenceActivity in future." ;
+  rdfs:domain DSPCore:File ;
+  rdfs:domain DSPCore:SequenceFile ;
+  rdfs:label "hasReadLength" ;
+  rdfs:range xsd:integer ;
+  skos:prefLabel "hasReadLength" ;
 .
 DSPCore:hasReferenceAssembly
   a owl:DatatypeProperty ;
@@ -681,14 +706,22 @@ DSPCore:hasReferenceAssembly
   rdfs:subPropertyOf <http://www.w3.org/ns/prov#used> ;
   skos:prefLabel "hasReferenceAssembly" ;
 .
-DSPCore:hasReplicate
-  a owl:ObjectProperty ;
+DSPCore:hasReplicationType
+  a owl:DatatypeProperty ;
   rdfs:domain DSPCore:BioSample ;
-  rdfs:label "hasReplicate" ;
-  rdfs:range DSPCore:BioSample ;
-  rdfs:subPropertyOf DSPCore:derived ;
-  owl:inverseOf DSPCore:replicateOf ;
-  skos:prefLabel "hasReplicate" ;
+  rdfs:label "hasReplicationType" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "biological"
+          "isogenic"
+          "anisogenic"
+          "technical"
+          "sequencing"
+          "pseudoreplicate"
+        ) ;
+    ] ;
+  skos:prefLabel "hasReplicationType" ;
 .
 DSPCore:hasResultFile
   a owl:ObjectProperty ;
@@ -699,6 +732,12 @@ DSPCore:hasResultFile
   rdfs:range DSPCore:File ;
   rdfs:subPropertyOf <http://www.w3.org/ns/prov#generated> ;
   skos:prefLabel "hasResultFile" ;
+.
+DSPCore:hasSex
+  a owl:ObjectProperty ;
+  rdfs:domain DSPCore:Donor ;
+  rdfs:label "hasSex" ;
+  skos:prefLabel "hasSex" ;
 .
 DSPCore:hasSponsor
   a owl:DatatypeProperty ;
@@ -740,179 +779,18 @@ DSPCore:hasUpperBound
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasUpperBound" ;
 .
-DSPCore:hash
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:File ;
-  rdfs:label "hash" ;
-  rdfs:range xsd:string ;
-  skos:prefLabel "hash" ;
-.
 DSPCore:investigatedBy
   a owl:ObjectProperty ;
   rdfs:label "investigatedBy" ;
   skos:prefLabel "investigatedBy" ;
 .
-DSPCore:mappedPairedEnd
+DSPCore:isPairedEnd
   a owl:DatatypeProperty ;
   rdfs:domain DSPCore:File ;
   rdfs:domain DSPCore:SequenceFile ;
-  rdfs:label "mappedPairedEnd" ;
+  rdfs:label "isPairedEnd" ;
   rdfs:range xsd:boolean ;
-  skos:prefLabel "mappedPairedEnd" ;
-.
-DSPCore:mappedReadLength
-  a owl:DatatypeProperty ;
-  rdfs:comment "Domain will change from File to SequencingOutputFile or SequenceActivity in future." ;
-  rdfs:domain DSPCore:File ;
-  rdfs:domain DSPCore:SequenceFile ;
-  rdfs:label "mappedReadLength" ;
-  rdfs:range xsd:integer ;
-  skos:prefLabel "mappedReadLength" ;
-.
-DSPCore:md5sum
-  a owl:DatatypeProperty ;
-  rdfs:label "md5sum" ;
-  rdfs:range xsd:string ;
-  rdfs:subPropertyOf DSPCore:hash ;
-  skos:prefLabel "md5sum" ;
-.
-DSPCore:molecule
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Library ;
-  rdfs:label "molecule" ;
-  rdfs:range xsd:string ;
-  skos:prefLabel "molecule" ;
-.
-DSPCore:nonDuplicatedFragments
-  a owl:DatatypeProperty ;
-  rdfs:comment "For alignment file types." ;
-  rdfs:domain DSPCore:AlignmentFile ;
-  rdfs:domain DSPCore:File ;
-  rdfs:label "nonDuplicatedFragments" ;
-  rdfs:range xsd:integer ;
-  skos:prefLabel "nonDuplicatedFragments" ;
-.
-DSPCore:organ
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:label "organ" ;
-  rdfs:range xsd:string ;
-  skos:prefLabel "organ" ;
-.
-DSPCore:organism
-  a owl:ObjectProperty ;
-  rdfs:comment "For example: Homo sapiens from obo:NCBITaxon_9606" ;
-  rdfs:domain DSPCore:Donor ;
-  rdfs:label "organism" ;
-  rdfs:range obo:OBI_0100026 ;
-  skos:prefLabel "organism" ;
-.
-DSPCore:pairedEnd
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:File ;
-  rdfs:domain DSPCore:SequenceFile ;
-  rdfs:label "pairedEnd" ;
-  rdfs:range xsd:boolean ;
-  skos:prefLabel "pairedEnd" ;
-.
-DSPCore:percentAlignedReads
-  a owl:DatatypeProperty ;
-  rdfs:comment "Domain will change from File to SequencingOutputFile or SequenceActivity in future." ;
-  rdfs:domain DSPCore:AlignmentFile ;
-  rdfs:domain DSPCore:File ;
-  rdfs:label "percentAlignedReads" ;
-  rdfs:range xsd:decimal ;
-  skos:prefLabel "percentAlignedReads" ;
-.
-DSPCore:percentDuplicateFragments
-  a owl:DatatypeProperty ;
-  rdfs:comment "For alignment file types." ;
-  rdfs:domain DSPCore:AlignmentFile ;
-  rdfs:domain DSPCore:File ;
-  rdfs:label "percentDuplicateFragments" ;
-  rdfs:range xsd:decimal ;
-  skos:prefLabel "percentDuplicateFragments" ;
-.
-DSPCore:phenotype
-  a owl:DatatypeProperty ;
-  rdfs:comment "Use string for now; will be an ontology in future" ;
-  rdfs:domain DSPCore:Donor ;
-  rdfs:label "phenotype" ;
-  rdfs:range xsd:string ;
-  skos:prefLabel "phenotype" ;
-.
-DSPCore:platform
-  a owl:ObjectProperty ;
-  rdfs:domain DSPCore:File ;
-  rdfs:label "platform" ;
-  rdfs:range obo:OBI_0000968 ;
-  skos:prefLabel "platform" ;
-.
-DSPCore:readCount
-  a owl:DatatypeProperty ;
-  rdfs:comment "Domain will change from File to SequencingOutputFile or SequenceActivity in future." ;
-  rdfs:domain DSPCore:File ;
-  rdfs:label "readCount" ;
-  rdfs:range xsd:integer ;
-  skos:prefLabel "readCount" ;
-.
-DSPCore:readLength
-  a owl:DatatypeProperty ;
-  rdfs:comment "Domain will change from File to SequencingOutputFile or SequenceActivity in future." ;
-  rdfs:domain DSPCore:File ;
-  rdfs:domain DSPCore:SequenceFile ;
-  rdfs:label "readLength" ;
-  rdfs:range xsd:integer ;
-  skos:prefLabel "readLength" ;
-.
-DSPCore:replicateOf
-  a owl:ObjectProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:label "replicateOf" ;
-  rdfs:range DSPCore:BioSample ;
-  rdfs:subPropertyOf DSPCore:derivedFrom ;
-  owl:inverseOf DSPCore:hasReplicate ;
-  skos:prefLabel "replicateOf" ;
-.
-DSPCore:replicationType
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:label "replicationType" ;
-  rdfs:range [
-      a rdfs:Datatype ;
-      owl:oneOf (
-          "biological"
-          "isogenic"
-          "anisogenic"
-          "technical"
-          "sequencing"
-          "pseudoreplicate"
-        ) ;
-    ] ;
-  skos:prefLabel "replicationType" ;
-.
-DSPCore:sex
-  a owl:ObjectProperty ;
-  rdfs:domain DSPCore:Donor ;
-  rdfs:label "sex" ;
-  skos:prefLabel "sex" ;
-.
-DSPCore:totalFragments
-  a owl:DatatypeProperty ;
-  rdfs:comment "For alignment file types." ;
-  rdfs:domain DSPCore:AlignmentFile ;
-  rdfs:domain DSPCore:File ;
-  rdfs:label "totalFragments" ;
-  rdfs:range xsd:integer ;
-  skos:prefLabel "totalFragments" ;
-.
-DSPCore:usedBy
-  a owl:ObjectProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:label "usedBy" ;
-  rdfs:range DSPCore:Experiment ;
-  rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasUsedBy> ;
-  skos:prefLabel "usedBy" ;
+  skos:prefLabel "isPairedEnd" ;
 .
 DSPCore:usesSample
   a owl:ObjectProperty ;
@@ -920,7 +798,6 @@ DSPCore:usesSample
   rdfs:label "usesSample" ;
   rdfs:range DSPCore:BioSample ;
   rdfs:subPropertyOf <http://www.w3.org/ns/prov#used> ;
-  owl:inverseOf DSPCore:usedBy ;
   skos:prefLabel "usesSample" ;
 .
 <http://datamodel.terra.bio/DSPdcat_ap#hasDataUseRequirement>
@@ -943,13 +820,6 @@ DSPCore:usesSample
 .
 obo:BFO_0000001
   owl:equivalentClass <http://www.w3.org/ns/prov#Entity> ;
-.
-obo:OBI_0000070
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality 1 ;
-      owl:onProperty DSPCore:hasResultFile ;
-    ] ;
 .
 <http://www.w3.org/ns/prov#Agent>
   owl:equivalentClass <http://xmlns.com/foaf/0.1/Agent> ;
