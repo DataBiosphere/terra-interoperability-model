@@ -172,12 +172,12 @@ DSPCore:BioSample
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://www.w3.org/ns/prov#generated> ;
+      owl:onProperty <http://www.w3.org/ns/prov#wasUsedBy> ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://www.w3.org/ns/prov#wasUsedBy> ;
+      owl:onProperty <http://purl.org/dc/terms/isPartOf> ;
+      owl:someValuesFrom <http://datamodel.terra.bio/DSPdcat_ap#Dataset> ;
     ] ;
   skos:prefLabel "BioSample" ;
 .
@@ -229,8 +229,8 @@ DSPCore:Donor
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty <http://purl.org/dc/terms/isPartOf> ;
+      owl:someValuesFrom <http://datamodel.terra.bio/DSPdcat_ap#Dataset> ;
     ] ;
   skos:prefLabel "Donor" ;
 .
@@ -868,11 +868,8 @@ DSPCore:hasReplicationType
 DSPCore:hasResultFile
   a owl:ObjectProperty ;
   rdfs:domain DSPCore:BioSample ;
-  rdfs:domain DSPCore:Experiment ;
-  rdfs:domain obo:OBI_0000070 ;
   rdfs:label "hasResultFile" ;
   rdfs:range DSPCore:File ;
-  rdfs:subPropertyOf <http://www.w3.org/ns/prov#generated> ;
   skos:prefLabel "hasResultFile" ;
 .
 DSPCore:hasSequencing
