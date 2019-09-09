@@ -94,18 +94,43 @@ DSPCore:Alignment
   a owl:Class ;
   rdfs:label "Alignment" ;
   rdfs:subClassOf DSPCore:Activity ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty <http://www.w3.org/ns/prov#generated> ;
+      owl:someValuesFrom DSPCore:AlignmentFile ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty <http://www.w3.org/ns/prov#used> ;
+      owl:someValuesFrom DSPCore:SequenceFile ;
+    ] ;
   skos:prefLabel "Alignment" ;
 .
 DSPCore:AlignmentFile
   a owl:Class ;
   rdfs:label "AlignmentFile" ;
   rdfs:subClassOf DSPCore:File ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasReferenceAssembly ;
+    ] ;
   skos:prefLabel "AlignmentFile" ;
 .
 DSPCore:AlignmentPostProcessing
   a owl:Class ;
   rdfs:label "AlignmentPostProcessing" ;
   rdfs:subClassOf DSPCore:Activity ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty <http://www.w3.org/ns/prov#generated> ;
+      owl:someValuesFrom DSPCore:AlignmentFile ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty <http://www.w3.org/ns/prov#used> ;
+      owl:someValuesFrom DSPCore:AlignmentFile ;
+    ] ;
   skos:prefLabel "AlignmentPostProcessing" ;
 .
 DSPCore:Assay
@@ -149,13 +174,29 @@ DSPCore:BioSample
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty <http://www.w3.org/ns/prov#generated> ;
     ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://www.w3.org/ns/prov#wasUsedBy> ;
+    ] ;
   skos:prefLabel "BioSample" ;
 .
 DSPCore:ChIP
   a owl:Class ;
   rdfs:label "Chromatin Immunoprecipitation" ;
-  rdfs:subClassOf DSPCore:Activity ;
+  rdfs:subClassOf DSPCore:LibraryPrep ;
   skos:prefLabel "ChIP" ;
+.
+DSPCore:ChromosomalLocation
+  a owl:Class ;
+  rdfs:label "ChromosomalLocation" ;
+  rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty DSPCore:hasPosition ;
+      owl:someValuesFrom xsd:string ;
+    ] ;
+  skos:prefLabel "ChromosomalLocation" ;
 .
 DSPCore:Donor
   a owl:Class ;
@@ -307,6 +348,11 @@ DSPCore:LibraryPrep
   a owl:Class ;
   rdfs:label "LibraryPrep" ;
   rdfs:subClassOf DSPCore:Activity ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty <http://www.w3.org/ns/prov#generated> ;
+      owl:someValuesFrom DSPCore:Library ;
+    ] ;
   skos:prefLabel "LibraryPrep" ;
 .
 DSPCore:MolecularSample
@@ -324,6 +370,22 @@ DSPCore:NoRestriction
   a obo:DUO_0000004 ;
   rdfs:label "NoRestriction" ;
   skos:prefLabel "NoRestriction" ;
+.
+DSPCore:ReferenceAssembly
+  a owl:Class ;
+  rdfs:label "ReferenceAssembly" ;
+  rdfs:subClassOf obo:OBI_0001573 ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasOrganism ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty DSPCore:hasGrcName ;
+      owl:someValuesFrom xsd:string ;
+    ] ;
+  skos:prefLabel "ReferenceAssembly" ;
 .
 DSPCore:Sample
   a owl:Class ;
@@ -351,6 +413,16 @@ DSPCore:Sequencing
   a owl:Class ;
   rdfs:label "Sequencing" ;
   rdfs:subClassOf DSPCore:Activity ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:usesSample ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty <http://www.w3.org/ns/prov#generated> ;
+      owl:someValuesFrom DSPCore:SequenceFile ;
+    ] ;
   skos:prefLabel "Sequencing" ;
 .
 DSPCore:UserRestriction
@@ -358,10 +430,37 @@ DSPCore:UserRestriction
   rdfs:label "User Restriction" ;
   skos:prefLabel "User Restriction" ;
 .
+DSPCore:VariantCall
+  a owl:Class ;
+  rdfs:comment "Use closeMatch to identify the called variant in other systems.  For example HGMD, ClinVar, rsID." ;
+  rdfs:label "VariantCall" ;
+  rdfs:subClassOf obo:OBI_0001364 ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty skos:closeMatch ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty DSPCore:hasLocation ;
+      owl:someValuesFrom DSPCore:ChromosomalLocation ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty <http://www.w3.org/ns/prov#used> ;
+      owl:someValuesFrom DSPCore:VariantCallSet ;
+    ] ;
+  skos:prefLabel "VariantCall" ;
+.
 DSPCore:VariantCallSet
   a owl:Class ;
   rdfs:label "VariantCallSet" ;
   rdfs:subClassOf DSPCore:File ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasVariantCall ;
+    ] ;
   skos:prefLabel "VariantCallSet" ;
 .
 DSPCore:VariantCalling
@@ -372,6 +471,11 @@ DSPCore:VariantCalling
       a owl:Restriction ;
       owl:onProperty <http://www.w3.org/ns/prov#generated> ;
       owl:someValuesFrom DSPCore:VariantCallSet ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty <http://www.w3.org/ns/prov#used> ;
+      owl:someValuesFrom DSPCore:AlignmentFile ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -448,6 +552,21 @@ DSPCore:hasAlignedFragments
   rdfs:range xsd:integer ;
   skos:prefLabel "hasAlignedFragments" ;
 .
+DSPCore:hasAlignment
+  a owl:ObjectProperty ;
+  rdfs:domain DSPCore:BioSample ;
+  rdfs:label "hasAlignment" ;
+  rdfs:range DSPCore:Alignment ;
+  rdfs:subPropertyOf <http://www.w3.org/ns/prov#hadActivity> ;
+  skos:prefLabel "hasAlignment" ;
+.
+DSPCore:hasAllele
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:VariantCall ;
+  rdfs:label "hasAllele" ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "hasAllele" ;
+.
 DSPCore:hasAnatomicalSite
   a owl:DatatypeProperty ;
   rdfs:domain DSPCore:BioSample ;
@@ -466,6 +585,7 @@ DSPCore:hasAntibody
 .
 DSPCore:hasAssay
   a owl:ObjectProperty ;
+  rdfs:domain DSPCore:BioSample ;
   rdfs:domain DSPCore:Experiment ;
   rdfs:domain DSPCore:Library ;
   rdfs:label "hasAssay" ;
@@ -514,11 +634,12 @@ DSPCore:hasChecksum
   rdfs:range xsd:string ;
   skos:prefLabel "hasChecksum" ;
 .
-DSPCore:hasCloseMatch
+DSPCore:hasChromosome
   a owl:DatatypeProperty ;
-  rdfs:label "hasCloseMatch" ;
+  rdfs:domain DSPCore:ChromosomalLocation ;
+  rdfs:label "hasChromosome" ;
   rdfs:range xsd:string ;
-  skos:prefLabel "hasCloseMatch" ;
+  skos:prefLabel "hasChromosome" ;
 .
 DSPCore:hasDuplicateFragments
   a owl:DatatypeProperty ;
@@ -604,6 +725,13 @@ DSPCore:hasFragments
   rdfs:range xsd:integer ;
   skos:prefLabel "hasFragments" ;
 .
+DSPCore:hasGrcName
+  a owl:DatatypeProperty ;
+  rdfs:comment "Name of the Reference Assembly in Genome Reference Consortium format (ncbi.nlm.nih.gov/grc.  Still draft." ;
+  rdfs:label "hasGrcName" ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "hasGrcName" ;
+.
 DSPCore:hasLibrary
   a owl:ObjectProperty ;
   rdfs:domain DSPCore:BioSample ;
@@ -619,6 +747,13 @@ DSPCore:hasLibraryPrep
   rdfs:range DSPCore:LibraryPrep ;
   rdfs:subPropertyOf <http://www.w3.org/ns/prov#hadActivity> ;
   skos:prefLabel "hasLibraryPrep" ;
+.
+DSPCore:hasLocation
+  a owl:ObjectProperty ;
+  rdfs:domain DSPCore:VariantCall ;
+  rdfs:label "hasLocation" ;
+  rdfs:range DSPCore:ChromosomalLocation ;
+  skos:prefLabel "hasLocation" ;
 .
 DSPCore:hasLowerBound
   a owl:DatatypeProperty ;
@@ -670,6 +805,13 @@ DSPCore:hasPhenotype
   rdfs:range xsd:string ;
   skos:prefLabel "hasPhenotype" ;
 .
+DSPCore:hasPosition
+  a owl:DatatypeProperty ;
+  rdfs:comment "Chromosomal Location.  For example, for human: chr7:140753336-140753337" ;
+  rdfs:label "hasPosition" ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "hasPosition" ;
+.
 DSPCore:hasProtocol
   a owl:DatatypeProperty ;
   rdfs:domain DSPCore:Experiment ;
@@ -697,12 +839,12 @@ DSPCore:hasReadLength
   skos:prefLabel "hasReadLength" ;
 .
 DSPCore:hasReferenceAssembly
-  a owl:DatatypeProperty ;
-  rdfs:comment "In future, we will define use the Sequence Ontology \"reference_genome\" class and subclass per species.  The UCSC name (hg19/hg38/mm10) will be an altLabel/synonym. The Release name (GRCh37/GRCh38/GRCm38) used by the Genome Reference Consortium will be the preferredLabel.  Encode currently allows either name and we're taking it as it is." ;
+  a owl:ObjectProperty ;
+  rdfs:comment "Still in draft" ;
   rdfs:domain DSPCore:AlignmentFile ;
   rdfs:domain DSPCore:File ;
   rdfs:label "hasReferenceAssembly" ;
-  rdfs:range xsd:string ;
+  rdfs:range DSPCore:ReferenceAssembly ;
   rdfs:subPropertyOf <http://www.w3.org/ns/prov#used> ;
   skos:prefLabel "hasReferenceAssembly" ;
 .
@@ -733,6 +875,14 @@ DSPCore:hasResultFile
   rdfs:subPropertyOf <http://www.w3.org/ns/prov#generated> ;
   skos:prefLabel "hasResultFile" ;
 .
+DSPCore:hasSequencing
+  a owl:ObjectProperty ;
+  rdfs:domain DSPCore:BioSample ;
+  rdfs:label "hasSequencing" ;
+  rdfs:range DSPCore:Sequencing ;
+  rdfs:subPropertyOf <http://www.w3.org/ns/prov#hadActivity> ;
+  skos:prefLabel "hasSequencing" ;
+.
 DSPCore:hasSex
   a owl:ObjectProperty ;
   rdfs:domain DSPCore:Donor ;
@@ -749,6 +899,20 @@ DSPCore:hasSponsor
   rdfs:label "hasSponsor" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasSponsor" ;
+.
+DSPCore:hasStartPosition
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:ChromosomalLocation ;
+  rdfs:label "hasStartPosition" ;
+  rdfs:range xsd:integer ;
+  skos:prefLabel "hasStartPosition" ;
+.
+DSPCore:hasStopPosition
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:ChromosomalLocation ;
+  rdfs:label "hasStopPosition" ;
+  rdfs:range xsd:integer ;
+  skos:prefLabel "hasStopPosition" ;
 .
 DSPCore:hasTarget
   a owl:DatatypeProperty ;
@@ -778,6 +942,28 @@ DSPCore:hasUpperBound
   rdfs:label "hasUpperBound" ;
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasUpperBound" ;
+.
+DSPCore:hasVariantCall
+  a owl:ObjectProperty ;
+  rdfs:domain DSPCore:BioSample ;
+  rdfs:domain DSPCore:VariantCallSet ;
+  rdfs:label "hasVariantCall" ;
+  rdfs:range DSPCore:VariantCall ;
+  skos:prefLabel "hasVariantCall" ;
+.
+DSPCore:hasVariantCalling
+  a owl:ObjectProperty ;
+  rdfs:domain DSPCore:BioSample ;
+  rdfs:label "hasVariantCalling" ;
+  rdfs:range DSPCore:VariantCalling ;
+  skos:prefLabel "hasVariantCalling" ;
+.
+DSPCore:hasVariantType
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:VariantCall ;
+  rdfs:label "hasVariantType" ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "hasVariantType" ;
 .
 DSPCore:investigatedBy
   a owl:ObjectProperty ;
@@ -826,6 +1012,9 @@ obo:BFO_0000001
 .
 <http://www.w3.org/ns/prov#Entity>
   owl:equivalentClass obo:BFO_0000001 ;
+.
+<http://www.w3.org/ns/prov#used>
+  owl:inverseOf <http://www.w3.org/ns/prov#wasUsedBy> ;
 .
 <http://www.w3.org/ns/prov#wasUsedBy>
   a owl:ObjectProperty ;
