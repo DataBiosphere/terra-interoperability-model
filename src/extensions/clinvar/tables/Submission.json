@@ -3,6 +3,10 @@
   "columns": [
     {
       "name": "id",
+      "datatype": "string"
+    },
+    {
+      "name": "submission_date",
       "datatype": "date"
     },
     {

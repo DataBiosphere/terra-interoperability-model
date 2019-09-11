@@ -54,10 +54,6 @@
       "datatype": "date"
     },
     {
-      "name": "interp_explanation_of_interp",
-      "datatype": "string"
-    },
-    {
       "name": "interp_comment",
       "datatype": "string"
     },

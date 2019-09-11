@@ -14,10 +14,6 @@
       "datatype": "string"
     },
     {
-      "name": "subclass_type",
-      "datatype": "string"
-    },
-    {
       "name": "allele_id",
       "datatype": "integer"
     },
@@ -25,6 +21,10 @@
       "name": "protein_change",
       "datatype": "string",
       "array_of": true
+    },
+    {
+      "name": "num_chromosomes",
+      "datatype": "integer"
     },
     {
       "name": "num_copies",
@@ -37,6 +37,17 @@
     {
       "name": "parent_id",
       "datatype": "integer",
+      "links": [
+        {
+          "table_name": "variation_archive_variation",
+          "column_name": "id"
+        }
+      ]
+    },
+    {
+      "name": "parent_ids",
+      "datatype": "integer",
+      "array_of": true,
       "links": [
         {
           "table_name": "variation_archive_variation",
