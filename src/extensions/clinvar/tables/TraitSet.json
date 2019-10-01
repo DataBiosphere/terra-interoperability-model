@@ -1,9 +1,10 @@
 {
-  "name": "variation_archive_trait_set",
+  "name": "trait_set",
   "columns": [
     {
       "name": "id",
-      "datatype": "integer"
+      "datatype": "string",
+      "primary_key": true
     },
     {
       "name": "type",
@@ -18,21 +19,12 @@
       "datatype": "string"
     },
     {
-      "name": "variation_archive_id",
+      "name": "trait_ids",
       "datatype": "string",
+      "array_of": true,
       "links": [
         {
-          "table_name": "variation_archive",
-          "column_name": "id"
-        }
-      ]
-    },
-    {
-      "name": "rcv_accession_id",
-      "datatype": "string",
-      "links": [
-        {
-          "table_name": "rcv_accession",
+          "table_name": "trait",
           "column_name": "id"
         }
       ]

@@ -3,7 +3,8 @@
   "columns": [
     {
       "name": "id",
-      "datatype": "string"
+      "datatype": "string",
+      "primary_key": true
     },
     {
       "name": "submission_date",
@@ -15,18 +16,8 @@
       "array_of": true
     },
     {
-      "name": "clinical_assertion_id",
-      "datatype": "string",
-      "links": [
-        {
-          "table_name": "clinical_assertion",
-          "column_name": "id"
-        }
-      ]
-    },
-    {
       "name": "submitter_id",
-      "datatype": "integer",
+      "datatype": "string",
       "links": [
         {
           "table_name": "submitter",

@@ -1,5 +1,5 @@
 {
-  "name": "submitter",
+  "name": "gene",
   "columns": [
     {
       "name": "id",
@@ -7,15 +7,15 @@
       "primary_key": true
     },
     {
-      "name": "submitter_name",
+      "name": "hgnc_id",
       "datatype": "string"
     },
     {
-      "name": "org_category",
+      "name": "full_name",
       "datatype": "string"
     },
     {
-      "name": "org_abbrev",
+      "name": "content",
       "datatype": "string"
     }
   ]

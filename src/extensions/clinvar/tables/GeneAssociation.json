@@ -1,0 +1,35 @@
+{
+  "name": "gene_association",
+  "columns": [
+    {
+      "name": "variation_id",
+      "datatype": "string",
+      "primary_key": true,
+      "links": [
+        {
+          "table_name": "variation",
+          "column_name": "id"
+        }
+      ]
+    },
+    {
+      "name": "gene_id",
+      "datatype": "string",
+      "primary_key": true,
+      "links": [
+        {
+          "table_name": "variation",
+          "column_name": "id"
+        }
+      ]
+    },
+    {
+      "name": "relationship_type",
+      "datatype": "string"
+    },
+    {
+      "name": "source",
+      "datatype": "string"
+    }
+  ]
+}

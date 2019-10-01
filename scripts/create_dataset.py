@@ -2,13 +2,16 @@
 import os
 import argparse
 import json
+import uuid
 
 
-def make_new_dataset(dataset_name, dataset_description, input_tables_directory, input_assets_directory, output_name):
+def make_new_dataset(dataset_name, dataset_description, dataset_profile_id,
+                     input_tables_directory, input_assets_directory, output_name):
     """
     Adds JSON files for assets and tables to a dataset, generates relationships and then writes the final JSON to disk.
     :param dataset_name: the schema name for the dataset
     :param dataset_description: description of the schema
+    :param dataset_profile_id: UUID of the billing profile the dataset should use
     :param input_tables_directory: the directory containing tables JSON files
     :param input_assets_directory: the directory containing assets JSON files
     :param output_name: the name of the output JSON, containing the combined assets, relationships and tables JSONs
@@ -30,6 +33,7 @@ def make_new_dataset(dataset_name, dataset_description, input_tables_directory, 
     dataset = {
         "name": dataset_name,
         "description": dataset_description,
+        "defaultProfileId": dataset_profile_id,
         "schema": {"tables": tables, "relationships": relationships, "assets": assets}
     }
     save_dataset_as_json(dataset=dataset, output_name=output_name)
@@ -74,7 +78,7 @@ def create_table_and_relationships(input_table, input_tables):
     """
 
     input_table_name = input_table["name"]
-    columns, table_relationships = [], []
+    columns, table_relationships, primary_keys = [], [], []
     for input_column in input_table["columns"]:
         column, new_relationships = create_column_and_relationships(input_relationships=input_column.get("links"),
                                                                     column_name=input_column["name"],
@@ -84,8 +88,10 @@ def create_table_and_relationships(input_table, input_tables):
                                                                     input_tables=input_tables)
         columns.append(column)
         table_relationships.extend(new_relationships)
+        if input_column.get("primary_key"):
+            primary_keys.append(input_column["name"])
 
-    table = {"name": input_table_name, "columns": columns}
+    table = {"name": input_table_name, "columns": columns, "primaryKey": primary_keys}
 
     return table, table_relationships
 
@@ -117,10 +123,7 @@ def create_column_and_relationships(input_relationships,
 
         relationships = [
             {
-                "name": "{}_{}_to_{}_{}".format(input_table_name,
-                                                column_name,
-                                                input_relationship["table_name"],
-                                                input_relationship["column_name"]),
+                "name": str(uuid.uuid4()),
                 "from": {"table": input_table_name, "column": column_name, "cardinality": "one"},
                 "to": {
                         "table": input_relationship["table_name"],
@@ -180,6 +183,11 @@ if __name__ == "__main__":
                         dest="dataset_description",
                         required=True,
                         help="description of the schema")
+    parser.add_argument("--dataset-profile-id",
+                        "-p",
+                        dest="dataset_profile_id",
+                        required=True,
+                        help="UUID for the billing profile the dataset should use")
     parser.add_argument("--input-tables-directory",
                         "-t",
                         dest="input_tables_directory",
@@ -199,6 +207,7 @@ if __name__ == "__main__":
 
     make_new_dataset(dataset_name=args.dataset_name,
                      dataset_description=args.dataset_description,
+                     dataset_profile_id=args.dataset_profile_id,
                      input_tables_directory=args.input_tables_directory,
                      input_assets_directory=args.input_assets_directory,
                      output_name=args.output_name)

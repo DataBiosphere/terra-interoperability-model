@@ -1,0 +1,5 @@
+{
+  "name": "Variation",
+  "rootTable": "variation",
+  "rootColumn": "id"
+}

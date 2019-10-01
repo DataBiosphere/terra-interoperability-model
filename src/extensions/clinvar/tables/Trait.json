@@ -1,9 +1,10 @@
 {
-  "name": "variation_archive_trait",
+  "name": "trait",
   "columns": [
     {
       "name": "id",
-      "datatype": "integer"
+      "datatype": "string",
+      "primary_key": true
     },
     {
       "name": "type",
@@ -24,16 +25,6 @@
     {
       "name": "content",
       "datatype": "string"
-    },
-    {
-      "name": "variation_archive_trait_set_id",
-      "datatype": "integer",
-      "links": [
-        {
-          "table_name": "variation_archive_trait_set",
-          "column_name": "id"
-        }
-      ]
     }
   ]
 }

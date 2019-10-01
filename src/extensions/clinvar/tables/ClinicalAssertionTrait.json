@@ -3,7 +3,8 @@
   "columns": [
     {
       "name": "id",
-      "datatype": "integer"
+      "datatype": "string",
+      "primary_key": true
     },
     {
       "name": "type",
@@ -27,7 +28,7 @@
     },
     {
       "name": "clinical_assertion_trait_set_id",
-      "datatype": "integer",
+      "datatype": "string",
       "links": [
         {
           "table_name": "clinical_assertion_trait_set",
@@ -36,11 +37,11 @@
       ]
     },
     {
-      "name": "variation_archive_trait_id",
-      "datatype": "integer",
+      "name": "trait_id",
+      "datatype": "string",
       "links": [
         {
-          "table_name": "variation_archive_trait",
+          "table_name": "trait",
           "column_name": "id"
         }
       ]

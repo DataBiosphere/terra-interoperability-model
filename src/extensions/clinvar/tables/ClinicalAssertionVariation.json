@@ -3,10 +3,15 @@
   "columns": [
     {
       "name": "id",
-      "datatype": "integer"
+      "datatype": "string",
+      "primary_key": true
     },
     {
       "name": "variation_type",
+      "datatype": "string"
+    },
+    {
+      "name": "subclass_type",
       "datatype": "string"
     },
     {
@@ -14,8 +19,9 @@
       "datatype": "string"
     },
     {
-      "name": "parent_id",
-      "datatype": "integer",
+      "name": "child_ids",
+      "datatype": "string",
+      "array_of": true,
       "links": [
         {
           "table_name": "clinical_assertion_variation",
@@ -24,8 +30,8 @@
       ]
     },
     {
-      "name": "parent_ids",
-      "datatype": "integer",
+      "name": "descendant_ids",
+      "datatype": "string",
       "array_of": true,
       "links": [
         {
@@ -40,6 +46,16 @@
       "links": [
         {
           "table_name": "clinical_assertion",
+          "column_name": "id"
+        }
+      ]
+    },
+    {
+      "name": "gene_id",
+      "datatype": "string",
+      "links": [
+        {
+          "table_name": "gene",
           "column_name": "id"
         }
       ]

@@ -3,11 +3,8 @@
   "columns": [
     {
       "name": "id",
-      "datatype": "string"
-    },
-    {
-      "name": "accession",
-      "datatype": "string"
+      "datatype": "string",
+      "primary_key": true
     },
     {
       "name": "version",
@@ -54,12 +51,9 @@
       "datatype": "date"
     },
     {
-      "name": "interp_comment",
-      "datatype": "string"
-    },
-    {
-      "name": "interp_comment_type",
-      "datatype": "string"
+      "name": "interp_comments",
+      "datatype": "string",
+      "array_of": true
     },
     {
       "name": "content",
@@ -86,11 +80,31 @@
       ]
     },
     {
-      "name": "variation_archive_variation_id",
-      "datatype": "integer",
+      "name": "variation_id",
+      "datatype": "string",
       "links": [
         {
-          "table_name": "variation_archive_variation",
+          "table_name": "variation",
+          "column_name": "id"
+        }
+      ]
+    },
+    {
+      "name": "submitter_id",
+      "datatype": "string",
+      "links": [
+        {
+          "table_name": "submitter",
+          "column_name": "id"
+        }
+      ]
+    },
+    {
+      "name": "submission_id",
+      "datatype": "string",
+      "links": [
+        {
+          "table_name": "submission",
           "column_name": "id"
         }
       ]

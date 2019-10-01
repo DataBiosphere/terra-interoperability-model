@@ -3,11 +3,8 @@
   "columns": [
     {
       "name": "id",
-      "datatype": "string"
-    },
-    {
-      "name": "accession",
-      "datatype": "string"
+      "datatype": "string",
+      "primary_key": true
     },
     {
       "name": "version",
@@ -46,8 +43,24 @@
       "datatype": "string"
     },
     {
-      "name": "variation_archive_release_date",
-      "datatype": "date"
+      "name": "variation_id",
+      "datatype": "string",
+      "links": [
+        {
+          "table_name": "variation",
+          "column_name": "id"
+        }
+      ]
+    },
+    {
+      "name": "trait_set_id",
+      "datatype": "string",
+      "links": [
+        {
+          "table_name": "trait_set",
+          "column_name": "id"
+        }
+      ]
     }
   ]
 }

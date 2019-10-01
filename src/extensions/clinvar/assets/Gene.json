@@ -1,0 +1,5 @@
+{
+  "name": "Gene",
+  "rootTable": "gene",
+  "rootColumn": "id"
+}
