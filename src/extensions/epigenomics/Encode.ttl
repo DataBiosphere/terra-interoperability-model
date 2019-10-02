@@ -60,7 +60,7 @@ Encode:ENCBS562VSE
   DSPCore:hasAnatomicSite "UBERON:0002369" ;
   DSPCore:hasBioSampleType "tissue" ;
   DSPCore:hasConsentCode DSPCore:NoRestriction ;
-  DSPCore:hasLibrary Encode:ENCBS719AMH ;
+  DSPCore:derived Encode:ENCBS719AMH ;
   dcterms:source "http://www.encodeproject.org/sources/kristin-ardlie/" ;
   rdfs:label "ENCBS562VSE" ;
   skos:prefLabel "ENCBS562VSE" ;
@@ -71,7 +71,6 @@ Encode:ENCBS719AMH
   DSPCore:donatedBy Encode:ENCD0451RUA ;
   DSPCore:hasBioSampleType "tissue" ;
   DSPCore:hasCrossReference "http://www.encodeproject.org/biosamples/ENCBS719AMH"^^dcterms:URI ;
-  DSPCore:hasLibrary Encode:ENCLB011GAL ;
   DSPCore:hasReplicationType "isogenic" ;
   DSPCore:hasResultFile Encode:ENCFF043TPA ;
   DSPCore:hasResultFile Encode:ENCFF147BDY ;
@@ -86,6 +85,7 @@ Encode:ENCBS719AMH
   Encode:hasAlias "gtex: ENC-1K2DA-016-SM-9JLPP" ;
   Encode:hasBiologicalReplicateID 2 ;
   Encode:hasLab "http://www.encodeproject.org/labs/barbara-wold/" ;
+  Encode:hasLibrary Encode:ENCLB011GAL ;
   Encode:hasStatus "released" ;
   Encode:hasTechnicalReplicateID 1 ;
   Encode:submittedBy "http://www.encodeproject.org/users/bc5b62f7-ce28-4a1e-b6b3-81c9c5a86d7a/" ;
@@ -229,6 +229,12 @@ Encode:hasLab
   rdfs:label "hasLab" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasLab" ;
+.
+Encode:hasLibrary
+  a owl:ObjectProperty ;
+  rdfs:domain <http://datamodel.terra.bio/DSPCore#BioSample> ;
+  rdfs:label "hasLibrary" ;
+  rdfs:range <http://datamodel.terra.bio/DSPCore#Library> ;
 .
 Encode:hasReplicateID
   a owl:DatatypeProperty ;
