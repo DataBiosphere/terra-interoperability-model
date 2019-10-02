@@ -749,14 +749,6 @@ DSPCore:hasGrcName
   rdfs:range xsd:string ;
   skos:prefLabel "hasGrcName" ;
 .
-DSPCore:hasLibrary
-  a owl:ObjectProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:label "hasLibrary" ;
-  rdfs:range DSPCore:Library ;
-  rdfs:subPropertyOf <http://www.w3.org/ns/prov#hadActivity> ;
-  skos:prefLabel "hasLibrary" ;
-.
 DSPCore:hasLibraryPrep
   a owl:ObjectProperty ;
   rdfs:domain DSPCore:Library ;

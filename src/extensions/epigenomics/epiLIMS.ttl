@@ -15,7 +15,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 DSPCore:Donor
-  dcterms:isPartOf epiLIMS:EncodeEpi ;
+  dcterms:isPartOf epiLIMS:EpiLIMS ;
 .
 <http://datamodel.terra.bio/epiLIMS>
   a owl:Ontology ;
@@ -118,7 +118,7 @@ epiLIMS:BioSAli_6648
   DSPCore:derived epiLIMS:BioSAli_6793 ;
   DSPCore:derivedFrom epiLIMS:BioSam_3165 ;
   dcterms:created "2018-06-12T20:12:54.000Z"^^xsd:dateTime ;
-  dcterms:isPartOf epiLIMS:EncodeEpi ;
+  dcterms:isPartOf epiLIMS:EpiLIMS ;
   rdfs:label "BioSAli 6648" ;
   skos:prefLabel "BioSAli 6648" ;
 .
@@ -127,7 +127,7 @@ epiLIMS:BioSAli_6793
   DSPCore:derived epiLIMS:BioSAli_6802 ;
   DSPCore:derivedFrom epiLIMS:BioSAli_6648 ;
   dcterms:created "2018-06-12T18:51:41.000Z"^^xsd:dateTime ;
-  dcterms:isPartOf epiLIMS:EncodeEpi ;
+  dcterms:isPartOf epiLIMS:EpiLIMS ;
   rdfs:label "BioSAli 6793" ;
   skos:prefLabel "BioSAli 6793" ;
 .
@@ -138,13 +138,13 @@ epiLIMS:BioSAli_6802
   DSPCore:hasAlignment epiLIMS:Aln_37342 ;
   DSPCore:hasAlignment epiLIMS:Aln_37855 ;
   DSPCore:hasAlignment epiLIMS:Aln_37856 ;
-  DSPCore:hasLibrary epiLIMS:DNA_Lib_9367 ;
   DSPCore:hasResultFile epiLIMS:AlignmentFile_19487 ;
   DSPCore:hasResultFile epiLIMS:AlignmentFile_19667 ;
   DSPCore:hasSequencing epiLIMS:Sequencing_CoPA_13999 ;
   DSPCore:hasSequencing epiLIMS:Sequencing_CoPA_14339 ;
+  DSPCore:hasLibraryPrep epiLIMS:ChIP_9523 ;
   dcterms:created "2018-06-13T20:37:50.000Z"^^xsd:dateTime ;
-  dcterms:isPartOf epiLIMS:EncodeEpi ;
+  dcterms:isPartOf epiLIMS:EpiLIMS ;
   rdfs:label "BioSAli 6802" ;
   skos:prefLabel "BioSAli 6802" ;
   prov:wasUsedBy epiLIMS:ChIP_9523 ;
@@ -156,7 +156,7 @@ epiLIMS:BioSam_3165
   DSPCore:donatedBy epiLIMS:Donor_963 ;
   DSPCore:hasBioSampleType "tissue" ;
   dcterms:created "2018-04-09T18:50:31.000Z"^^xsd:dateTime ;
-  dcterms:isPartOf epiLIMS:EncodeEpi ;
+  dcterms:isPartOf epiLIMS:EpiLIMS ;
   rdfs:label "BioSam_3165" ;
   skos:prefLabel "BioSam_3165" ;
 .
@@ -175,25 +175,32 @@ epiLIMS:DNA_Lib_9367
   prov:wasUsedBy epiLIMS:Sequencing_CoPA_13999 ;
   prov:wasUsedBy epiLIMS:Sequencing_CoPA_14339 ;
 .
+epiLIMS:DataCollection_EncodeEpiLIMS
+  a <http://datamodel.terra.bio/DSPdcat_ap#DataCollection> ;
+  <http://datamodel.terra.bio/DSPdcat_ap#hasDataset> epiLIMS:EpiLIMS ;
+  dcterms:title "Encode and Epigenomics Lab Data Demonstration Dataset" ;
+  rdfs:label "DataCollection_EncodeEpiLIMS" ;
+  skos:prefLabel "DataCollection_EncodeEpiLIMS" ;
+.
 epiLIMS:Donor_963
   a DSPCore:Donor ;
   DSPCore:donated epiLIMS:BioSam_3165 ;
   DSPCore:hasAge epiLIMS:Age_1 ;
   DSPCore:hasOrganism DSPCore:Homo_sapiens ;
   DSPCore:hasSex DSPCore:Male ;
-  dcterms:isPartOf epiLIMS:EncodeEpi ;
+  dcterms:isPartOf epiLIMS:EpiLIMS ;
   rdfs:label "Donor_963" ;
   skos:prefLabel "Donor_963" ;
 .
-epiLIMS:EncodeEpi
+epiLIMS:EpiLIMS
   a <http://datamodel.terra.bio/DSPdcat_ap#Dataset> ;
   DSPCore:hasDataUseRequirement DSPCore:UserRestriction ;
   DSPCore:hasPrimaryConsent DSPCore:GeneralResearchUse ;
   dcterms:hasPart epiLIMS:BioSam_3165 ;
   dcterms:hasPart epiLIMS:Donor_963 ;
-  dcterms:title "Encode and Epigenomics Lab Data Demonstration Dataset" ;
-  rdfs:label "EncodeEpi" ;
-  skos:prefLabel "EncodeEpi" ;
+  dcterms:title "Epigenomics LIMS Example" ;
+  rdfs:label "EpiLIMS" ;
+  skos:prefLabel "EpiLIMS" ;
 .
 epiLIMS:PurchasableAntibody
   a owl:Class ;
