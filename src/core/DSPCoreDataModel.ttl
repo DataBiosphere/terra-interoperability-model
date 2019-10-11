@@ -1,14 +1,14 @@
 # baseURI: http://datamodel.terra.bio/DSPCore
 # imports: http://datamodel.terra.bio/DSPdcat_ap
-# imports: http://datamodel.terra.bio/OBI_ontofox.owl
+# imports: http://datamodel.terra.bio/NCBITaxon_12organisms.owl
+# imports: http://datamodel.terra.bio/OBI_assaySubset.owl
+# imports: http://datamodel.terra.bio/OBI_subset.owl
 # imports: http://www.w3.org/2002/07/owl
 # imports: http://xmlns.com/foaf/0.1/
-# imports: https://raw.githubusercontent.com/EBISPOT/DUO/master/duo-basic.owl
 # prefix: DSPCore
 
 @prefix DSPCore: <http://datamodel.terra.bio/DSPCore#> .
 @prefix DSPdcat_ap: <http://datamodel.terra.bio/DSPdcat_ap/> .
-@prefix OBI_ontofox: <http://datamodel.terra.bio/OBI_ontofox.owl#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix duo: <http://purl.obolibrary.org/obo/duo-basic.owl#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
@@ -21,10 +21,11 @@
 <http://datamodel.terra.bio/DSPCore>
   a owl:Ontology ;
   owl:imports <http://datamodel.terra.bio/DSPdcat_ap> ;
-  owl:imports <http://datamodel.terra.bio/OBI_ontofox.owl> ;
+  owl:imports <http://datamodel.terra.bio/NCBITaxon_12organisms.owl> ;
+  owl:imports <http://datamodel.terra.bio/OBI_assaySubset.owl> ;
+  owl:imports <http://datamodel.terra.bio/OBI_subset.owl> ;
   owl:imports <http://www.w3.org/2002/07/owl> ;
   owl:imports <http://xmlns.com/foaf/0.1/> ;
-  owl:imports <https://raw.githubusercontent.com/EBISPOT/DUO/master/duo-basic.owl> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
 DSPCore:Activity
