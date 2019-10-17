@@ -6,7 +6,7 @@ DSPCore is a common data model proposal for biomedical research intended to faci
 Examples of searches include:
 * *Find all glioma data that I can access for commercial research*
 * *Find single-cell data from samples with HIV and an intracellular pathogens*
-* *I need RNA-seq, Hi-C, and ChIP-seq data from adult brain tissue -- normal and with malignant glioma*
+* *I need RNA-seq, Hi-C, and ChIP-seq data from adult brain tissue -- normal and diseased - with malignant glioma*
 
 The DSPCore data model is formally specified using OWL and is available in RDF serialization formats.  It is expected that the data model will be translated into appropriate syntaxes for implementation across a range of applications.  See [Using DSPCore](#using-dspcore).
 
