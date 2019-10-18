@@ -13,9 +13,9 @@ The DSPCore data model is formally specified using OWL and is available in RDF s
 The data model has been developed by The Broad Institute of MIT and Harvard’s Data Science Platform team and the DSPCore Data Model Team at the Broad.
 
 ### Terminology: Data Model, Ontology, Knowledge Graph
-These terms are often used interchangeably.  We use them as follows.
+These terms are often used interchangeably<sup>1</sup>.  We use them as follows.
 * An **ontology** is a formally specified vocabulary which defines the concepts and relationships that characterize a domain.  Further, we assume that an ontology represents all key high-level concepts in a domain and minimally provides parent-child relationships among the concepts.
-* A **data model** connects various domain vocabularies to “connect the dots” with a specific purpose in mind.  Data models are specific to selected use cases or objectives.  A good data model leverages standard vocabularies often in the form of ontologies and defines and extends concepts and relationships only when necessary.
+* A **data model** connects various domain vocabularies to “connect the dots” with a specific purpose in mind.  Data models are specific to selected use cases or objectives.  A good data model leverages standard vocabularies often in the form of ontologies and defines and extends concepts and relationships only when necessary.<sup>2</sup>
 * A **knowledge graph** is a data model populated with data.
 
 
@@ -34,7 +34,7 @@ Since its founding, the Broad Institute has been involved in systematic efforts 
 
 Historically most biomedical data have been collected in silos as a side effect of source, project structure, research purpose, data type, funding, etc.  Through the Internet and cloud storage we increasingly have access to these massive datasets. 
 
-The Broad Institute is committed to sharing data and knowledge. In defining data models, we aspire to the principles of the Data BioSphere3 and the FAIR4 guiding principles, notably:
+The Broad Institute is committed to sharing data and knowledge. In defining data models, we aspire to the principles of the Data BioSphere<sup>3</sup> and the FAIR<sup>4</sup> guiding principles, notably:
 * Open, community-driven, and standards-based data models
 * Findable, accessible, interoperable, and reusable data
 
@@ -74,4 +74,15 @@ We are also grateful for the work of many other groups who have contributed thro
 **Data models:** [Genomic Data Commons](https://gdc.cancer.gov/developers/gdc-data-model/gdc-data-model-components "Genomic Data Commons"), [BioCompute](https://github.com/biocompute-objects/BCO_Specification "BioCompute"), [Human Cell Atlas Metadata](https://data.humancellatlas.org/metadata "Human Cell Atlas Metadata"), [EMBL-EBI BioSamples](https://www.ebi.ac.uk/biosamples/docs/references/sampletab "EMBL-EBI BioSamples"), [Bioschemas](https://bioschemas.org/specifications/ "Bioschemas"), [Encode](https://www.encodeproject.org/profiles/ "Encode"), [NCBI Biosamples](https://submit.ncbi.nlm.nih.gov/biosample/template/?package=Human.1.0&action=definition "NCBI Biosamples").
 
 **Ontology/Vocabulary sources:** [W3C](https://www.w3.org/ "W3C") ([DCAT](https://w3c.github.io/dxwg/dcat/ "DCAT"), [PROV-O](https://www.w3.org/TR/prov-o/ "PROV-O")), [OBO Foundry,](http://obofoundry.org/ "OBO Foundry,") [EMBL-EBI’s Ontology Lookup Service](https://bioportal.bioontology.org/ontologies "EMBL-EBI’s Ontology Lookup Service"), [BioPortal](https://bioportal.bioontology.org/ontologies "BioPortal")
+
+### References
+
+<sup>1</sup>https://www.w3.org/standards/semanticweb/ontology 
+
+<sup>2</sup>https://www.w3.org/TR/dwbp/#dataVocabularies
+
+<sup>3</sup>https://medium.com/@benedictpaten/a-data-biosphere-for-biomedical-research-d212bbfae95d
+
+<sup>4</sup>https://www.nature.com/articles/sdata201618
+
 
