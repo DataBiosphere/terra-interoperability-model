@@ -1,0 +1,102 @@
+# baseURI: http://datamodel.broadinstitute.org/DogAgingDataModel
+# imports: http://datamodel.terra.bio/DSPCore
+# prefix: dog
+
+@prefix : <http://datamodel.broadinstitute.org/Dog> .
+@prefix DSPCore: <http://datamodel.terra.bio/DSPCore#> .
+@prefix dog: <http://datamodel.broadinstitute.org/DogAgingDataModel#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://datamodel.broadinstitute.org/DogAgingDataModel>
+  a owl:Ontology ;
+  owl:imports <http://datamodel.terra.bio/DSPCore> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+dog:CensusGeography
+  a owl:Class ;
+  rdfs:comment "Placeholder for Dog Aging Project object to capture the geographical information for environmental data.  This may be a tracts or block group." ;
+  rdfs:label "CensusGeography" ;
+  rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+.
+dog:Owner
+  a owl:Class ;
+  rdfs:label "Owner" ;
+  rdfs:subClassOf <http://xmlns.com/foaf/0.1/Person> ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dog:hasHouseholdDogs ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dog:hasHouseholdMembers ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasCurrentAddress ;
+    ] ;
+.
+dog:hasBreed
+  a owl:DatatypeProperty ;
+  rdfs:comment "Need to select ontology and make this an object property." ;
+  rdfs:label "hasBreed" ;
+  rdfs:range xsd:string ;
+.
+dog:hasCensusGeography
+  a owl:ObjectProperty ;
+  rdfs:domain DSPCore:Address ;
+  rdfs:label "hasCensusGeography" ;
+  rdfs:range dog:CensusGeography ;
+.
+dog:hasHouseholdDogs
+  a rdf:Property ;
+  rdfs:domain dog:Owner ;
+  rdfs:label "hasHouseholdDogs" ;
+  rdfs:range xsd:integer ;
+.
+dog:hasHouseholdMembers
+  a rdf:Property ;
+  rdfs:domain dog:Owner ;
+  rdfs:label "hasHouseholdMembers" ;
+  rdfs:range xsd:integer ;
+.
+dog:hasOwner
+  a owl:ObjectProperty ;
+  rdfs:label "hasOwner" ;
+  rdfs:range dog:Owner ;
+.
+dog:hasPrimaryBreed
+  a owl:DatatypeProperty ;
+  rdfs:label "hasPrimaryBreed" ;
+  rdfs:subPropertyOf dog:hasBreed ;
+.
+dog:hasSecondaryBreed
+  a owl:DatatypeProperty ;
+  rdfs:label "hasSecondaryBreed" ;
+  rdfs:subPropertyOf dog:hasBreed ;
+.
+DSPCore:Address
+  rdfs:comment "To allow for previous addresses, we have optional properties start and end date." ;
+.
+DSPCore:Dog
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dog:hasOwner ;
+    ] ;
+.
+DSPCore:hasCurrentAddress
+  rdfs:range DSPCore:Address ;
+.
+<http://xmlns.com/foaf/0.1/family_name>
+  rdfs:domain dog:Owner ;
+.
+<http://xmlns.com/foaf/0.1/givenname>
+  rdfs:domain dog:Owner ;
+  rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+.

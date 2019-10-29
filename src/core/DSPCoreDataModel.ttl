@@ -19,6 +19,13 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<DSPCore:hasMailingAddress>
+  a rdf:Property ;
+  rdfs:domain DSPCore:Address ;
+  rdfs:label "hasMailingAddress" ;
+  rdfs:range xsd:string ;
+  skos:definition "Text form of the address, including country and postal code." ;
+.
 <http://datamodel.terra.bio/DSPCore>
   a owl:Ontology ;
   owl:imports <http://datamodel.terra.bio/DSPdcat_ap> ;
@@ -64,6 +71,22 @@ DSPCore:Activity
       owl:onProperty prov:used ;
     ] ;
   skos:prefLabel "Activity" ;
+.
+DSPCore:Address
+  a owl:Class ;
+  rdfs:label "Address" ;
+  rdfs:subClassOf obo:IAO_0000030 ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasPostalCode ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasCountry ;
+    ] ;
+  skos:definition "A physical address for a foaf:Person or foaf:Organization" ;
 .
 DSPCore:Age
   a owl:Class ;
@@ -189,6 +212,11 @@ DSPCore:BioSample
   skos:definition "A physical sample consisting of one or more cells taken from an organism (living or deceased) or derived from such a Sample" ;
   skos:prefLabel "BioSample" ;
 .
+DSPCore:Canis_lupus_familaris
+  a obo:NCBITaxon_9615 ;
+  rdfs:label "Canis lupus familiaris" ;
+  skos:definition "Instance of dog organism to define organism type." ;
+.
 DSPCore:ChIP
   a owl:Class ;
   rdfs:label "Chromatin Immunoprecipitation" ;
@@ -204,6 +232,29 @@ DSPCore:ChromosomalLocation
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasChromosome ;
     ] ;
+.
+DSPCore:Country
+  a owl:Class ;
+  rdfs:label "Country" ;
+  rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasAlpha2Code ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://xmlns.com/foaf/0.1/name> ;
+    ] ;
+  skos:definition "A country represented by the ISO-3166 Alpha-2 code and name. https://www.iso.org/obp/ui/#search" ;
+.
+DSPCore:Dog
+  a owl:Class ;
+  DSPCore:hasOrganism DSPCore:Canis_lupus_familaris ;
+  rdfs:label "Dog" ;
+  rdfs:subClassOf DSPCore:Donor ;
+  skos:definition "Extension of Donor class for dogs." ;
 .
 DSPCore:Donor
   a owl:Class ;
@@ -223,6 +274,11 @@ DSPCore:Donor
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasSex ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasMedicalHistory ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -336,6 +392,13 @@ DSPCore:Homo_sapiens
   rdfs:label "Human" ;
   skos:prefLabel "Homo sapiens" ;
 .
+DSPCore:Human
+  a owl:Class ;
+  DSPCore:hasOrganism DSPCore:Homo_sapiens ;
+  rdfs:label "Human" ;
+  rdfs:subClassOf DSPCore:Donor ;
+  skos:definition "Extension of Donor class for Humans." ;
+.
 DSPCore:Library
   a owl:Class ;
   rdfs:label "Library" ;
@@ -368,6 +431,12 @@ DSPCore:LibraryPrep
     ] ;
   skos:prefLabel "LibraryPrep" ;
 .
+DSPCore:MedicalHistory
+  a owl:Class ;
+  rdfs:label "MedicalHistory" ;
+  rdfs:subClassOf obo:IAO_0000030 ;
+  skos:definition "Placeholder for medical record information.  Likely a series of visits/encounters with results.  Need to connect to the BioSample." ;
+.
 DSPCore:MolecularSample
   a owl:Class ;
   rdfs:label "MolecularSample" ;
@@ -377,8 +446,7 @@ DSPCore:MolecularSample
 .
 DSPCore:Mus_musculus
   a obo:NCBITaxon_10090 ;
-  rdfs:label "Mouse" ;
-  skos:prefLabel "Mus musculus" ;
+  rdfs:label "Mus musculus" ;
 .
 DSPCore:NoRestriction
   a obo:DUO_0000004 ;
@@ -612,6 +680,12 @@ DSPCore:hasAllele
   rdfs:range xsd:string ;
   skos:prefLabel "hasAllele" ;
 .
+DSPCore:hasAlpha2Code
+  a owl:AnnotationProperty ;
+  rdfs:domain DSPCore:Country ;
+  rdfs:label "hasAlpha2Code" ;
+  rdfs:range xsd:string ;
+.
 DSPCore:hasAnatomicalSite
   a owl:DatatypeProperty ;
   rdfs:domain DSPCore:BioSample ;
@@ -658,6 +732,13 @@ DSPCore:hasBioSampleType
   skos:definition "The type of sample taken from a biological entity." ;
   skos:prefLabel "hasBioSampleType" ;
 .
+DSPCore:hasBirthDate
+  a rdf:Property ;
+  rdfs:domain obo:OBI_0100026 ;
+  rdfs:label "hasBirthDate" ;
+  rdfs:range xsd:dateTime ;
+  rdfs:subPropertyOf <http://purl.org/dc/terms/date> ;
+.
 DSPCore:hasCellIsolationMethod
   a owl:DatatypeProperty ;
   rdfs:domain DSPCore:BioSample ;
@@ -688,12 +769,23 @@ DSPCore:hasChromosome
   rdfs:range xsd:string ;
   skos:prefLabel "hasChromosome" ;
 .
+DSPCore:hasCountry
+  a owl:ObjectProperty ;
+  rdfs:label "hasCountry" ;
+.
 DSPCore:hasCrossReference
   a owl:ObjectProperty ;
   rdfs:label "hasCrossReference" ;
   rdfs:range <http://purl.org/dc/terms/URI> ;
   rdfs:subPropertyOf skos:closeMatch ;
   skos:prefLabel "hasCrossReference" ;
+.
+DSPCore:hasCurrentAddress
+  a owl:ObjectProperty ;
+  rdfs:domain prov:Organization ;
+  rdfs:domain prov:Person ;
+  rdfs:label "hasCurrentAddress" ;
+  rdfs:range DSPCore:Address ;
 .
 DSPCore:hasDuplicateFragments
   a owl:DatatypeProperty ;
@@ -715,7 +807,7 @@ DSPCore:hasEstimatedLibrarySize
 .
 DSPCore:hasEthnicity
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Donor ;
+  rdfs:domain DSPCore:Human ;
   rdfs:label "hasEthnicity" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasEthnicity" ;
@@ -813,6 +905,12 @@ DSPCore:hasLowerBound
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasLowerBound" ;
 .
+DSPCore:hasMedicalHistory
+  a owl:ObjectProperty ;
+  rdfs:domain DSPCore:Donor ;
+  rdfs:label "hasMedicalHistory" ;
+  rdfs:range DSPCore:MedicalHistory ;
+.
 DSPCore:hasNonDuplicatedFragments
   a owl:DatatypeProperty ;
   rdfs:comment "For alignment file types." ;
@@ -855,6 +953,12 @@ DSPCore:hasPhenotype
   rdfs:label "hasPhenotype" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasPhenotype" ;
+.
+DSPCore:hasPostalCode
+  a rdf:Property ;
+  rdfs:domain DSPCore:Address ;
+  rdfs:label "hasPostalCode" ;
+  rdfs:range xsd:string ;
 .
 DSPCore:hasProtocol
   a owl:DatatypeProperty ;
@@ -1071,6 +1175,12 @@ DSPCore:usesSample
 .
 obo:BFO_0000001
   owl:equivalentClass prov:Entity ;
+.
+obo:NCBITaxon_10090
+  skos:definition "Instance of Mus musculus organism to define organism type." ;
+.
+obo:NCBITaxon_9606
+  skos:definition "Instance of Homo sapiens organism to define organism type." ;
 .
 obo:OBI_0000070
   owl:equivalentClass DSPCore:Assay ;
