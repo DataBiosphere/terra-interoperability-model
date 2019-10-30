@@ -48,7 +48,7 @@ Finally, we selected several datasets to test the model in our own pilot project
 In addition to the formal specification in OWL (serialized in Turtle format), the Data Sciences Platform Team has defined a JSON representation of the Data Model that will be used internally at Broad Institute to pilot the data model.  This JSON representation is an example of how the data model can be used to design schemas for relational data.
 
 ### License
-[Creative Commons CC-BY](https://creativecommons.org/licenses/by/3.0/ "Creative Commons CC-BY")
+[BSD 3-Clause License](https://github.com/broadinstitute/dsp-data-models/blob/master/LICENSE)
 
 ### Contact
 Please use this repository's [Issue Tracker](https://github.com/broadinstitute/dsp-data-models/issues "Issue Tracker") to share comments or concerns related to the data model.  DSPCore Data Model is not currently open to public contribution. DSPCore Data Model is currently wholly managed by Broad’s DSP Team.
