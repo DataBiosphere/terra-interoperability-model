@@ -1,0 +1,1697 @@
+# baseURI: http://datamodel.broadinstitute.org/AKCBreeds
+# prefix: AKCBreeds
+
+@prefix : <http://datamodel.broadinstitute.org/AKCBreeds#> .
+@prefix AKCBreeds: <http://datamodel.broadinstitute.org/AKCBreeds#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://datamodel.broadinstitute.org/AKCBreeds>
+  a owl:Ontology ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+AKCBreeds:Affenpinscher
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Affenpinscher" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Afghan_Hound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Afghan Hound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Airedale_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Airedale Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Akita
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Akita" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Alaskan_Malamute
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Alaskan Malamute" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:American
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "American" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:American_English_Coonhound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "American English Coonhound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:American_Eskimo_Dog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "American Eskimo Dog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:American_Foxhound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "American Foxhound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:American_Hairless_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "American Hairless Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:American_Leopard_Hound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "American Leopard Hound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:American_Pitbull_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "non-AKC" ;
+  rdfs:label "American Pitbull Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:American_Water_Spaniel
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "American Water Spaniel" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Anatolian_Shepherd_Dog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Anatolian Shepherd Dog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Appenzeller_Sennenhund
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Appenzeller Sennenhund" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Australian_Cattle_Dog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Australian Cattle Dog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Australian_Kelpie
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Australian Kelpie" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Australian_Shepherd
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Australian Shepherd" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Australian_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Australian Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Azawakh
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Azawakh" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Barbet
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Miscellaneous" ;
+  rdfs:label "Barbet" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Basenji
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Basenji" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Basset_Fauve_de_Bretagne
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Basset Fauve de Bretagne" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Basset_Hound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Basset Hound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Bavarian
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Bavarian" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Beagle
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Beagle" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Bearded_Collie
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Bearded Collie" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Beauceron
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Beauceron" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Bedlington_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Bedlington Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Belgian_Laekenois
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Miscellaneous" ;
+  rdfs:label "Belgian Laekenois" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Belgian_Malinois
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Belgian Malinois" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Belgian_Sheepdog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Belgian Sheepdog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Belgian_Tervuren
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Belgian Tervuren" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Bergamasco
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Bergamasco" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Berger_Picard
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Berger Picard" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Bernese_Mountain_Dog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Bernese Mountain Dog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Bichon_Frise
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "Bichon Frise" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Biewer_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Biewer Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Black_Russian_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Black Russian Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Black_and_Tan_Coonhound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Black and Tan Coonhound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Bloodhound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Bloodhound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Bluetick_Coonhound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Bluetick Coonhound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Boerboel
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Boerboel" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Bolognese
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Bolognese" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Border_Collie
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Border Collie" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Border_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Border Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Borzoi
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Borzoi" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Boston_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "Boston Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Bouvier_des_Flandres
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Bouvier des Flandres" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Boxer
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Boxer" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Boykin_Spaniel
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Boykin Spaniel" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Bracco_Italiano
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Bracco Italiano" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Braque_Francais_Pyrenean
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Braque Francais Pyrenean" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Braque_de_Bourbonnais
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Braque de Bourbonnais" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Briard
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Briard" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Brittany
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Brittany" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Broholmer
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Broholmer" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Brussels_Griffon
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Brussels Griffon" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Bull_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Bull Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Bulldog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "Bulldog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Bullmasti
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Bullmasti" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Cairn_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Cairn Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Canaan_Dog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Canaan Dog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Cane_Corso
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Cane Corso" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Cardigan_Welsh_Corgi
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Cardigan Welsh Corgi" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Carolina_Dog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Carolina Dog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Catahoula_Leopard_Dog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Catahoula Leopard Dog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Caucasian_Shepherd_Dog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Caucasian Shepherd Dog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Cavalier_King_Charles_Spaniel
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Cavalier King Charles Spaniel" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Central_Asian_Shepherd_Dog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Central Asian Shepherd Dog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Cesky_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Cesky Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Chesapeake_Bay_Retriever
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Chesapeake Bay Retriever" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Chihuahua
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Chihuahua" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Chinese_Crested
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Chinese Crested" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Chinese_Shar-Pei
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "Chinese Shar-Pei" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Chinook
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Chinook" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Chow_Chow
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "Chow Chow" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Cirneco_Dell_Etna
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Cirneco Dell'Etna" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Clumber_Spaniel
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Clumber Spaniel" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Cocker_Spaniel
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Cocker Spaniel" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Collie
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Collie" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Coton_De_Tulear
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "Coton De Tulear" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Croatian_Sheepdog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Croatian Sheepdog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Curly-Coated_Retriever
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Curly-Coated Retriever" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Czechoslovakian_Vlack
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Czechoslovakian Vlack" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Dachshund
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Dachshund" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Dalmatian
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "Dalmatian" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Dandie_Dinmont_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Dandie Dinmont Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Danish-Swedish_Farmdog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Danish-Swedish Farmdog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Deutscher_Wachtelhund
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Deutscher Wachtelhund" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Doberman_Pinscher
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Doberman Pinscher" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:DogBreed
+  a owl:Class ;
+  rdfs:label "DogBreed" ;
+  rdfs:subClassOf owl:Thing ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty AKCBreeds:hasAKCGroup ;
+    ] ;
+.
+AKCBreeds:Dogo_Argentino
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Miscellaneous" ;
+  rdfs:label "Dogo Argentino" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Dogue_de_Bordeaux
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Dogue de Bordeaux" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Drentsche_Patrijshond
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Drentsche Patrijshond" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Drever
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Drever" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Dutch_Shepherd
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Miscellaneous" ;
+  rdfs:label "Dutch Shepherd" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:English_Cocker_Spaniel
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "English Cocker Spaniel" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:English_Foxhound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "English Foxhound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:English_Setter
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "English Setter" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:English_Springer_Spaniel
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "English Springer Spaniel" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:English_Toy_Spaniel
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "English Toy Spaniel" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Entlebucher_Mountain_Dog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Entlebucher Mountain Dog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Estrela_Mountain_Dog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Estrela Mountain Dog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Eurasier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Eurasier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Field_Spaniel
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Field Spaniel" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Finish_Spitz
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "Finish Spitz" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Finnish_Lapphund
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Finnish Lapphund" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Flat-Coated_Retriever
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Flat-Coated Retriever" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:French_Bulldog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "French Bulldog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:French_Spaniel
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "French Spaniel" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:German_Longhaired_Pointer
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "German Longhaired Pointer" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:German_Pinscher
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "German Pinscher" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:German_Shepherd_Dog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "German Shepherd Dog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:German_Shorthaired_Pointer
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "German Shorthaired Pointer" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:German_Spitz
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "German Spitz" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:German_Wirehaired_Pointer
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "German Wirehaired Pointer" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Giant_Schnauzer
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Giant Schnauzer" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Glen_of_Imaal_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Glen of Imaal Terrier " ;
+  rdfs:label "Glen of Imaal Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Golden_Retriever
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Golden Retriever" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Gordon_Setter
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Gordon Setter" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Grand_Basset_Gri_on_Vendeen
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Grand Basset Gri on Vendeen" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Great_Dane
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Great Dane" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Great_Pyrenees
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Great Pyrenees" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Greater_Swiss_Mountain_Dog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Greater Swiss Mountain Dog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Greyhound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Greyhound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Hamiltonstovare
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Hamiltonstovare" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Hanoverian_Scenthound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Hanoverian Scenthound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Harrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Harrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Havanese
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Havanese" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Hokkaido
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Hokkaido" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Hovawart
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Hovawart" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Ibizan_Hound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Ibizan Hound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Icelandic_Sheepdog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Icelandic Sheepdog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Irish_Red_and_White_Setter
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Irish Red and White Setter " ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Irish_Setter
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Irish Setter" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Irish_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Irish Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Irish_Water_Spaniel
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Irish Water Spaniel" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Irish_Wolfhound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Irish Wolfhound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Italian_Greyhound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Italian Greyhound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Jack_Russell_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "non-AKC" ;
+  rdfs:label "Jack Russell Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Jagdterrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Jagdterrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Japanese_Chin
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Japanese Chin" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Jindo
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Jindo" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Kai_Ken
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Kai Ken" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Karelian_Bear_Dog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Karelian Bear Dog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Keeshond
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "Keeshond" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Kerry_Blue_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Kerry Blue Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Kishu_Ken
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Kishu Ken" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Komondor
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Komondor" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Kromfohrlander
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Kromfohrlander" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Kuvasz
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Kuvasz" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Labrador_Retriever
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Labrador Retriever" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Lagotto_Romagnolo
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Lagotto Romagnolo" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Lakeland_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Lakeland Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Lancashire_Heeler
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Miscellaneous" ;
+  rdfs:label "Lancashire Heeler" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Lapponian_Herder
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Lapponian Herder" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Leonberger
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Leonberger" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Lhasa_Apso
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "Lhasa Apso" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Lowchen
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "Lowchen" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Maltese
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Maltese" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Manchester_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Manchester Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Mastiff
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Mastiff" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Miniature_American_Shepherd
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Miniature American Shepherd" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Miniature_Bull_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Miniature Bull Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Miniature_Pinscher
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Miniature Pinscher" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Miniature_Schnauzer
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Miniature Schnauzer" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Mountain_Cur
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Mountain Cur" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Mudi
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Miscellaneous" ;
+  rdfs:label "Mudi" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Neapolitan_Masti
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Neapolitan Masti" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Nederlandse_Kooikerhondje
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Nederlandse Kooikerhondje" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Newfoundland
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Newfoundland" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Norfolk_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Norfolk Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Norrbottenspets
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Miscellaneous" ;
+  rdfs:label "Norrbottenspets" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Norwegian_Buhund
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Norwegian Buhund" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Norwegian_Elkhound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Norwegian Elkhound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Norwegian_Lundhund
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "Norwegian Lundhund" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Norwich_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Norwich Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Nova_Scotia_Duck_Tolling_Retriever
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Nova Scotia Duck Tolling Retriever " ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Old_English_Sheepdog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Old English Sheepdog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Otterhound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Otterhound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Papillon
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Papillon" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Parson_Russell_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Parson Russell Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Pekingese
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Pekingese" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Pembroke_Welsh_Corgi
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Pembroke Welsh Corgi" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Perro_de_Presa_Canario
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Perro de Presa Canario" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Peruvian_Inca_Orchid
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Miscellaneous" ;
+  rdfs:label "Peruvian Inca Orchid" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Petit_Basset_Gri_on_Vendeen
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Petit Basset Gri on Vendeen" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Pharaoh_Hound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Pharaoh Hound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Plott
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Plott" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Pointer
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Pointer" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Polish_Lowland_Sheepdog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Polish Lowland Sheepdog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Pomeranian
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Pomeranian" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Poodle
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "Poodle" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Poodle_Toy
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Poodle (Toy)" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Porcelaine
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Porcelaine" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Portuguese_Podengo
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Miscellaneous" ;
+  rdfs:label "Portuguese Podengo" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Portuguese_Podengo_Pequeno
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Portuguese Podengo Pequeno" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Portuguese_Pointer
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Portuguese Pointer" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Portuguese_Sheepdog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Portuguese Sheepdog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Portuguese_Water_Dog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Portuguese Water Dog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Pudelpointer
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Pudelpointer" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Pug
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Pug" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Puli
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Puli" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Pumi
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Pumi" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Pyrenean_Masti
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Pyrenean Masti" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Pyrenean_Shepherd
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Pyrenean Shepherd" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Rafeiro_de_Alentejo
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Rafeiro de Alentejo" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Rat_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Rat Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Redbone_Coonhound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Redbone Coonhound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Rhodesian_Ridgeback
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Rhodesian Ridgeback" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Romanian_Mioritic_Shepherd_Dog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Romanian Mioritic Shepherd Dog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Rottweiler
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Rottweiler" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Russell_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Russell Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Russian_Toy
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Miscellaneous" ;
+  rdfs:label "Russian Toy" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Russian_Tsvetnaya_Bolonka
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Russian Tsvetnaya Bolonka" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Saluki
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Saluki" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Samoyed
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Samoyed" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Schapendoes
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Schapendoes" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Schipperke
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "Schipperke" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Scottish_Deerhound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Scottish Deerhound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Scottish_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Scottish Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Sealyham_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Sealyham Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Segugio_Italiano
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Segugio Italiano" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Shetland_Sheepdog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Shetland Sheepdog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Shiba_Inu
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "Shiba Inu" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Shih_Tzu
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Shih Tzu" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Shikoku
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Shikoku" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Siberian_Husky
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Siberian Husky" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Silky_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Silky Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Skye_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Skye Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Sloughi
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Sloughi" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Slovakian_Wirehaired_Pointer
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Slovakian Wirehaired Pointer" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Slovensky_Cuvac
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Slovensky Cuvac" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Slovensky_Kopov
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Slovensky Kopov" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Small_Musterlander_Pointer
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Small Musterlander Pointer" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Smooth_Fox_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Smooth Fox Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Soft_Coated_Wheaten_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Soft Coated Wheaten Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Spanish_Masti
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Spanish Masti" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Spanish_Water_Dog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Spanish Water Dog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Spinone_Italiano
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Spinone Italiano" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+<http://datamodel.broadinstitute.org/AKCBreeds#St._Bernard>
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "St. Bernard" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Stabyhoun
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Stabyhoun" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Staffordshire_Bull_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Staffordshire Bull Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Standard_Schnauzer
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Standard Schnauzer" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Sussex_Spaniel
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Sussex Spaniel" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Swedish_Lapphund
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Swedish Lapphund" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Swedish_Vallhund
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Herding" ;
+  rdfs:label "Swedish Vallhund" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Taiwan_Dog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Taiwan Dog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Teddy_Roosevelt_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Teddy Roosevelt Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Thai_Ridgeback
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Thai Ridgeback" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Tibetan_Masti
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Working" ;
+  rdfs:label "Tibetan Masti" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Tibetan_Spaniel
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "Tibetan Spaniel" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Tibetan_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "Tibetan Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Tornjak
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Tornjak" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Tosa
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Tosa" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Toy_Fox_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Toy Fox Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Transylvanian_Hound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Transylvanian Hound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Treeing_Tennessee_Brindle
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Treeing Tennessee Brindle" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Treeing_Walker_Coonhound
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Treeing Walker Coonhound" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Village_Dog
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "non-AKC" ;
+  rdfs:label "Village Dog" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Vizsla
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Vizsla" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Weimaraner
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Weimaraner" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Welsh_Springer_Spaniel
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Welsh Springer Spaniel" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Welsh_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Welsh Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:West_Highland_White_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "West Highland White Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Whippet
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Hound" ;
+  rdfs:label "Whippet" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Wire_Fox_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Terrier" ;
+  rdfs:label "Wire Fox Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Wirehaired_Pointing_Griffon
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Wirehaired Pointing Griffon" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Wirehaired_Vizsla
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Sporting" ;
+  rdfs:label "Wirehaired Vizsla" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Wolf
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "non-AKC" ;
+  rdfs:label "Wolf" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Working_Kelpie
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Working Kelpie" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Xoloitzcuintli
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Non-Sporting" ;
+  rdfs:label "Xoloitzcuintli" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Yakutian_Laika
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Foundation Stock Service" ;
+  rdfs:label "Yakutian Laika" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:Yorkshire_Terrier
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "Toy" ;
+  rdfs:label "Yorkshire Terrier" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
+AKCBreeds:hasAKCGroup
+  a owl:DatatypeProperty ;
+  rdfs:domain AKCBreeds:DogBreed ;
+  rdfs:label "hasAKCGroup" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "Foundation Stock Service"
+          "Herding"
+          "Hound"
+          "Miscellaneous"
+          "Non-Sporting"
+          "Sporting"
+          "Terrier"
+          "Toy"
+          "Working"
+          "Non-AKC"
+        ) ;
+    ] ;
+.
+AKCBreeds:non-AKC_pure_breed_only
+  a owl:Class ;
+  AKCBreeds:hasAKCGroup "non-AKC" ;
+  rdfs:label "non-AKC (pure breed only)" ;
+  rdfs:subClassOf AKCBreeds:DogBreed ;
+.
