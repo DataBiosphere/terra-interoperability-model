@@ -19,13 +19,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<DSPCore:hasMailingAddress>
-  a rdf:Property ;
-  rdfs:domain DSPCore:Address ;
-  rdfs:label "hasMailingAddress" ;
-  rdfs:range xsd:string ;
-  skos:definition "Text form of the address, including country and postal code." ;
-.
 <http://datamodel.terra.bio/DSPCore>
   a owl:Ontology ;
   owl:imports <http://datamodel.terra.bio/DSPdcat_ap> ;
@@ -242,12 +235,7 @@ DSPCore:Country
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasAlpha2Code ;
     ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://xmlns.com/foaf/0.1/name> ;
-    ] ;
-  skos:definition "A country represented by the ISO-3166 Alpha-2 code and name. https://www.iso.org/obp/ui/#search" ;
+  skos:definition "A country represented by the ISO-3166 Alpha-2 code and name (as a label). https://www.iso.org/obp/ui/#search" ;
 .
 DSPCore:Dog
   a owl:Class ;
@@ -904,6 +892,13 @@ DSPCore:hasLowerBound
   rdfs:label "hasLowerBound" ;
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasLowerBound" ;
+.
+DSPCore:hasMailingAddress
+  a rdf:Property ;
+  rdfs:domain DSPCore:Address ;
+  rdfs:label "hasMailingAddress" ;
+  rdfs:range xsd:string ;
+  skos:definition "Text form of the address, including country and postal code." ;
 .
 DSPCore:hasMedicalHistory
   a owl:ObjectProperty ;

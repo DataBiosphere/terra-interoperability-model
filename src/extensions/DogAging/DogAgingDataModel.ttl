@@ -1,17 +1,96 @@
 # baseURI: http://datamodel.broadinstitute.org/DogAgingDataModel
+# imports: http://datamodel.broadinstitute.org/AKCBreeds
 # imports: http://datamodel.terra.bio/DSPCore
 # prefix: dog
 
-@prefix : <http://datamodel.broadinstitute.org/Dog> .
+@prefix : <http://datamodel.broadinstitute.org/Dog#> .
+@prefix AKCBreeds: <http://datamodel.broadinstitute.org/AKCBreeds#> .
 @prefix DSPCore: <http://datamodel.terra.bio/DSPCore#> .
+@prefix DSPdcat_ap: <http://datamodel.terra.bio/DSPdcat_ap#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dog: <http://datamodel.broadinstitute.org/DogAgingDataModel#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+:Cocker_Spaniel_1
+  a AKCBreeds:Cocker_Spaniel ;
+  rdfs:label "Cocker_Spaniel_1" ;
+.
+:DogAgingProject
+  a DSPdcat_ap:Dataset ;
+  DSPdcat_ap:hasDataUseRequirement DSPCore:UserRestriction ;
+  DSPdcat_ap:hasPrimaryConsent DSPCore:GeneralResearchUse ;
+  dcterms:hasPart <http://datamodel.broadinstitute.org/Dog/Fido> ;
+  dcterms:hasPart <http://datamodel.broadinstitute.org/Dog/Rover> ;
+  dcterms:hasPart <http://datamodel.broadinstitute.org/DogOwner_1> ;
+  dcterms:modified "11-24-2019T12:47Z" ;
+  dcterms:title "Dog Aging Project" ;
+  rdfs:label "Dog Aging Project" ;
+  dcat:theme DSPdcat_ap:BiomedicalResearch ;
+.
+:Scottish_Terrier_1
+  a AKCBreeds:Scottish_Terrier ;
+  rdfs:label "Scottish_Terrier_1" ;
+.
+:hasBreedType
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:Dog ;
+  rdfs:label "hasBreedType" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "Mixed breed"
+          "Pure breed"
+        ) ;
+    ] ;
+.
+:hasCensusGeography
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:Address ;
+  rdfs:label "hasCensusGeography" ;
+  rdfs:range xsd:string ;
+.
+<http://datamodel.broadinstitute.org/Dog/AddressA>
+  a DSPCore:Address ;
+  :hasCensusGeography "unknown" ;
+  DSPCore:hasCountry <http://datamodel.broadinstitute.org/Dog/United_States_of_America> ;
+  DSPCore:hasMailingAddress "105 Broadway Cambridge, MA" ;
+  DSPCore:hasPostalCode "02142" ;
+  rdfs:label "AddressA" ;
+.
+<http://datamodel.broadinstitute.org/Dog/Fido>
+  a DSPCore:Dog ;
+  :hasBreedType "Mixed breed" ;
+  dog:hasOwner <http://datamodel.broadinstitute.org/DogOwner_1> ;
+  dog:hasPrimaryBreed :Cocker_Spaniel_1 ;
+  dog:hasSecondaryBreed :Scottish_Terrier_1 ;
+  DSPCore:hasBirthDate "2009-12-25T12:00:00Z"^^xsd:dateTime ;
+  DSPCore:hasOrganism DSPCore:Canis_lupus_familaris ;
+  DSPCore:hasSex "Male" ;
+  rdfs:label "Fido" ;
+.
+<http://datamodel.broadinstitute.org/Dog/Rover>
+  a DSPCore:Dog ;
+  :hasBreedType "Pure breed" ;
+  dog:hasOwner <http://datamodel.broadinstitute.org/DogOwner_1> ;
+  dog:hasPrimaryBreed :Cocker_Spaniel_1 ;
+  DSPCore:hasBirthDate "2015-12-25T00:00:00Z"^^xsd:dateTime ;
+  DSPCore:hasOrganism DSPCore:Canis_lupus_familaris ;
+  DSPCore:hasSex "Female" ;
+  rdfs:label "Rover" ;
+.
+<http://datamodel.broadinstitute.org/Dog/United_States_of_America>
+  a DSPCore:Country ;
+  DSPCore:hasAlpha2Code "US" ;
+  rdfs:label "United States of America" ;
+.
 <http://datamodel.broadinstitute.org/DogAgingDataModel>
   a owl:Ontology ;
+  owl:imports <http://datamodel.broadinstitute.org/AKCBreeds> ;
   owl:imports <http://datamodel.terra.bio/DSPCore> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
@@ -24,7 +103,7 @@ dog:CensusGeography
 dog:Owner
   a owl:Class ;
   rdfs:label "Owner" ;
-  rdfs:subClassOf <http://xmlns.com/foaf/0.1/Person> ;
+  rdfs:subClassOf foaf:Person ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
@@ -38,14 +117,20 @@ dog:Owner
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dog:ownsDog ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasCurrentAddress ;
     ] ;
 .
 dog:hasBreed
-  a owl:DatatypeProperty ;
+  a owl:ObjectProperty ;
   rdfs:comment "Need to select ontology and make this an object property." ;
+  rdfs:domain DSPCore:Dog ;
   rdfs:label "hasBreed" ;
-  rdfs:range xsd:string ;
+  rdfs:range AKCBreeds:DogBreed ;
 .
 dog:hasCensusGeography
   a owl:ObjectProperty ;
@@ -67,36 +152,82 @@ dog:hasHouseholdMembers
 .
 dog:hasOwner
   a owl:ObjectProperty ;
+  rdfs:domain DSPCore:Dog ;
   rdfs:label "hasOwner" ;
   rdfs:range dog:Owner ;
+  owl:inverseOf dog:ownsDog ;
 .
 dog:hasPrimaryBreed
   a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:Dog ;
   rdfs:label "hasPrimaryBreed" ;
+  rdfs:range AKCBreeds:DogBreed ;
   rdfs:subPropertyOf dog:hasBreed ;
 .
 dog:hasSecondaryBreed
   a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:Dog ;
   rdfs:label "hasSecondaryBreed" ;
+  rdfs:range AKCBreeds:DogBreed ;
   rdfs:subPropertyOf dog:hasBreed ;
+.
+dog:ownsDog
+  a owl:ObjectProperty ;
+  rdfs:domain dog:Owner ;
+  rdfs:label "ownsDog" ;
+  rdfs:range DSPCore:Dog ;
+  owl:inverseOf dog:hasOwner ;
+.
+<http://datamodel.broadinstitute.org/DogOwner_1>
+  a dog:Owner ;
+  :hasCensusGeography "unknown" ;
+  dog:hasHouseholdDogs 2 ;
+  dog:hasHouseholdMembers 1 ;
+  dog:ownsDog <http://datamodel.broadinstitute.org/Dog/Fido> ;
+  dog:ownsDog <http://datamodel.broadinstitute.org/Dog/Rover> ;
+  DSPCore:hasCurrentAddress <http://datamodel.broadinstitute.org/Dog/AddressA> ;
+  rdfs:label "Owner_1" ;
+  foaf:firstName "Kathy" ;
+  foaf:surname "FidoOwner" ;
 .
 DSPCore:Address
   rdfs:comment "To allow for previous addresses, we have optional properties start and end date." ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty :hasCensusGeography ;
+    ] ;
 .
 DSPCore:Dog
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty :hasBreedType ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dog:hasOwner ;
     ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dog:hasPrimaryBreed ;
+    ] ;
+.
+DSPCore:hasCountry
+  rdfs:domain DSPCore:Address ;
 .
 DSPCore:hasCurrentAddress
   rdfs:range DSPCore:Address ;
 .
-<http://xmlns.com/foaf/0.1/family_name>
+DSPCore:hasStartPosition
+  rdfs:subPropertyOf DSPCore:hasSponsor ;
+.
+foaf:family_name
   rdfs:domain dog:Owner ;
 .
-<http://xmlns.com/foaf/0.1/givenname>
+foaf:givenname
   rdfs:domain dog:Owner ;
-  rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+  rdfs:domain foaf:Person ;
 .
