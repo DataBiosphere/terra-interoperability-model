@@ -284,6 +284,11 @@ DSPdcat_ap:Dataset
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPdcat_ap:wasPrincipalInvestigator ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty dcterms:hasPart ;
     ] ;
   rdfs:subClassOf [
@@ -292,6 +297,21 @@ DSPdcat_ap:Dataset
       owl:onProperty dcat:theme ;
     ] ;
   skos:prefLabel "Dataset" ;
+.
+DSPdcat_ap:PrincipalInvestigator
+  a owl:Class ;
+  rdfs:label "Principal Investigator" ;
+  rdfs:subClassOf prov:Person ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPdcat_ap:hadAffiliation ;
+    ] ;
+.
+DSPdcat_ap:hadAffiliation
+  a rdf:Property ;
+  rdfs:label "hasAffiliation" ;
+  rdfs:range xsd:string ;
 .
 DSPdcat_ap:hasDataCollection
   a owl:ObjectProperty ;
@@ -344,6 +364,13 @@ DSPdcat_ap:hasSecondaryConsent
   rdfs:label "hasSecondaryConsent" ;
   rdfs:range <http://purl.obolibrary.org/obo/DUO_0000003> ;
   skos:prefLabel "hasSecondaryConsent" ;
+.
+DSPdcat_ap:wasPrincipalInvestigator
+  a owl:ObjectProperty ;
+  rdfs:domain DSPdcat_ap:Dataset ;
+  rdfs:label "wasPrincipalInvestigator" ;
+  rdfs:range DSPdcat_ap:PrincipalInvestigator ;
+  rdfs:subPropertyOf prov:wasInfluencedBy ;
 .
 prov:value
   rdfs:subPropertyOf prov:influenced ;
