@@ -1,0 +1,470 @@
+# baseURI: http://datamodel.broadinstitute.org/DSPCoreValueSets
+# imports: http://datamodel.terra.bio/UBERON_subset.owl
+# imports: http://www.w3.org/2004/02/skos/core#
+# prefix: DSPCoreValueSets
+
+@prefix DSPCoreValueSets: <http://datamodel.broadinstitute.org/DSPCoreValueSets#> .
+@prefix UBERON_subset: <http://datamodel.terra.bio/UBERON_subset.owl#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://datamodel.broadinstitute.org/DSPCoreValueSets>
+  a owl:Ontology ;
+  owl:imports <http://datamodel.terra.bio/UBERON_subset.owl> ;
+  owl:imports skos: ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+DSPCoreValueSets:AmnioticFluid
+  a DSPCoreValueSets:AmnioticFluidType ;
+  rdfs:label "Amniotic fluid" ;
+.
+DSPCoreValueSets:AmnioticFluidType
+  a owl:Class ;
+  rdfs:label "Amniotic fluid" ;
+  rdfs:subClassOf DSPCoreValueSets:BodyFluid ;
+  owl:equivalentClass obo:UBERON_0000173 ;
+.
+DSPCoreValueSets:ArrayBasedModality
+  a owl:Class ;
+  rdfs:label "Array-based" ;
+  rdfs:subClassOf DSPCoreValueSets:Transcriptome ;
+.
+DSPCoreValueSets:Assembly
+  a DSPCoreValueSets:AssemblyModality ;
+  rdfs:label "Assembly" ;
+.
+DSPCoreValueSets:AssemblyModality
+  a owl:Class ;
+  rdfs:label "Assembly" ;
+  rdfs:subClassOf DSPCoreValueSets:Genome ;
+.
+DSPCoreValueSets:BCell
+  a DSPCoreValueSets:BCellType ;
+  rdfs:label "B cell" ;
+.
+DSPCoreValueSets:BCellType
+  a owl:Class ;
+  rdfs:label "B cell" ;
+  rdfs:subClassOf DSPCoreValueSets:PrimaryCell ;
+.
+DSPCoreValueSets:BioSampleType
+  a owl:Class ;
+  rdfs:label "BioSampleType" ;
+  rdfs:subClassOf obo:IAO_0000030 ;
+.
+DSPCoreValueSets:Blood
+  a owl:Class ;
+  rdfs:label "Blood" ;
+  rdfs:subClassOf DSPCoreValueSets:BodyFluid ;
+.
+DSPCoreValueSets:BodyFluid
+  a owl:Class ;
+  rdfs:label "Body fluid" ;
+  rdfs:subClassOf DSPCoreValueSets:PrimaryType ;
+.
+DSPCoreValueSets:BuffyCoat
+  a DSPCoreValueSets:BuffyCoatType ;
+  rdfs:label "BuffyCoat" ;
+.
+DSPCoreValueSets:BuffyCoatType
+  a owl:Class ;
+  rdfs:label "Buffy coat" ;
+  rdfs:subClassOf DSPCoreValueSets:Blood ;
+.
+DSPCoreValueSets:CTScanModality
+  a owl:Class ;
+  rdfs:label "CT scan" ;
+  rdfs:subClassOf DSPCoreValueSets:MedicalImaging ;
+.
+DSPCoreValueSets:Canis_lupus_familaris
+  a obo:NCBITaxon_9615 ;
+  rdfs:label "Canis lupus familiaris" ;
+  skos:definition "Instance of dog organism to define organism type." ;
+.
+DSPCoreValueSets:CellFreeDNA
+  a DSPCoreValueSets:CellFreeDNAType ;
+  rdfs:label "Cell free DNA" ;
+.
+DSPCoreValueSets:CellFreeDNAType
+  a owl:Class ;
+  rdfs:label "Cell-free DNA" ;
+  rdfs:subClassOf DSPCoreValueSets:PrimaryType ;
+.
+DSPCoreValueSets:CellLine
+  a owl:Class ;
+  rdfs:comment "Will likely create instances for specific cell lines, but no concrete use case available yet." ;
+  rdfs:label "Cell line" ;
+  rdfs:subClassOf DSPCoreValueSets:BioSampleType ;
+.
+DSPCoreValueSets:CellularMorphologyModality
+  a owl:Class ;
+  rdfs:label "Cellular morphology" ;
+  rdfs:subClassOf DSPCoreValueSets:DataModality ;
+.
+DSPCoreValueSets:CerebrospinalFluid
+  a DSPCoreValueSets:CerebrospinalFluidType ;
+  rdfs:label "Cerebrospinal fluid" ;
+.
+DSPCoreValueSets:CerebrospinalFluidType
+  a owl:Class ;
+  rdfs:label "Cerebrospinal fluid" ;
+  rdfs:subClassOf DSPCoreValueSets:BodyFluid ;
+.
+DSPCoreValueSets:DataModality
+  a owl:Class ;
+  rdfs:label "DataModality" ;
+  rdfs:subClassOf obo:IAO_0000030 ;
+  skos:altLabel "Assay Category" ;
+  skos:altLabel "Measurement Type" ;
+  skos:definition "Mode by which the data was generated.  Assay and sequencing data as well as data produced from imaging technologies are examples." ;
+.
+DSPCoreValueSets:DerivedType
+  a owl:Class ;
+  rdfs:label "DerivedType" ;
+  rdfs:subClassOf DSPCoreValueSets:BioSampleType ;
+.
+DSPCoreValueSets:Electrocardiogram
+  a DSPCoreValueSets:ElectrocardiogramModality ;
+  rdfs:label "Electrocardiogram" ;
+  skos:altLabel "ECG" ;
+  skos:altLabel "EKG" ;
+.
+DSPCoreValueSets:ElectrocardiogramModality
+  a owl:Class ;
+  rdfs:label "Electrocardiogram" ;
+  rdfs:subClassOf DSPCoreValueSets:MedicalImaging ;
+.
+DSPCoreValueSets:EpigenomeModality
+  a owl:Class ;
+  rdfs:label "Epigenome" ;
+  rdfs:subClassOf DSPCoreValueSets:DataModality ;
+.
+DSPCoreValueSets:Erythrocyte
+  a DSPCoreValueSets:ErythrocyteType ;
+  rdfs:label "Erythrocyte" ;
+.
+DSPCoreValueSets:ErythrocyteType
+  a owl:Class ;
+  rdfs:label "Erythrocyte" ;
+  rdfs:subClassOf DSPCoreValueSets:Blood ;
+  skos:altLabel "RBC" ;
+  skos:altLabel "Red blood cell" ;
+.
+DSPCoreValueSets:Exome
+  a DSPCoreValueSets:ExomeModality ;
+  rdfs:label "Exome" ;
+  skos:altLabel "WES" ;
+.
+DSPCoreValueSets:ExomeModality
+  a owl:Class ;
+  rdfs:label "Exome" ;
+  rdfs:subClassOf DSPCoreValueSets:Genotyping ;
+  skos:altLabel "WES" ;
+.
+DSPCoreValueSets:Genome
+  a owl:Class ;
+  rdfs:label "Genome" ;
+  rdfs:subClassOf DSPCoreValueSets:DataModality ;
+.
+DSPCoreValueSets:Genotyping
+  a owl:Class ;
+  rdfs:label "Genotyping" ;
+  rdfs:subClassOf DSPCoreValueSets:Genome ;
+.
+DSPCoreValueSets:HistoneModification
+  a DSPCoreValueSets:HistoneModificationModality ;
+  rdfs:label "Histone Modification" ;
+.
+DSPCoreValueSets:HistoneModificationModality
+  a owl:Class ;
+  rdfs:label "HistoneModificationModality" ;
+  rdfs:subClassOf DSPCoreValueSets:EpigenomeModality ;
+.
+DSPCoreValueSets:InducedPluripotentStemCellType
+  a owl:Class ;
+  rdfs:label "Induced pluripotent stem cells" ;
+  rdfs:subClassOf DSPCoreValueSets:DerivedType ;
+.
+DSPCoreValueSets:InvitroDifferentiatedCellType
+  a owl:Class ;
+  rdfs:label "In vitro differentiated cells" ;
+  rdfs:subClassOf DSPCoreValueSets:DerivedType ;
+.
+DSPCoreValueSets:Leukocyte
+  a DSPCoreValueSets:LeukocyteType ;
+  rdfs:label "Leukocyte" ;
+.
+DSPCoreValueSets:LeukocyteType
+  a owl:Class ;
+  rdfs:label "Leukocyte" ;
+  rdfs:subClassOf DSPCoreValueSets:Blood ;
+  skos:altLabel "White blood cell" ;
+.
+DSPCoreValueSets:Lymphocyte
+  a DSPCoreValueSets:LymphocyteType ;
+  rdfs:label "Lymphocyte" ;
+.
+DSPCoreValueSets:LymphocyteType
+  a owl:Class ;
+  rdfs:label "Lymphocyte" ;
+  rdfs:subClassOf DSPCoreValueSets:PrimaryCell ;
+.
+DSPCoreValueSets:MRI
+  a DSPCoreValueSets:MRIModality ;
+  rdfs:label "MRI" ;
+  skos:altLabel "Magnetic resonance imaging" ;
+.
+DSPCoreValueSets:MRIModality
+  a owl:Class ;
+  rdfs:label "MRI" ;
+  rdfs:subClassOf DSPCoreValueSets:MedicalImaging ;
+.
+DSPCoreValueSets:MedicalImaging
+  a owl:Class ;
+  rdfs:label "Medical imaging" ;
+  rdfs:subClassOf DSPCoreValueSets:DataModality ;
+.
+DSPCoreValueSets:Metabolome
+  a owl:Class ;
+  rdfs:label "Metabolome" ;
+  rdfs:subClassOf DSPCoreValueSets:DataModality ;
+.
+DSPCoreValueSets:MicroRNACounts
+  a DSPCoreValueSets:ArrayBasedModality ;
+  rdfs:label "microRNA Counts" ;
+  skos:altLabel "miRNA counts" ;
+.
+DSPCoreValueSets:Microbiome
+  a owl:Class ;
+  rdfs:label "Microbiome" ;
+  rdfs:subClassOf DSPCoreValueSets:DataModality ;
+.
+DSPCoreValueSets:Monocyte
+  a DSPCoreValueSets:MonocyteType ;
+  rdfs:label "Monocyte" ;
+.
+DSPCoreValueSets:MonocyteType
+  a owl:Class ;
+  rdfs:label "Monocyte" ;
+  rdfs:subClassOf DSPCoreValueSets:PrimaryCell ;
+.
+DSPCoreValueSets:OrganoidType
+  a owl:Class ;
+  rdfs:label "Organoid" ;
+  rdfs:subClassOf DSPCoreValueSets:DerivedType ;
+.
+DSPCoreValueSets:PeripheralBloodMononuclearCell
+  a DSPCoreValueSets:PeripheralBloodMononuclearCellType ;
+  rdfs:label "PeripheralBloodMononuclearCell" ;
+.
+DSPCoreValueSets:PeripheralBloodMononuclearCellType
+  a owl:Class ;
+  rdfs:label "Peripheral blood mononuclear cell" ;
+  rdfs:subClassOf DSPCoreValueSets:Blood ;
+  skos:altLabel "PBMC" ;
+.
+DSPCoreValueSets:Plasma
+  a DSPCoreValueSets:PlasmaType ;
+  rdfs:label "Plasma" ;
+.
+DSPCoreValueSets:PlasmaType
+  a owl:Class ;
+  rdfs:label "Plasma" ;
+  rdfs:subClassOf DSPCoreValueSets:Blood ;
+  owl:equivalentClass obo:UBERON_0001969 ;
+.
+DSPCoreValueSets:Platelet
+  a DSPCoreValueSets:PlateletType ;
+  rdfs:label "Platelet" ;
+.
+DSPCoreValueSets:PlateletType
+  a owl:Class ;
+  rdfs:label "Platelet" ;
+  rdfs:subClassOf DSPCoreValueSets:Blood ;
+.
+DSPCoreValueSets:PrimaryCell
+  a owl:Class ;
+  rdfs:label "Primary cell" ;
+  rdfs:subClassOf DSPCoreValueSets:PrimaryType ;
+.
+DSPCoreValueSets:PrimaryCultureType
+  a owl:Class ;
+  rdfs:label "Primary culture" ;
+  rdfs:subClassOf DSPCoreValueSets:PrimaryType ;
+.
+DSPCoreValueSets:PrimaryType
+  a owl:Class ;
+  rdfs:label "PrimaryType" ;
+  rdfs:subClassOf DSPCoreValueSets:BioSampleType ;
+.
+DSPCoreValueSets:Proteome
+  a owl:Class ;
+  rdfs:label "Proteome" ;
+  rdfs:subClassOf DSPCoreValueSets:DataModality ;
+.
+DSPCoreValueSets:ReferenceGenome
+  a DSPCoreValueSets:ReferenceGenomeModality ;
+  rdfs:label "Reference Genome" ;
+  skos:altLabel "ref genome" ;
+.
+DSPCoreValueSets:ReferenceGenomeModality
+  a owl:Class ;
+  rdfs:label "Reference" ;
+  rdfs:subClassOf DSPCoreValueSets:Genome ;
+.
+DSPCoreValueSets:RnaSeq
+  a DSPCoreValueSets:RnaSeqModality ;
+  rdfs:label "RNASeq" ;
+.
+DSPCoreValueSets:RnaSeqModality
+  a owl:Class ;
+  rdfs:label "RNASeq" ;
+  rdfs:subClassOf DSPCoreValueSets:Transcriptome ;
+.
+DSPCoreValueSets:Saliva
+  a DSPCoreValueSets:SalivaType ;
+  rdfs:label "Saliva" ;
+.
+DSPCoreValueSets:SalivaType
+  a owl:Class ;
+  rdfs:label "Saliva" ;
+  rdfs:subClassOf DSPCoreValueSets:BodyFluid ;
+.
+DSPCoreValueSets:Semen
+  a DSPCoreValueSets:SemenType ;
+  rdfs:label "Semen" ;
+.
+DSPCoreValueSets:SemenType
+  a owl:Class ;
+  rdfs:label "Semen" ;
+  rdfs:subClassOf DSPCoreValueSets:BodyFluid ;
+.
+DSPCoreValueSets:Serum
+  a DSPCoreValueSets:SerumType ;
+  rdfs:label "Serum" ;
+.
+DSPCoreValueSets:SerumType
+  a owl:Class ;
+  rdfs:label "Serum" ;
+  rdfs:subClassOf DSPCoreValueSets:Blood ;
+  owl:equivalentClass obo:UBERON_0001977 ;
+.
+DSPCoreValueSets:Stool
+  a DSPCoreValueSets:StoolType ;
+  rdfs:label "Stool" ;
+.
+DSPCoreValueSets:StoolType
+  a owl:Class ;
+  rdfs:label "Stool" ;
+  rdfs:subClassOf DSPCoreValueSets:PrimaryType ;
+  owl:equivalentClass obo:UBERON_0001988 ;
+.
+DSPCoreValueSets:SynovialFluid
+  a DSPCoreValueSets:SynovialFluidType ;
+  rdfs:label "Synovial fluid" ;
+.
+DSPCoreValueSets:SynovialFluidType
+  a owl:Class ;
+  rdfs:label "Synovial fluid" ;
+  rdfs:subClassOf DSPCoreValueSets:BodyFluid ;
+  owl:equivalentClass obo:UBERON_0001090 ;
+.
+DSPCoreValueSets:TCell
+  a DSPCoreValueSets:TCellType ;
+  rdfs:label "T cell" ;
+.
+DSPCoreValueSets:TCellType
+  a owl:Class ;
+  rdfs:label "T cell" ;
+  rdfs:subClassOf DSPCoreValueSets:PrimaryCell ;
+.
+DSPCoreValueSets:Targeted
+  a DSPCoreValueSets:TargetedGenomeModality ;
+  rdfs:label "Targeted" ;
+  skos:altLabel "Gene Panel" ;
+.
+DSPCoreValueSets:TargetedGenomeModality
+  a owl:Class ;
+  rdfs:label "Targeted" ;
+  rdfs:subClassOf DSPCoreValueSets:Genotyping ;
+  skos:altLabel "Gene Panel" ;
+.
+DSPCoreValueSets:Tissue
+  a DSPCoreValueSets:TissueType ;
+  rdfs:label "Tissue" ;
+.
+DSPCoreValueSets:TissueType
+  a owl:Class ;
+  rdfs:label "Tissue" ;
+  rdfs:subClassOf DSPCoreValueSets:PrimaryType ;
+.
+DSPCoreValueSets:Transcriptome
+  a owl:Class ;
+  rdfs:label "Transcriptome" ;
+  rdfs:subClassOf DSPCoreValueSets:DataModality ;
+.
+DSPCoreValueSets:TranscriptoneFactorLocation
+  a DSPCoreValueSets:TranscriptoneFactorLocationModality ;
+  rdfs:label "Transcriptone Factor Location" ;
+.
+DSPCoreValueSets:TranscriptoneFactorLocationModality
+  a owl:Class ;
+  rdfs:label "TranscriptoneFactorLocationModality" ;
+  rdfs:subClassOf DSPCoreValueSets:EpigenomeModality ;
+.
+DSPCoreValueSets:Urine
+  a DSPCoreValueSets:UrineType ;
+  rdfs:label "Urine" ;
+.
+DSPCoreValueSets:UrineType
+  a owl:Class ;
+  rdfs:label "Urine" ;
+  rdfs:subClassOf DSPCoreValueSets:BodyFluid ;
+  owl:equivalentClass obo:UBERON_0001088 ;
+.
+DSPCoreValueSets:VaginalFluid
+  a DSPCoreValueSets:VaginalFluidType ;
+  rdfs:label "Vaginal fluid" ;
+.
+DSPCoreValueSets:VaginalFluidType
+  a owl:Class ;
+  rdfs:label "Vaginal fluid" ;
+  rdfs:subClassOf DSPCoreValueSets:BodyFluid ;
+  owl:equivalentClass obo:UBERON_0036243 ;
+  skos:altLabel "Vaginal swab" ;
+.
+DSPCoreValueSets:WholeBlood
+  a DSPCoreValueSets:WholeBloodType ;
+  rdfs:label "Whole blood" ;
+.
+DSPCoreValueSets:WholeBloodType
+  a owl:Class ;
+  rdfs:label "Whole blood" ;
+  rdfs:subClassOf DSPCoreValueSets:Blood ;
+  owl:equivalentClass obo:UBERON_0000178 ;
+.
+DSPCoreValueSets:WholeGenome
+  a DSPCoreValueSets:WholeGenomeModality ;
+  rdfs:label "Whole Genome" ;
+  skos:altLabel "WGS" ;
+.
+DSPCoreValueSets:WholeGenomeModality
+  a owl:Class ;
+  rdfs:label "Whole genome" ;
+  rdfs:subClassOf DSPCoreValueSets:Genotyping ;
+  skos:altLabel "WGS" ;
+.
+DSPCoreValueSets:XRay
+  a DSPCoreValueSets:XRayModality ;
+  rdfs:label "XRay" ;
+.
+DSPCoreValueSets:XRayModality
+  a owl:Class ;
+  rdfs:label "X ray" ;
+  rdfs:subClassOf DSPCoreValueSets:MedicalImaging ;
+  skos:altLabel "X-ray" ;
+.

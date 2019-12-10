@@ -1,4 +1,5 @@
 # baseURI: http://datamodel.terra.bio/DSPCore
+# imports: http://datamodel.broadinstitute.org/DSPCoreValueSets
 # imports: http://datamodel.terra.bio/DSPdcat_ap
 # imports: http://datamodel.terra.bio/NCBITaxon_12organisms.owl
 # imports: http://datamodel.terra.bio/OBI_assaySubset.owl
@@ -8,6 +9,7 @@
 # prefix: DSPCore
 
 @prefix DSPCore: <http://datamodel.terra.bio/DSPCore#> .
+@prefix DSPCoreValueSets: <http://datamodel.broadinstitute.org/DSPCoreValueSets#> .
 @prefix DSPdcat_ap: <http://datamodel.terra.bio/DSPdcat_ap/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix duo: <http://purl.obolibrary.org/obo/duo-basic.owl#> .
@@ -21,6 +23,7 @@
 
 <http://datamodel.terra.bio/DSPCore>
   a owl:Ontology ;
+  owl:imports <http://datamodel.broadinstitute.org/DSPCoreValueSets> ;
   owl:imports <http://datamodel.terra.bio/DSPdcat_ap> ;
   owl:imports <http://datamodel.terra.bio/NCBITaxon_12organisms.owl> ;
   owl:imports <http://datamodel.terra.bio/OBI_assaySubset.owl> ;
@@ -204,11 +207,6 @@ DSPCore:BioSample
     ] ;
   skos:definition "A physical sample consisting of one or more cells taken from an organism (living or deceased) or derived from such a Sample" ;
   skos:prefLabel "BioSample" ;
-.
-DSPCore:Canis_lupus_familaris
-  a obo:NCBITaxon_9615 ;
-  rdfs:label "Canis lupus familiaris" ;
-  skos:definition "Instance of dog organism to define organism type." ;
 .
 DSPCore:ChIP
   a owl:Class ;
@@ -701,28 +699,14 @@ DSPCore:hasAssay
   skos:prefLabel "hasAssay" ;
 .
 DSPCore:hasBioSampleType
-  a owl:DatatypeProperty ;
-  rdfs:comment "It would be useful to choose an ontology for this option, but we're just trying to catch high-level types for the moment.  Thus, a controlled list will do for now.  We anticipate something like Primary (blood, tissue, amniotic fluid, fecal) or Derived(cell line, organoid, in vitro differentiated, single cell)." ;
+  a owl:ObjectProperty ;
   rdfs:domain DSPCore:BioSample ;
   rdfs:label "hasBioSampleType" ;
-  rdfs:range [
-      a rdfs:Datatype ;
-      owl:oneOf (
-          "cell line"
-          "in vitro differentiated cells"
-          "organoid"
-          "primary cell"
-          "single cell"
-          "tissue"
-          "whole organism"
-        ) ;
-    ] ;
-  skos:definition "The type of sample taken from a biological entity." ;
-  skos:prefLabel "hasBioSampleType" ;
+  rdfs:range DSPCoreValueSets:BioSampleType ;
 .
 DSPCore:hasBirthDate
   a rdf:Property ;
-  rdfs:domain obo:OBI_0100026 ;
+  rdfs:domain DSPCore:Donor ;
   rdfs:label "hasBirthDate" ;
   rdfs:range xsd:dateTime ;
   rdfs:subPropertyOf <http://purl.org/dc/terms/date> ;
@@ -774,6 +758,12 @@ DSPCore:hasCurrentAddress
   rdfs:domain prov:Person ;
   rdfs:label "hasCurrentAddress" ;
   rdfs:range DSPCore:Address ;
+.
+DSPCore:hasDataModality
+  a owl:ObjectProperty ;
+  rdfs:domain DSPCore:File ;
+  rdfs:label "hasDataModality" ;
+  rdfs:range DSPCoreValueSets:DataModality ;
 .
 DSPCore:hasDuplicateFragments
   a owl:DatatypeProperty ;
