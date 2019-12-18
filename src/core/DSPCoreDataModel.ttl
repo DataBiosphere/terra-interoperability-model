@@ -1,4 +1,5 @@
 # baseURI: http://datamodel.terra.bio/DSPCore
+# imports: http://datamodel.broadinstitute.org/DSPCoreValueSets
 # imports: http://datamodel.terra.bio/DSPdcat_ap
 # imports: http://datamodel.terra.bio/NCBITaxon_12organisms.owl
 # imports: http://datamodel.terra.bio/OBI_assaySubset.owl
@@ -8,6 +9,7 @@
 # prefix: DSPCore
 
 @prefix DSPCore: <http://datamodel.terra.bio/DSPCore#> .
+@prefix DSPCoreValueSets: <http://datamodel.broadinstitute.org/DSPCoreValueSets#> .
 @prefix DSPdcat_ap: <http://datamodel.terra.bio/DSPdcat_ap/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix duo: <http://purl.obolibrary.org/obo/duo-basic.owl#> .
@@ -21,6 +23,7 @@
 
 <http://datamodel.terra.bio/DSPCore>
   a owl:Ontology ;
+  owl:imports <http://datamodel.broadinstitute.org/DSPCoreValueSets> ;
   owl:imports <http://datamodel.terra.bio/DSPdcat_ap> ;
   owl:imports <http://datamodel.terra.bio/NCBITaxon_12organisms.owl> ;
   owl:imports <http://datamodel.terra.bio/OBI_assaySubset.owl> ;
@@ -126,7 +129,7 @@ DSPCore:Alignment
 DSPCore:AlignmentFile
   a owl:Class ;
   rdfs:label "AlignmentFile" ;
-  rdfs:subClassOf DSPCore:File ;
+  rdfs:subClassOf DSPCore:SequenceFile ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -204,11 +207,6 @@ DSPCore:BioSample
     ] ;
   skos:definition "A physical sample consisting of one or more cells taken from an organism (living or deceased) or derived from such a Sample" ;
   skos:prefLabel "BioSample" ;
-.
-DSPCore:Canis_lupus_familaris
-  a obo:NCBITaxon_9615 ;
-  rdfs:label "Canis lupus familiaris" ;
-  skos:definition "Instance of dog organism to define organism type." ;
 .
 DSPCore:ChIP
   a owl:Class ;
@@ -329,38 +327,8 @@ DSPCore:File
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasPercentAlignedReads ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasChecksum ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasReadCount ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasReadLength ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasReferenceAssembly ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasSponsor ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:isPairedEnd ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -479,6 +447,36 @@ DSPCore:SequenceFile
   a owl:Class ;
   rdfs:label "SequenceFile" ;
   rdfs:subClassOf DSPCore:File ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasPercentAlignedReads ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasPercentDuplicateFragments ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasReadCount ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasReadLength ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasReferenceAssembly ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:isPairedEnd ;
+    ] ;
   skos:prefLabel "SequenceFile" ;
 .
 DSPCore:SequenceLocation
@@ -700,29 +698,21 @@ DSPCore:hasAssay
   rdfs:subPropertyOf prov:hadActivity ;
   skos:prefLabel "hasAssay" ;
 .
-DSPCore:hasBioSampleType
+DSPCore:hasAverageReadLength
   a owl:DatatypeProperty ;
-  rdfs:comment "It would be useful to choose an ontology for this option, but we're just trying to catch high-level types for the moment.  Thus, a controlled list will do for now.  We anticipate something like Primary (blood, tissue, amniotic fluid, fecal) or Derived(cell line, organoid, in vitro differentiated, single cell)." ;
+  rdfs:domain DSPCore:SequenceFile ;
+  rdfs:label "hasAverageReadLength" ;
+  rdfs:range xsd:decimal ;
+.
+DSPCore:hasBioSampleType
+  a owl:ObjectProperty ;
   rdfs:domain DSPCore:BioSample ;
   rdfs:label "hasBioSampleType" ;
-  rdfs:range [
-      a rdfs:Datatype ;
-      owl:oneOf (
-          "cell line"
-          "in vitro differentiated cells"
-          "organoid"
-          "primary cell"
-          "single cell"
-          "tissue"
-          "whole organism"
-        ) ;
-    ] ;
-  skos:definition "The type of sample taken from a biological entity." ;
-  skos:prefLabel "hasBioSampleType" ;
+  rdfs:range DSPCoreValueSets:BioSampleType ;
 .
 DSPCore:hasBirthDate
   a rdf:Property ;
-  rdfs:domain obo:OBI_0100026 ;
+  rdfs:domain DSPCore:Donor ;
   rdfs:label "hasBirthDate" ;
   rdfs:range xsd:dateTime ;
   rdfs:subPropertyOf <http://purl.org/dc/terms/date> ;
@@ -766,6 +756,7 @@ DSPCore:hasCrossReference
   rdfs:label "hasCrossReference" ;
   rdfs:range <http://purl.org/dc/terms/URI> ;
   rdfs:subPropertyOf skos:closeMatch ;
+  skos:definition "Reference to the entity in another electronic system.  The data stored about the entity may vary from system to system, but this relationship asserts that the reference represents the same entity." ;
   skos:prefLabel "hasCrossReference" ;
 .
 DSPCore:hasCurrentAddress
@@ -774,6 +765,12 @@ DSPCore:hasCurrentAddress
   rdfs:domain prov:Person ;
   rdfs:label "hasCurrentAddress" ;
   rdfs:range DSPCore:Address ;
+.
+DSPCore:hasDataModality
+  a owl:ObjectProperty ;
+  rdfs:domain DSPCore:File ;
+  rdfs:label "hasDataModality" ;
+  rdfs:range DSPCoreValueSets:DataModality ;
 .
 DSPCore:hasDuplicateFragments
   a owl:DatatypeProperty ;
@@ -909,8 +906,7 @@ DSPCore:hasMedicalHistory
 DSPCore:hasNonDuplicatedFragments
   a owl:DatatypeProperty ;
   rdfs:comment "For alignment file types." ;
-  rdfs:domain DSPCore:AlignmentFile ;
-  rdfs:domain DSPCore:File ;
+  rdfs:domain DSPCore:SequenceFile ;
   rdfs:label "hasNonDuplicatedFragments" ;
   rdfs:range xsd:integer ;
   skos:prefLabel "hasNonDuplicatedFragments" ;
@@ -926,8 +922,7 @@ DSPCore:hasOrganism
 DSPCore:hasPercentAlignedReads
   a owl:DatatypeProperty ;
   rdfs:comment "Domain will change from File to SequencingOutputFile or SequenceActivity in future." ;
-  rdfs:domain DSPCore:AlignmentFile ;
-  rdfs:domain DSPCore:File ;
+  rdfs:domain DSPCore:SequenceFile ;
   rdfs:label "hasPercentAlignedReads" ;
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasPercentAlignedReads" ;
@@ -935,8 +930,7 @@ DSPCore:hasPercentAlignedReads
 DSPCore:hasPercentDuplicateFragments
   a owl:DatatypeProperty ;
   rdfs:comment "For alignment file types." ;
-  rdfs:domain DSPCore:AlignmentFile ;
-  rdfs:domain DSPCore:File ;
+  rdfs:domain DSPCore:SequenceFile ;
   rdfs:label "hasPercentDuplicateFragments" ;
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasPercentDuplicateFragments" ;
@@ -967,7 +961,7 @@ DSPCore:hasProtocol
 DSPCore:hasReadCount
   a owl:DatatypeProperty ;
   rdfs:comment "Domain will change from File to SequencingOutputFile or SequenceActivity in future." ;
-  rdfs:domain DSPCore:File ;
+  rdfs:domain DSPCore:SequenceFile ;
   rdfs:label "hasReadCount" ;
   rdfs:range xsd:integer ;
   skos:prefLabel "hasReadCount" ;
@@ -975,7 +969,6 @@ DSPCore:hasReadCount
 DSPCore:hasReadLength
   a owl:DatatypeProperty ;
   rdfs:comment "Domain will change from File to SequencingOutputFile or SequenceActivity in future." ;
-  rdfs:domain DSPCore:File ;
   rdfs:domain DSPCore:SequenceFile ;
   rdfs:label "hasReadLength" ;
   rdfs:range xsd:integer ;
@@ -1055,17 +1048,6 @@ DSPCore:hasSex
     ] ;
   skos:prefLabel "hasSex" ;
 .
-DSPCore:hasSponsor
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:domain DSPCore:Donor ;
-  rdfs:domain DSPCore:Experiment ;
-  rdfs:domain DSPCore:File ;
-  rdfs:domain DSPCore:Library ;
-  rdfs:label "hasSponsor" ;
-  rdfs:range xsd:string ;
-  skos:prefLabel "hasSponsor" ;
-.
 DSPCore:hasStartPosition
   a owl:DatatypeProperty ;
   rdfs:domain DSPCore:SequenceLocation ;
@@ -1136,7 +1118,6 @@ DSPCore:investigatedBy
 .
 DSPCore:isPairedEnd
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:File ;
   rdfs:domain DSPCore:SequenceFile ;
   rdfs:label "isPairedEnd" ;
   rdfs:range xsd:boolean ;
