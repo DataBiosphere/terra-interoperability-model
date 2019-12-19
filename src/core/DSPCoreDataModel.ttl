@@ -129,7 +129,7 @@ DSPCore:Alignment
 DSPCore:AlignmentFile
   a owl:Class ;
   rdfs:label "AlignmentFile" ;
-  rdfs:subClassOf DSPCore:File ;
+  rdfs:subClassOf DSPCore:SequenceFile ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -327,38 +327,8 @@ DSPCore:File
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasPercentAlignedReads ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasChecksum ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasReadCount ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasReadLength ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasReferenceAssembly ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasSponsor ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:isPairedEnd ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -477,6 +447,36 @@ DSPCore:SequenceFile
   a owl:Class ;
   rdfs:label "SequenceFile" ;
   rdfs:subClassOf DSPCore:File ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasPercentAlignedReads ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasPercentDuplicateFragments ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasReadCount ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasReadLength ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasReferenceAssembly ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:isPairedEnd ;
+    ] ;
   skos:prefLabel "SequenceFile" ;
 .
 DSPCore:SequenceLocation
@@ -698,6 +698,12 @@ DSPCore:hasAssay
   rdfs:subPropertyOf prov:hadActivity ;
   skos:prefLabel "hasAssay" ;
 .
+DSPCore:hasAverageReadLength
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:SequenceFile ;
+  rdfs:label "hasAverageReadLength" ;
+  rdfs:range xsd:decimal ;
+.
 DSPCore:hasBioSampleType
   a owl:ObjectProperty ;
   rdfs:domain DSPCore:BioSample ;
@@ -750,6 +756,7 @@ DSPCore:hasCrossReference
   rdfs:label "hasCrossReference" ;
   rdfs:range <http://purl.org/dc/terms/URI> ;
   rdfs:subPropertyOf skos:closeMatch ;
+  skos:definition "Reference to the entity in another electronic system.  The data stored about the entity may vary from system to system, but this relationship asserts that the reference represents the same entity." ;
   skos:prefLabel "hasCrossReference" ;
 .
 DSPCore:hasCurrentAddress
@@ -899,8 +906,7 @@ DSPCore:hasMedicalHistory
 DSPCore:hasNonDuplicatedFragments
   a owl:DatatypeProperty ;
   rdfs:comment "For alignment file types." ;
-  rdfs:domain DSPCore:AlignmentFile ;
-  rdfs:domain DSPCore:File ;
+  rdfs:domain DSPCore:SequenceFile ;
   rdfs:label "hasNonDuplicatedFragments" ;
   rdfs:range xsd:integer ;
   skos:prefLabel "hasNonDuplicatedFragments" ;
@@ -916,8 +922,7 @@ DSPCore:hasOrganism
 DSPCore:hasPercentAlignedReads
   a owl:DatatypeProperty ;
   rdfs:comment "Domain will change from File to SequencingOutputFile or SequenceActivity in future." ;
-  rdfs:domain DSPCore:AlignmentFile ;
-  rdfs:domain DSPCore:File ;
+  rdfs:domain DSPCore:SequenceFile ;
   rdfs:label "hasPercentAlignedReads" ;
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasPercentAlignedReads" ;
@@ -925,8 +930,7 @@ DSPCore:hasPercentAlignedReads
 DSPCore:hasPercentDuplicateFragments
   a owl:DatatypeProperty ;
   rdfs:comment "For alignment file types." ;
-  rdfs:domain DSPCore:AlignmentFile ;
-  rdfs:domain DSPCore:File ;
+  rdfs:domain DSPCore:SequenceFile ;
   rdfs:label "hasPercentDuplicateFragments" ;
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasPercentDuplicateFragments" ;
@@ -957,7 +961,7 @@ DSPCore:hasProtocol
 DSPCore:hasReadCount
   a owl:DatatypeProperty ;
   rdfs:comment "Domain will change from File to SequencingOutputFile or SequenceActivity in future." ;
-  rdfs:domain DSPCore:File ;
+  rdfs:domain DSPCore:SequenceFile ;
   rdfs:label "hasReadCount" ;
   rdfs:range xsd:integer ;
   skos:prefLabel "hasReadCount" ;
@@ -965,7 +969,6 @@ DSPCore:hasReadCount
 DSPCore:hasReadLength
   a owl:DatatypeProperty ;
   rdfs:comment "Domain will change from File to SequencingOutputFile or SequenceActivity in future." ;
-  rdfs:domain DSPCore:File ;
   rdfs:domain DSPCore:SequenceFile ;
   rdfs:label "hasReadLength" ;
   rdfs:range xsd:integer ;
@@ -1045,17 +1048,6 @@ DSPCore:hasSex
     ] ;
   skos:prefLabel "hasSex" ;
 .
-DSPCore:hasSponsor
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:domain DSPCore:Donor ;
-  rdfs:domain DSPCore:Experiment ;
-  rdfs:domain DSPCore:File ;
-  rdfs:domain DSPCore:Library ;
-  rdfs:label "hasSponsor" ;
-  rdfs:range xsd:string ;
-  skos:prefLabel "hasSponsor" ;
-.
 DSPCore:hasStartPosition
   a owl:DatatypeProperty ;
   rdfs:domain DSPCore:SequenceLocation ;
@@ -1126,7 +1118,6 @@ DSPCore:investigatedBy
 .
 DSPCore:isPairedEnd
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:File ;
   rdfs:domain DSPCore:SequenceFile ;
   rdfs:label "isPairedEnd" ;
   rdfs:range xsd:boolean ;

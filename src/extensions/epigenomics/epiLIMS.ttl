@@ -14,6 +14,13 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+DSPCore:BioSample
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasBioSampleType ;
+    ] ;
+.
 DSPCore:Donor
   dcterms:isPartOf epiLIMS:EpiLIMS ;
 .
@@ -117,6 +124,7 @@ epiLIMS:BioSAli_6648
   a DSPCore:BioSample ;
   DSPCore:derived epiLIMS:BioSAli_6793 ;
   DSPCore:derivedFrom epiLIMS:BioSam_3165 ;
+  DSPCore:hasBioSampleType <http://datamodel.broadinstitute.org/DSPCoreValueSets#Tissue> ;
   dcterms:created "2018-06-12T20:12:54.000Z"^^xsd:dateTime ;
   dcterms:isPartOf epiLIMS:EpiLIMS ;
   rdfs:label "BioSAli 6648" ;
@@ -138,11 +146,11 @@ epiLIMS:BioSAli_6802
   DSPCore:hasAlignment epiLIMS:Aln_37342 ;
   DSPCore:hasAlignment epiLIMS:Aln_37855 ;
   DSPCore:hasAlignment epiLIMS:Aln_37856 ;
+  DSPCore:hasLibraryPrep epiLIMS:ChIP_9523 ;
   DSPCore:hasResultFile epiLIMS:AlignmentFile_19487 ;
   DSPCore:hasResultFile epiLIMS:AlignmentFile_19667 ;
   DSPCore:hasSequencing epiLIMS:Sequencing_CoPA_13999 ;
   DSPCore:hasSequencing epiLIMS:Sequencing_CoPA_14339 ;
-  DSPCore:hasLibraryPrep epiLIMS:ChIP_9523 ;
   dcterms:created "2018-06-13T20:37:50.000Z"^^xsd:dateTime ;
   dcterms:isPartOf epiLIMS:EpiLIMS ;
   rdfs:label "BioSAli 6802" ;
@@ -154,7 +162,7 @@ epiLIMS:BioSam_3165
   DSPCore:dateObtained "2018-04-04T04:00:00.000Z"^^xsd:dateTime ;
   DSPCore:derived epiLIMS:BioSAli_6648 ;
   DSPCore:donatedBy epiLIMS:Donor_963 ;
-  DSPCore:hasBioSampleType "tissue" ;
+  DSPCore:hasBioSampleType <http://datamodel.broadinstitute.org/DSPCoreValueSets#Tissue> ;
   dcterms:created "2018-04-09T18:50:31.000Z"^^xsd:dateTime ;
   dcterms:isPartOf epiLIMS:EpiLIMS ;
   rdfs:label "BioSam_3165" ;
@@ -211,28 +219,32 @@ epiLIMS:PurchasableAntibody
 .
 epiLIMS:SequenceFile_CoPA_13999_1
   a DSPCore:SequenceFile ;
-  epiLIMS:averageReadLength 76.0 ;
+  DSPCore:hasAverageReadLength "76"^^xsd:decimal ;
+  DSPCore:hasFormat "fastq" ;
   rdfs:label "SequenceFile_CoPA_13999_1" ;
   skos:prefLabel "SequenceFile_CoPA_13999_1" ;
   prov:wasUsedBy epiLIMS:Aln_37341 ;
 .
 epiLIMS:SequenceFile_CoPA_13999_2
   a DSPCore:SequenceFile ;
-  epiLIMS:averageReadLength 76.0 ;
+  DSPCore:hasAverageReadLength "76"^^xsd:decimal ;
+  DSPCore:hasFormat "fastq" ;
   rdfs:label "SequenceFile_CoPA_13999_2" ;
   skos:prefLabel "SequenceFile_CoPA_13999_2" ;
   prov:wasUsedBy epiLIMS:Aln_37342 ;
 .
 epiLIMS:SequenceFile_CoPA_14339_1
   a DSPCore:SequenceFile ;
-  epiLIMS:averageReadLength 76.0 ;
+  DSPCore:hasAverageReadLength "76"^^xsd:decimal ;
+  DSPCore:hasFormat "fastq" ;
   rdfs:label "SequenceFile_CoPA_14339_1" ;
   skos:prefLabel "SequenceFile_CoPA_14339_1" ;
   prov:wasUsedBy epiLIMS:Aln_37855 ;
 .
 epiLIMS:SequenceFile_CoPA_14339_2
   a DSPCore:SequenceFile ;
-  epiLIMS:averageReadLength 76.0 ;
+  DSPCore:hasAverageReadLength "76"^^xsd:decimal ;
+  DSPCore:hasFormat "fastq" ;
   rdfs:label "SequenceFile_CoPA_14339_2" ;
   skos:prefLabel "SequenceFile_CoPA_14339_2" ;
   prov:wasUsedBy epiLIMS:Aln_37856 ;
@@ -250,12 +262,6 @@ epiLIMS:Sequencing_CoPA_14339
   skos:prefLabel "Sequencing_CoPA_14339" ;
   prov:generated epiLIMS:SequenceFile_CoPA_14339_1 ;
   prov:generated epiLIMS:SequenceFile_CoPA_14339_2 ;
-.
-epiLIMS:averageReadLength
-  a owl:DatatypeProperty ;
-  rdfs:label "averageReadLength" ;
-  rdfs:range xsd:decimal ;
-  skos:prefLabel "averageReadLength" ;
 .
 epiLIMS:hasPurchasableAntibody
   a owl:DatatypeProperty ;
