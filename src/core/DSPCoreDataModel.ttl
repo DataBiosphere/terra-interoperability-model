@@ -114,6 +114,12 @@ DSPCore:Alignment
   a owl:Class ;
   rdfs:label "Alignment" ;
   rdfs:subClassOf DSPCore:Activity ;
+  owl:disjointWith DSPCore:AlignmentPostProcessing ;
+  owl:disjointWith DSPCore:AssayActivity ;
+  owl:disjointWith DSPCore:LibraryPrep ;
+  owl:disjointWith DSPCore:Pipeline ;
+  owl:disjointWith DSPCore:Sequencing ;
+  owl:disjointWith DSPCore:VariantCalling ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:onProperty prov:generated ;
@@ -141,6 +147,12 @@ DSPCore:AlignmentPostProcessing
   a owl:Class ;
   rdfs:label "AlignmentPostProcessing" ;
   rdfs:subClassOf DSPCore:Activity ;
+  owl:disjointWith DSPCore:Alignment ;
+  owl:disjointWith DSPCore:AssayActivity ;
+  owl:disjointWith DSPCore:LibraryPrep ;
+  owl:disjointWith DSPCore:Pipeline ;
+  owl:disjointWith DSPCore:Sequencing ;
+  owl:disjointWith DSPCore:VariantCalling ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:onProperty prov:generated ;
@@ -153,11 +165,16 @@ DSPCore:AlignmentPostProcessing
     ] ;
   skos:prefLabel "AlignmentPostProcessing" ;
 .
-DSPCore:Assay
+DSPCore:AssayActivity
   a owl:Class ;
   rdfs:label "Assay" ;
   rdfs:subClassOf DSPCore:Activity ;
-  owl:equivalentClass obo:OBI_0000070 ;
+  owl:disjointWith DSPCore:Alignment ;
+  owl:disjointWith DSPCore:AlignmentPostProcessing ;
+  owl:disjointWith DSPCore:LibraryPrep ;
+  owl:disjointWith DSPCore:Pipeline ;
+  owl:disjointWith DSPCore:Sequencing ;
+  owl:disjointWith DSPCore:VariantCalling ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:onProperty prov:generated ;
@@ -284,32 +301,6 @@ DSPCore:Donor
   skos:definition "An organism from which a sample or test result is available" ;
   skos:prefLabel "Donor" ;
 .
-DSPCore:Experiment
-  a owl:Class ;
-  rdfs:label "Experiment" ;
-  rdfs:subClassOf DSPCore:Activity ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasProtocol ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty prov:generated ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasAssay ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:usesSample ;
-    ] ;
-  skos:prefLabel "Experiment" ;
-.
 DSPCore:File
   a owl:Class ;
   rdfs:comment "Used definition from http://semanticscience.org/resource/SIO_000396 but equivalence to http://www.w3.org/ns/dcat#Distribution doesn't make sense to me; thus we have our own object.  Also added electronic.  This will be subclassed for different file types to allow for file type-specific metadata, but for now, all metadata is an option for all Files." ;
@@ -361,11 +352,6 @@ DSPCore:Library
   rdfs:subClassOf obo:BFO_0000040 ;
   owl:equivalentClass [
       a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasExperiment ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasAssay ;
     ] ;
@@ -380,6 +366,12 @@ DSPCore:LibraryPrep
   a owl:Class ;
   rdfs:label "LibraryPrep" ;
   rdfs:subClassOf DSPCore:Activity ;
+  owl:disjointWith DSPCore:Alignment ;
+  owl:disjointWith DSPCore:AlignmentPostProcessing ;
+  owl:disjointWith DSPCore:AssayActivity ;
+  owl:disjointWith DSPCore:Pipeline ;
+  owl:disjointWith DSPCore:Sequencing ;
+  owl:disjointWith DSPCore:VariantCalling ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:onProperty prov:generated ;
@@ -408,6 +400,22 @@ DSPCore:NoRestriction
   a obo:DUO_0000004 ;
   rdfs:label "NoRestriction" ;
   skos:prefLabel "NoRestriction" ;
+.
+DSPCore:Pipeline
+  a owl:Class ;
+  rdfs:label "Pipeline" ;
+  rdfs:subClassOf DSPCore:Activity ;
+  owl:disjointWith DSPCore:Alignment ;
+  owl:disjointWith DSPCore:AlignmentPostProcessing ;
+  owl:disjointWith DSPCore:AssayActivity ;
+  owl:disjointWith DSPCore:LibraryPrep ;
+  owl:disjointWith DSPCore:Sequencing ;
+  owl:disjointWith DSPCore:VariantCalling ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty prov:used ;
+      owl:someValuesFrom prov:SoftwareAgent ;
+    ] ;
 .
 DSPCore:ReferenceAssembly
   a owl:Class ;
@@ -504,6 +512,12 @@ DSPCore:Sequencing
   a owl:Class ;
   rdfs:label "Sequencing" ;
   rdfs:subClassOf DSPCore:Activity ;
+  owl:disjointWith DSPCore:Alignment ;
+  owl:disjointWith DSPCore:AlignmentPostProcessing ;
+  owl:disjointWith DSPCore:AssayActivity ;
+  owl:disjointWith DSPCore:LibraryPrep ;
+  owl:disjointWith DSPCore:Pipeline ;
+  owl:disjointWith DSPCore:VariantCalling ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
@@ -565,6 +579,12 @@ DSPCore:VariantCalling
   a owl:Class ;
   rdfs:label "VariantCalling" ;
   rdfs:subClassOf DSPCore:Activity ;
+  owl:disjointWith DSPCore:Alignment ;
+  owl:disjointWith DSPCore:AlignmentPostProcessing ;
+  owl:disjointWith DSPCore:AssayActivity ;
+  owl:disjointWith DSPCore:LibraryPrep ;
+  owl:disjointWith DSPCore:Pipeline ;
+  owl:disjointWith DSPCore:Sequencing ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:onProperty prov:generated ;
@@ -691,12 +711,16 @@ DSPCore:hasAntibody
 DSPCore:hasAssay
   a owl:ObjectProperty ;
   rdfs:domain DSPCore:BioSample ;
-  rdfs:domain DSPCore:Experiment ;
-  rdfs:domain DSPCore:Library ;
   rdfs:label "hasAssay" ;
-  rdfs:range DSPCore:Assay ;
+  rdfs:range DSPCore:AssayActivity ;
   rdfs:subPropertyOf prov:hadActivity ;
   skos:prefLabel "hasAssay" ;
+.
+DSPCore:hasAssayType
+  a owl:ObjectProperty ;
+  rdfs:domain DSPCore:AssayActivity ;
+  rdfs:label "hasAssayType" ;
+  rdfs:range obo:OBI_0000070 ;
 .
 DSPCore:hasAverageReadLength
   a owl:DatatypeProperty ;
@@ -797,14 +821,6 @@ DSPCore:hasEthnicity
   rdfs:range xsd:string ;
   skos:prefLabel "hasEthnicity" ;
 .
-DSPCore:hasExperiment
-  a owl:ObjectProperty ;
-  rdfs:domain DSPCore:File ;
-  rdfs:domain DSPCore:Library ;
-  rdfs:label "hasExperiment" ;
-  rdfs:range DSPCore:Experiment ;
-  skos:prefLabel "hasExperiment" ;
-.
 DSPCore:hasFormat
   a owl:DatatypeProperty ;
   rdfs:domain DSPCore:File ;
@@ -863,14 +879,9 @@ DSPCore:hasGrcName
   rdfs:range xsd:string ;
   skos:prefLabel "hasGrcName" ;
 .
-DSPCore:hasLibrary
-  a owl:ObjectProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:label "hasLibrary" ;
-.
 DSPCore:hasLibraryPrep
   a owl:ObjectProperty ;
-  rdfs:domain DSPCore:Library ;
+  rdfs:domain DSPCore:BioSample ;
   rdfs:label "hasLibraryPrep" ;
   rdfs:range DSPCore:LibraryPrep ;
   rdfs:subPropertyOf prov:hadActivity ;
@@ -951,8 +962,7 @@ DSPCore:hasPostalCode
 .
 DSPCore:hasProtocol
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Experiment ;
-  rdfs:domain obo:OBI_0000070 ;
+  rdfs:domain DSPCore:Activity ;
   rdfs:label "hasProtocol" ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf prov:used ;
@@ -1063,8 +1073,7 @@ DSPCore:hasStopPosition
 DSPCore:hasTarget
   a owl:DatatypeProperty ;
   rdfs:comment "Target is a string for now but will ultimately be a class." ;
-  rdfs:domain DSPCore:Experiment ;
-  rdfs:domain obo:OBI_0000070 ;
+  rdfs:domain DSPCore:AssayActivity ;
   rdfs:label "hasTarget" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasTarget" ;
@@ -1125,7 +1134,6 @@ DSPCore:isPairedEnd
 .
 DSPCore:usesSample
   a owl:ObjectProperty ;
-  rdfs:domain DSPCore:Experiment ;
   rdfs:label "usesSample" ;
   rdfs:range DSPCore:BioSample ;
   rdfs:subPropertyOf prov:used ;
@@ -1159,7 +1167,7 @@ obo:NCBITaxon_9606
   skos:definition "Instance of Homo sapiens organism to define organism type." ;
 .
 obo:OBI_0000070
-  owl:equivalentClass DSPCore:Assay ;
+  owl:equivalentClass DSPCore:AssayActivity ;
 .
 prov:Agent
   owl:equivalentClass <http://xmlns.com/foaf/0.1/Agent> ;

@@ -53,14 +53,25 @@ Encode:Age_1
   rdfs:label "Age_1" ;
   skos:prefLabel "Age_1" ;
 .
+Encode:Assay_for_ENCSR895SFC
+  a <http://datamodel.terra.bio/DSPCore#AssayActivity> ;
+  <http://datamodel.terra.bio/DSPCore#hasAssayType> Encode:OBI_0002142_1 ;
+  <http://datamodel.terra.bio/DSPCore#hasProtocol> "https://www.encodeproject.org/documents/d90ef931-e735-4b25-a7f8-6ddbcaea71dd/@@download/attachment/NanoString%20miRNA%20Assay.pdf" ;
+  <http://datamodel.terra.bio/DSPCore#hasTarget> "http://www.encodeproject.org/targets/STAT5A-human/" ;
+  Encode:hasAlias "ali-mortazavi: human-adrenal-gland-ENTEX51-52-nanostring" ;
+  rdfs:label "Assay_for_ENCSR895SFC" ;
+  prov:generated Encode:ENCFF488IYR ;
+  prov:generated Encode:ENCFF660GHH ;
+  prov:used Encode:ENCLB011GAL ;
+.
 Encode:ENCBS562VSE
   a <http://datamodel.terra.bio/DSPCore#BioSample> ;
   DSPCore:dateObtained "2015-10-30T00:00:00"^^xsd:dateTime ;
+  DSPCore:derived Encode:ENCBS719AMH ;
   DSPCore:donatedBy Encode:ENCD0451RUA ;
   DSPCore:hasAnatomicSite "UBERON:0002369" ;
-  DSPCore:hasBioSampleType "tissue" ;
+  DSPCore:hasBioSampleType <http://datamodel.broadinstitute.org/DSPCoreValueSets#Tissue> ;
   DSPCore:hasConsentCode DSPCore:NoRestriction ;
-  DSPCore:derived Encode:ENCBS719AMH ;
   dcterms:source "http://www.encodeproject.org/sources/kristin-ardlie/" ;
   rdfs:label "ENCBS562VSE" ;
   skos:prefLabel "ENCBS562VSE" ;
@@ -115,6 +126,7 @@ Encode:ENCFF043TPA
   a <http://datamodel.terra.bio/DSPCore#File> ;
   DSPCore:hasCrossReference "https://www.encodeproject.org/files/ENCFF043TPA/"^^dcterms:URI ;
   DSPCore:hasFormat "bidBed" ;
+  <http://datamodel.terra.bio/DSPCore#hasDataModality> <http://datamodel.broadinstitute.org/DSPCoreValueSets#MicroRNACounts> ;
   rdfs:label "ENCFF043TPA" ;
   skos:prefLabel "ENCFF043TPA" ;
 .
@@ -122,6 +134,7 @@ Encode:ENCFF147BDY
   a <http://datamodel.terra.bio/DSPCore#File> ;
   DSPCore:hasCrossReference "https://www.encodeproject.org/files/ENCFF147BDY/"^^dcterms:URI ;
   DSPCore:hasFormat "bidBed" ;
+  <http://datamodel.terra.bio/DSPCore#hasDataModality> <http://datamodel.broadinstitute.org/DSPCoreValueSets#MicroRNACounts> ;
   rdfs:label "ENCFF147BDY" ;
   skos:prefLabel "ENCFF147BDY" ;
 .
@@ -129,6 +142,7 @@ Encode:ENCFF213BVA
   a <http://datamodel.terra.bio/DSPCore#File> ;
   DSPCore:hasCrossReference "https://www.encodeproject.org/files/ENCFF213BVA/"^^dcterms:URI ;
   DSPCore:hasFormat "bed" ;
+  <http://datamodel.terra.bio/DSPCore#hasDataModality> <http://datamodel.broadinstitute.org/DSPCoreValueSets#MicroRNACounts> ;
   rdfs:label "ENCFF213BVA" ;
   skos:prefLabel "ENCFF213BVA" ;
 .
@@ -136,6 +150,7 @@ Encode:ENCFF424QYJ
   a <http://datamodel.terra.bio/DSPCore#File> ;
   DSPCore:hasCrossReference "https://www.encodeproject.org/files/ENCFF424QYJ/"^^dcterms:URI ;
   DSPCore:hasFormat "bed" ;
+  <http://datamodel.terra.bio/DSPCore#hasDataModality> <http://datamodel.broadinstitute.org/DSPCoreValueSets#MicroRNACounts> ;
   rdfs:label "ENCFF424QYJ" ;
   skos:prefLabel "ENCFF424QYJ" ;
 .
@@ -143,6 +158,7 @@ Encode:ENCFF488IYR
   a <http://datamodel.terra.bio/DSPCore#File> ;
   DSPCore:hasCrossReference "https://www.encodeproject.org/files/ENCFF488IYR/"^^dcterms:URI ;
   DSPCore:hasFormat "rcc" ;
+  <http://datamodel.terra.bio/DSPCore#hasDataModality> <http://datamodel.broadinstitute.org/DSPCoreValueSets#MicroRNACounts> ;
   rdfs:label "ENCFF488IYR" ;
   skos:prefLabel "ENCFF488IYR" ;
 .
@@ -150,16 +166,15 @@ Encode:ENCFF660GHH
   a <http://datamodel.terra.bio/DSPCore#File> ;
   DSPCore:hasCrossReference "https://www.encodeproject.org/files/ENCFF660GHH/"^^dcterms:URI ;
   DSPCore:hasFormat "rcc" ;
+  <http://datamodel.terra.bio/DSPCore#hasDataModality> <http://datamodel.broadinstitute.org/DSPCoreValueSets#MicroRNACounts> ;
   rdfs:label "ENCFF660GHH" ;
   skos:prefLabel "ENCFF660GHH" ;
 .
 Encode:ENCLB011GAL
   a DSPCore:Library ;
-  DSPCore:hasAssay Encode:OBI_0002142_1 ;
   DSPCore:hasCrossReference "http://www.encodeproject.org/libraries/ENCLB011GAL/"^^dcterms:URI ;
   Encode:hasAlias "ali-mortazavi: human-adrenal-gland-ENTEX52-Lib2" ;
   Encode:hasLab "http://www.encodeproject.org/labs/ali-mortazavi/" ;
-  Encode:hasStatus "released" ;
   Encode:strandSpecificity false ;
   Encode:submittedBy "http://www.encodeproject.org/users/bc5b62f7-ce28-4a1e-b6b3-81c9c5a86d7a/" ;
   dcterms:created "2016-07-25T22:17:41.258151+00:00" ;
@@ -167,18 +182,19 @@ Encode:ENCLB011GAL
   skos:prefLabel "ENCLB011GAL" ;
 .
 Encode:ENCSR895SFC
-  a <http://datamodel.terra.bio/DSPCore#Experiment> ;
+  a Encode:Experiment ;
   DSPCore:dateReleased "2016-08-01T00:00:00"^^xsd:dateTime ;
-  DSPCore:generated Encode:ENCLB011GAL ;
   DSPCore:hasCrossReference "http://www.encodeproject.org/experiments/ENCSR895SFC"^^dcterms:URI ;
-  DSPCore:hasTarget "http://www.encodeproject.org/targets/STAT5A-human/" ;
   DSPCore:usesSample Encode:ENCBS719AMH ;
-  Encode:hasAlias "ali-mortazavi: human-adrenal-gland-ENTEX51-52-nanostring" ;
+  <http://datamodel.terra.bio/DSPCore#hasAssay> Encode:Assay_for_ENCSR895SFC ;
+  Encode:hasLibrary Encode:ENCLB011GAL ;
   Encode:hasStatus "released" ;
   dcterms:created "2016-07-25T22:17:18.167352+00" ;
   dcterms:dateSubmitted "2016-07-31" ;
   rdfs:label "ENCSR895SFC" ;
-  skos:prefLabel "ENCSR895SFS" ;
+  skos:prefLabel "ENCSR895SFC" ;
+  prov:hadActivity Encode:MortazaviLab_NanoStringPipeline ;
+  prov:used Encode:ENCBS719AMH ;
 .
 Encode:EncodeDataset
   a DSPdcat_ap:Dataset ;
@@ -188,6 +204,22 @@ Encode:EncodeDataset
   dcterms:hasPart Encode:ENCD0451RUA ;
   rdfs:label "EncodeDataset" ;
   skos:prefLabel "EncodeDataset" ;
+.
+Encode:Experiment
+  a owl:Class ;
+  rdfs:label "Experiment" ;
+  rdfs:subClassOf <http://datamodel.terra.bio/DSPCore#Activity> ;
+.
+Encode:MortazaviLab_NanoStringPipeline
+  a <http://datamodel.terra.bio/DSPCore#Pipeline> ;
+  <http://datamodel.terra.bio/DSPCore#hasProtocol> "https://www.encodeproject.org/documents/01810c91-4873-4268-b6a4-7e3e7c620fe0/@@download/attachment/nanostring_pipeline_overview_V1.png" ;
+  rdfs:label "Pipeline" ;
+  prov:generated Encode:ENCFF043TPA ;
+  prov:generated Encode:ENCFF147BDY ;
+  prov:generated Encode:ENCFF213BVA ;
+  prov:generated Encode:ENCFF424QYJ ;
+  prov:used Encode:ENCFF488IYR ;
+  prov:used Encode:ENCFF660GHH ;
 .
 Encode:OBI_0002142_1
   a obo:OBI_0002142 ;
@@ -224,6 +256,12 @@ Encode:hasDataQuality
   rdfs:range xsd:string ;
   skos:prefLabel "hasDataQuality" ;
 .
+Encode:hasExperiment
+  a owl:ObjectProperty ;
+  rdfs:domain <http://datamodel.terra.bio/DSPCore#BioSample> ;
+  rdfs:label "hasExperiment" ;
+  rdfs:range Encode:Experiment ;
+.
 Encode:hasLab
   a owl:DatatypeProperty ;
   rdfs:label "hasLab" ;
@@ -233,6 +271,7 @@ Encode:hasLab
 Encode:hasLibrary
   a owl:ObjectProperty ;
   rdfs:domain <http://datamodel.terra.bio/DSPCore#BioSample> ;
+  rdfs:domain Encode:Experiment ;
   rdfs:label "hasLibrary" ;
   rdfs:range <http://datamodel.terra.bio/DSPCore#Library> ;
 .
