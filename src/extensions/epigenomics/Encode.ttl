@@ -105,7 +105,7 @@ Encode:ENCBS719AMH
   skos:prefLabel "ENCBS719AMH" ;
 .
 Encode:ENCD0451RUA
-  a <http://datamodel.terra.bio/DSPCore#Donor> ;
+  a <http://datamodel.terra.bio/DSPCore#Human> ;
   DSPCore:donated Encode:ENCBS562VSE ;
   DSPCore:hasAge Encode:Age_1 ;
   DSPCore:hasCrossReference "http://www.encodeproject.org/human-donors/ENCDO451RUA/"^^dcterms:URI ;

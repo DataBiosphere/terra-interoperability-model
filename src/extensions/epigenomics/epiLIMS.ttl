@@ -191,7 +191,7 @@ epiLIMS:DataCollection_EncodeEpiLIMS
   skos:prefLabel "DataCollection_EncodeEpiLIMS" ;
 .
 epiLIMS:Donor_963
-  a DSPCore:Donor ;
+  a DSPCore:Human ;
   DSPCore:donated epiLIMS:BioSam_3165 ;
   DSPCore:hasAge epiLIMS:Age_1 ;
   DSPCore:hasOrganism DSPCore:Homo_sapiens ;
