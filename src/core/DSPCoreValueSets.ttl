@@ -120,7 +120,6 @@ DSPCoreValueSets:DataModality
   rdfs:subClassOf obo:IAO_0000030 ;
   skos:altLabel "Assay Category" ;
   skos:altLabel "Measurement Type" ;
-  skos:definition "Mode by which the data was generated.  Assay and sequencing data as well as data produced from imaging technologies are examples." ;
 .
 DSPCoreValueSets:DerivedType
   a owl:Class ;

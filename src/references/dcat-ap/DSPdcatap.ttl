@@ -116,7 +116,7 @@ DSPdcat_ap:DataCollection
     ] ;
   skos:prefLabel "DataCollection" ;
   dcat:themeTaxonomy DSPdcat_ap:DSPThemeTaxonomy ;
-  prov:definition "Extension of DCAT:Catalog to support Data Use Ontology terms and set required properties for DSP DCAT Application Profile." ;
+  prov:definition "Extension of DCAT:Catalog to support Data Use Ontology terms and set required properties for DSP DCAT Application Profile. A collection of one or more DSPdcat_ap:Datasets or DSPdcat_apDataCollections." ;
 .
 DSPdcat_ap:DataSnapshot
   a rdfs:Class ;
@@ -209,7 +209,7 @@ DSPdcat_ap:DataSnapshot
       owl:onProperty dcat:mediaType ;
     ] ;
   skos:prefLabel "DataSnapshot" ;
-  prov:definition "Extension of DCAT:Distribution to support Data Use Ontology terms and set required properties for DSP DCAT Application Profile." ;
+  prov:definition "Extension of DCAT:Distribution to support Data Use Ontology terms and set required properties for DSP DCAT Application Profile. A collection of one or more entities from one or more DSPdcat_ap:Datasets or DSPdcat_ap:DataCollections intended to be used for subsequent viewing or analysis." ;
 .
 DSPdcat_ap:Dataset
   a rdfs:Class ;
@@ -297,6 +297,7 @@ DSPdcat_ap:Dataset
       owl:onProperty dcat:theme ;
     ] ;
   skos:prefLabel "Dataset" ;
+  prov:definition "Extension of DCAT:Dataset to support Data Use Ontology terms and set required properties for DSP DCAT Application Profile.  A collection of one or more entities submitted by a single responsible party or authorizing agent." ;
 .
 DSPdcat_ap:PrincipalInvestigator
   a owl:Class ;
