@@ -229,11 +229,6 @@ DSPdcat_ap:Dataset
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:conformsTo ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dcterms:creator ;
     ] ;
   rdfs:subClassOf [
@@ -285,6 +280,11 @@ DSPdcat_ap:Dataset
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPdcat_ap:wasPrincipalInvestigator ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcterms:conformsTo ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
