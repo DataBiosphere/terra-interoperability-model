@@ -16,29 +16,1196 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-:Cocker_Spaniel_1
+:Affenpinscher
+  a AKCBreeds:Affenpinscher ;
+  rdfs:label "Affenpinscher" ;
+.
+:Afghan_Hound
+  a AKCBreeds:Afghan_Hound ;
+  rdfs:label "Afghan_Hound" ;
+.
+:Airedale_Terrier
+  a AKCBreeds:Airedale_Terrier ;
+  rdfs:label "Airedale_Terrier" ;
+.
+:Akita
+  a AKCBreeds:Akita ;
+  rdfs:label "Akita" ;
+.
+:Alaskan_Malamute
+  a AKCBreeds:Alaskan_Malamute ;
+  rdfs:label "Alaskan_Malamute" ;
+.
+:American
+  a AKCBreeds:American ;
+  rdfs:label "American" ;
+.
+:American_English_Coonhound
+  a AKCBreeds:American_English_Coonhound ;
+  rdfs:label "American_English_Coonhound" ;
+.
+:American_Eskimo_Dog
+  a AKCBreeds:American_Eskimo_Dog ;
+  rdfs:label "American_Eskimo_Dog" ;
+.
+:American_Foxhound
+  a AKCBreeds:American_Foxhound ;
+  rdfs:label "American_Foxhound" ;
+.
+:American_Hairless_Terrier
+  a AKCBreeds:American_Hairless_Terrier ;
+  rdfs:label "American_Hairless_Terrier" ;
+.
+:American_Leopard_Hound
+  a AKCBreeds:American_Leopard_Hound ;
+  rdfs:label "American_Leopard_Hound" ;
+.
+:American_Pitbull_Terrier
+  a AKCBreeds:American_Pitbull_Terrier ;
+  rdfs:label "American_Pitbull_Terrier" ;
+.
+:American_Water_Spaniel
+  a AKCBreeds:American_Water_Spaniel ;
+  rdfs:label "American_Water_Spaniel" ;
+.
+:Anatolian_Shepherd_Dog
+  a AKCBreeds:Anatolian_Shepherd_Dog ;
+  rdfs:label "Anatolian_Shepherd_Dog" ;
+.
+:Appenzeller_Sennenhund
+  a AKCBreeds:Appenzeller_Sennenhund ;
+  rdfs:label "Appenzeller_Sennenhund" ;
+.
+:Australian_Cattle_Dog
+  a AKCBreeds:Australian_Cattle_Dog ;
+  rdfs:label "Australian_Cattle_Dog" ;
+.
+:Australian_Kelpie
+  a AKCBreeds:Australian_Kelpie ;
+  rdfs:label "Australian_Kelpie" ;
+.
+:Australian_Shepherd
+  a AKCBreeds:Australian_Shepherd ;
+  rdfs:label "Australian_Shepherd" ;
+.
+:Australian_Terrier
+  a AKCBreeds:Australian_Terrier ;
+  rdfs:label "Australian_Terrier" ;
+.
+:Azawakh
+  a AKCBreeds:Azawakh ;
+  rdfs:label "Azawakh" ;
+.
+:Barbet
+  a AKCBreeds:Barbet ;
+  rdfs:label "Barbet" ;
+.
+:Basenji
+  a AKCBreeds:Basenji ;
+  rdfs:label "Basenji" ;
+.
+:Basset_Fauve_de_Bretagne
+  a AKCBreeds:Basset_Fauve_de_Bretagne ;
+  rdfs:label "Basset_Fauve_de_Bretagne" ;
+.
+:Basset_Hound
+  a AKCBreeds:Basset_Hound ;
+  rdfs:label "Basset_Hound" ;
+.
+:Bavarian
+  a AKCBreeds:Bavarian ;
+  rdfs:label "Bavarian" ;
+.
+:Beagle
+  a AKCBreeds:Beagle ;
+  rdfs:label "Beagle" ;
+.
+:Bearded_Collie
+  a AKCBreeds:Bearded_Collie ;
+  rdfs:label "Bearded_Collie" ;
+.
+:Beauceron
+  a AKCBreeds:Beauceron ;
+  rdfs:label "Beauceron" ;
+.
+:Bedlington_Terrier
+  a AKCBreeds:Bedlington_Terrier ;
+  rdfs:label "Bedlington_Terrier" ;
+.
+:Belgian_Laekenois
+  a AKCBreeds:Belgian_Laekenois ;
+  rdfs:label "Belgian_Laekenois" ;
+.
+:Belgian_Malinois
+  a AKCBreeds:Belgian_Malinois ;
+  rdfs:label "Belgian_Malinois" ;
+.
+:Belgian_Sheepdog
+  a AKCBreeds:Belgian_Sheepdog ;
+  rdfs:label "Belgian_Sheepdog" ;
+.
+:Belgian_Tervuren
+  a AKCBreeds:Belgian_Tervuren ;
+  rdfs:label "Belgian_Tervuren" ;
+.
+:Bergamasco
+  a AKCBreeds:Bergamasco ;
+  rdfs:label "Bergamasco" ;
+.
+:Berger_Picard
+  a AKCBreeds:Berger_Picard ;
+  rdfs:label "Berger_Picard" ;
+.
+:Bernese_Mountain_Dog
+  a AKCBreeds:Bernese_Mountain_Dog ;
+  rdfs:label "Bernese_Mountain_Dog" ;
+.
+:Bichon_Frise
+  a AKCBreeds:Bichon_Frise ;
+  rdfs:label "Bichon_Frise" ;
+.
+:Biewer_Terrier
+  a AKCBreeds:Biewer_Terrier ;
+  rdfs:label "Biewer_Terrier" ;
+.
+:Black_Russian_Terrier
+  a AKCBreeds:Black_Russian_Terrier ;
+  rdfs:label "Black_Russian_Terrier" ;
+.
+:Black_and_Tan_Coonhound
+  a AKCBreeds:Black_and_Tan_Coonhound ;
+  rdfs:label "Black_and_Tan_Coonhound" ;
+.
+:Bloodhound
+  a AKCBreeds:Bloodhound ;
+  rdfs:label "Bloodhound" ;
+.
+:Bluetick_Coonhound
+  a AKCBreeds:Bluetick_Coonhound ;
+  rdfs:label "Bluetick_Coonhound" ;
+.
+:Boerboel
+  a AKCBreeds:Boerboel ;
+  rdfs:label "Boerboel" ;
+.
+:Bolognese
+  a AKCBreeds:Bolognese ;
+  rdfs:label "Bolognese" ;
+.
+:Border_Collie
+  a AKCBreeds:Border_Collie ;
+  rdfs:label "Border_Collie" ;
+.
+:Border_Terrier
+  a AKCBreeds:Border_Terrier ;
+  rdfs:label "Border_Terrier" ;
+.
+:Borzoi
+  a AKCBreeds:Borzoi ;
+  rdfs:label "Borzoi" ;
+.
+:Boston_Terrier
+  a AKCBreeds:Boston_Terrier ;
+  rdfs:label "Boston_Terrier" ;
+.
+:Bouvier_des_Flandres
+  a AKCBreeds:Bouvier_des_Flandres ;
+  rdfs:label "Bouvier_des_Flandres" ;
+.
+:Boxer
+  a AKCBreeds:Boxer ;
+  rdfs:label "Boxer" ;
+.
+:Boykin_Spaniel
+  a AKCBreeds:Boykin_Spaniel ;
+  rdfs:label "Boykin_Spaniel" ;
+.
+:Bracco_Italiano
+  a AKCBreeds:Bracco_Italiano ;
+  rdfs:label "Bracco_Italiano" ;
+.
+:Braque_Francais_Pyrenean
+  a AKCBreeds:Braque_Francais_Pyrenean ;
+  rdfs:label "Braque_Francais_Pyrenean" ;
+.
+:Braque_de_Bourbonnais
+  a AKCBreeds:Braque_de_Bourbonnais ;
+  rdfs:label "Braque_de_Bourbonnais" ;
+.
+:Briard
+  a AKCBreeds:Briard ;
+  rdfs:label "Briard" ;
+.
+:Brittany
+  a AKCBreeds:Brittany ;
+  rdfs:label "Brittany" ;
+.
+:Broholmer
+  a AKCBreeds:Broholmer ;
+  rdfs:label "Broholmer" ;
+.
+:Brussels_Griffon
+  a AKCBreeds:Brussels_Griffon ;
+  rdfs:label "Brussels_Griffon" ;
+.
+:Bull_Terrier
+  a AKCBreeds:Bull_Terrier ;
+  rdfs:label "Bull_Terrier" ;
+.
+:Bulldog
+  a AKCBreeds:Bulldog ;
+  rdfs:label "Bulldog" ;
+.
+:Bullmasti
+  a AKCBreeds:Bullmasti ;
+  rdfs:label "Bullmasti" ;
+.
+:Cairn_Terrier
+  a AKCBreeds:Cairn_Terrier ;
+  rdfs:label "Cairn_Terrier" ;
+.
+:Canaan_Dog
+  a AKCBreeds:Canaan_Dog ;
+  rdfs:label "Canaan_Dog" ;
+.
+:Cane_Corso
+  a AKCBreeds:Cane_Corso ;
+  rdfs:label "Cane_Corso" ;
+.
+:Cardigan_Welsh_Corgi
+  a AKCBreeds:Cardigan_Welsh_Corgi ;
+  rdfs:label "Cardigan_Welsh_Corgi" ;
+.
+:Carolina_Dog
+  a AKCBreeds:Carolina_Dog ;
+  rdfs:label "Carolina_Dog" ;
+.
+:Catahoula_Leopard_Dog
+  a AKCBreeds:Catahoula_Leopard_Dog ;
+  rdfs:label "Catahoula_Leopard_Dog" ;
+.
+:Caucasian_Shepherd_Dog
+  a AKCBreeds:Caucasian_Shepherd_Dog ;
+  rdfs:label "Caucasian_Shepherd_Dog" ;
+.
+:Cavalier_King_Charles_Spaniel
+  a AKCBreeds:Cavalier_King_Charles_Spaniel ;
+  rdfs:label "Cavalier_King_Charles_Spaniel" ;
+.
+:Central_Asian_Shepherd_Dog
+  a AKCBreeds:Central_Asian_Shepherd_Dog ;
+  rdfs:label "Central_Asian_Shepherd_Dog" ;
+.
+:Cesky_Terrier
+  a AKCBreeds:Cesky_Terrier ;
+  rdfs:label "Cesky_Terrier" ;
+.
+:Chesapeake_Bay_Retriever
+  a AKCBreeds:Chesapeake_Bay_Retriever ;
+  rdfs:label "Chesapeake_Bay_Retriever" ;
+.
+:Chihuahua
+  a AKCBreeds:Chihuahua ;
+  rdfs:label "Chihuahua" ;
+.
+:Chinese_Crested
+  a AKCBreeds:Chinese_Crested ;
+  rdfs:label "Chinese_Crested" ;
+.
+:Chinese_Shar-Pei
+  a AKCBreeds:Chinese_Shar-Pei ;
+  rdfs:label "Chinese_Shar-Pei" ;
+.
+:Chinook
+  a AKCBreeds:Chinook ;
+  rdfs:label "Chinook" ;
+.
+:Chow_Chow
+  a AKCBreeds:Chow_Chow ;
+  rdfs:label "Chow_Chow" ;
+.
+:Cirneco_Dell_Etna
+  a AKCBreeds:Cirneco_Dell_Etna ;
+  rdfs:label "Cirneco_Dell_Etna" ;
+.
+:Clumber_Spaniel
+  a AKCBreeds:Clumber_Spaniel ;
+  rdfs:label "Clumber_Spaniel" ;
+.
+:Cocker_Spaniel
   a AKCBreeds:Cocker_Spaniel ;
-  rdfs:label "Cocker_Spaniel_1" ;
+  rdfs:label "Cocker_Spaniel" ;
+.
+:Collie
+  a AKCBreeds:Collie ;
+  rdfs:label "Collie" ;
+.
+:Coton_De_Tulear
+  a AKCBreeds:Coton_De_Tulear ;
+  rdfs:label "Coton_De_Tulear" ;
+.
+:Croatian_Sheepdog
+  a AKCBreeds:Croatian_Sheepdog ;
+  rdfs:label "Croatian_Sheepdog" ;
+.
+:Curly-Coated_Retriever
+  a AKCBreeds:Curly-Coated_Retriever ;
+  rdfs:label "Curly-Coated_Retriever" ;
+.
+:Czechoslovakian_Vlack
+  a AKCBreeds:Czechoslovakian_Vlack ;
+  rdfs:label "Czechoslovakian_Vlack" ;
+.
+:Dachshund
+  a AKCBreeds:Dachshund ;
+  rdfs:label "Dachshund" ;
+.
+:Dalmatian
+  a AKCBreeds:Dalmatian ;
+  rdfs:label "Dalmatian" ;
+.
+:Dandie_Dinmont_Terrier
+  a AKCBreeds:Dandie_Dinmont_Terrier ;
+  rdfs:label "Dandie_Dinmont_Terrier" ;
+.
+:Danish-Swedish_Farmdog
+  a AKCBreeds:Danish-Swedish_Farmdog ;
+  rdfs:label "Danish-Swedish_Farmdog" ;
+.
+:Deutscher_Wachtelhund
+  a AKCBreeds:Deutscher_Wachtelhund ;
+  rdfs:label "Deutscher_Wachtelhund" ;
+.
+:Doberman_Pinscher
+  a AKCBreeds:Doberman_Pinscher ;
+  rdfs:label "Doberman_Pinscher" ;
 .
 :DogAgingProject
   a DSPdcat_ap:Dataset ;
   DSPdcat_ap:hasDataUseRequirement DSPCore:UserRestriction ;
   DSPdcat_ap:hasPrimaryConsent DSPCore:GeneralResearchUse ;
-  dcterms:hasPart <http://datamodel.broadinstitute.org/Dog/Fido> ;
-  dcterms:hasPart <http://datamodel.broadinstitute.org/Dog/Rover> ;
-  dcterms:hasPart <http://datamodel.broadinstitute.org/DogOwner_1> ;
   dcterms:modified "11-24-2019T12:47Z" ;
   dcterms:title "Dog Aging Project" ;
   rdfs:label "Dog Aging Project" ;
   dcat:theme DSPdcat_ap:BiomedicalResearch ;
 .
-:Scottish_Terrier_1
+:DogBreed
+  a AKCBreeds:DogBreed ;
+  rdfs:label "DogBreed" ;
+.
+:Dogo_Argentino
+  a AKCBreeds:Dogo_Argentino ;
+  rdfs:label "Dogo_Argentino" ;
+.
+:Dogue_de_Bordeaux
+  a AKCBreeds:Dogue_de_Bordeaux ;
+  rdfs:label "Dogue_de_Bordeaux" ;
+.
+:Drentsche_Patrijshond
+  a AKCBreeds:Drentsche_Patrijshond ;
+  rdfs:label "Drentsche_Patrijshond" ;
+.
+:Drever
+  a AKCBreeds:Drever ;
+  rdfs:label "Drever" ;
+.
+:Dutch_Shepherd
+  a AKCBreeds:Dutch_Shepherd ;
+  rdfs:label "Dutch_Shepherd" ;
+.
+:English_Cocker_Spaniel
+  a AKCBreeds:English_Cocker_Spaniel ;
+  rdfs:label "English_Cocker_Spaniel" ;
+.
+:English_Foxhound
+  a AKCBreeds:English_Foxhound ;
+  rdfs:label "English_Foxhound" ;
+.
+:English_Setter
+  a AKCBreeds:English_Setter ;
+  rdfs:label "English_Setter" ;
+.
+:English_Springer_Spaniel
+  a AKCBreeds:English_Springer_Spaniel ;
+  rdfs:label "English_Springer_Spaniel" ;
+.
+:English_Toy_Spaniel
+  a AKCBreeds:English_Toy_Spaniel ;
+  rdfs:label "English_Toy_Spaniel" ;
+.
+:Entlebucher_Mountain_Dog
+  a AKCBreeds:Entlebucher_Mountain_Dog ;
+  rdfs:label "Entlebucher_Mountain_Dog" ;
+.
+:Estrela_Mountain_Dog
+  a AKCBreeds:Estrela_Mountain_Dog ;
+  rdfs:label "Estrela_Mountain_Dog" ;
+.
+:Eurasier
+  a AKCBreeds:Eurasier ;
+  rdfs:label "Eurasier" ;
+.
+:Field_Spaniel
+  a AKCBreeds:Field_Spaniel ;
+  rdfs:label "Field_Spaniel" ;
+.
+:Finish_Spitz
+  a AKCBreeds:Finish_Spitz ;
+  rdfs:label "Finish_Spitz" ;
+.
+:Finnish_Lapphund
+  a AKCBreeds:Finnish_Lapphund ;
+  rdfs:label "Finnish_Lapphund" ;
+.
+:Flat-Coated_Retriever
+  a AKCBreeds:Flat-Coated_Retriever ;
+  rdfs:label "Flat-Coated_Retriever" ;
+.
+:French_Bulldog
+  a AKCBreeds:French_Bulldog ;
+  rdfs:label "French_Bulldog" ;
+.
+:French_Spaniel
+  a AKCBreeds:French_Spaniel ;
+  rdfs:label "French_Spaniel" ;
+.
+:German_Longhaired_Pointer
+  a AKCBreeds:German_Longhaired_Pointer ;
+  rdfs:label "German_Longhaired_Pointer" ;
+.
+:German_Pinscher
+  a AKCBreeds:German_Pinscher ;
+  rdfs:label "German_Pinscher" ;
+.
+:German_Shepherd_Dog
+  a AKCBreeds:German_Shepherd_Dog ;
+  rdfs:label "German_Shepherd_Dog" ;
+.
+:German_Shorthaired_Pointer
+  a AKCBreeds:German_Shorthaired_Pointer ;
+  rdfs:label "German_Shorthaired_Pointer" ;
+.
+:German_Spitz
+  a AKCBreeds:German_Spitz ;
+  rdfs:label "German_Spitz" ;
+.
+:German_Wirehaired_Pointer
+  a AKCBreeds:German_Wirehaired_Pointer ;
+  rdfs:label "German_Wirehaired_Pointer" ;
+.
+:Giant_Schnauzer
+  a AKCBreeds:Giant_Schnauzer ;
+  rdfs:label "Giant_Schnauzer" ;
+.
+:Glen_of_Imaal_Terrier
+  a AKCBreeds:Glen_of_Imaal_Terrier ;
+  rdfs:label "Glen_of_Imaal_Terrier" ;
+.
+:Golden_Retriever
+  a AKCBreeds:Golden_Retriever ;
+  rdfs:label "Golden_Retriever" ;
+.
+:Gordon_Setter
+  a AKCBreeds:Gordon_Setter ;
+  rdfs:label "Gordon_Setter" ;
+.
+:Grand_Basset_Gri_on_Vendeen
+  a AKCBreeds:Grand_Basset_Gri_on_Vendeen ;
+  rdfs:label "Grand_Basset_Gri_on_Vendeen" ;
+.
+:Great_Dane
+  a AKCBreeds:Great_Dane ;
+  rdfs:label "Great_Dane" ;
+.
+:Great_Pyrenees
+  a AKCBreeds:Great_Pyrenees ;
+  rdfs:label "Great_Pyrenees" ;
+.
+:Greater_Swiss_Mountain_Dog
+  a AKCBreeds:Greater_Swiss_Mountain_Dog ;
+  rdfs:label "Greater_Swiss_Mountain_Dog" ;
+.
+:Greyhound
+  a AKCBreeds:Greyhound ;
+  rdfs:label "Greyhound" ;
+.
+:Hamiltonstovare
+  a AKCBreeds:Hamiltonstovare ;
+  rdfs:label "Hamiltonstovare" ;
+.
+:Hanoverian_Scenthound
+  a AKCBreeds:Hanoverian_Scenthound ;
+  rdfs:label "Hanoverian_Scenthound" ;
+.
+:Harrier
+  a AKCBreeds:Harrier ;
+  rdfs:label "Harrier" ;
+.
+:Havanese
+  a AKCBreeds:Havanese ;
+  rdfs:label "Havanese" ;
+.
+:Hokkaido
+  a AKCBreeds:Hokkaido ;
+  rdfs:label "Hokkaido" ;
+.
+:Hovawart
+  a AKCBreeds:Hovawart ;
+  rdfs:label "Hovawart" ;
+.
+:Ibizan_Hound
+  a AKCBreeds:Ibizan_Hound ;
+  rdfs:label "Ibizan_Hound" ;
+.
+:Icelandic_Sheepdog
+  a AKCBreeds:Icelandic_Sheepdog ;
+  rdfs:label "Icelandic_Sheepdog" ;
+.
+:Irish_Red_and_White_Setter
+  a AKCBreeds:Irish_Red_and_White_Setter ;
+  rdfs:label "Irish_Red_and_White_Setter" ;
+.
+:Irish_Setter
+  a AKCBreeds:Irish_Setter ;
+  rdfs:label "Irish_Setter" ;
+.
+:Irish_Terrier
+  a AKCBreeds:Irish_Terrier ;
+  rdfs:label "Irish_Terrier" ;
+.
+:Irish_Water_Spaniel
+  a AKCBreeds:Irish_Water_Spaniel ;
+  rdfs:label "Irish_Water_Spaniel" ;
+.
+:Irish_Wolfhound
+  a AKCBreeds:Irish_Wolfhound ;
+  rdfs:label "Irish_Wolfhound" ;
+.
+:Italian_Greyhound
+  a AKCBreeds:Italian_Greyhound ;
+  rdfs:label "Italian_Greyhound" ;
+.
+:Jack_Russell_Terrier
+  a AKCBreeds:Jack_Russell_Terrier ;
+  rdfs:label "Jack_Russell_Terrier" ;
+.
+:Jagdterrier
+  a AKCBreeds:Jagdterrier ;
+  rdfs:label "Jagdterrier" ;
+.
+:Japanese_Chin
+  a AKCBreeds:Japanese_Chin ;
+  rdfs:label "Japanese_Chin" ;
+.
+:Jindo
+  a AKCBreeds:Jindo ;
+  rdfs:label "Jindo" ;
+.
+:Kai_Ken
+  a AKCBreeds:Kai_Ken ;
+  rdfs:label "Kai_Ken" ;
+.
+:Karelian_Bear_Dog
+  a AKCBreeds:Karelian_Bear_Dog ;
+  rdfs:label "Karelian_Bear_Dog" ;
+.
+:Keeshond
+  a AKCBreeds:Keeshond ;
+  rdfs:label "Keeshond" ;
+.
+:Kerry_Blue_Terrier
+  a AKCBreeds:Kerry_Blue_Terrier ;
+  rdfs:label "Kerry_Blue_Terrier" ;
+.
+:Kishu_Ken
+  a AKCBreeds:Kishu_Ken ;
+  rdfs:label "Kishu_Ken" ;
+.
+:Komondor
+  a AKCBreeds:Komondor ;
+  rdfs:label "Komondor" ;
+.
+:Kromfohrlander
+  a AKCBreeds:Kromfohrlander ;
+  rdfs:label "Kromfohrlander" ;
+.
+:Kuvasz
+  a AKCBreeds:Kuvasz ;
+  rdfs:label "Kuvasz" ;
+.
+:Labrador_Retriever
+  a AKCBreeds:Labrador_Retriever ;
+  rdfs:label "Labrador_Retriever" ;
+.
+:Lagotto_Romagnolo
+  a AKCBreeds:Lagotto_Romagnolo ;
+  rdfs:label "Lagotto_Romagnolo" ;
+.
+:Lakeland_Terrier
+  a AKCBreeds:Lakeland_Terrier ;
+  rdfs:label "Lakeland_Terrier" ;
+.
+:Lancashire_Heeler
+  a AKCBreeds:Lancashire_Heeler ;
+  rdfs:label "Lancashire_Heeler" ;
+.
+:Lapponian_Herder
+  a AKCBreeds:Lapponian_Herder ;
+  rdfs:label "Lapponian_Herder" ;
+.
+:Leonberger
+  a AKCBreeds:Leonberger ;
+  rdfs:label "Leonberger" ;
+.
+:Lhasa_Apso
+  a AKCBreeds:Lhasa_Apso ;
+  rdfs:label "Lhasa_Apso" ;
+.
+:Lowchen
+  a AKCBreeds:Lowchen ;
+  rdfs:label "Lowchen" ;
+.
+:Maltese
+  a AKCBreeds:Maltese ;
+  rdfs:label "Maltese" ;
+.
+:Manchester_Terrier
+  a AKCBreeds:Manchester_Terrier ;
+  rdfs:label "Manchester_Terrier" ;
+.
+:Mastiff
+  a AKCBreeds:Mastiff ;
+  rdfs:label "Mastiff" ;
+.
+:Miniature_American_Shepherd
+  a AKCBreeds:Miniature_American_Shepherd ;
+  rdfs:label "Miniature_American_Shepherd" ;
+.
+:Miniature_Bull_Terrier
+  a AKCBreeds:Miniature_Bull_Terrier ;
+  rdfs:label "Miniature_Bull_Terrier" ;
+.
+:Miniature_Pinscher
+  a AKCBreeds:Miniature_Pinscher ;
+  rdfs:label "Miniature_Pinscher" ;
+.
+:Miniature_Schnauzer
+  a AKCBreeds:Miniature_Schnauzer ;
+  rdfs:label "Miniature_Schnauzer" ;
+.
+:Mountain_Cur
+  a AKCBreeds:Mountain_Cur ;
+  rdfs:label "Mountain_Cur" ;
+.
+:Mudi
+  a AKCBreeds:Mudi ;
+  rdfs:label "Mudi" ;
+.
+:Neapolitan_Masti
+  a AKCBreeds:Neapolitan_Masti ;
+  rdfs:label "Neapolitan_Masti" ;
+.
+:Nederlandse_Kooikerhondje
+  a AKCBreeds:Nederlandse_Kooikerhondje ;
+  rdfs:label "Nederlandse_Kooikerhondje" ;
+.
+:Newfoundland
+  a AKCBreeds:Newfoundland ;
+  rdfs:label "Newfoundland" ;
+.
+:Norfolk_Terrier
+  a AKCBreeds:Norfolk_Terrier ;
+  rdfs:label "Norfolk_Terrier" ;
+.
+:Norrbottenspets
+  a AKCBreeds:Norrbottenspets ;
+  rdfs:label "Norrbottenspets" ;
+.
+:Norwegian_Buhund
+  a AKCBreeds:Norwegian_Buhund ;
+  rdfs:label "Norwegian_Buhund" ;
+.
+:Norwegian_Elkhound
+  a AKCBreeds:Norwegian_Elkhound ;
+  rdfs:label "Norwegian_Elkhound" ;
+.
+:Norwegian_Lundhund
+  a AKCBreeds:Norwegian_Lundhund ;
+  rdfs:label "Norwegian_Lundhund" ;
+.
+:Norwich_Terrier
+  a AKCBreeds:Norwich_Terrier ;
+  rdfs:label "Norwich_Terrier" ;
+.
+:Nova_Scotia_Duck_Tolling_Retriever
+  a AKCBreeds:Nova_Scotia_Duck_Tolling_Retriever ;
+  rdfs:label "Nova_Scotia_Duck_Tolling_Retriever" ;
+.
+:Old_English_Sheepdog
+  a AKCBreeds:Old_English_Sheepdog ;
+  rdfs:label "Old_English_Sheepdog" ;
+.
+:Otterhound
+  a AKCBreeds:Otterhound ;
+  rdfs:label "Otterhound" ;
+.
+:Papillon
+  a AKCBreeds:Papillon ;
+  rdfs:label "Papillon" ;
+.
+:Parson_Russell_Terrier
+  a AKCBreeds:Parson_Russell_Terrier ;
+  rdfs:label "Parson_Russell_Terrier" ;
+.
+:Pekingese
+  a AKCBreeds:Pekingese ;
+  rdfs:label "Pekingese" ;
+.
+:Pembroke_Welsh_Corgi
+  a AKCBreeds:Pembroke_Welsh_Corgi ;
+  rdfs:label "Pembroke_Welsh_Corgi" ;
+.
+:Perro_de_Presa_Canario
+  a AKCBreeds:Perro_de_Presa_Canario ;
+  rdfs:label "Perro_de_Presa_Canario" ;
+.
+:Peruvian_Inca_Orchid
+  a AKCBreeds:Peruvian_Inca_Orchid ;
+  rdfs:label "Peruvian_Inca_Orchid" ;
+.
+:Petit_Basset_Gri_on_Vendeen
+  a AKCBreeds:Petit_Basset_Gri_on_Vendeen ;
+  rdfs:label "Petit_Basset_Gri_on_Vendeen" ;
+.
+:Pharaoh_Hound
+  a AKCBreeds:Pharaoh_Hound ;
+  rdfs:label "Pharaoh_Hound" ;
+.
+:Plott
+  a AKCBreeds:Plott ;
+  rdfs:label "Plott" ;
+.
+:Pointer
+  a AKCBreeds:Pointer ;
+  rdfs:label "Pointer" ;
+.
+:Polish_Lowland_Sheepdog
+  a AKCBreeds:Polish_Lowland_Sheepdog ;
+  rdfs:label "Polish_Lowland_Sheepdog" ;
+.
+:Pomeranian
+  a AKCBreeds:Pomeranian ;
+  rdfs:label "Pomeranian" ;
+.
+:Poodle
+  a AKCBreeds:Poodle ;
+  rdfs:label "Poodle" ;
+.
+:Poodle_Toy
+  a AKCBreeds:Poodle_Toy ;
+  rdfs:label "Poodle_Toy" ;
+.
+:Porcelaine
+  a AKCBreeds:Porcelaine ;
+  rdfs:label "Porcelaine" ;
+.
+:Portuguese_Podengo
+  a AKCBreeds:Portuguese_Podengo ;
+  rdfs:label "Portuguese_Podengo" ;
+.
+:Portuguese_Podengo_Pequeno
+  a AKCBreeds:Portuguese_Podengo_Pequeno ;
+  rdfs:label "Portuguese_Podengo_Pequeno" ;
+.
+:Portuguese_Pointer
+  a AKCBreeds:Portuguese_Pointer ;
+  rdfs:label "Portuguese_Pointer" ;
+.
+:Portuguese_Sheepdog
+  a AKCBreeds:Portuguese_Sheepdog ;
+  rdfs:label "Portuguese_Sheepdog" ;
+.
+:Portuguese_Water_Dog
+  a AKCBreeds:Portuguese_Water_Dog ;
+  rdfs:label "Portuguese_Water_Dog" ;
+.
+:Pudelpointer
+  a AKCBreeds:Pudelpointer ;
+  rdfs:label "Pudelpointer" ;
+.
+:Pug
+  a AKCBreeds:Pug ;
+  rdfs:label "Pug" ;
+.
+:Puli
+  a AKCBreeds:Puli ;
+  rdfs:label "Puli" ;
+.
+:Pumi
+  a AKCBreeds:Pumi ;
+  rdfs:label "Pumi" ;
+.
+:Pyrenean_Masti
+  a AKCBreeds:Pyrenean_Masti ;
+  rdfs:label "Pyrenean_Masti" ;
+.
+:Pyrenean_Shepherd
+  a AKCBreeds:Pyrenean_Shepherd ;
+  rdfs:label "Pyrenean_Shepherd" ;
+.
+:Rafeiro_de_Alentejo
+  a AKCBreeds:Rafeiro_de_Alentejo ;
+  rdfs:label "Rafeiro_de_Alentejo" ;
+.
+:Rat_Terrier
+  a AKCBreeds:Rat_Terrier ;
+  rdfs:label "Rat_Terrier" ;
+.
+:Redbone_Coonhound
+  a AKCBreeds:Redbone_Coonhound ;
+  rdfs:label "Redbone_Coonhound" ;
+.
+:Rhodesian_Ridgeback
+  a AKCBreeds:Rhodesian_Ridgeback ;
+  rdfs:label "Rhodesian_Ridgeback" ;
+.
+:Romanian_Mioritic_Shepherd_Dog
+  a AKCBreeds:Romanian_Mioritic_Shepherd_Dog ;
+  rdfs:label "Romanian_Mioritic_Shepherd_Dog" ;
+.
+:Rottweiler
+  a AKCBreeds:Rottweiler ;
+  rdfs:label "Rottweiler" ;
+.
+:Russell_Terrier
+  a AKCBreeds:Russell_Terrier ;
+  rdfs:label "Russell_Terrier" ;
+.
+:Russian_Toy
+  a AKCBreeds:Russian_Toy ;
+  rdfs:label "Russian_Toy" ;
+.
+:Russian_Tsvetnaya_Bolonka
+  a AKCBreeds:Russian_Tsvetnaya_Bolonka ;
+  rdfs:label "Russian_Tsvetnaya_Bolonka" ;
+.
+:Saluki
+  a AKCBreeds:Saluki ;
+  rdfs:label "Saluki" ;
+.
+:Samoyed
+  a AKCBreeds:Samoyed ;
+  rdfs:label "Samoyed" ;
+.
+:Schapendoes
+  a AKCBreeds:Schapendoes ;
+  rdfs:label "Schapendoes" ;
+.
+:Schipperke
+  a AKCBreeds:Schipperke ;
+  rdfs:label "Schipperke" ;
+.
+:Scottish_Deerhound
+  a AKCBreeds:Scottish_Deerhound ;
+  rdfs:label "Scottish_Deerhound" ;
+.
+:Scottish_Terrier
   a AKCBreeds:Scottish_Terrier ;
-  rdfs:label "Scottish_Terrier_1" ;
+  rdfs:label "Scottish_Terrier" ;
+.
+:Sealyham_Terrier
+  a AKCBreeds:Sealyham_Terrier ;
+  rdfs:label "Sealyham_Terrier" ;
+.
+:Segugio_Italiano
+  a AKCBreeds:Segugio_Italiano ;
+  rdfs:label "Segugio_Italiano" ;
+.
+:Shetland_Sheepdog
+  a AKCBreeds:Shetland_Sheepdog ;
+  rdfs:label "Shetland_Sheepdog" ;
+.
+:Shiba_Inu
+  a AKCBreeds:Shiba_Inu ;
+  rdfs:label "Shiba_Inu" ;
+.
+:Shih_Tzu
+  a AKCBreeds:Shih_Tzu ;
+  rdfs:label "Shih_Tzu" ;
+.
+:Shikoku
+  a AKCBreeds:Shikoku ;
+  rdfs:label "Shikoku" ;
+.
+:Siberian_Husky
+  a AKCBreeds:Siberian_Husky ;
+  rdfs:label "Siberian_Husky" ;
+.
+:Silky_Terrier
+  a AKCBreeds:Silky_Terrier ;
+  rdfs:label "Silky_Terrier" ;
+.
+:Skye_Terrier
+  a AKCBreeds:Skye_Terrier ;
+  rdfs:label "Skye_Terrier" ;
+.
+:Sloughi
+  a AKCBreeds:Sloughi ;
+  rdfs:label "Sloughi" ;
+.
+:Slovakian_Wirehaired_Pointer
+  a AKCBreeds:Slovakian_Wirehaired_Pointer ;
+  rdfs:label "Slovakian_Wirehaired_Pointer" ;
+.
+:Slovensky_Cuvac
+  a AKCBreeds:Slovensky_Cuvac ;
+  rdfs:label "Slovensky_Cuvac" ;
+.
+:Slovensky_Kopov
+  a AKCBreeds:Slovensky_Kopov ;
+  rdfs:label "Slovensky_Kopov" ;
+.
+:Small_Musterlander_Pointer
+  a AKCBreeds:Small_Musterlander_Pointer ;
+  rdfs:label "Small_Musterlander_Pointer" ;
+.
+:Smooth_Fox_Terrier
+  a AKCBreeds:Smooth_Fox_Terrier ;
+  rdfs:label "Smooth_Fox_Terrier" ;
+.
+:Soft_Coated_Wheaten_Terrier
+  a AKCBreeds:Soft_Coated_Wheaten_Terrier ;
+  rdfs:label "Soft_Coated_Wheaten_Terrier" ;
+.
+:Spanish_Masti
+  a AKCBreeds:Spanish_Masti ;
+  rdfs:label "Spanish_Masti" ;
+.
+:Spanish_Water_Dog
+  a AKCBreeds:Spanish_Water_Dog ;
+  rdfs:label "Spanish_Water_Dog" ;
+.
+:Spinone_Italiano
+  a AKCBreeds:Spinone_Italiano ;
+  rdfs:label "Spinone_Italiano" ;
+.
+:Stabyhoun
+  a AKCBreeds:Stabyhoun ;
+  rdfs:label "Stabyhoun" ;
+.
+:Staffordshire_Bull_Terrier
+  a AKCBreeds:Staffordshire_Bull_Terrier ;
+  rdfs:label "Staffordshire_Bull_Terrier" ;
+.
+:Standard_Schnauzer
+  a AKCBreeds:Standard_Schnauzer ;
+  rdfs:label "Standard_Schnauzer" ;
+.
+:Sussex_Spaniel
+  a AKCBreeds:Sussex_Spaniel ;
+  rdfs:label "Sussex_Spaniel" ;
+.
+:Swedish_Lapphund
+  a AKCBreeds:Swedish_Lapphund ;
+  rdfs:label "Swedish_Lapphund" ;
+.
+:Swedish_Vallhund
+  a AKCBreeds:Swedish_Vallhund ;
+  rdfs:label "Swedish_Vallhund" ;
+.
+:Taiwan_Dog
+  a AKCBreeds:Taiwan_Dog ;
+  rdfs:label "Taiwan_Dog" ;
+.
+:Teddy_Roosevelt_Terrier
+  a AKCBreeds:Teddy_Roosevelt_Terrier ;
+  rdfs:label "Teddy_Roosevelt_Terrier" ;
+.
+:Thai_Ridgeback
+  a AKCBreeds:Thai_Ridgeback ;
+  rdfs:label "Thai_Ridgeback" ;
+.
+:Tibetan_Masti
+  a AKCBreeds:Tibetan_Masti ;
+  rdfs:label "Tibetan_Masti" ;
+.
+:Tibetan_Spaniel
+  a AKCBreeds:Tibetan_Spaniel ;
+  rdfs:label "Tibetan_Spaniel" ;
+.
+:Tibetan_Terrier
+  a AKCBreeds:Tibetan_Terrier ;
+  rdfs:label "Tibetan_Terrier" ;
+.
+:Tornjak
+  a AKCBreeds:Tornjak ;
+  rdfs:label "Tornjak" ;
+.
+:Tosa
+  a AKCBreeds:Tosa ;
+  rdfs:label "Tosa" ;
+.
+:Toy_Fox_Terrier
+  a AKCBreeds:Toy_Fox_Terrier ;
+  rdfs:label "Toy_Fox_Terrier" ;
+.
+:Transylvanian_Hound
+  a AKCBreeds:Transylvanian_Hound ;
+  rdfs:label "Transylvanian_Hound" ;
+.
+:Treeing_Tennessee_Brindle
+  a AKCBreeds:Treeing_Tennessee_Brindle ;
+  rdfs:label "Treeing_Tennessee_Brindle" ;
+.
+:Treeing_Walker_Coonhound
+  a AKCBreeds:Treeing_Walker_Coonhound ;
+  rdfs:label "Treeing_Walker_Coonhound" ;
+.
+:Village_Dog
+  a AKCBreeds:Village_Dog ;
+  rdfs:label "Village_Dog" ;
+.
+:Vizsla
+  a AKCBreeds:Vizsla ;
+  rdfs:label "Vizsla" ;
+.
+:WeightRange_0
+  a DSPCore:Weight ;
+  DSPCore:hasLowerBound "0"^^xsd:decimal ;
+  DSPCore:hasUpperBound "10"^^xsd:decimal ;
+  DSPCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_0" ;
+.
+:WeightRange_1
+  a DSPCore:Weight ;
+  DSPCore:hasLowerBound "11"^^xsd:decimal ;
+  DSPCore:hasUpperBound "20"^^xsd:decimal ;
+  DSPCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_1" ;
+.
+:WeightRange_10
+  a DSPCore:Weight ;
+  DSPCore:hasLowerBound "100"^^xsd:decimal ;
+  DSPCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_10" ;
+.
+:WeightRange_2
+  a DSPCore:Weight ;
+  DSPCore:hasLowerBound "21"^^xsd:decimal ;
+  DSPCore:hasUpperBound "30"^^xsd:decimal ;
+  DSPCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_2" ;
+.
+:WeightRange_3
+  a DSPCore:Weight ;
+  DSPCore:hasLowerBound "31"^^xsd:decimal ;
+  DSPCore:hasUpperBound "40"^^xsd:decimal ;
+  DSPCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_3" ;
+.
+:WeightRange_4
+  a DSPCore:Weight ;
+  DSPCore:hasLowerBound "41"^^xsd:decimal ;
+  DSPCore:hasUpperBound "50"^^xsd:decimal ;
+  DSPCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_4" ;
+.
+:WeightRange_5
+  a DSPCore:Weight ;
+  DSPCore:hasLowerBound "51"^^xsd:decimal ;
+  DSPCore:hasUpperBound "60"^^xsd:decimal ;
+  DSPCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_5" ;
+.
+:WeightRange_6
+  a DSPCore:Weight ;
+  DSPCore:hasLowerBound "61"^^xsd:decimal ;
+  DSPCore:hasUpperBound "70"^^xsd:decimal ;
+  DSPCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_6" ;
+.
+:WeightRange_7
+  a DSPCore:Weight ;
+  DSPCore:hasLowerBound "71"^^xsd:decimal ;
+  DSPCore:hasUpperBound "80"^^xsd:decimal ;
+  DSPCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_7" ;
+.
+:WeightRange_8
+  a DSPCore:Weight ;
+  DSPCore:hasLowerBound "81"^^xsd:decimal ;
+  DSPCore:hasUpperBound "90"^^xsd:decimal ;
+  DSPCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_8" ;
+.
+:WeightRange_9
+  a DSPCore:Weight ;
+  DSPCore:hasLowerBound "91"^^xsd:decimal ;
+  DSPCore:hasUpperBound "100"^^xsd:decimal ;
+  DSPCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_9" ;
+.
+:Weimaraner
+  a AKCBreeds:Weimaraner ;
+  rdfs:label "Weimaraner" ;
+.
+:Welsh_Springer_Spaniel
+  a AKCBreeds:Welsh_Springer_Spaniel ;
+  rdfs:label "Welsh_Springer_Spaniel" ;
+.
+:Welsh_Terrier
+  a AKCBreeds:Welsh_Terrier ;
+  rdfs:label "Welsh_Terrier" ;
+.
+:West_Highland_White_Terrier
+  a AKCBreeds:West_Highland_White_Terrier ;
+  rdfs:label "West_Highland_White_Terrier" ;
+.
+:Whippet
+  a AKCBreeds:Whippet ;
+  rdfs:label "Whippet" ;
+.
+:Wire_Fox_Terrier
+  a AKCBreeds:Wire_Fox_Terrier ;
+  rdfs:label "Wire_Fox_Terrier" ;
+.
+:Wirehaired_Pointing_Griffon
+  a AKCBreeds:Wirehaired_Pointing_Griffon ;
+  rdfs:label "Wirehaired_Pointing_Griffon" ;
+.
+:Wirehaired_Vizsla
+  a AKCBreeds:Wirehaired_Vizsla ;
+  rdfs:label "Wirehaired_Vizsla" ;
+.
+:Wolf
+  a AKCBreeds:Wolf ;
+  rdfs:label "Wolf" ;
+.
+:Working_Kelpie
+  a AKCBreeds:Working_Kelpie ;
+  rdfs:label "Working_Kelpie" ;
+.
+:Xoloitzcuintli
+  a AKCBreeds:Xoloitzcuintli ;
+  rdfs:label "Xoloitzcuintli" ;
+.
+:Yakutian_Laika
+  a AKCBreeds:Yakutian_Laika ;
+  rdfs:label "Yakutian_Laika" ;
+.
+:Yorkshire_Terrier
+  a AKCBreeds:Yorkshire_Terrier ;
+  rdfs:label "Yorkshire_Terrier" ;
+.
+:hasBirthYear
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:DogDonor ;
+  rdfs:label "hasBirthYear" ;
+  rdfs:range xsd:integer ;
 .
 :hasBreedType
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Dog ;
+  rdfs:domain DSPCore:DogDonor ;
   rdfs:label "hasBreedType" ;
   rdfs:range [
       a rdfs:Datatype ;
@@ -54,34 +1221,50 @@
   rdfs:label "hasCensusGeography" ;
   rdfs:range xsd:string ;
 .
-<http://datamodel.broadinstitute.org/Dog/AddressA>
-  a DSPCore:Address ;
-  :hasCensusGeography "unknown" ;
-  DSPCore:hasCountry <http://datamodel.broadinstitute.org/Dog/United_States_of_America> ;
-  DSPCore:hasMailingAddress "105 Broadway Cambridge, MA" ;
-  DSPCore:hasPostalCode "02142" ;
-  rdfs:label "AddressA" ;
+:hasSleepLocation
+  a owl:DatatypeProperty ;
+  rdfs:label "hasSleepLocation" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "In Your Room"
+          "Elsewhere in the House"
+          "In a Garage or Barn"
+          "Outside"
+        ) ;
+    ] ;
 .
-<http://datamodel.broadinstitute.org/Dog/Fido>
-  a DSPCore:Dog ;
-  :hasBreedType "Mixed breed" ;
-  dog:hasOwner <http://datamodel.broadinstitute.org/DogOwner_1> ;
-  dog:hasPrimaryBreed :Cocker_Spaniel_1 ;
-  dog:hasSecondaryBreed :Scottish_Terrier_1 ;
-  DSPCore:hasBirthDate "2009-12-25T12:00:00Z"^^xsd:dateTime ;
-  DSPCore:hasOrganism DSPCore:Canis_lupus_familaris ;
-  DSPCore:hasSex "Male" ;
-  rdfs:label "Fido" ;
+:hasVetFrequency
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:DogDonor ;
+  rdfs:label "hasVetFrequency" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "Never"
+          "Less than Once per Year"
+          "About Once per Year"
+          "More than Once per Year"
+        ) ;
+    ] ;
 .
-<http://datamodel.broadinstitute.org/Dog/Rover>
-  a DSPCore:Dog ;
-  :hasBreedType "Pure breed" ;
-  dog:hasOwner <http://datamodel.broadinstitute.org/DogOwner_1> ;
-  dog:hasPrimaryBreed :Cocker_Spaniel_1 ;
-  DSPCore:hasBirthDate "2015-12-25T00:00:00Z"^^xsd:dateTime ;
-  DSPCore:hasOrganism DSPCore:Canis_lupus_familaris ;
-  DSPCore:hasSex "Female" ;
-  rdfs:label "Rover" ;
+:isBirthYearCertain
+  a owl:DatatypeProperty ;
+  rdfs:label "isBirthYearCertain" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "Yes"
+          "Not sure"
+          "I don't know the birth year"
+        ) ;
+    ] ;
+.
+:isSpayorNeuter
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:DogDonor ;
+  rdfs:label "is spayed or neutered" ;
+  rdfs:range xsd:boolean ;
 .
 <http://datamodel.broadinstitute.org/Dog/United_States_of_America>
   a DSPCore:Country ;
@@ -128,7 +1311,7 @@ dog:Owner
 dog:hasBreed
   a owl:ObjectProperty ;
   rdfs:comment "Need to select ontology and make this an object property." ;
-  rdfs:domain DSPCore:Dog ;
+  rdfs:domain DSPCore:DogDonor ;
   rdfs:label "hasBreed" ;
   rdfs:range AKCBreeds:DogBreed ;
 .
@@ -152,21 +1335,21 @@ dog:hasHouseholdMembers
 .
 dog:hasOwner
   a owl:ObjectProperty ;
-  rdfs:domain DSPCore:Dog ;
+  rdfs:domain DSPCore:DogDonor ;
   rdfs:label "hasOwner" ;
   rdfs:range dog:Owner ;
   owl:inverseOf dog:ownsDog ;
 .
 dog:hasPrimaryBreed
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Dog ;
+  rdfs:domain DSPCore:DogDonor ;
   rdfs:label "hasPrimaryBreed" ;
   rdfs:range AKCBreeds:DogBreed ;
   rdfs:subPropertyOf dog:hasBreed ;
 .
 dog:hasSecondaryBreed
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Dog ;
+  rdfs:domain DSPCore:DogDonor ;
   rdfs:label "hasSecondaryBreed" ;
   rdfs:range AKCBreeds:DogBreed ;
   rdfs:subPropertyOf dog:hasBreed ;
@@ -175,20 +1358,8 @@ dog:ownsDog
   a owl:ObjectProperty ;
   rdfs:domain dog:Owner ;
   rdfs:label "ownsDog" ;
-  rdfs:range DSPCore:Dog ;
+  rdfs:range DSPCore:DogDonor ;
   owl:inverseOf dog:hasOwner ;
-.
-<http://datamodel.broadinstitute.org/DogOwner_1>
-  a dog:Owner ;
-  :hasCensusGeography "unknown" ;
-  dog:hasHouseholdDogs 2 ;
-  dog:hasHouseholdMembers 1 ;
-  dog:ownsDog <http://datamodel.broadinstitute.org/Dog/Fido> ;
-  dog:ownsDog <http://datamodel.broadinstitute.org/Dog/Rover> ;
-  DSPCore:hasCurrentAddress <http://datamodel.broadinstitute.org/Dog/AddressA> ;
-  rdfs:label "Owner_1" ;
-  foaf:firstName "Kathy" ;
-  foaf:surname "FidoOwner" ;
 .
 DSPCore:Address
   rdfs:comment "To allow for previous addresses, we have optional properties start and end date." ;
@@ -198,7 +1369,7 @@ DSPCore:Address
       owl:onProperty :hasCensusGeography ;
     ] ;
 .
-DSPCore:Dog
+DSPCore:DogDonor
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -207,7 +1378,37 @@ DSPCore:Dog
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty :hasSleepLocation ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty :hasVetFrequency ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty :isBirthYearCertain ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dog:hasOwner ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasMedicalHistory ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasWeightRange ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty :hasBirthYear ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -221,8 +1422,12 @@ DSPCore:hasCountry
 DSPCore:hasCurrentAddress
   rdfs:range DSPCore:Address ;
 .
-DSPCore:hasStartPosition
-  rdfs:subPropertyOf DSPCore:hasSponsor ;
+DSPCore:hasWeightRange
+  a owl:ObjectProperty ;
+  rdfs:domain DSPCore:DogDonor ;
+  rdfs:label "hasWeightRange" ;
+  rdfs:range DSPCore:Weight ;
+  rdfs:subPropertyOf DSPCore:hasWeight ;
 .
 foaf:family_name
   rdfs:domain dog:Owner ;
