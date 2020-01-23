@@ -3,7 +3,7 @@
 # imports: http://datamodel.terra.bio/DSPdcat_ap
 # imports: http://datamodel.terra.bio/NCBITaxon_12organisms.owl
 # imports: http://datamodel.terra.bio/OBI_assaySubset.owl
-# imports: http://datamodel.terra.bio/OBI_subset.owl
+# imports: http://purl.obolibrary.org/obo/
 # imports: http://www.w3.org/2002/07/owl
 # imports: http://xmlns.com/foaf/0.1/
 # prefix: DSPCore
@@ -12,6 +12,8 @@
 @prefix DSPCoreValueSets: <http://datamodel.broadinstitute.org/DSPCoreValueSets#> .
 @prefix DSPdcat_ap: <http://datamodel.terra.bio/DSPdcat_ap/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix duo: <http://purl.obolibrary.org/obo/duo-basic.owl#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -33,7 +35,7 @@ DSPCoreValueSets:DataModality
   owl:imports <http://datamodel.terra.bio/DSPdcat_ap> ;
   owl:imports <http://datamodel.terra.bio/NCBITaxon_12organisms.owl> ;
   owl:imports <http://datamodel.terra.bio/OBI_assaySubset.owl> ;
-  owl:imports <http://datamodel.terra.bio/OBI_subset.owl> ;
+  owl:imports obo: ;
   owl:imports <http://www.w3.org/2002/07/owl> ;
   owl:imports <http://xmlns.com/foaf/0.1/> ;
   owl:versionInfo "Created with TopBraid Composer" ;
@@ -229,7 +231,7 @@ DSPCore:BioSample
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
-      owl:onProperty <http://purl.org/dc/terms/isPartOf> ;
+      owl:onProperty dct:isPartOf ;
       owl:someValuesFrom <http://datamodel.terra.bio/DSPdcat_ap#Dataset> ;
     ] ;
   skos:definition "A physical sample consisting of one or more cells taken from an organism (living or deceased) or derived from such a Sample" ;
@@ -263,10 +265,10 @@ DSPCore:Country
     ] ;
   skos:definition "A country represented by the ISO-3166 Alpha-2 code and name (as a label). https://www.iso.org/obp/ui/#search" ;
 .
-DSPCore:Dog
+DSPCore:DogDonor
   a owl:Class ;
   DSPCore:hasOrganism DSPCore:Canis_lupus_familaris ;
-  rdfs:label "Dog" ;
+  rdfs:label "DogDonor" ;
   rdfs:subClassOf DSPCore:Donor ;
   skos:definition "Extension of Donor class for dogs." ;
 .
@@ -306,7 +308,7 @@ DSPCore:Donor
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
-      owl:onProperty <http://purl.org/dc/terms/isPartOf> ;
+      owl:onProperty dct:isPartOf ;
       owl:someValuesFrom <http://datamodel.terra.bio/DSPdcat_ap#Dataset> ;
     ] ;
   skos:definition "An organism from which a sample or test result is available" ;
@@ -325,7 +327,7 @@ DSPCore:File
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://www.w3.org/ns/dcat#byteSize> ;
+      owl:onProperty dcat:byteSize ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -335,7 +337,7 @@ DSPCore:File
   owl:equivalentClass [
       a owl:Restriction ;
       owl:onProperty DSPCore:hasCrossReference ;
-      owl:someValuesFrom <http://purl.org/dc/terms/URI> ;
+      owl:someValuesFrom dct:URI ;
     ] ;
   skos:definition "A file is an information-bearing electronic object that contains a physical embodiment of some information using a particular character encoding." ;
   skos:prefLabel "File" ;
@@ -350,10 +352,10 @@ DSPCore:Homo_sapiens
   rdfs:label "Human" ;
   skos:prefLabel "Homo sapiens" ;
 .
-DSPCore:Human
+DSPCore:HumanDonor
   a owl:Class ;
   DSPCore:hasOrganism DSPCore:Homo_sapiens ;
-  rdfs:label "Human" ;
+  rdfs:label "HumanDonor" ;
   rdfs:subClassOf DSPCore:Donor ;
   skos:definition "Extension of Donor class for Humans." ;
 .
@@ -458,7 +460,7 @@ DSPCore:Sample
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://purl.org/dc/terms/isPartOf> ;
+      owl:onProperty dct:isPartOf ;
     ] ;
   skos:definition "Physical material collected for the purpose of research" ;
   skos:prefLabel "Sample" ;
@@ -541,8 +543,8 @@ DSPCore:Sequencing
       owl:onProperty prov:generated ;
       owl:someValuesFrom DSPCore:SequenceFile ;
     ] ;
-  prov:definition "An activity that produces an electronic record of a genetic sequence in a Sample" ;
   skos:prefLabel "Sequencing" ;
+  prov:definition "An activity that produces an electronic record of a genetic sequence in a Sample" ;
 .
 DSPCore:UserRestriction
   a obo:DUO_0000026 ;
@@ -573,8 +575,8 @@ DSPCore:VariantCall
       owl:onProperty prov:used ;
       owl:someValuesFrom DSPCore:VariantCallSet ;
     ] ;
-  prov:definition "A variation in genetic sequence for a particular Sample and VariantCallingActivity." ;
   skos:prefLabel "VariantCall" ;
+  prov:definition "A variation in genetic sequence for a particular Sample and VariantCallingActivity." ;
 .
 DSPCore:VariantCallSet
   a owl:Class ;
@@ -585,8 +587,8 @@ DSPCore:VariantCallSet
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasVariantCall ;
     ] ;
-  prov:definition "An electronic record of a collection of variations in genetic sequence for a particular Sample that have been generated by a VariantCallingActivity." ;
   skos:prefLabel "VariantCallSet" ;
+  prov:definition "An electronic record of a collection of variations in genetic sequence for a particular Sample that have been generated by a VariantCallingActivity." ;
 .
 DSPCore:VariantCalling
   a owl:Class ;
@@ -616,12 +618,19 @@ DSPCore:VariantCalling
   skos:definition "An activity that identifies genetic sequence alterations in a Sample" ;
   skos:prefLabel "VariantCalling" ;
 .
+DSPCore:Weight
+  a owl:Class ;
+  rdfs:label "Weight" ;
+  rdfs:subClassOf obo:IAO_0000109 ;
+  owl:equivalentClass obo:PATO_0000128 ;
+  skos:definition "A measurement of the mass of an entity." ;
+.
 DSPCore:dateObtained
   a rdf:Property ;
   rdfs:domain DSPCore:BioSample ;
   rdfs:label "dateObtained" ;
   rdfs:range xsd:dateTime ;
-  rdfs:subPropertyOf <http://purl.org/dc/terms/date> ;
+  rdfs:subPropertyOf dct:date ;
   skos:prefLabel "dateObtained" ;
 .
 DSPCore:derived
@@ -633,7 +642,6 @@ DSPCore:derived
 DSPCore:derivedFrom
   a owl:ObjectProperty ;
   rdfs:domain DSPCore:BioSample ;
-  rdfs:domain DSPCore:Library ;
   rdfs:label "derivedFrom" ;
   rdfs:range DSPCore:BioSample ;
   owl:inverseOf DSPCore:derived ;
@@ -674,6 +682,19 @@ DSPCore:hasAgeCategory
         ) ;
     ] ;
   skos:prefLabel "hasAgeCategory" ;
+.
+DSPCore:hasAgeUnit
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:Age ;
+  rdfs:label "hasAgeUnit" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "days"
+          "years"
+        ) ;
+    ] ;
+  rdfs:subPropertyOf DSPCore:hasUnit ;
 .
 DSPCore:hasAlignedFragments
   a owl:DatatypeProperty ;
@@ -752,7 +773,7 @@ DSPCore:hasBirthDate
   rdfs:domain DSPCore:Donor ;
   rdfs:label "hasBirthDate" ;
   rdfs:range xsd:dateTime ;
-  rdfs:subPropertyOf <http://purl.org/dc/terms/date> ;
+  rdfs:subPropertyOf dct:date ;
 .
 DSPCore:hasCellIsolationMethod
   a owl:DatatypeProperty ;
@@ -791,7 +812,7 @@ DSPCore:hasCountry
 DSPCore:hasCrossReference
   a owl:ObjectProperty ;
   rdfs:label "hasCrossReference" ;
-  rdfs:range <http://purl.org/dc/terms/URI> ;
+  rdfs:range dct:URI ;
   rdfs:subPropertyOf skos:closeMatch ;
   skos:definition "Reference to the entity in another electronic system.  The data stored about the entity may vary from system to system, but this relationship asserts that the reference represents the same entity." ;
   skos:prefLabel "hasCrossReference" ;
@@ -829,7 +850,7 @@ DSPCore:hasEstimatedLibrarySize
 .
 DSPCore:hasEthnicity
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Human ;
+  rdfs:domain DSPCore:HumanDonor ;
   rdfs:label "hasEthnicity" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasEthnicity" ;
@@ -873,7 +894,7 @@ DSPCore:hasFormat
           "sra"
         ) ;
     ] ;
-  rdfs:subPropertyOf <http://purl.org/dc/terms/format> ;
+  rdfs:subPropertyOf dct:format ;
   skos:prefLabel "hasFormat" ;
 .
 DSPCore:hasFragments
@@ -910,6 +931,7 @@ DSPCore:hasLocation
 DSPCore:hasLowerBound
   a owl:DatatypeProperty ;
   rdfs:domain DSPCore:Age ;
+  rdfs:domain DSPCore:Weight ;
   rdfs:label "hasLowerBound" ;
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasLowerBound" ;
@@ -1034,7 +1056,7 @@ DSPCore:hasResult
 .
 DSPCore:hasResultFile
   a owl:ObjectProperty ;
-  rdfs:domain DSPCore:BioSample ;
+  rdfs:domain DSPCore:Sample ;
   rdfs:label "hasResultFile" ;
   rdfs:range DSPCore:File ;
   rdfs:subPropertyOf DSPCore:hasResult ;
@@ -1066,7 +1088,6 @@ DSPCore:hasSex
           "Male"
           "Female"
           "Hermaphrodite"
-          "Unknown"
         ) ;
     ] ;
   skos:prefLabel "hasSex" ;
@@ -1093,20 +1114,13 @@ DSPCore:hasTarget
 .
 DSPCore:hasUnit
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Age ;
   rdfs:label "hasUnit" ;
-  rdfs:range [
-      a rdfs:Datatype ;
-      owl:oneOf (
-          "days"
-          "years"
-        ) ;
-    ] ;
   skos:prefLabel "hasUnit" ;
 .
 DSPCore:hasUpperBound
   a owl:DatatypeProperty ;
   rdfs:domain DSPCore:Age ;
+  rdfs:domain DSPCore:Weight ;
   rdfs:label "hasUpperBound" ;
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasUpperBound" ;
@@ -1124,6 +1138,7 @@ DSPCore:hasVariantCalling
   rdfs:domain DSPCore:BioSample ;
   rdfs:label "hasVariantCalling" ;
   rdfs:range DSPCore:VariantCalling ;
+  rdfs:subPropertyOf prov:hadActivity ;
   skos:prefLabel "hasVariantCalling" ;
 .
 DSPCore:hasVariantReference
@@ -1132,6 +1147,26 @@ DSPCore:hasVariantReference
   rdfs:label "hasVariantReference" ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf skos:relatedMatch ;
+.
+DSPCore:hasWeight
+  a owl:ObjectProperty ;
+  rdfs:domain obo:BFO_0000040 ;
+  rdfs:label "hasWeight" ;
+  rdfs:range DSPCore:Weight ;
+  skos:definition "A property that provides a measurement of the mass of a material entity." ;
+.
+DSPCore:hasWeightUnit
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:Weight ;
+  rdfs:label "hasWeightUnit" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "lbs"
+          "kg"
+        ) ;
+    ] ;
+  rdfs:subPropertyOf DSPCore:hasUnit ;
 .
 DSPCore:investigatedBy
   a owl:ObjectProperty ;
