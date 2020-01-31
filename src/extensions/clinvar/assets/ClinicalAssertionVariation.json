@@ -1,5 +1,0 @@
-{
-  "name": "ClinicalAssertionVariation",
-  "rootTable": "clinical_assertion_variation",
-  "rootColumn": "id"
-}

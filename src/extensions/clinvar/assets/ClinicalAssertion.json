@@ -1,5 +1,0 @@
-{
-  "name": "ClinicalAssertion",
-  "rootTable": "clinical_assertion",
-  "rootColumn": "id"
-}
