@@ -1,6 +1,6 @@
 # baseURI: http://datamodel.terra.bio/DSPdcat_ap
 # imports: http://www.w3.org/ns/dcat
-# imports: https://raw.githubusercontent.com/EBISPOT/DUO/master/duo-basic.owl
+# imports: http://purl.obolibrary.org/obo/DUO.owl
 # prefix: DSPdcat_ap
 
 @prefix : <http://datamodel.terra.bio/DSPdcat_ap#> .
@@ -72,7 +72,7 @@ DSPdcat_ap:DataCollection
   owl:equivalentClass [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPdcat_ap:hasPrimaryConsent ;
+      owl:onProperty DSPdcat_ap:hasDataUseLimitation ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -98,11 +98,6 @@ DSPdcat_ap:DataCollection
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPdcat_ap:hasDataset ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPdcat_ap:hasSecondaryConsent ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -141,7 +136,7 @@ DSPdcat_ap:DataSnapshot
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPdcat_ap:hasPrimaryConsent ;
+      owl:onProperty DSPdcat_ap:hasDataUseLimitation ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -186,11 +181,6 @@ DSPdcat_ap:DataSnapshot
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPdcat_ap:hasSecondaryConsent ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty dcat:byteSize ;
     ] ;
   owl:equivalentClass [
@@ -224,7 +214,7 @@ DSPdcat_ap:Dataset
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality 1 ;
-      owl:onProperty DSPdcat_ap:hasPrimaryConsent ;
+      owl:onProperty DSPdcat_ap:hasDataUseLimitation ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -270,11 +260,6 @@ DSPdcat_ap:Dataset
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPdcat_ap:hasDataUseRequirement ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPdcat_ap:hasSecondaryConsent ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -330,6 +315,15 @@ DSPdcat_ap:hasDataSnapshot
   rdfs:subPropertyOf dcat:distribution ;
   skos:prefLabel "hasDataSnapshot" ;
 .
+DSPdcat_ap:hasDataUseLimitation
+  a owl:ObjectProperty ;
+  rdfs:domain DSPdcat_ap:DataCollection ;
+  rdfs:domain DSPdcat_ap:DataSnapshot ;
+  rdfs:domain DSPdcat_ap:Dataset ;
+  rdfs:label "hasDataUseLimitation" ;
+  rdfs:range <http://purl.obolibrary.org/obo/DUO_0000001> ;
+  skos:prefLabel "hasDataUseLimitation" ;
+.
 DSPdcat_ap:hasDataUseRequirement
   a owl:ObjectProperty ;
   rdfs:domain DSPdcat_ap:DataCollection ;
@@ -347,24 +341,6 @@ DSPdcat_ap:hasDataset
   rdfs:range DSPdcat_ap:Dataset ;
   rdfs:subPropertyOf dcat:dataset ;
   skos:prefLabel "hasDataset" ;
-.
-DSPdcat_ap:hasPrimaryConsent
-  a owl:ObjectProperty ;
-  rdfs:domain DSPdcat_ap:DataCollection ;
-  rdfs:domain DSPdcat_ap:DataSnapshot ;
-  rdfs:domain DSPdcat_ap:Dataset ;
-  rdfs:label "hasPrimaryConsent" ;
-  rdfs:range <http://purl.obolibrary.org/obo/DUO_0000002> ;
-  skos:prefLabel "hasPrimaryConsent" ;
-.
-DSPdcat_ap:hasSecondaryConsent
-  a owl:ObjectProperty ;
-  rdfs:domain DSPdcat_ap:DataCollection ;
-  rdfs:domain DSPdcat_ap:DataSnapshot ;
-  rdfs:domain DSPdcat_ap:Dataset ;
-  rdfs:label "hasSecondaryConsent" ;
-  rdfs:range <http://purl.obolibrary.org/obo/DUO_0000003> ;
-  skos:prefLabel "hasSecondaryConsent" ;
 .
 DSPdcat_ap:wasPrincipalInvestigator
   a owl:ObjectProperty ;

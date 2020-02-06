@@ -49,12 +49,12 @@ DSPCoreValueSets:BCell
 DSPCoreValueSets:BCellType
   a owl:Class ;
   rdfs:label "B cell" ;
-  rdfs:subClassOf DSPCoreValueSets:PrimaryCell ;
+  rdfs:subClassOf DSPCoreValueSets:PrimaryCellType ;
 .
 DSPCoreValueSets:BioSampleType
   a owl:Class ;
   rdfs:label "BioSampleType" ;
-  rdfs:subClassOf obo:IAO_0000030 ;
+  rdfs:subClassOf DSPCoreValueSets:SampleType ;
 .
 DSPCoreValueSets:Blood
   a owl:Class ;
@@ -210,7 +210,7 @@ DSPCoreValueSets:Lymphocyte
 DSPCoreValueSets:LymphocyteType
   a owl:Class ;
   rdfs:label "Lymphocyte" ;
-  rdfs:subClassOf DSPCoreValueSets:PrimaryCell ;
+  rdfs:subClassOf DSPCoreValueSets:PrimaryCellType ;
 .
 DSPCoreValueSets:MRI
   a DSPCoreValueSets:MRIModality ;
@@ -242,6 +242,11 @@ DSPCoreValueSets:Microbiome
   rdfs:label "Microbiome" ;
   rdfs:subClassOf DSPCoreValueSets:DataModality ;
 .
+DSPCoreValueSets:MolecularSampleType
+  a owl:Class ;
+  rdfs:label "MolecularSampleType" ;
+  rdfs:subClassOf DSPCoreValueSets:SampleType ;
+.
 DSPCoreValueSets:Monocyte
   a DSPCoreValueSets:MonocyteType ;
   rdfs:label "Monocyte" ;
@@ -249,7 +254,7 @@ DSPCoreValueSets:Monocyte
 DSPCoreValueSets:MonocyteType
   a owl:Class ;
   rdfs:label "Monocyte" ;
-  rdfs:subClassOf DSPCoreValueSets:PrimaryCell ;
+  rdfs:subClassOf DSPCoreValueSets:PrimaryCellType ;
 .
 DSPCoreValueSets:OrganoidType
   a owl:Class ;
@@ -286,8 +291,12 @@ DSPCoreValueSets:PlateletType
   rdfs:subClassOf DSPCoreValueSets:Blood ;
 .
 DSPCoreValueSets:PrimaryCell
-  a owl:Class ;
+  a DSPCoreValueSets:PrimaryCellType ;
   rdfs:label "Primary cell" ;
+.
+DSPCoreValueSets:PrimaryCellType
+  a owl:Class ;
+  rdfs:label "PrimaryCell" ;
   rdfs:subClassOf DSPCoreValueSets:PrimaryType ;
 .
 DSPCoreValueSets:PrimaryCultureType
@@ -332,6 +341,11 @@ DSPCoreValueSets:SalivaType
   a owl:Class ;
   rdfs:label "Saliva" ;
   rdfs:subClassOf DSPCoreValueSets:BodyFluid ;
+.
+DSPCoreValueSets:SampleType
+  a owl:Class ;
+  rdfs:label "SampleType" ;
+  rdfs:subClassOf obo:IAO_0000030 ;
 .
 DSPCoreValueSets:Semen
   a DSPCoreValueSets:SemenType ;
@@ -379,7 +393,7 @@ DSPCoreValueSets:TCell
 DSPCoreValueSets:TCellType
   a owl:Class ;
   rdfs:label "T cell" ;
-  rdfs:subClassOf DSPCoreValueSets:PrimaryCell ;
+  rdfs:subClassOf DSPCoreValueSets:PrimaryCellType ;
 .
 DSPCoreValueSets:Targeted
   a DSPCoreValueSets:TargetedGenomeModality ;
