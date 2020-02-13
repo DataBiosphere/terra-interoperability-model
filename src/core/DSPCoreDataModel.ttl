@@ -4,6 +4,7 @@
 # imports: http://datamodel.terra.bio/NCBITaxon_12organisms.owl
 # imports: http://datamodel.terra.bio/OBI_assaySubset.owl
 # imports: http://purl.obolibrary.org/obo/
+# imports: http://purl.obolibrary.org/obo/PATO_0001340
 # imports: http://www.w3.org/2002/07/owl
 # imports: http://xmlns.com/foaf/0.1/
 # prefix: DSPCore
@@ -16,6 +17,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix duo: <http://purl.obolibrary.org/obo/duo-basic.owl#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -23,12 +25,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-DSPCoreValueSets:BioSampleType
-  prov:definition "A classification of samples taken from organisms based on the type of material collected." ;
-.
-DSPCoreValueSets:DataModality
-  prov:definition "Mode by which the data was generated.  Assay and sequencing data as well as data produced from imaging technologies are examples." ;
-.
 <http://datamodel.terra.bio/DSPCore>
   a owl:Ontology ;
   owl:imports <http://datamodel.broadinstitute.org/DSPCoreValueSets> ;
@@ -36,6 +32,7 @@ DSPCoreValueSets:DataModality
   owl:imports <http://datamodel.terra.bio/NCBITaxon_12organisms.owl> ;
   owl:imports <http://datamodel.terra.bio/OBI_assaySubset.owl> ;
   owl:imports obo: ;
+  owl:imports obo:PATO_0001340 ;
   owl:imports <http://www.w3.org/2002/07/owl> ;
   owl:imports <http://xmlns.com/foaf/0.1/> ;
   owl:versionInfo "Created with TopBraid Composer" ;
@@ -46,23 +43,13 @@ DSPCore:Activity
   rdfs:subClassOf prov:Activity ;
   owl:equivalentClass [
       a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty prov:endedAtTime ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty prov:startedAtTime ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty prov:wasAssociatedWith ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty prov:wasInformedBy ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:usesSample ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -149,7 +136,7 @@ DSPCore:AlignmentFile
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasReferenceAssembly ;
+      owl:onProperty DSPCore:usedReferenceAssembly ;
     ] ;
   skos:prefLabel "AlignmentFile" ;
 .
@@ -176,6 +163,16 @@ DSPCore:AlignmentPostProcessing
   skos:prefLabel "AlignmentPostProcessing" ;
   prov:definition "An activity that further processed the output of an Alignment Activity on a genetic sequence." ;
 .
+DSPCore:Antibody
+  a owl:Class ;
+  rdfs:label "Antibody" ;
+  rdfs:subClassOf obo:BFO_0000040 ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasTarget ;
+    ] ;
+.
 DSPCore:AssayActivity
   a owl:Class ;
   rdfs:label "Assay" ;
@@ -188,8 +185,28 @@ DSPCore:AssayActivity
   owl:disjointWith DSPCore:VariantCalling ;
   owl:equivalentClass [
       a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasAssayCategory ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasAssayType ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty prov:generated ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
       owl:onProperty prov:generated ;
       owl:someValuesFrom DSPCore:File ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty prov:generated ;
+      owl:someValuesFrom DSPCore:Library ;
     ] ;
   skos:prefLabel "Assay" ;
   prov:definition "An activity that generates an electronic record documenting the result of the Assay performed." ;
@@ -202,6 +219,11 @@ DSPCore:BioSample
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPdcat_ap:hasDataUseLimitation ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:dateObtained ;
     ] ;
   owl:equivalentClass [
@@ -212,7 +234,7 @@ DSPCore:BioSample
   owl:equivalentClass [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasCellIsolationMethod ;
+      owl:onProperty DSPCore:hasSamplePreservationState ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -221,8 +243,33 @@ DSPCore:BioSample
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasCrossReference ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPdcat_ap:hasDataUseRequirement ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dct:created ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty prov:wasDerivedFrom ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:donatedBy ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty prov:hadActivity ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -237,11 +284,10 @@ DSPCore:BioSample
   skos:definition "A physical sample consisting of one or more cells taken from an organism (living or deceased) or derived from such a Sample" ;
   skos:prefLabel "BioSample" ;
 .
-DSPCore:ChIP
+DSPCore:BiologicalSex
   a owl:Class ;
-  rdfs:label "Chromatin Immunoprecipitation" ;
-  rdfs:subClassOf DSPCore:LibraryPrep ;
-  skos:prefLabel "ChIP" ;
+  rdfs:label "Biological sex" ;
+  rdfs:subClassOf obo:BFO_0000019 ;
 .
 DSPCore:ChromosomalLocation
   a owl:Class ;
@@ -314,6 +360,18 @@ DSPCore:Donor
   skos:definition "An organism from which a sample or test result is available" ;
   skos:prefLabel "Donor" ;
 .
+DSPCore:Female
+  a DSPCore:FemaleSex ;
+  rdfs:label "Female" ;
+.
+DSPCore:FemaleSex
+  a owl:Class ;
+  oboInOwl:hasExactSynonym "F" ;
+  rdfs:label "Female" ;
+  rdfs:subClassOf DSPCore:BiologicalSex ;
+  owl:equivalentClass obo:PATO_0000383 ;
+  skos:altLabel "F" ;
+.
 DSPCore:File
   a owl:Class ;
   rdfs:comment "Used definition from http://semanticscience.org/resource/SIO_000396 but equivalence to http://www.w3.org/ns/dcat#Distribution doesn't make sense to me; thus we have our own object.  Also added electronic.  This will be subclassed for different file types to allow for file type-specific metadata, but for now, all metadata is an option for all Files." ;
@@ -342,10 +400,28 @@ DSPCore:File
   skos:definition "A file is an information-bearing electronic object that contains a physical embodiment of some information using a particular character encoding." ;
   skos:prefLabel "File" ;
 .
+DSPCore:GRCh37
+  a DSPCore:ReferenceAssembly ;
+  rdfs:label "GRCh37" ;
+  DSPCore:hasGRCName "GRCh37" ;
+  DSPCore:hasOrganism DSPCore:Homo_sapiens ;
+.
 DSPCore:GeneralResearchUse
   a obo:DUO_0000005 ;
   rdfs:label "General Research Use" ;
   skos:prefLabel "General Research Use" ;
+.
+DSPCore:Hermaphrodite
+  a DSPCore:HermaphroditeSex ;
+  rdfs:label "Hermaphrodite" ;
+.
+DSPCore:HermaphroditeSex
+  a owl:Class ;
+  oboInOwl:hasExactSynonym "intersex" ;
+  rdfs:label "Hermaphrodite" ;
+  rdfs:subClassOf DSPCore:BiologicalSex ;
+  owl:equivalentClass obo:PATO_0001340 ;
+  skos:altLabel "intersex" ;
 .
 DSPCore:Homo_sapiens
   a obo:NCBITaxon_9606 ;
@@ -365,13 +441,18 @@ DSPCore:Library
   rdfs:subClassOf obo:BFO_0000040 ;
   owl:equivalentClass [
       a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasAssay ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty prov:wasGeneratedBy ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasLibraryPrep ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasAntibody ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasAssay ;
     ] ;
   skos:prefLabel "Library" ;
 .
@@ -391,6 +472,18 @@ DSPCore:LibraryPrep
       owl:someValuesFrom DSPCore:Library ;
     ] ;
   skos:prefLabel "LibraryPrep" ;
+.
+DSPCore:Male
+  a DSPCore:MaleSex ;
+  rdfs:label "Male" ;
+.
+DSPCore:MaleSex
+  a owl:Class ;
+  oboInOwl:hasExactSynonym "M" ;
+  rdfs:label "Male" ;
+  rdfs:subClassOf DSPCore:BiologicalSex ;
+  owl:equivalentClass obo:PATO_0000384 ;
+  skos:altLabel "M" ;
 .
 DSPCore:MedicalHistory
   a owl:Class ;
@@ -431,6 +524,32 @@ DSPCore:Pipeline
     ] ;
   prov:definition "An activity that records the output of a specific software pipeline.  Pipeline version, components, arguments are described in prov:SoftwareAgent." ;
 .
+DSPCore:PrincipalInvestigator
+  a owl:Class ;
+  rdfs:label "Principal Investigator" ;
+  rdfs:subClassOf prov:Person ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://xmlns.com/foaf/0.1/title> ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://xmlns.com/foaf/0.1/family_name> ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://xmlns.com/foaf/0.1/givenname> ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://xmlns.com/foaf/0.1/mbox> ;
+    ] ;
+  prov:definition "The principal or lead person who carries out an investigation assigned by a sponsor or authorizing agent." ;
+.
 DSPCore:ReferenceAssembly
   a owl:Class ;
   rdfs:label "ReferenceAssembly" ;
@@ -442,11 +561,17 @@ DSPCore:ReferenceAssembly
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
-      owl:onProperty DSPCore:hasGrcName ;
+      owl:onProperty DSPCore:hasGRCName ;
       owl:someValuesFrom xsd:string ;
     ] ;
   skos:prefLabel "ReferenceAssembly" ;
   prov:definition "DNA sequence data identified as representative of specific organism's DNA." ;
+.
+DSPCore:GrCh38
+  a DSPCore:ReferenceAssembly ;
+  DSPCore:hasGRCName "GRCh38" ;
+  DSPCore:hasOrganism DSPCore:Homo_sapiens ;
+  rdfs:label "GRCh38" ;
 .
 DSPCore:Sample
   a owl:Class ;
@@ -454,8 +579,23 @@ DSPCore:Sample
   rdfs:subClassOf obo:OBI_0100051 ;
   owl:equivalentClass [
       a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dct:created ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://datamodel.terra.bio/DSPdcat_ap#hasDataUseLimitation> ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty prov:wasUsedBy ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://xmlns.com/foaf/0.1/depicts> ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -492,12 +632,12 @@ DSPCore:SequenceFile
   owl:equivalentClass [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasReferenceAssembly ;
+      owl:onProperty DSPCore:isPairedEnd ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:isPairedEnd ;
+      owl:onProperty DSPCore:usedReferenceAssembly ;
     ] ;
   skos:prefLabel "SequenceFile" ;
 .
@@ -628,24 +768,18 @@ DSPCore:Weight
 DSPCore:dateObtained
   a rdf:Property ;
   rdfs:domain DSPCore:BioSample ;
-  rdfs:label "dateObtained" ;
+  rdfs:label "Date Obtained" ;
   rdfs:range xsd:dateTime ;
   rdfs:subPropertyOf dct:date ;
-  skos:prefLabel "dateObtained" ;
+  skos:prefLabel "Date Obtained" ;
 .
 DSPCore:derived
   a owl:ObjectProperty ;
   rdfs:domain DSPCore:BioSample ;
   rdfs:range DSPCore:BioSample ;
-  owl:inverseOf DSPCore:derivedFrom ;
-.
-DSPCore:derivedFrom
-  a owl:ObjectProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:label "derivedFrom" ;
-  rdfs:range DSPCore:BioSample ;
-  owl:inverseOf DSPCore:derived ;
-  skos:prefLabel "derivedFrom" ;
+  owl:equivalentProperty prov:hadDerivation ;
+  owl:inverseOf prov:wasDerivedFrom ;
+  skos:definition "Inverse of prov:wasDerivedFrom" ;
 .
 DSPCore:donated
   a owl:ObjectProperty ;
@@ -710,7 +844,7 @@ DSPCore:hasAlignment
   rdfs:domain DSPCore:BioSample ;
   rdfs:label "hasAlignment" ;
   rdfs:range DSPCore:Alignment ;
-  rdfs:subPropertyOf prov:hadActivity ;
+  rdfs:subPropertyOf prov:wasUsedBy ;
   skos:prefLabel "hasAlignment" ;
 .
 DSPCore:hasAllele
@@ -734,11 +868,12 @@ DSPCore:hasAnatomicalSite
   skos:prefLabel "hasAnatomicalSite" ;
 .
 DSPCore:hasAntibody
-  a owl:DatatypeProperty ;
-  rdfs:comment "Antibodies are strings for now but may become classes in future." ;
+  a owl:ObjectProperty ;
+  rdfs:comment "Antibody should be linked to OBI in future." ;
+  rdfs:domain DSPCore:AssayActivity ;
   rdfs:domain obo:OBI_0001954 ;
   rdfs:label "hasAntibody" ;
-  rdfs:range xsd:string ;
+  rdfs:range DSPCore:Antibody ;
   rdfs:subPropertyOf prov:used ;
   skos:prefLabel "hasAntibody" ;
 .
@@ -747,8 +882,25 @@ DSPCore:hasAssay
   rdfs:domain DSPCore:BioSample ;
   rdfs:label "hasAssay" ;
   rdfs:range DSPCore:AssayActivity ;
-  rdfs:subPropertyOf prov:hadActivity ;
+  rdfs:subPropertyOf prov:wasUsedBy ;
   skos:prefLabel "hasAssay" ;
+.
+DSPCore:hasAssayCategory
+  a owl:ObjectProperty ;
+  rdfs:comment "Subject to DSPCore Team Review; seems useful to group assays but still support an ontology term which is recorded in hasAssayType.  This set of options is used by Encode." ;
+  rdfs:domain DSPCore:AssayActivity ;
+  rdfs:label "hasAssayCategory" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "DNA Binding"
+          "DNA Accessibility"
+          "DNA Methylation"
+          "3D Chromatin Structure"
+          "Transcription"
+          "RNA Binding"
+        ) ;
+    ] ;
 .
 DSPCore:hasAssayType
   a owl:ObjectProperty ;
@@ -767,6 +919,7 @@ DSPCore:hasBioSampleType
   rdfs:domain DSPCore:BioSample ;
   rdfs:label "hasBioSampleType" ;
   rdfs:range DSPCoreValueSets:BioSampleType ;
+  rdfs:subPropertyOf DSPCore:hasSampleType ;
 .
 DSPCore:hasBirthDate
   a rdf:Property ;
@@ -774,22 +927,6 @@ DSPCore:hasBirthDate
   rdfs:label "hasBirthDate" ;
   rdfs:range xsd:dateTime ;
   rdfs:subPropertyOf dct:date ;
-.
-DSPCore:hasCellIsolationMethod
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:label "hasCellIsolationMethod" ;
-  rdfs:range [
-      a rdfs:Datatype ;
-      owl:oneOf (
-          "micropipetting"
-          "microfluidic cell sorting"
-          "dilution"
-          "laser capture microdissection"
-          "fluorescence activated cell sorting"
-        ) ;
-    ] ;
-  skos:prefLabel "hasCellIsolationMethod" ;
 .
 DSPCore:hasChecksum
   a owl:DatatypeProperty ;
@@ -804,6 +941,18 @@ DSPCore:hasChromosome
   rdfs:label "hasChromosome" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasChromosome" ;
+.
+DSPCore:hasClonality
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:Antibody ;
+  rdfs:label "hasClonality" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "monoclonal"
+          "polyclonal"
+        ) ;
+    ] ;
 .
 DSPCore:hasCountry
   a owl:ObjectProperty ;
@@ -829,6 +978,18 @@ DSPCore:hasDataModality
   rdfs:domain DSPCore:File ;
   rdfs:label "hasDataModality" ;
   rdfs:range DSPCoreValueSets:DataModality ;
+.
+DSPCore:hasDataUseLimitation
+  rdfs:domain DSPCore:Donor ;
+  rdfs:domain DSPCore:File ;
+  rdfs:domain DSPCore:Library ;
+  rdfs:domain DSPCore:Sample ;
+.
+DSPCore:hasDataUseRequirement
+  rdfs:domain DSPCore:Donor ;
+  rdfs:domain DSPCore:File ;
+  rdfs:domain DSPCore:Library ;
+  rdfs:domain DSPCore:Sample ;
 .
 DSPCore:hasDuplicateFragments
   a owl:DatatypeProperty ;
@@ -906,19 +1067,19 @@ DSPCore:hasFragments
   rdfs:range xsd:integer ;
   skos:prefLabel "hasFragments" ;
 .
-DSPCore:hasGrcName
+DSPCore:hasGRCName
   a owl:DatatypeProperty ;
   rdfs:comment "Name of the Reference Assembly in Genome Reference Consortium format (ncbi.nlm.nih.gov/grc.  Still draft." ;
-  rdfs:label "hasGrcName" ;
+  rdfs:label "hasGRCName" ;
   rdfs:range xsd:string ;
-  skos:prefLabel "hasGrcName" ;
+  skos:prefLabel "hasGRCName" ;
 .
 DSPCore:hasLibraryPrep
   a owl:ObjectProperty ;
   rdfs:domain DSPCore:BioSample ;
   rdfs:label "hasLibraryPrep" ;
   rdfs:range DSPCore:LibraryPrep ;
-  rdfs:subPropertyOf prov:hadActivity ;
+  rdfs:subPropertyOf prov:wasUsedBy ;
   skos:prefLabel "hasLibraryPrep" ;
 .
 DSPCore:hasLocation
@@ -948,6 +1109,13 @@ DSPCore:hasMedicalHistory
   rdfs:domain DSPCore:Donor ;
   rdfs:label "hasMedicalHistory" ;
   rdfs:range DSPCore:MedicalHistory ;
+.
+DSPCore:hasMolecularSampleType
+  a owl:ObjectProperty ;
+  rdfs:domain DSPCore:MolecularSample ;
+  rdfs:label "hasMolecularSampleType" ;
+  rdfs:range DSPCoreValueSets:MolecularSampleType ;
+  rdfs:subPropertyOf DSPCore:hasSampleType ;
 .
 DSPCore:hasNonDuplicatedFragments
   a owl:DatatypeProperty ;
@@ -1019,33 +1187,6 @@ DSPCore:hasReadLength
   rdfs:range xsd:integer ;
   skos:prefLabel "hasReadLength" ;
 .
-DSPCore:hasReferenceAssembly
-  a owl:ObjectProperty ;
-  rdfs:comment "Still in draft" ;
-  rdfs:domain DSPCore:AlignmentFile ;
-  rdfs:domain DSPCore:File ;
-  rdfs:label "hasReferenceAssembly" ;
-  rdfs:range DSPCore:ReferenceAssembly ;
-  rdfs:subPropertyOf prov:used ;
-  skos:prefLabel "hasReferenceAssembly" ;
-.
-DSPCore:hasReplicationType
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:label "hasReplicationType" ;
-  rdfs:range [
-      a rdfs:Datatype ;
-      owl:oneOf (
-          "biological"
-          "isogenic"
-          "anisogenic"
-          "technical"
-          "sequencing"
-          "pseudoreplicate"
-        ) ;
-    ] ;
-  skos:prefLabel "hasReplicationType" ;
-.
 DSPCore:hasResult
   a owl:ObjectProperty ;
   rdfs:comment "Samples in this data model have results in the form of tables, URLs, files, etc.  Entities generated by activities in which a Sample is used may or may not be included in the Sample hasResult domain.  I.e. intermediate results may appear in the data model and be retained for provenance, but may be excluded from the Sample results set." ;
@@ -1062,6 +1203,28 @@ DSPCore:hasResultFile
   rdfs:subPropertyOf DSPCore:hasResult ;
   skos:prefLabel "hasResultFile" ;
 .
+DSPCore:hasSamplePreservationState
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:BioSample ;
+  rdfs:label "hasSamplePreservationState" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "Cryopreserved"
+          "FFPE"
+          "Fresh"
+          "Frozen"
+          "OCT"
+          "Snap Frozen"
+        ) ;
+    ] ;
+  skos:definition "Method used to preserve sample or Fresh." ;
+.
+DSPCore:hasSampleType
+  a owl:ObjectProperty ;
+  rdfs:domain DSPCore:Sample ;
+  rdfs:label "hasSampleType" ;
+.
 DSPCore:hasSequenceLocation
   a owl:ObjectProperty ;
   rdfs:domain DSPCore:VariantCall ;
@@ -1074,22 +1237,14 @@ DSPCore:hasSequencing
   rdfs:domain DSPCore:BioSample ;
   rdfs:label "hasSequencing" ;
   rdfs:range DSPCore:Sequencing ;
-  rdfs:subPropertyOf prov:hadActivity ;
+  rdfs:subPropertyOf prov:wasUsedBy ;
   skos:prefLabel "hasSequencing" ;
 .
 DSPCore:hasSex
   a owl:ObjectProperty ;
   rdfs:domain DSPCore:Donor ;
   rdfs:label "hasSex" ;
-  rdfs:range xsd:string ;
-  rdfs:range [
-      a rdfs:Datatype ;
-      owl:oneOf (
-          "Male"
-          "Female"
-          "Hermaphrodite"
-        ) ;
-    ] ;
+  rdfs:range DSPCore:BiologicalSex ;
   skos:prefLabel "hasSex" ;
 .
 DSPCore:hasStartPosition
@@ -1107,9 +1262,10 @@ DSPCore:hasStopPosition
 DSPCore:hasTarget
   a owl:DatatypeProperty ;
   rdfs:comment "Target is a string for now but will ultimately be a class." ;
+  rdfs:domain DSPCore:Antibody ;
   rdfs:domain DSPCore:AssayActivity ;
   rdfs:label "hasTarget" ;
-  rdfs:range xsd:string ;
+  rdfs:range xsd:anyURI ;
   skos:prefLabel "hasTarget" ;
 .
 DSPCore:hasUnit
@@ -1138,7 +1294,7 @@ DSPCore:hasVariantCalling
   rdfs:domain DSPCore:BioSample ;
   rdfs:label "hasVariantCalling" ;
   rdfs:range DSPCore:VariantCalling ;
-  rdfs:subPropertyOf prov:hadActivity ;
+  rdfs:subPropertyOf prov:wasUsedBy ;
   skos:prefLabel "hasVariantCalling" ;
 .
 DSPCore:hasVariantReference
@@ -1180,6 +1336,18 @@ DSPCore:isPairedEnd
   rdfs:range xsd:boolean ;
   skos:prefLabel "isPairedEnd" ;
 .
+DSPCore:usedReferenceAssembly
+  a owl:ObjectProperty ;
+  rdfs:comment "Still in draft" ;
+  rdfs:domain DSPCore:Alignment ;
+  rdfs:domain DSPCore:AlignmentFile ;
+  rdfs:domain DSPCore:SequenceFile ;
+  rdfs:domain DSPCore:Sequencing ;
+  rdfs:label "usedReferenceAssembly" ;
+  rdfs:range DSPCore:ReferenceAssembly ;
+  rdfs:subPropertyOf prov:used ;
+  skos:prefLabel "usedReferenceAssembly" ;
+.
 DSPCore:usesSample
   a owl:ObjectProperty ;
   rdfs:label "usesSample" ;
@@ -1187,46 +1355,10 @@ DSPCore:usesSample
   rdfs:subPropertyOf prov:used ;
   skos:prefLabel "usesSample" ;
 .
-<http://datamodel.terra.bio/DSPdcat_ap#PrincipalInvestigator>
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://xmlns.com/foaf/0.1/title> ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://xmlns.com/foaf/0.1/family_name> ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://xmlns.com/foaf/0.1/givenname> ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://xmlns.com/foaf/0.1/mbox> ;
-    ] ;
-  prov:definition "The principal or lead person who carries out an investigation assigned by a sponsor or authorizing agent." ;
-.
-<http://datamodel.terra.bio/DSPdcat_ap#hasDataUseRequirement>
-  rdfs:domain DSPCore:Donor ;
-  rdfs:domain DSPCore:File ;
-  rdfs:domain DSPCore:Library ;
-  rdfs:domain DSPCore:Sample ;
-.
-<http://datamodel.terra.bio/DSPdcat_ap#hasPrimaryConsent>
-  rdfs:domain DSPCore:Donor ;
-  rdfs:domain DSPCore:File ;
-  rdfs:domain DSPCore:Library ;
-  rdfs:domain DSPCore:Sample ;
-.
-<http://datamodel.terra.bio/DSPdcat_ap#hasSecondaryConsent>
-  rdfs:domain DSPCore:Donor ;
-  rdfs:domain DSPCore:File ;
-  rdfs:domain DSPCore:Library ;
-  rdfs:domain DSPCore:Sample ;
+DSPCore:wasFundedBy
+  a owl:ObjectProperty ;
+  rdfs:label "wasFundedBy" ;
+  skos:definition "A relationship defining the funding source.  The range is expected to include grants, organizations, or a string indicating the funding source." ;
 .
 obo:BFO_0000001
   owl:equivalentClass prov:Entity ;
@@ -1248,6 +1380,12 @@ prov:Entity
 .
 prov:Person
   owl:equivalentClass <http://xmlns.com/foaf/0.1/Person> ;
+.
+prov:hadDerivation
+  a owl:ObjectProperty ;
+  rdfs:label "hadDerivation" ;
+  owl:inverseOf prov:wasDerivedFrom ;
+  prov:definition "Inverse of prov:wasDerivedFrom" ;
 .
 prov:used
   owl:inverseOf prov:wasUsedBy ;
