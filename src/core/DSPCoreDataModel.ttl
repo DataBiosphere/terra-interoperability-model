@@ -1,7 +1,7 @@
 # baseURI: http://datamodel.terra.bio/DSPCore
 # imports: http://datamodel.terra.bio/DSPCoreValueSets
 # imports: http://datamodel.terra.bio/DSPdcat_ap
-# imports: http://datamodel.terra.bio/NCBITaxon_12organisms.owl
+# imports: http://datamodel.terra.bio/OBI_Taxon_Organisms.owl
 # imports: http://datamodel.terra.bio/OBI_assaySubset.owl
 # imports: http://purl.obolibrary.org/obo/
 # imports: http://purl.obolibrary.org/obo/PATO_0001340
@@ -13,6 +13,7 @@
 @prefix DSPCore: <http://datamodel.terra.bio/DSPCore#> .
 @prefix DSPCoreValueSets: <http://datamodel.terra.bio/DSPCoreValueSets#> .
 @prefix DSPdcat_ap: <http://datamodel.terra.bio/DSPdcat_ap/> .
+@prefix OBI_Taxon_Organisms: <http://datamodel.terra.bio/OBI_Taxon_Organisms.owl#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
@@ -38,7 +39,7 @@
   a owl:Ontology ;
   owl:imports <http://datamodel.terra.bio/DSPCoreValueSets> ;
   owl:imports <http://datamodel.terra.bio/DSPdcat_ap> ;
-  owl:imports <http://datamodel.terra.bio/NCBITaxon_12organisms.owl> ;
+  owl:imports <http://datamodel.terra.bio/OBI_Taxon_Organisms.owl> ;
   owl:imports <http://datamodel.terra.bio/OBI_assaySubset.owl> ;
   owl:imports obo: ;
   owl:imports obo:PATO_0001340 ;
@@ -191,6 +192,16 @@ DSPCore:Antibody
   a owl:Class ;
   rdfs:label "Antibody" ;
   rdfs:subClassOf obo:BFO_0000040 ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasHostOrganism ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasClonality ;
+    ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
@@ -584,6 +595,10 @@ DSPCore:PrincipalInvestigator
       owl:onProperty <http://xmlns.com/foaf/0.1/mbox> ;
     ] ;
   prov:definition "The principal or lead person who carries out an investigation assigned by a sponsor or authorizing agent." ;
+.
+DSPCore:Rabbit
+  a obo:NCBITaxon_9986 ;
+  rdfs:label "Rabbit" ;
 .
 DSPCore:ReferenceAssembly
   a owl:Class ;
@@ -1410,6 +1425,12 @@ DSPCore:wasFundedBy
   rdfs:label "wasFundedBy" ;
   skos:definition "A relationship defining the funding source.  The range is expected to include grants, organizations, or a string indicating the funding source." ;
 .
+DSPCore:wasGeneratedByPipeline
+  a owl:ObjectProperty ;
+  rdfs:label "wasGeneratedByPipeline" ;
+  rdfs:range DSPCore:Pipeline ;
+  rdfs:subPropertyOf prov:wasGeneratedBy ;
+.
 obo:BFO_0000001
   owl:equivalentClass prov:Entity ;
 .
@@ -1418,9 +1439,6 @@ obo:NCBITaxon_10090
 .
 obo:NCBITaxon_9606
   skos:definition "Instance of Homo sapiens organism to define organism type." ;
-.
-obo:OBI_0000070
-  owl:equivalentClass DSPCore:AssayActivity ;
 .
 prov:Agent
   owl:equivalentClass <http://xmlns.com/foaf/0.1/Agent> ;
