@@ -1,5 +1,5 @@
 # baseURI: http://datamodel.terra.bio/DSPCore
-# imports: http://datamodel.broadinstitute.org/DSPCoreValueSets
+# imports: http://datamodel.terra.bio/DSPCoreValueSets
 # imports: http://datamodel.terra.bio/DSPdcat_ap
 # imports: http://datamodel.terra.bio/NCBITaxon_12organisms.owl
 # imports: http://datamodel.terra.bio/OBI_assaySubset.owl
@@ -9,8 +9,9 @@
 # imports: http://xmlns.com/foaf/0.1/
 # prefix: DSPCore
 
+@prefix : <http://datamodel.terra.bio/DSPCore#> .
 @prefix DSPCore: <http://datamodel.terra.bio/DSPCore#> .
-@prefix DSPCoreValueSets: <http://datamodel.broadinstitute.org/DSPCoreValueSets#> .
+@prefix DSPCoreValueSets: <http://datamodel.terra.bio/DSPCoreValueSets#> .
 @prefix DSPdcat_ap: <http://datamodel.terra.bio/DSPdcat_ap/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -25,9 +26,17 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<DSPCore:wasPairedWith>
+  a owl:ObjectProperty ;
+  rdfs:domain DSPCore:Library ;
+  rdfs:domain DSPCore:SequenceFile ;
+  rdfs:label "wasPairedWith" ;
+  rdfs:range DSPCore:Library ;
+  rdfs:range DSPCore:SequenceFile ;
+.
 <http://datamodel.terra.bio/DSPCore>
   a owl:Ontology ;
-  owl:imports <http://datamodel.broadinstitute.org/DSPCoreValueSets> ;
+  owl:imports <http://datamodel.terra.bio/DSPCoreValueSets> ;
   owl:imports <http://datamodel.terra.bio/DSPdcat_ap> ;
   owl:imports <http://datamodel.terra.bio/NCBITaxon_12organisms.owl> ;
   owl:imports <http://datamodel.terra.bio/OBI_assaySubset.owl> ;
@@ -41,6 +50,21 @@ DSPCore:Activity
   a owl:Class ;
   rdfs:label "Activity" ;
   rdfs:subClassOf prov:Activity ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dct:created ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty prov:endedAtTime ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty prov:startedAtTime ;
+    ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
@@ -92,12 +116,12 @@ DSPCore:Age
   owl:equivalentClass [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasLowerBound ;
+      owl:onProperty DSPCore:hasAgeUnit ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasUnit ;
+      owl:onProperty DSPCore:hasLowerBound ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -234,7 +258,12 @@ DSPCore:BioSample
   owl:equivalentClass [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasSamplePreservationState ;
+      owl:onProperty DSPCore:hasPreservationState ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dct:source ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -279,7 +308,7 @@ DSPCore:BioSample
   owl:equivalentClass [
       a owl:Restriction ;
       owl:onProperty dct:isPartOf ;
-      owl:someValuesFrom <http://datamodel.terra.bio/DSPdcat_ap#Dataset> ;
+      owl:someValuesFrom DSPdcat_ap:Dataset ;
     ] ;
   skos:definition "A physical sample consisting of one or more cells taken from an organism (living or deceased) or derived from such a Sample" ;
   skos:prefLabel "BioSample" ;
@@ -355,7 +384,7 @@ DSPCore:Donor
   owl:equivalentClass [
       a owl:Restriction ;
       owl:onProperty dct:isPartOf ;
-      owl:someValuesFrom <http://datamodel.terra.bio/DSPdcat_ap#Dataset> ;
+      owl:someValuesFrom DSPdcat_ap:Dataset ;
     ] ;
   skos:definition "An organism from which a sample or test result is available" ;
   skos:prefLabel "Donor" ;
@@ -402,14 +431,20 @@ DSPCore:File
 .
 DSPCore:GRCh37
   a DSPCore:ReferenceAssembly ;
-  rdfs:label "GRCh37" ;
   DSPCore:hasGRCName "GRCh37" ;
   DSPCore:hasOrganism DSPCore:Homo_sapiens ;
+  rdfs:label "GRCh37" ;
 .
 DSPCore:GeneralResearchUse
   a obo:DUO_0000005 ;
   rdfs:label "General Research Use" ;
   skos:prefLabel "General Research Use" ;
+.
+DSPCore:GrCh38
+  a DSPCore:ReferenceAssembly ;
+  DSPCore:hasGRCName "GRCh38" ;
+  DSPCore:hasOrganism DSPCore:Homo_sapiens ;
+  rdfs:label "GRCh38" ;
 .
 DSPCore:Hermaphrodite
   a DSPCore:HermaphroditeSex ;
@@ -567,12 +602,6 @@ DSPCore:ReferenceAssembly
   skos:prefLabel "ReferenceAssembly" ;
   prov:definition "DNA sequence data identified as representative of specific organism's DNA." ;
 .
-DSPCore:GrCh38
-  a DSPCore:ReferenceAssembly ;
-  DSPCore:hasGRCName "GRCh38" ;
-  DSPCore:hasOrganism DSPCore:Homo_sapiens ;
-  rdfs:label "GRCh38" ;
-.
 DSPCore:Sample
   a owl:Class ;
   rdfs:label "Sample" ;
@@ -585,7 +614,7 @@ DSPCore:Sample
   owl:equivalentClass [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://datamodel.terra.bio/DSPdcat_ap#hasDataUseLimitation> ;
+      owl:onProperty DSPdcat_ap:hasDataUseLimitation ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -612,6 +641,11 @@ DSPCore:SequenceFile
   owl:equivalentClass [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasLibraryLayout ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasPercentAlignedReads ;
     ] ;
   owl:equivalentClass [
@@ -628,11 +662,6 @@ DSPCore:SequenceFile
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasReadLength ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:isPairedEnd ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -864,6 +893,7 @@ DSPCore:hasAnatomicalSite
   a owl:DatatypeProperty ;
   rdfs:domain DSPCore:BioSample ;
   rdfs:label "hasAnatomicalSite" ;
+  rdfs:range xsd:anyURI ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasAnatomicalSite" ;
 .
@@ -962,6 +992,7 @@ DSPCore:hasCrossReference
   a owl:ObjectProperty ;
   rdfs:label "hasCrossReference" ;
   rdfs:range dct:URI ;
+  rdfs:range xsd:string ;
   rdfs:subPropertyOf skos:closeMatch ;
   skos:definition "Reference to the entity in another electronic system.  The data stored about the entity may vary from system to system, but this relationship asserts that the reference represents the same entity." ;
   skos:prefLabel "hasCrossReference" ;
@@ -1048,6 +1079,7 @@ DSPCore:hasFormat
           "vcf"
           "wig"
           "idx"
+          "txt"
           "2bit"
           "btr"
           "csfasta"
@@ -1073,6 +1105,20 @@ DSPCore:hasGRCName
   rdfs:label "hasGRCName" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasGRCName" ;
+.
+DSPCore:hasLibraryLayout
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:Library ;
+  rdfs:domain DSPCore:SequenceFile ;
+  rdfs:label "hasLibraryLayout" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "paired"
+          "single"
+        ) ;
+    ] ;
+  skos:prefLabel "hasLibraryLayout" ;
 .
 DSPCore:hasLibraryPrep
   a owl:ObjectProperty ;
@@ -1133,6 +1179,17 @@ DSPCore:hasOrganism
   rdfs:range obo:OBI_0100026 ;
   skos:prefLabel "hasOrganism" ;
 .
+DSPCore:hasPairedEndIdentifier
+  a owl:DatatypeProperty ;
+  rdfs:label "hasPairedEndIdentifier" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          1
+          2
+        ) ;
+    ] ;
+.
 DSPCore:hasPercentAlignedReads
   a owl:DatatypeProperty ;
   rdfs:comment "Domain will change from File to SequencingOutputFile or SequenceActivity in future." ;
@@ -1162,6 +1219,23 @@ DSPCore:hasPostalCode
   rdfs:domain DSPCore:Address ;
   rdfs:label "hasPostalCode" ;
   rdfs:range xsd:string ;
+.
+DSPCore:hasPreservationState
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:BioSample ;
+  rdfs:label "hasPreservationState" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "Cryopreserved"
+          "FFPE"
+          "Fresh"
+          "Frozen"
+          "OCT"
+          "Snap Frozen"
+        ) ;
+    ] ;
+  skos:definition "Method used to preserve sample or Fresh." ;
 .
 DSPCore:hasProtocol
   a owl:DatatypeProperty ;
@@ -1202,23 +1276,6 @@ DSPCore:hasResultFile
   rdfs:range DSPCore:File ;
   rdfs:subPropertyOf DSPCore:hasResult ;
   skos:prefLabel "hasResultFile" ;
-.
-DSPCore:hasSamplePreservationState
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:label "hasSamplePreservationState" ;
-  rdfs:range [
-      a rdfs:Datatype ;
-      owl:oneOf (
-          "Cryopreserved"
-          "FFPE"
-          "Fresh"
-          "Frozen"
-          "OCT"
-          "Snap Frozen"
-        ) ;
-    ] ;
-  skos:definition "Method used to preserve sample or Fresh." ;
 .
 DSPCore:hasSampleType
   a owl:ObjectProperty ;
@@ -1328,13 +1385,6 @@ DSPCore:investigatedBy
   a owl:ObjectProperty ;
   rdfs:label "investigatedBy" ;
   skos:prefLabel "investigatedBy" ;
-.
-DSPCore:isPairedEnd
-  a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:SequenceFile ;
-  rdfs:label "isPairedEnd" ;
-  rdfs:range xsd:boolean ;
-  skos:prefLabel "isPairedEnd" ;
 .
 DSPCore:usedReferenceAssembly
   a owl:ObjectProperty ;

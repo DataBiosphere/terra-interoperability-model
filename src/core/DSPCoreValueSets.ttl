@@ -1,9 +1,9 @@
-# baseURI: http://datamodel.broadinstitute.org/DSPCoreValueSets
+# baseURI: http://datamodel.terra.bio/DSPCoreValueSets
 # imports: http://datamodel.terra.bio/UBERON_subset.owl
 # imports: http://www.w3.org/2004/02/skos/core#
-# prefix: DSPCoreValueSets
 
-@prefix DSPCoreValueSets: <http://datamodel.broadinstitute.org/DSPCoreValueSets#> .
+@prefix : <http://datamodel.terra.bio/DSPCoreValueSets#> .
+@prefix DSPCoreValueSets: <http://datamodel.terra.bio/DSPCoreValueSets#> .
 @prefix UBERON_subset: <http://datamodel.terra.bio/UBERON_subset.owl#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -12,7 +12,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://datamodel.broadinstitute.org/DSPCoreValueSets>
+<http://datamodel.terra.bio/DSPCoreValueSets>
   a owl:Ontology ;
   owl:imports <http://datamodel.terra.bio/UBERON_subset.owl> ;
   owl:imports skos: ;
@@ -55,6 +55,7 @@ DSPCoreValueSets:BioSampleType
   a owl:Class ;
   rdfs:label "BioSampleType" ;
   rdfs:subClassOf DSPCoreValueSets:SampleType ;
+  skos:definition "A classification of samples taken from organisms based on the type of material collected." ;
 .
 DSPCoreValueSets:Blood
   a owl:Class ;
@@ -120,6 +121,7 @@ DSPCoreValueSets:DataModality
   rdfs:subClassOf obo:IAO_0000030 ;
   skos:altLabel "Assay Category" ;
   skos:altLabel "Measurement Type" ;
+  skos:definition "Mode by which the data was generated.  Assay and sequencing data as well as data produced from imaging technologies are examples." ;
 .
 DSPCoreValueSets:DerivedType
   a owl:Class ;
