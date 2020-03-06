@@ -1,6 +1,7 @@
 # baseURI: http://datamodel.terra.bio/DSPCoreValueSets
 # imports: http://datamodel.terra.bio/UBERON_subset.owl
 # imports: http://www.w3.org/2004/02/skos/core#
+# prefix: DSPCoreValueSets
 
 @prefix : <http://datamodel.terra.bio/DSPCoreValueSets#> .
 @prefix DSPCoreValueSets: <http://datamodel.terra.bio/DSPCoreValueSets#> .
@@ -138,6 +139,10 @@ DSPCoreValueSets:ElectrocardiogramModality
   a owl:Class ;
   rdfs:label "Electrocardiogram" ;
   rdfs:subClassOf DSPCoreValueSets:MedicalImaging ;
+.
+DSPCoreValueSets:Epigenome
+  a DSPCoreValueSets:EpigenomeModality ;
+  rdfs:label "Epigenome" ;
 .
 DSPCoreValueSets:EpigenomeModality
   a owl:Class ;

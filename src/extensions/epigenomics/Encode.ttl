@@ -1,15 +1,15 @@
 # baseURI: http://datamodel.terra.bio/Encode
 # imports: http://datamodel.terra.bio/DSPCore
 # imports: http://datamodel.terra.bio/DSPdcat_ap
-# imports: http://datamodel.terra.bio/OBI_ontofox.owl
 # prefix: Encode
 
 @prefix : <http://datamodel.terra.bio/Encode#> .
 @prefix DSPCore: <http://datamodel.terra.bio/DSPCore#> .
 @prefix DSPdcat_ap: <http://datamodel.terra.bio/DSPdcat_ap#> .
 @prefix Encode: <http://datamodel.terra.bio/Encode#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -18,38 +18,303 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+DSPCore:BioSample
+  owl:equivalentClass rdfs:Resource ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty Encode:hasAuditFinding ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty Encode:hasAward ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty Encode:hasCellIsolationMethod ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty Encode:hasGeneticModification ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty Encode:hasHealthStatus ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty Encode:hasLab ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty Encode:wasPerturbed ;
+    ] ;
+.
+DSPCore:Donor
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty Encode:hasHealthStatus ;
+    ] ;
+.
 DSPCore:File
   Encode:hasDataQuality "{\"orange\",\"red\",\"white\",\"yellow\"}" ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:wasGeneratedByPipeline ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty Encode:hasStepRun ;
+    ] ;
+.
+DSPCore:HumanDonor
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty Encode:hasLifeStage ;
+    ] ;
 .
 DSPCore:Library
-  DSPCore:hasSponsor "\"http://www.encodeproject.org/awards/U54HG006998/\"" ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty Encode:hasLab ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty Encode:hasStrandSpecificity ;
+    ] ;
 .
-DSPCore:NoRestriction
-  rdfs:label "no restriction" ;
-  skos:prefLabel "no restriction" ;
+DSPCore:SequenceFile
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty Encode:usedPlatform ;
+    ] ;
 .
-DSPCore:derivedFrom
-  rdfs:domain DSPCore:Library ;
-.
-DSPCore:hasEthnicity
-  rdfs:comment "Use string for now; will be an ontology in future" ;
+DSPCore:hasAssayType
+  rdfs:range obo:OBI_0000070 ;
 .
 <http://datamodel.terra.bio/Encode>
   a owl:Ontology ;
   owl:imports <http://datamodel.terra.bio/DSPCore> ;
   owl:imports <http://datamodel.terra.bio/DSPdcat_ap> ;
-  owl:imports <http://datamodel.terra.bio/OBI_ontofox.owl> ;
   owl:versionInfo "Created with TopBraid Composer" ;
+.
+Encode:AuditFinding
+  a owl:Class ;
+  rdfs:label "AuditFinding" ;
+  rdfs:subClassOf owl:Thing ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:integer ;
+      owl:onProperty prov:value ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty Encode:hasLevelName ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty Encode:wasFoundIn ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty skos:closeMatch ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty prov:wasGeneratedBy ;
+    ] ;
+.
+Encode:ChIP-seq_assay
+  a obo:OBI_0000716 ;
+  rdfs:label "ChIP-seq assay" ;
+.
+Encode:ChIPSeq
+  a owl:Class ;
+  rdfs:label "ChIPSeq" ;
+  rdfs:subClassOf DSPCore:AssayActivity ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:usesSample ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty Encode:hasStrandSpecificity ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasAntibody ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty prov:generated ;
+    ] ;
+.
+Encode:ChIPSeqReadMapping
+  a owl:Class ;
+  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL220NBH" ;
+  rdfs:label "ChIP-seq read mapping" ;
+  rdfs:subClassOf Encode:Pipeline ;
+.
+Encode:DNaseHSPairedV2
+  a owl:Class ;
+  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL202DNS" ;
+  rdfs:label "DNase-HS pipeline paired-end - Version 2" ;
+  rdfs:subClassOf Encode:Pipeline ;
+.
+Encode:DNaseHSSingleV2
+  a owl:Class ;
+  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL201DNS" ;
+  rdfs:label "DNase-HS pipeline single-end - Version 2" ;
+  rdfs:subClassOf Encode:Pipeline ;
 .
 Encode:Experiment
   a owl:Class ;
   rdfs:label "Experiment" ;
-  rdfs:subClassOf <http://datamodel.terra.bio/DSPCore#Activity> ;
+  rdfs:subClassOf DSPCore:Activity ;
+.
+Encode:HistoneChIPseqUnreplicated
+  a owl:Class ;
+  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL841HGV" ;
+  rdfs:label "Histone ChIPseq (unreplicated) Pipeline" ;
+  rdfs:subClassOf Encode:Pipeline ;
+.
+Encode:LongRNAseqPairedEnd_Stranded
+  a owl:Class ;
+  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL002LPE" ;
+  rdfs:label "RNA-seq of long RNAs (paired-end, stranded)" ;
+  rdfs:subClassOf Encode:Pipeline ;
+.
+Encode:LongRNAseqSingleUnstranded
+  a owl:Class ;
+  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL002LSE" ;
+  rdfs:label "RNA-seq of long RNAs (single-end, unstranded)" ;
+  rdfs:subClassOf Encode:Pipeline ;
+.
+Encode:MicroRNACounts
+  a owl:Class ;
+  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL278BTI" ;
+  rdfs:label "microRNA counts pipeline" ;
+  rdfs:subClassOf Encode:Pipeline ;
+.
+Encode:MicroRNAseq
+  a owl:Class ;
+  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL444CYA" ;
+  rdfs:label "microRNA-seq pipeline" ;
+  rdfs:subClassOf Encode:Pipeline ;
+.
+Encode:Nanostring_nCounter_miRNA_Expression
+  a obo:OBI_0002142 ;
+  rdfs:label "Nanostring nCounter miRNA expression assay" ;
+.
+Encode:Pipeline
+  a owl:Class ;
+  rdfs:label "Pipeline" ;
+  rdfs:subClassOf DSPCore:Pipeline ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty Encode:usedPlatform ;
+    ] ;
+.
+Encode:RAMPAGE_CAGE
+  a owl:Class ;
+  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL122WIM" ;
+  rdfs:label "RAMPAGE or CAGE (paired-end)" ;
+  rdfs:subClassOf Encode:Pipeline ;
+.
+Encode:TranscriptionFactorChIPseq
+  a owl:Class ;
+  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL138KID" ;
+  rdfs:label "Transcription factor ChIP-seq" ;
+  rdfs:subClassOf Encode:Pipeline ;
+.
+Encode:TranscriptionFactorChIPseqUnreplicated
+  a owl:Class ;
+  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL493SGC" ;
+  rdfs:label "Transcription factor ChIP-seq (unreplicated)" ;
+  rdfs:subClassOf Encode:Pipeline ;
+.
+Encode:WGBSPaired
+  a owl:Class ;
+  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL985BLO" ;
+  rdfs:label "WGBS paired-end pipeline" ;
+  rdfs:subClassOf Encode:Pipeline ;
+.
+Encode:WGBSSingle
+  a owl:Class ;
+  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL210QWH" ;
+  rdfs:label "WGBS single-end pipeline" ;
+  rdfs:subClassOf Encode:Pipeline ;
+.
+Encode:hasAuditFinding
+  a rdf:Property ;
+  rdfs:label "hasAuditFinding" ;
+.
+Encode:hasAuditFlag
+  a rdf:Property ;
+  rdfs:label "hasAuditFlag" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "orange"
+          "red"
+          "white"
+          "yellow"
+        ) ;
+    ] ;
+.
+Encode:hasAward
+  a owl:DatatypeProperty ;
+  rdfs:label "hasAward" ;
+  rdfs:range xsd:anyURI ;
 .
 Encode:hasBiologicalReplicateID
   a owl:DatatypeProperty ;
   rdfs:label "hasBiologicalReplicateID" ;
   rdfs:subPropertyOf Encode:hasReplicateID ;
+.
+Encode:hasCellIsolationMethod
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:BioSample ;
+  rdfs:label "hasCellIsolationMethod" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "micropipetting"
+          "microfluidic cell sorting"
+          "dilution"
+          "laser capture microdissection"
+          "fluorescence activated cell sorting"
+        ) ;
+    ] ;
+  skos:prefLabel "hasCellIsolationMethod" ;
+.
+Encode:hasChild
+  a owl:DatatypeProperty ;
+  rdfs:label "hasChild" ;
+  rdfs:range xsd:anyURI ;
+  skos:prefLabel "hasChild" ;
 .
 Encode:hasDataQuality
   a owl:DatatypeProperty ;
@@ -58,17 +323,43 @@ Encode:hasDataQuality
   rdfs:range xsd:string ;
   skos:prefLabel "hasDataQuality" ;
 .
-Encode:hasExperiment
-  a owl:ObjectProperty ;
-  rdfs:domain <http://datamodel.terra.bio/DSPCore#BioSample> ;
-  rdfs:label "hasExperiment" ;
-  rdfs:range Encode:Experiment ;
+Encode:hasFileFormatType
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:File ;
+  rdfs:label "hasFileFormatType" ;
+  rdfs:range xsd:string ;
+.
+Encode:hasGeneticModification
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:BioSample ;
+  rdfs:label "hasGeneticModification" ;
+  rdfs:range xsd:string ;
+.
+Encode:hasHealthStatus
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:BioSample ;
+  rdfs:domain DSPCore:Donor ;
+  rdfs:label "hasHealthStatus" ;
+  rdfs:range xsd:string ;
+.
+Encode:hasIsotype
+  a owl:DatatypeProperty ;
+  rdfs:label "hasIsotype" ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "hasIsotype" ;
 .
 Encode:hasLab
   a owl:DatatypeProperty ;
   rdfs:label "hasLab" ;
-  rdfs:range xsd:string ;
+  rdfs:range xsd:anyURI ;
   skos:prefLabel "hasLab" ;
+.
+Encode:hasLevelName
+  a owl:DatatypeProperty ;
+  rdfs:domain Encode:AuditFinding ;
+  rdfs:label "hasLevelName" ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "hasLevelName" ;
 .
 Encode:hasLibrary
   a owl:ObjectProperty ;
@@ -77,11 +368,135 @@ Encode:hasLibrary
   rdfs:label "hasLibrary" ;
   rdfs:range DSPCore:Library ;
 .
+Encode:hasLibraryMaterial
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:Library ;
+  rdfs:label "hasLibraryMaterial" ;
+  rdfs:range xsd:string ;
+.
+Encode:hasLibraryMaterialName
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:Library ;
+  rdfs:label "hasLibraryMaterialName" ;
+  rdfs:range xsd:string ;
+.
+Encode:hasLifeStage
+  a rdf:Property ;
+  rdfs:comment "Varies per species; temporary solution" ;
+  rdfs:domain DSPCore:BioSample ;
+  rdfs:label "hasLifeStage" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "embryonic"
+          "newborn"
+          "adolescent"
+          "adult"
+          "unknown"
+        ) ;
+    ] ;
+.
+Encode:hasLotId
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:Antibody ;
+  rdfs:domain DSPCore:Library ;
+  rdfs:label "hasLotId" ;
+  rdfs:range xsd:string ;
+.
+Encode:hasMappedLibraryLayout
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:File ;
+  rdfs:label "hasMappedLibraryLayout" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "paired"
+          "single"
+        ) ;
+    ] ;
+.
+Encode:hasMappedReadLength
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:File ;
+  rdfs:label "hasMappedReadLength" ;
+  rdfs:range xsd:integer ;
+.
+Encode:hasParent
+  a owl:DatatypeProperty ;
+  rdfs:label "hasParent" ;
+  rdfs:range xsd:anyURI ;
+  skos:prefLabel "hasParent" ;
+.
+Encode:hasPlatform
+  a owl:DatatypeProperty ;
+  rdfs:label "usedPlatform" ;
+  rdfs:range xsd:anyURI ;
+.
+Encode:hasProductId
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:Antibody ;
+  rdfs:domain DSPCore:Library ;
+  rdfs:label "hasProductId" ;
+  rdfs:range xsd:string ;
+.
+Encode:hasQualityMetric
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:File ;
+  rdfs:label "hasQualityMetric" ;
+  rdfs:range xsd:anyURI ;
+.
+Encode:hasQueriedRNPSizeRange
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:Library ;
+  rdfs:label "has Queried RNP Size Range" ;
+  rdfs:range xsd:string ;
+.
+Encode:hasRNAIntegrityNumber
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:Library ;
+  rdfs:label "hasRNAIntegrityNumber" ;
+  rdfs:range xsd:decimal ;
+.
+Encode:hasReadStructure
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:File ;
+  rdfs:label "hasReadStructure" ;
+  rdfs:range xsd:anyURI ;
+.
 Encode:hasReplicateID
   a owl:DatatypeProperty ;
   rdfs:domain DSPCore:BioSample ;
   rdfs:label "hasReplicateID" ;
   rdfs:range xsd:integer ;
+.
+Encode:hasReplicationType
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:BioSample ;
+  rdfs:label "hasReplicationType" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "biological"
+          "isogenic"
+          "anisogenic"
+          "technical"
+          "sequencing"
+          "pseudoreplicate"
+        ) ;
+    ] ;
+  skos:prefLabel "hasReplicationType" ;
+.
+Encode:hasSibling
+  a owl:DatatypeProperty ;
+  rdfs:label "hasSibling" ;
+  rdfs:range xsd:anyURI ;
+  skos:prefLabel "hasSibling" ;
+.
+Encode:hasSizeRange
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:Library ;
+  rdfs:label "hasSizeRange" ;
+  rdfs:range xsd:string ;
 .
 Encode:hasStatus
   a owl:DatatypeProperty ;
@@ -100,41 +515,75 @@ Encode:hasStatus
     ] ;
   skos:prefLabel "hasStatus" ;
 .
+Encode:hasStepRun
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:File ;
+  rdfs:label "hasStepRun" ;
+  rdfs:range xsd:anyURI ;
+.
+Encode:hasStrandSpecificity
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:Activity ;
+  rdfs:domain DSPCore:File ;
+  rdfs:label "hasStrandSpecificity" ;
+  rdfs:range xsd:boolean ;
+  skos:prefLabel "hasStrandSpecificity" ;
+.
 Encode:hasTechnicalReplicateID
   a owl:DatatypeProperty ;
   rdfs:label "hasTechnicalReplicateID" ;
   rdfs:range xsd:integer ;
   rdfs:subPropertyOf Encode:hasReplicateID ;
 .
-Encode:lifeStage
-  a rdf:Property ;
-  rdfs:comment "Varies per species; temporary solution" ;
+Encode:hasTreatment
+  a owl:DatatypeProperty ;
   rdfs:domain DSPCore:BioSample ;
-  rdfs:label "lifeStage" ;
-  rdfs:range [
-      a rdfs:Datatype ;
-      owl:oneOf (
-          "embryonic"
-          "newborn"
-          "adolescent"
-          "adult"
-          "unknown"
-        ) ;
-    ] ;
-  skos:prefLabel "lifeStage" ;
+  rdfs:label "hasTreatment" ;
+  rdfs:range xsd:string ;
 .
-Encode:strandSpecificity
-  a owl:AnnotationProperty ;
-  rdfs:domain DSPCore:Library ;
-  rdfs:domain DSPCore:LibraryPrep ;
-  rdfs:label "strandSpecificity" ;
-  rdfs:range xsd:boolean ;
-  skos:prefLabel "strandSpecificity" ;
+Encode:hasTwin
+  a owl:DatatypeProperty ;
+  rdfs:label "hasTwin" ;
+  rdfs:range xsd:anyURI ;
+  skos:prefLabel "hasTwin" ;
 .
 Encode:submittedBy
   a rdf:Property ;
   rdfs:label "submittedBy" ;
-  rdfs:range xsd:string ;
+  rdfs:range xsd:anyURI ;
+  rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/creator> ;
   skos:prefLabel "submittedBy" ;
 .
-
+Encode:usedGenomeAnnotation
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:File ;
+  rdfs:label "usedGenomeAnnotation" ;
+  rdfs:range xsd:string ;
+.
+Encode:usedLysisMethod
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:Library ;
+  rdfs:label "usedLysisMethod" ;
+  rdfs:range xsd:string ;
+.
+Encode:usedSpikeins
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:Library ;
+  rdfs:label "used Spikeins" ;
+  rdfs:range xsd:string ;
+.
+Encode:wasFoundIn
+  a owl:DatatypeProperty ;
+  rdfs:domain Encode:AuditFinding ;
+  rdfs:label "wasFoundIn" ;
+  rdfs:range DSPCore:Activity ;
+  rdfs:range DSPCore:Antibody ;
+  rdfs:range DSPCore:File ;
+  skos:prefLabel "wasFoundIn" ;
+.
+Encode:wasPerturbed
+  a owl:DatatypeProperty ;
+  rdfs:domain DSPCore:BioSample ;
+  rdfs:label "wasPerturbed" ;
+  rdfs:range xsd:boolean ;
+.
