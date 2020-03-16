@@ -1,9 +1,11 @@
 # baseURI: http://datamodel.terra.bio/DSPCoreValueSets
+# imports: http://datamodel.terra.bio/CL_subset.owl
 # imports: http://datamodel.terra.bio/UBERON_subset.owl
 # imports: http://www.w3.org/2004/02/skos/core#
 # prefix: DSPCoreValueSets
 
 @prefix : <http://datamodel.terra.bio/DSPCoreValueSets#> .
+@prefix CL_subset: <http://datamodel.terra.bio/CL_subset.owl#> .
 @prefix DSPCoreValueSets: <http://datamodel.terra.bio/DSPCoreValueSets#> .
 @prefix UBERON_subset: <http://datamodel.terra.bio/UBERON_subset.owl#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
@@ -15,9 +17,15 @@
 
 <http://datamodel.terra.bio/DSPCoreValueSets>
   a owl:Ontology ;
+  owl:imports <http://datamodel.terra.bio/CL_subset.owl> ;
   owl:imports <http://datamodel.terra.bio/UBERON_subset.owl> ;
   owl:imports skos: ;
   owl:versionInfo "Created with TopBraid Composer" ;
+.
+<http://datamodel.terra.bio/DSPCoreValueSets#3DContactMapsModality>
+  a owl:Class ;
+  rdfs:label "3D Contact Maps" ;
+  rdfs:subClassOf DSPCoreValueSets:EpigenomeModality ;
 .
 DSPCoreValueSets:AmnioticFluid
   a DSPCoreValueSets:AmnioticFluidType ;
@@ -51,22 +59,29 @@ DSPCoreValueSets:BCellType
   a owl:Class ;
   rdfs:label "B cell" ;
   rdfs:subClassOf DSPCoreValueSets:PrimaryCellType ;
+  owl:equivalentClass obo:CL_0000236 ;
 .
 DSPCoreValueSets:BioSampleType
   a owl:Class ;
   rdfs:label "BioSampleType" ;
   rdfs:subClassOf DSPCoreValueSets:SampleType ;
-  skos:definition "A classification of samples taken from organisms based on the type of material collected." ;
+  skos:definition "A classification of samples taken from organisms based on the type of material collected and grouped into primary, cell line and derived type." ;
 .
 DSPCoreValueSets:Blood
   a owl:Class ;
   rdfs:label "Blood" ;
   rdfs:subClassOf DSPCoreValueSets:BodyFluid ;
+  owl:equivalentClass obo:UBERON_0000178 ;
 .
 DSPCoreValueSets:BodyFluid
   a owl:Class ;
   rdfs:label "Body fluid" ;
   rdfs:subClassOf DSPCoreValueSets:PrimaryType ;
+.
+DSPCoreValueSets:BreastMilk
+  a owl:Class ;
+  rdfs:label "Breast milk" ;
+  rdfs:subClassOf DSPCoreValueSets:BodyFluid ;
 .
 DSPCoreValueSets:BuffyCoat
   a DSPCoreValueSets:BuffyCoatType ;
@@ -98,7 +113,7 @@ DSPCoreValueSets:CellFreeDNAType
 .
 DSPCoreValueSets:CellLine
   a owl:Class ;
-  rdfs:comment "Will likely create instances for specific cell lines, but no concrete use case available yet." ;
+  rdfs:comment "Will likely create instances for specific cell lines, but no concrete use case available yet.  Also this should map to \"cell line\" in the Cell Line Ontology. " ;
   rdfs:label "Cell line" ;
   rdfs:subClassOf DSPCoreValueSets:BioSampleType ;
 .
@@ -115,6 +130,34 @@ DSPCoreValueSets:CerebrospinalFluidType
   a owl:Class ;
   rdfs:label "Cerebrospinal fluid" ;
   rdfs:subClassOf DSPCoreValueSets:BodyFluid ;
+  owl:equivalentClass obo:UBERON_0001359 ;
+.
+DSPCoreValueSets:ChromatinAccessibility
+  a DSPCoreValueSets:ChromatinAccessibilityModality ;
+  rdfs:label "Chromatin Accessibility" ;
+.
+DSPCoreValueSets:ChromatinAccessibilityModality
+  a owl:Class ;
+  rdfs:label "DNAChromaticAccessibilityModality" ;
+  rdfs:subClassOf DSPCoreValueSets:EpigenomeModality ;
+.
+DSPCoreValueSets:DNABinding
+  a DSPCoreValueSets:DNABindingModality ;
+  rdfs:label "DNA Binding" ;
+.
+DSPCoreValueSets:DNABindingModality
+  a owl:Class ;
+  rdfs:label "DNABindingModality" ;
+  rdfs:subClassOf DSPCoreValueSets:EpigenomeModality ;
+.
+DSPCoreValueSets:DNAMethylation
+  a DSPCoreValueSets:DNAMethylationModality ;
+  rdfs:label "DNAMethylation" ;
+.
+DSPCoreValueSets:DNAMethylationModality
+  a owl:Class ;
+  rdfs:label "DNAMethylationModality" ;
+  rdfs:subClassOf DSPCoreValueSets:EpigenomeModality ;
 .
 DSPCoreValueSets:DataModality
   a owl:Class ;
@@ -122,7 +165,7 @@ DSPCoreValueSets:DataModality
   rdfs:subClassOf obo:IAO_0000030 ;
   skos:altLabel "Assay Category" ;
   skos:altLabel "Measurement Type" ;
-  skos:definition "Mode by which the data was generated.  Assay and sequencing data as well as data produced from imaging technologies are examples." ;
+  skos:definition "Data modality describes the method or type of information gleaned from an activity or provided in an electronic format.   It is an attempt to capture the value of the information to researchers.  DNA binding, DNA sequencing, histone modification, X-rays, and medical records are all examples." ;
 .
 DSPCoreValueSets:DerivedType
   a owl:Class ;
@@ -188,7 +231,7 @@ DSPCoreValueSets:HistoneModification
 DSPCoreValueSets:HistoneModificationModality
   a owl:Class ;
   rdfs:label "HistoneModificationModality" ;
-  rdfs:subClassOf DSPCoreValueSets:EpigenomeModality ;
+  rdfs:subClassOf DSPCoreValueSets:DNABindingModality ;
 .
 DSPCoreValueSets:InducedPluripotentStemCellType
   a owl:Class ;
@@ -218,6 +261,7 @@ DSPCoreValueSets:LymphocyteType
   a owl:Class ;
   rdfs:label "Lymphocyte" ;
   rdfs:subClassOf DSPCoreValueSets:PrimaryCellType ;
+  owl:equivalentClass obo:CL_0000542 ;
 .
 DSPCoreValueSets:MRI
   a DSPCoreValueSets:MRIModality ;
@@ -262,6 +306,7 @@ DSPCoreValueSets:MonocyteType
   a owl:Class ;
   rdfs:label "Monocyte" ;
   rdfs:subClassOf DSPCoreValueSets:PrimaryCellType ;
+  owl:equivalentClass obo:CL_0000576 ;
 .
 DSPCoreValueSets:OrganoidType
   a owl:Class ;
@@ -296,6 +341,7 @@ DSPCoreValueSets:PlateletType
   a owl:Class ;
   rdfs:label "Platelet" ;
   rdfs:subClassOf DSPCoreValueSets:Blood ;
+  owl:equivalentClass obo:CL_0000233 ;
 .
 DSPCoreValueSets:PrimaryCell
   a DSPCoreValueSets:PrimaryCellType ;
@@ -310,6 +356,7 @@ DSPCoreValueSets:PrimaryCultureType
   a owl:Class ;
   rdfs:label "Primary culture" ;
   rdfs:subClassOf DSPCoreValueSets:PrimaryType ;
+  owl:equivalentClass obo:CL_0000001 ;
 .
 DSPCoreValueSets:PrimaryType
   a owl:Class ;
@@ -348,11 +395,13 @@ DSPCoreValueSets:SalivaType
   a owl:Class ;
   rdfs:label "Saliva" ;
   rdfs:subClassOf DSPCoreValueSets:BodyFluid ;
+  owl:equivalentClass obo:UBERON_0001836 ;
 .
 DSPCoreValueSets:SampleType
   a owl:Class ;
   rdfs:label "SampleType" ;
   rdfs:subClassOf obo:IAO_0000030 ;
+  skos:definition "A classification of samples based on the type of material collected and grouped into primary, cell line and derived type." ;
 .
 DSPCoreValueSets:Semen
   a DSPCoreValueSets:SemenType ;
@@ -362,6 +411,7 @@ DSPCoreValueSets:SemenType
   a owl:Class ;
   rdfs:label "Semen" ;
   rdfs:subClassOf DSPCoreValueSets:BodyFluid ;
+  owl:equivalentClass obo:UBERON_0001968 ;
 .
 DSPCoreValueSets:Serum
   a DSPCoreValueSets:SerumType ;
@@ -401,6 +451,7 @@ DSPCoreValueSets:TCellType
   a owl:Class ;
   rdfs:label "T cell" ;
   rdfs:subClassOf DSPCoreValueSets:PrimaryCellType ;
+  owl:equivalentClass obo:CL_0000084 ;
 .
 DSPCoreValueSets:Targeted
   a DSPCoreValueSets:TargetedGenomeModality ;
@@ -422,19 +473,19 @@ DSPCoreValueSets:TissueType
   rdfs:label "Tissue" ;
   rdfs:subClassOf DSPCoreValueSets:PrimaryType ;
 .
+DSPCoreValueSets:TranscriptionFactorLocation
+  a DSPCoreValueSets:TranscriptionFactorLocationModality ;
+  rdfs:label "Transcription Factor Location" ;
+.
+DSPCoreValueSets:TranscriptionFactorLocationModality
+  a owl:Class ;
+  rdfs:label "TranscriptionFactorLocationModality" ;
+  rdfs:subClassOf DSPCoreValueSets:DNABindingModality ;
+.
 DSPCoreValueSets:Transcriptome
   a owl:Class ;
   rdfs:label "Transcriptome" ;
   rdfs:subClassOf DSPCoreValueSets:DataModality ;
-.
-DSPCoreValueSets:TranscriptoneFactorLocation
-  a DSPCoreValueSets:TranscriptoneFactorLocationModality ;
-  rdfs:label "Transcriptone Factor Location" ;
-.
-DSPCoreValueSets:TranscriptoneFactorLocationModality
-  a owl:Class ;
-  rdfs:label "TranscriptoneFactorLocationModality" ;
-  rdfs:subClassOf DSPCoreValueSets:EpigenomeModality ;
 .
 DSPCoreValueSets:Urine
   a DSPCoreValueSets:UrineType ;
