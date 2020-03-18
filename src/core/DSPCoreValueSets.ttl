@@ -82,6 +82,7 @@ DSPCoreValueSets:BreastMilk
   a owl:Class ;
   rdfs:label "Breast milk" ;
   rdfs:subClassOf DSPCoreValueSets:BodyFluid ;
+  owl:equivalentClass rdfs:Resource ;
 .
 DSPCoreValueSets:BuffyCoat
   a DSPCoreValueSets:BuffyCoatType ;
@@ -138,7 +139,7 @@ DSPCoreValueSets:ChromatinAccessibility
 .
 DSPCoreValueSets:ChromatinAccessibilityModality
   a owl:Class ;
-  rdfs:label "DNAChromaticAccessibilityModality" ;
+  rdfs:label "DNAChromatinAccessibilityModality" ;
   rdfs:subClassOf DSPCoreValueSets:EpigenomeModality ;
 .
 DSPCoreValueSets:DNABinding
