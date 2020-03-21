@@ -1,10 +1,9 @@
 # baseURI: http://datamodel.terra.bio/DSPCore
 # imports: http://datamodel.terra.bio/DSPCoreValueSets
 # imports: http://datamodel.terra.bio/DSPdcat_ap
-# imports: http://datamodel.terra.bio/OBI_Taxon_Organisms.owl
 # imports: http://datamodel.terra.bio/OBI_assaySubset.owl
+# imports: http://datamodel.terra.bio/OBI_core
 # imports: http://purl.obolibrary.org/obo/
-# imports: http://purl.obolibrary.org/obo/PATO_0001340
 # imports: http://www.w3.org/2002/07/owl
 # imports: http://xmlns.com/foaf/0.1/
 # prefix: DSPCore
@@ -39,10 +38,9 @@
   a owl:Ontology ;
   owl:imports <http://datamodel.terra.bio/DSPCoreValueSets> ;
   owl:imports <http://datamodel.terra.bio/DSPdcat_ap> ;
-  owl:imports <http://datamodel.terra.bio/OBI_Taxon_Organisms.owl> ;
   owl:imports <http://datamodel.terra.bio/OBI_assaySubset.owl> ;
+  owl:imports <http://datamodel.terra.bio/OBI_core> ;
   owl:imports obo: ;
-  owl:imports obo:PATO_0001340 ;
   owl:imports <http://www.w3.org/2002/07/owl> ;
   owl:imports <http://xmlns.com/foaf/0.1/> ;
   owl:versionInfo "Created with TopBraid Composer" ;
@@ -74,7 +72,7 @@ DSPCore:Activity
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:usesSample ;
+      owl:onProperty DSPCore:usedSample ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -143,6 +141,11 @@ DSPCore:Alignment
   owl:disjointWith DSPCore:VariantCalling ;
   owl:equivalentClass [
       a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:usedReferenceAssembly ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
       owl:onProperty prov:generated ;
       owl:someValuesFrom DSPCore:AlignmentFile ;
     ] ;
@@ -150,6 +153,11 @@ DSPCore:Alignment
       a owl:Restriction ;
       owl:onProperty prov:used ;
       owl:someValuesFrom DSPCore:SequenceFile ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty prov:used ;
+      owl:someValuesFrom prov:SoftwareAgent ;
     ] ;
   skos:prefLabel "Alignment" ;
   prov:definition "An activity that aligns the output of a Sequencing Activity (a genetic sequence) to produce an aligned sequence." ;
@@ -163,12 +171,17 @@ DSPCore:AlignmentFile
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:usedReferenceAssembly ;
     ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasPercentAlignedReads ;
+    ] ;
   skos:prefLabel "AlignmentFile" ;
 .
 DSPCore:AlignmentPostProcessing
   a owl:Class ;
   rdfs:label "AlignmentPostProcessing" ;
-  rdfs:subClassOf DSPCore:Activity ;
+  rdfs:subClassOf DSPCore:Pipeline ;
   owl:disjointWith DSPCore:Alignment ;
   owl:disjointWith DSPCore:AssayActivity ;
   owl:disjointWith DSPCore:LibraryPrep ;
@@ -184,6 +197,11 @@ DSPCore:AlignmentPostProcessing
       a owl:Restriction ;
       owl:onProperty prov:used ;
       owl:someValuesFrom DSPCore:AlignmentFile ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty prov:used ;
+      owl:someValuesFrom prov:SoftwareAgent ;
     ] ;
   skos:prefLabel "AlignmentPostProcessing" ;
   prov:definition "An activity that further processed the output of an Alignment Activity on a genetic sequence." ;
@@ -238,11 +256,6 @@ DSPCore:AssayActivity
       owl:onProperty prov:generated ;
       owl:someValuesFrom DSPCore:File ;
     ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:onProperty prov:generated ;
-      owl:someValuesFrom DSPCore:Library ;
-    ] ;
   skos:prefLabel "Assay" ;
   prov:definition "An activity that generates an electronic record documenting the result of the Assay performed." ;
 .
@@ -251,6 +264,11 @@ DSPCore:BioSample
   dc:identifier "DSPCore:BioSample" ;
   rdfs:label "BioSample" ;
   rdfs:subClassOf DSPCore:Sample ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty DSPCore:hasBioSampleType ;
+    ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -493,12 +511,12 @@ DSPCore:Library
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasAntibody ;
+      owl:onProperty DSPCore:hasAssay ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasAssay ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty prov:wasUsedBy ;
     ] ;
   skos:prefLabel "Library" ;
 .
@@ -666,11 +684,6 @@ DSPCore:SequenceFile
   owl:equivalentClass [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasPercentAlignedReads ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasPercentDuplicateFragments ;
     ] ;
   owl:equivalentClass [
@@ -682,11 +695,6 @@ DSPCore:SequenceFile
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty DSPCore:hasReadLength ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:usedReferenceAssembly ;
     ] ;
   skos:prefLabel "SequenceFile" ;
 .
@@ -725,7 +733,7 @@ DSPCore:Sequencing
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:usesSample ;
+      owl:onProperty DSPCore:usedSample ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -1414,12 +1422,12 @@ DSPCore:usedReferenceAssembly
   rdfs:subPropertyOf prov:used ;
   skos:prefLabel "usedReferenceAssembly" ;
 .
-DSPCore:usesSample
+DSPCore:usedSample
   a owl:ObjectProperty ;
-  rdfs:label "usesSample" ;
+  rdfs:label "usedSample" ;
   rdfs:range DSPCore:BioSample ;
   rdfs:subPropertyOf prov:used ;
-  skos:prefLabel "usesSample" ;
+  skos:prefLabel "usedSample" ;
 .
 DSPCore:wasFundedBy
   a owl:ObjectProperty ;
