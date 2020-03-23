@@ -178,7 +178,7 @@ EncodeExamples:ENCBS562VSE
   DSPCore:donatedBy EncodeExamples:ENCD0451RUA ;
   DSPCore:hasAnatomicalSite "http://purl.obolibrary.org/obo/UBERON_0002369"^^xsd:anyURI ;
   DSPCore:hasBioSampleType DSPCoreValueSets:Tissue ;
-  DSPCore:hasConsentCode DSPCore:NoRestriction ;
+  DSPdcat_ap:hasDataUseLimitation DSPCore:NoRestriction ;
   Encode:hasAward "http://encodeproject.org/awards/ENCODE"^^xsd:anyURI ;
   Encode:hasLab "http://encodeproject.org/labs/encode-consortium/"^^xsd:anyURI ;
   Encode:hasLifeStage "adult" ;
@@ -187,7 +187,6 @@ EncodeExamples:ENCBS562VSE
   Encode:wasPerturbed false ;
   dcterms:created "2015-04-21T22:38:19.753291+00:00" ;
   dcterms:isPartOf EncodeExamples:EncodeDataset ;
-  DSPdcat_ap:hasDataUseLimitation DSPCore:NoRestriction ;
   dcterms:source "http://www.encodeproject.org/sources/leidos/" ;
   rdfs:label "ENCBS562VSE" ;
   skos:prefLabel "ENCBS562VSE" ;
@@ -494,7 +493,7 @@ EncodeExamples:ENCLB011GAL
 EncodeExamples:ENCLB051VTH
   a DSPCore:Library ;
   DSPCore:hasCrossReference "http://encodeproject.org/libraries/ENCLB051VTH/" ;
-  DSPCore:usesSample EncodeExamples:ENCBS467KQD ;
+  DSPCore:usedSample EncodeExamples:ENCBS467KQD ;
   Encode:hasAward "http:encodeproject.org/awards/UM1HG009390/"^^xsd:anyURI ;
   Encode:hasLab "http://encodeproject.org/labs/bradley-bernstein/"^^xsd:anyURI ;
   Encode:hasLibraryMaterial "http://purl.obolibrary.org/obo/SO_0000352" ;
@@ -514,7 +513,7 @@ EncodeExamples:ENCLB793FWQ
   DSPCore:hasAntibody EncodeExamples:ENCAB000ADU ;
   DSPCore:hasCrossReference "GEO:GSM4250754" ;
   DSPCore:hasCrossReference "http://encodeproject.org/libraries/ENCLB793FWQ/" ;
-  DSPCore:usesSample EncodeExamples:ENCBS467KQD ;
+  DSPCore:usedSample EncodeExamples:ENCBS467KQD ;
   Encode:hasAward "http://encodeproject.org/awards/UM1HG009390/"^^xsd:anyURI ;
   Encode:hasLab "http://encodeproject.org/labs/bradley-bernstein/"^^xsd:anyURI ;
   Encode:hasLibraryMaterial "http://purl.obolibrary.org/obo/SO_0000352" ;
@@ -528,7 +527,7 @@ EncodeExamples:ENCLB793FWQ
 .
 EncodeExamples:ENCLB994HJD
   a DSPCore:Library ;
-  DSPCore:usesSample EncodeExamples:ENCBS420UOM ;
+  DSPCore:usedSample EncodeExamples:ENCBS420UOM ;
   Encode:hasSizeRange "<30" ;
   rdfs:label "ENCLB994HJD" ;
 .
@@ -538,7 +537,7 @@ EncodeExamples:ENCSR463NAD
 .
 EncodeExamples:ENCSR812FNU
   a Encode:Experiment ;
-  DSPCore:usesSample EncodeExamples:ENCBS389AUD ;
+  DSPCore:usedSample EncodeExamples:ENCBS389AUD ;
   Encode:hasAward "http://encodeproject.org/awards/U01HG007919"^^xsd:anyURI ;
   Encode:hasLab "http://encodeproject.org/awards/michael-snyder"^^xsd:anyURI ;
   dcterms:description "CTCF ChIP-seq on primary keratinocytes in day 6 of differentiation" ;
@@ -548,7 +547,7 @@ EncodeExamples:ENCSR895SFC
   a Encode:Experiment ;
   DSPCore:dateReleased "2016-08-01T00:00:00"^^xsd:dateTime ;
   DSPCore:hasCrossReference "http://www.encodeproject.org/experiments/ENCSR895SFC"^^dcterms:URI ;
-  DSPCore:usesSample EncodeExamples:ENCBS719AMH ;
+  DSPCore:usedSample EncodeExamples:ENCBS719AMH ;
   Encode:hasStatus "released" ;
   dcterms:created "2016-07-25T22:17:18.167352+00" ;
   dcterms:dateSubmitted "2016-07-31" ;
@@ -603,7 +602,7 @@ EncodeExamples:LibraryPrep_for_ENCLB051VTH
 .
 EncodeExamples:LibraryPrep_for_ENCLB793FWQ
   a DSPCore:LibraryPrep ;
-  DSPCore:usesSample EncodeExamples:ENCBS467KQD ;
+  DSPCore:usedSample EncodeExamples:ENCBS467KQD ;
   Encode:hasLab "http://encodeproject.org/labs/bradley-bernstein/"^^xsd:anyURI ;
   dcterms:created "2019-08-14T04:40:41.383274+00:00" ;
   rdfs:label "LibraryPrep_for_ENCLB793FWQ" ;

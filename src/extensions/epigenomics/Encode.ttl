@@ -1,6 +1,5 @@
 # baseURI: http://datamodel.terra.bio/Encode
 # imports: http://datamodel.terra.bio/DSPCore
-# imports: http://datamodel.terra.bio/DSPdcat_ap
 # prefix: Encode
 
 @prefix : <http://datamodel.terra.bio/Encode#> .
@@ -108,7 +107,6 @@ DSPCore:hasAssayType
 <http://datamodel.terra.bio/Encode>
   a owl:Ontology ;
   owl:imports <http://datamodel.terra.bio/DSPCore> ;
-  owl:imports <http://datamodel.terra.bio/DSPdcat_ap> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
 Encode:AuditFinding
@@ -152,7 +150,7 @@ Encode:ChIPSeq
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:usesSample ;
+      owl:onProperty DSPCore:usedSample ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
