@@ -1,11 +1,12 @@
 # baseURI: http://datamodel.terra.bio/Encode
-# imports: http://datamodel.terra.bio/DSPCore
+# imports: http://datamodel.terra.bio/TerraCore
+# imports: http://datamodel.terra.bio/TerraCoreValueSets
+# imports: http://datamodel.terra.bio/TerraDCAT_ap
 # prefix: Encode
 
 @prefix : <http://datamodel.terra.bio/Encode#> .
-@prefix DSPCore: <http://datamodel.terra.bio/DSPCore#> .
-@prefix DSPdcat_ap: <http://datamodel.terra.bio/DSPdcat_ap#> .
 @prefix Encode: <http://datamodel.terra.bio/Encode#> .
+@prefix TerraCore: <http://datamodel.terra.bio/TerraCore#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -17,7 +18,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-DSPCore:BioSample
+TerraCore:BioSample
   owl:equivalentClass rdfs:Resource ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -55,34 +56,34 @@ DSPCore:BioSample
       owl:onProperty Encode:wasPerturbed ;
     ] ;
 .
-DSPCore:Donor
+TerraCore:Donor
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty Encode:hasHealthStatus ;
     ] ;
 .
-DSPCore:File
+TerraCore:File
   Encode:hasDataQuality "{\"orange\",\"red\",\"white\",\"yellow\"}" ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:wasGeneratedByPipeline ;
-    ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty Encode:hasStepRun ;
     ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:wasGeneratedByPipeline ;
+    ] ;
 .
-DSPCore:HumanDonor
+TerraCore:HumanDonor
   owl:equivalentClass [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty Encode:hasLifeStage ;
     ] ;
 .
-DSPCore:Library
+TerraCore:Library
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -94,19 +95,21 @@ DSPCore:Library
       owl:onProperty Encode:hasStrandSpecificity ;
     ] ;
 .
-DSPCore:SequenceFile
+TerraCore:SequenceFile
   owl:equivalentClass [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty Encode:usedPlatform ;
     ] ;
 .
-DSPCore:hasAssayType
+TerraCore:hasAssayType
   rdfs:range obo:OBI_0000070 ;
 .
 <http://datamodel.terra.bio/Encode>
   a owl:Ontology ;
-  owl:imports <http://datamodel.terra.bio/DSPCore> ;
+  owl:imports <http://datamodel.terra.bio/TerraCore> ;
+  owl:imports <http://datamodel.terra.bio/TerraCoreValueSets> ;
+  owl:imports <http://datamodel.terra.bio/TerraDCAT_ap> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
 Encode:AuditFinding
@@ -146,12 +149,7 @@ Encode:ChIP-seq_assay
 Encode:ChIPSeq
   a owl:Class ;
   rdfs:label "ChIPSeq" ;
-  rdfs:subClassOf DSPCore:AssayActivity ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:usedSample ;
-    ] ;
+  rdfs:subClassOf TerraCore:AssayActivity ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -159,8 +157,13 @@ Encode:ChIPSeq
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:usedSample ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasAntibody ;
+      owl:onProperty TerraCore:hasAntibody ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -170,54 +173,54 @@ Encode:ChIPSeq
 .
 Encode:ChIPSeqReadMapping
   a owl:Class ;
-  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL220NBH" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL220NBH" ;
   rdfs:label "ChIP-seq read mapping" ;
   rdfs:subClassOf Encode:Pipeline ;
 .
 Encode:DNaseHSPairedV2
   a owl:Class ;
-  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL202DNS" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL202DNS" ;
   rdfs:label "DNase-HS pipeline paired-end - Version 2" ;
   rdfs:subClassOf Encode:Pipeline ;
 .
 Encode:DNaseHSSingleV2
   a owl:Class ;
-  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL201DNS" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL201DNS" ;
   rdfs:label "DNase-HS pipeline single-end - Version 2" ;
   rdfs:subClassOf Encode:Pipeline ;
 .
 Encode:Experiment
   a owl:Class ;
   rdfs:label "Experiment" ;
-  rdfs:subClassOf DSPCore:Activity ;
+  rdfs:subClassOf TerraCore:Activity ;
 .
 Encode:HistoneChIPseqUnreplicated
   a owl:Class ;
-  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL841HGV" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL841HGV" ;
   rdfs:label "Histone ChIPseq (unreplicated) Pipeline" ;
   rdfs:subClassOf Encode:Pipeline ;
 .
 Encode:LongRNAseqPairedEnd_Stranded
   a owl:Class ;
-  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL002LPE" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL002LPE" ;
   rdfs:label "RNA-seq of long RNAs (paired-end, stranded)" ;
   rdfs:subClassOf Encode:Pipeline ;
 .
 Encode:LongRNAseqSingleUnstranded
   a owl:Class ;
-  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL002LSE" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL002LSE" ;
   rdfs:label "RNA-seq of long RNAs (single-end, unstranded)" ;
   rdfs:subClassOf Encode:Pipeline ;
 .
 Encode:MicroRNACounts
   a owl:Class ;
-  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL278BTI" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL278BTI" ;
   rdfs:label "microRNA counts pipeline" ;
   rdfs:subClassOf Encode:Pipeline ;
 .
 Encode:MicroRNAseq
   a owl:Class ;
-  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL444CYA" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL444CYA" ;
   rdfs:label "microRNA-seq pipeline" ;
   rdfs:subClassOf Encode:Pipeline ;
 .
@@ -228,7 +231,7 @@ Encode:Nanostring_nCounter_miRNA_Expression
 Encode:Pipeline
   a owl:Class ;
   rdfs:label "Pipeline" ;
-  rdfs:subClassOf DSPCore:Pipeline ;
+  rdfs:subClassOf TerraCore:Pipeline ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
@@ -237,31 +240,31 @@ Encode:Pipeline
 .
 Encode:RAMPAGE_CAGE
   a owl:Class ;
-  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL122WIM" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL122WIM" ;
   rdfs:label "RAMPAGE or CAGE (paired-end)" ;
   rdfs:subClassOf Encode:Pipeline ;
 .
 Encode:TranscriptionFactorChIPseq
   a owl:Class ;
-  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL138KID" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL138KID" ;
   rdfs:label "Transcription factor ChIP-seq" ;
   rdfs:subClassOf Encode:Pipeline ;
 .
 Encode:TranscriptionFactorChIPseqUnreplicated
   a owl:Class ;
-  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL493SGC" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL493SGC" ;
   rdfs:label "Transcription factor ChIP-seq (unreplicated)" ;
   rdfs:subClassOf Encode:Pipeline ;
 .
 Encode:WGBSPaired
   a owl:Class ;
-  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL985BLO" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL985BLO" ;
   rdfs:label "WGBS paired-end pipeline" ;
   rdfs:subClassOf Encode:Pipeline ;
 .
 Encode:WGBSSingle
   a owl:Class ;
-  DSPCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL210QWH" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/pipelines/ENCPL210QWH" ;
   rdfs:label "WGBS single-end pipeline" ;
   rdfs:subClassOf Encode:Pipeline ;
 .
@@ -294,7 +297,7 @@ Encode:hasBiologicalReplicateID
 .
 Encode:hasCellIsolationMethod
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
+  rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasCellIsolationMethod" ;
   rdfs:range [
       a rdfs:Datatype ;
@@ -316,27 +319,27 @@ Encode:hasChild
 .
 Encode:hasDataQuality
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:File ;
+  rdfs:domain TerraCore:File ;
   rdfs:label "hasDataQuality" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasDataQuality" ;
 .
 Encode:hasFileFormatType
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:File ;
+  rdfs:domain TerraCore:File ;
   rdfs:label "hasFileFormatType" ;
   rdfs:range xsd:string ;
 .
 Encode:hasGeneticModification
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
+  rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasGeneticModification" ;
   rdfs:range xsd:string ;
 .
 Encode:hasHealthStatus
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:domain DSPCore:Donor ;
+  rdfs:domain TerraCore:BioSample ;
+  rdfs:domain TerraCore:Donor ;
   rdfs:label "hasHealthStatus" ;
   rdfs:range xsd:string ;
 .
@@ -361,27 +364,27 @@ Encode:hasLevelName
 .
 Encode:hasLibrary
   a owl:ObjectProperty ;
-  rdfs:domain DSPCore:BioSample ;
   rdfs:domain Encode:Experiment ;
+  rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasLibrary" ;
-  rdfs:range DSPCore:Library ;
+  rdfs:range TerraCore:Library ;
 .
 Encode:hasLibraryMaterial
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Library ;
+  rdfs:domain TerraCore:Library ;
   rdfs:label "hasLibraryMaterial" ;
   rdfs:range xsd:string ;
 .
 Encode:hasLibraryMaterialName
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Library ;
+  rdfs:domain TerraCore:Library ;
   rdfs:label "hasLibraryMaterialName" ;
   rdfs:range xsd:string ;
 .
 Encode:hasLifeStage
   a rdf:Property ;
   rdfs:comment "Varies per species; temporary solution" ;
-  rdfs:domain DSPCore:BioSample ;
+  rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasLifeStage" ;
   rdfs:range [
       a rdfs:Datatype ;
@@ -396,14 +399,14 @@ Encode:hasLifeStage
 .
 Encode:hasLotId
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Antibody ;
-  rdfs:domain DSPCore:Library ;
+  rdfs:domain TerraCore:Antibody ;
+  rdfs:domain TerraCore:Library ;
   rdfs:label "hasLotId" ;
   rdfs:range xsd:string ;
 .
 Encode:hasMappedLibraryLayout
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:File ;
+  rdfs:domain TerraCore:File ;
   rdfs:label "hasMappedLibraryLayout" ;
   rdfs:range [
       a rdfs:Datatype ;
@@ -415,7 +418,7 @@ Encode:hasMappedLibraryLayout
 .
 Encode:hasMappedReadLength
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:File ;
+  rdfs:domain TerraCore:File ;
   rdfs:label "hasMappedReadLength" ;
   rdfs:range xsd:integer ;
 .
@@ -432,44 +435,44 @@ Encode:hasPlatform
 .
 Encode:hasProductId
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Antibody ;
-  rdfs:domain DSPCore:Library ;
+  rdfs:domain TerraCore:Antibody ;
+  rdfs:domain TerraCore:Library ;
   rdfs:label "hasProductId" ;
   rdfs:range xsd:string ;
 .
 Encode:hasQualityMetric
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:File ;
+  rdfs:domain TerraCore:File ;
   rdfs:label "hasQualityMetric" ;
   rdfs:range xsd:anyURI ;
 .
 Encode:hasQueriedRNPSizeRange
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Library ;
+  rdfs:domain TerraCore:Library ;
   rdfs:label "has Queried RNP Size Range" ;
   rdfs:range xsd:string ;
 .
 Encode:hasRNAIntegrityNumber
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Library ;
+  rdfs:domain TerraCore:Library ;
   rdfs:label "hasRNAIntegrityNumber" ;
   rdfs:range xsd:decimal ;
 .
 Encode:hasReadStructure
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:File ;
+  rdfs:domain TerraCore:File ;
   rdfs:label "hasReadStructure" ;
   rdfs:range xsd:anyURI ;
 .
 Encode:hasReplicateID
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
+  rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasReplicateID" ;
   rdfs:range xsd:integer ;
 .
 Encode:hasReplicationType
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
+  rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasReplicationType" ;
   rdfs:range [
       a rdfs:Datatype ;
@@ -492,7 +495,7 @@ Encode:hasSibling
 .
 Encode:hasSizeRange
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Library ;
+  rdfs:domain TerraCore:Library ;
   rdfs:label "hasSizeRange" ;
   rdfs:range xsd:string ;
 .
@@ -515,14 +518,14 @@ Encode:hasStatus
 .
 Encode:hasStepRun
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:File ;
+  rdfs:domain TerraCore:File ;
   rdfs:label "hasStepRun" ;
   rdfs:range xsd:anyURI ;
 .
 Encode:hasStrandSpecificity
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Activity ;
-  rdfs:domain DSPCore:File ;
+  rdfs:domain TerraCore:Activity ;
+  rdfs:domain TerraCore:File ;
   rdfs:label "hasStrandSpecificity" ;
   rdfs:range xsd:boolean ;
   skos:prefLabel "hasStrandSpecificity" ;
@@ -535,7 +538,7 @@ Encode:hasTechnicalReplicateID
 .
 Encode:hasTreatment
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
+  rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasTreatment" ;
   rdfs:range xsd:string ;
 .
@@ -554,19 +557,19 @@ Encode:submittedBy
 .
 Encode:usedGenomeAnnotation
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:File ;
+  rdfs:domain TerraCore:File ;
   rdfs:label "usedGenomeAnnotation" ;
   rdfs:range xsd:string ;
 .
 Encode:usedLysisMethod
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Library ;
+  rdfs:domain TerraCore:Library ;
   rdfs:label "usedLysisMethod" ;
   rdfs:range xsd:string ;
 .
 Encode:usedSpikeins
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:Library ;
+  rdfs:domain TerraCore:Library ;
   rdfs:label "used Spikeins" ;
   rdfs:range xsd:string ;
 .
@@ -574,14 +577,14 @@ Encode:wasFoundIn
   a owl:DatatypeProperty ;
   rdfs:domain Encode:AuditFinding ;
   rdfs:label "wasFoundIn" ;
-  rdfs:range DSPCore:Activity ;
-  rdfs:range DSPCore:Antibody ;
-  rdfs:range DSPCore:File ;
+  rdfs:range TerraCore:Activity ;
+  rdfs:range TerraCore:Antibody ;
+  rdfs:range TerraCore:File ;
   skos:prefLabel "wasFoundIn" ;
 .
 Encode:wasPerturbed
   a owl:DatatypeProperty ;
-  rdfs:domain DSPCore:BioSample ;
+  rdfs:domain TerraCore:BioSample ;
   rdfs:label "wasPerturbed" ;
   rdfs:range xsd:boolean ;
 .

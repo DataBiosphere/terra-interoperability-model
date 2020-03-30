@@ -1,14 +1,14 @@
 # baseURI: http://data.terra.bio/EncodeExamples
-# imports: http://datamodel.terra.bio/DSPCore
 # imports: http://datamodel.terra.bio/Encode
+# imports: http://datamodel.terra.bio/TerraCore
+# imports: http://datamodel.terra.bio/TerraCoreValueSets
+# imports: http://datamodel.terra.bio/TerraDCAT_ap
 # prefix: EncodeExamples
 
 @prefix : <http://data.terra.bio/EncodeExamples#> .
-@prefix DSPCore: <http://datamodel.terra.bio/DSPCore#> .
-@prefix DSPCoreValueSets: <http://datamodel.terra.bio/DSPCoreValueSets#> .
-@prefix DSPdcat_ap: <http://datamodel.terra.bio/DSPdcat_ap#> .
 @prefix Encode: <http://datamodel.terra.bio/Encode#> .
 @prefix EncodeExamples: <http://data.terra.bio/EncodeExamples#> .
+@prefix TerraCore: <http://datamodel.terra.bio/TerraCore#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix epiLIMS: <http://data.terra.bio/epiLIMS#> .
@@ -22,46 +22,48 @@
 
 <http://data.terra.bio/EncodeExamples>
   a owl:Ontology ;
-  owl:imports <http://datamodel.terra.bio/DSPCore> ;
   owl:imports <http://datamodel.terra.bio/Encode> ;
+  owl:imports <http://datamodel.terra.bio/TerraCore> ;
+  owl:imports <http://datamodel.terra.bio/TerraCoreValueSets> ;
+  owl:imports <http://datamodel.terra.bio/TerraDCAT_ap> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
 EncodeExamples:Age_2-4day
-  a DSPCore:Age ;
-  DSPCore:hasAgeCategory "Postnatal" ;
-  DSPCore:hasAgeUnit "days" ;
-  DSPCore:hasLowerBound "2"^^xsd:decimal ;
-  DSPCore:hasUpperBound "4"^^xsd:decimal ;
+  a TerraCore:Age ;
+  TerraCore:hasAgeCategory "Postnatal" ;
+  TerraCore:hasAgeUnit "days" ;
+  TerraCore:hasLowerBound "2"^^xsd:decimal ;
+  TerraCore:hasUpperBound "4"^^xsd:decimal ;
   rdfs:label "2-4 day" ;
 .
 EncodeExamples:Age_51years
-  a DSPCore:Age ;
-  DSPCore:hasAgeCategory "Postnatal" ;
-  DSPCore:hasAgeUnit "years" ;
-  DSPCore:hasLowerBound "51"^^xsd:decimal ;
-  DSPCore:hasUnit "years" ;
-  DSPCore:hasUpperBound "51"^^xsd:decimal ;
+  a TerraCore:Age ;
+  TerraCore:hasAgeCategory "Postnatal" ;
+  TerraCore:hasAgeUnit "years" ;
+  TerraCore:hasLowerBound "51"^^xsd:decimal ;
+  TerraCore:hasUnit "years" ;
+  TerraCore:hasUpperBound "51"^^xsd:decimal ;
   rdfs:label "51 years" ;
 .
 EncodeExamples:Age_54years
-  a DSPCore:Age ;
-  DSPCore:hasAgeCategory "Postnatal" ;
-  DSPCore:hasLowerBound "54"^^xsd:decimal ;
-  DSPCore:hasUnit "years" ;
-  DSPCore:hasUpperBound "54"^^xsd:decimal ;
+  a TerraCore:Age ;
+  TerraCore:hasAgeCategory "Postnatal" ;
+  TerraCore:hasLowerBound "54"^^xsd:decimal ;
+  TerraCore:hasUnit "years" ;
+  TerraCore:hasUpperBound "54"^^xsd:decimal ;
   rdfs:label "54 years" ;
 .
 EncodeExamples:Anti-CTCF_Antibody
-  a DSPCore:Antibody ;
+  a TerraCore:Antibody ;
   rdfs:label "Anti-CTCF Antibody" ;
 .
 EncodeExamples:Assay_ENCSR895SFC
-  a DSPCore:AssayActivity ;
-  DSPCore:hasAssayCategory "Transcription" ;
-  DSPCore:hasAssayType EncodeExamples:Nanostring_nCounter_miRNA_ExpressionAssay ;
-  DSPCore:hasCrossReference "ali-mortazavi: human-adrenal-gland-ENTEX51-52-nanostring" ;
-  DSPCore:hasProtocol "https://www.encodeproject.org/documents/d90ef931-e735-4b25-a7f8-6ddbcaea71dd/@@download/attachment/NanoString%20miRNA%20Assay.pdf" ;
-  DSPCore:hasTarget "http://www.encodeproject.org/targets/STAT5A-human/"^^xsd:anyURI ;
+  a TerraCore:AssayActivity ;
+  TerraCore:hasAssayCategory "Transcription" ;
+  TerraCore:hasAssayType EncodeExamples:Nanostring_nCounter_miRNA_ExpressionAssay ;
+  TerraCore:hasCrossReference "ali-mortazavi: human-adrenal-gland-ENTEX51-52-nanostring" ;
+  TerraCore:hasProtocol "https://www.encodeproject.org/documents/d90ef931-e735-4b25-a7f8-6ddbcaea71dd/@@download/attachment/NanoString%20miRNA%20Assay.pdf" ;
+  TerraCore:hasTarget "http://www.encodeproject.org/targets/STAT5A-human/"^^xsd:anyURI ;
   rdfs:label "Assay_ENCSR895SFC" ;
   prov:generated EncodeExamples:ENCFF488IYR ;
   prov:generated Encode:ENCFF660GHH ;
@@ -69,8 +71,8 @@ EncodeExamples:Assay_ENCSR895SFC
 .
 EncodeExamples:Assay_ENCSR960UYN
   a Encode:ChIPSeq ;
-  DSPCore:hasAssayCategory "DNA Binding" ;
-  DSPCore:hasAssayType Encode:ChIP-seq_assay ;
+  TerraCore:hasAssayCategory "DNA Binding" ;
+  TerraCore:hasAssayType Encode:ChIP-seq_assay ;
   rdfs:label "Assay_ENCSR960UYN" ;
 .
 EncodeExamples:Award_Encode
@@ -80,11 +82,11 @@ EncodeExamples:Award_Encode
 .
 EncodeExamples:ChIPSeqReadMapping_ENCSR960UYN
   a Encode:ChIPSeqReadMapping ;
-  DSPCore:hasDataModality DSPCoreValueSets:HistoneModification ;
-  DSPCore:usedReferenceAssembly DSPCore:GrCh38 ;
   Encode:hasStepRun "http://encodeproject.org/analysis-step-runs/358836f9-f266-4d34-8cb6-f43cf8e6dfd8/"^^xsd:anyURI ;
   Encode:hasStepRun "http://encodeproject.org/analysis-step-runs/3a2c535a-37a1-4521-aca6-648db5f0ed69/"^^xsd:anyURI ;
   Encode:hasStepRun "http://encodeproject.org/analysis-step-runs/c4a32b9e-1a12-4161-95c6-b483458a242c/"^^xsd:anyURI ;
+  TerraCore:hasDataModality <http://datamodel.terra.bio/TerraCoreValueSets#HistoneModificationLocation> ;
+  TerraCore:usedReferenceAssembly TerraCore:GrCh38 ;
   dcterms:created "2019-08-20T05:13:53.921523+00:00" ;
   rdfs:label "ChIPSeqReadMapping_ENCSR960UYN" ;
   prov:generated EncodeExamples:ENCFF085KIQ ;
@@ -97,34 +99,29 @@ EncodeExamples:ChIPSeqReadMapping_ENCSR960UYN
   prov:used EncodeExamples:ENCFF957AVX ;
 .
 EncodeExamples:DataCollection_EncodeEpiLIMS
-  a DSPdcat_ap:DataCollection ;
-  DSPdcat_ap:hasDataset EncodeExamples:EncodeDataset ;
-  DSPdcat_ap:hasDataset epiLIMS:EpiLIMS ;
+  a <http://datamodel.terra.bio/TerraDCAT_ap#DataCollection> ;
+  <http://datamodel.terra.bio/TerraDCAT_ap#hasDataset> EncodeExamples:EncodeDataset ;
+  <http://datamodel.terra.bio/TerraDCAT_ap#hasDataset> epiLIMS:EpiLIMS ;
   dcterms:title "Encode and Epigenomics Lab Data Demonstration Data Collection" ;
   rdfs:label "DataCollection_EncodeEpiLIMS" ;
   skos:prefLabel "DataCollection_EncodeEpiLIMS" ;
 .
 EncodeExamples:ENCAB000ADU
-  a DSPCore:Antibody ;
-  DSPCore:hasClonality "polyclonal" ;
-  DSPCore:hasCrossReference "http://encodeproject.org/antibodies/ENCAB000ADU" ;
-  DSPCore:hasTarget "http://encodeproject.org/targets/H3K36me3-human/"^^xsd:anyURI ;
+  a TerraCore:Antibody ;
+  TerraCore:hasClonality "polyclonal" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/antibodies/ENCAB000ADU" ;
+  TerraCore:hasTarget "http://encodeproject.org/targets/H3K36me3-human/"^^xsd:anyURI ;
   rdfs:label "ENCAB000ADU" ;
 .
 EncodeExamples:ENCBS143WXN
-  a DSPCore:BioSample ;
-  DSPCore:hasAnatomicalSite "http://purl.obolibrary.org/obo/UBERON_0006920"^^xsd:anyURI ;
-  DSPCore:hasBioSampleType DSPCoreValueSets:Tissue ;
+  a TerraCore:BioSample ;
+  TerraCore:hasAnatomicalSite "http://purl.obolibrary.org/obo/UBERON_0006920"^^xsd:anyURI ;
+  TerraCore:hasBioSampleType <http://datamodel.terra.bio/TerraCoreValueSets#Tissue> ;
   dcterms:isPartOf EncodeExamples:EncodeDataset ;
   rdfs:label "ENCBS143WXN" ;
 .
 EncodeExamples:ENCBS389AUD
-  a DSPCore:BioSample ;
-  DSPCore:dateObtained "2015-11-10T00:00:00"^^xsd:dateTime ;
-  DSPCore:donatedBy EncodeExamples:ENCDO615NVN ;
-  DSPCore:hasAnatomicalSite "http://purl.obolibrary.org/obo/CL_100166"^^xsd:anyURI ;
-  DSPCore:hasBioSampleType DSPCoreValueSets:PrimaryCell ;
-  DSPCore:hasCrossReference "http://www.encodeproject.org/biosamples/ENCBS389AUD/"^^dcterms:URI ;
+  a TerraCore:BioSample ;
   Encode:hasAward "http://www.encodeproject.org/awards/U01HG007919/"^^xsd:anyURI ;
   Encode:hasHealthStatus "Healthy" ;
   Encode:hasLab "http://encodeproject.org/labs/paul-khavari/" ;
@@ -133,6 +130,11 @@ EncodeExamples:ENCBS389AUD
   Encode:hasTreatment "http://encodeproject.org/treatments/8815ea26-a0e7-4617-9e8b-a81df87ff2bd/" ;
   Encode:submittedBy "http://encodeproject.org/users/37d5e120-ea80-4f13-8096-1f132e424ca1/"^^xsd:anyURI ;
   Encode:wasPerturbed true ;
+  TerraCore:dateObtained "2015-11-10T00:00:00"^^xsd:dateTime ;
+  TerraCore:donatedBy EncodeExamples:ENCDO615NVN ;
+  TerraCore:hasAnatomicalSite "http://purl.obolibrary.org/obo/CL_100166"^^xsd:anyURI ;
+  TerraCore:hasBioSampleType <http://datamodel.terra.bio/TerraCoreValueSets#PrimaryCell> ;
+  TerraCore:hasCrossReference "http://www.encodeproject.org/biosamples/ENCBS389AUD/"^^dcterms:URI ;
   dcterms:created "2016-11-30T00:47:27.158916+00:00" ;
   dcterms:isPartOf EncodeExamples:EncodeDataset ;
   dcterms:source "http://encodeproject.org/sources/paul-khavari/" ;
@@ -140,7 +142,7 @@ EncodeExamples:ENCBS389AUD
   prov:wasUsedBy EncodeExamples:ENCSR812FNU ;
 .
 EncodeExamples:ENCBS420UOM
-  a DSPCore:BioSample ;
+  a TerraCore:BioSample ;
   Encode:hasBiologicalReplicateID 1 ;
   Encode:hasReplicationType "isogenic" ;
   Encode:hasTechnicalReplicateID 1 ;
@@ -148,21 +150,21 @@ EncodeExamples:ENCBS420UOM
   rdfs:label "ENCBS420UOM" ;
 .
 EncodeExamples:ENCBS467KQD
-  a DSPCore:BioSample ;
-  DSPCore:dateObtained "2015-01-01T00:00:00"^^xsd:dateTime ;
-  DSPCore:donatedBy EncodeExamples:ENCD0271OUW ;
-  DSPCore:hasAnatomicalSite "http://purl.obolibrary.org/obo/UBERON_0006920" ;
-  DSPCore:hasBioSampleType DSPCoreValueSets:Tissue ;
-  DSPCore:hasCrossReference "GEO:SAMN13691199" ;
-  DSPCore:hasLibraryPrep EncodeExamples:LibraryPrep_for_ENCLB051VTH ;
-  DSPCore:hasLibraryPrep EncodeExamples:LibraryPrep_for_ENCLB793FWQ ;
-  DSPCore:hasPreservationState "not reported" ;
-  DSPCore:hasSampleType DSPCoreValueSets:Tissue ;
+  a TerraCore:BioSample ;
   Encode:hasAward "http://encodeproject.org/awards/UM1HG009390/"^^xsd:anyURI ;
   Encode:hasLab "http://encodeproject.org/labs/bradley-bernstein/"^^xsd:anyURI ;
   Encode:hasStatus "released" ;
   Encode:submittedBy "http://encodeproject.org/users/f1843c60-e027-4b18-8582-64d3f3eae45b/"^^xsd:anyURI ;
   Encode:wasPerturbed false ;
+  TerraCore:dateObtained "2015-01-01T00:00:00"^^xsd:dateTime ;
+  TerraCore:donatedBy EncodeExamples:ENCD0271OUW ;
+  TerraCore:hasAnatomicalSite "http://purl.obolibrary.org/obo/UBERON_0006920" ;
+  TerraCore:hasBioSampleType <http://datamodel.terra.bio/TerraCoreValueSets#Tissue> ;
+  TerraCore:hasCrossReference "GEO:SAMN13691199" ;
+  TerraCore:hasLibraryPrep EncodeExamples:LibraryPrep_for_ENCLB051VTH ;
+  TerraCore:hasLibraryPrep EncodeExamples:LibraryPrep_for_ENCLB793FWQ ;
+  TerraCore:hasPreservationState "not reported" ;
+  TerraCore:hasSampleType <http://datamodel.terra.bio/TerraCoreValueSets#Tissue> ;
   dcterms:created "2019-01-28T15:15:44.156706+00:00" ;
   dcterms:isPartOf EncodeExamples:EncodeDataset ;
   dcterms:source "http://encodeproject.org/sources/kristin-ardlie/" ;
@@ -173,18 +175,18 @@ EncodeExamples:ENCBS467KQD
   prov:wasUsedBy Encode:ChIPseqReadMapping_ENCSR960UYN ;
 .
 EncodeExamples:ENCBS562VSE
-  a DSPCore:BioSample ;
-  DSPCore:derived EncodeExamples:ENCBS719AMH ;
-  DSPCore:donatedBy EncodeExamples:ENCD0451RUA ;
-  DSPCore:hasAnatomicalSite "http://purl.obolibrary.org/obo/UBERON_0002369"^^xsd:anyURI ;
-  DSPCore:hasBioSampleType DSPCoreValueSets:Tissue ;
-  DSPdcat_ap:hasDataUseLimitation DSPCore:NoRestriction ;
+  a TerraCore:BioSample ;
   Encode:hasAward "http://encodeproject.org/awards/ENCODE"^^xsd:anyURI ;
   Encode:hasLab "http://encodeproject.org/labs/encode-consortium/"^^xsd:anyURI ;
   Encode:hasLifeStage "adult" ;
   Encode:hasStatus "released" ;
   Encode:submittedBy "http://encodeproject.org/users/6800d05f-7213-48b1-9ad8-254c73c5b83f/"^^xsd:anyURI ;
   Encode:wasPerturbed false ;
+  TerraCore:derived EncodeExamples:ENCBS719AMH ;
+  TerraCore:donatedBy EncodeExamples:ENCD0451RUA ;
+  TerraCore:hasAnatomicalSite "http://purl.obolibrary.org/obo/UBERON_0002369"^^xsd:anyURI ;
+  TerraCore:hasBioSampleType <http://datamodel.terra.bio/TerraCoreValueSets#Tissue> ;
+  <http://datamodel.terra.bio/TerraDCAT_ap#hasDataUseLimitation> TerraCore:NoRestriction ;
   dcterms:created "2015-04-21T22:38:19.753291+00:00" ;
   dcterms:isPartOf EncodeExamples:EncodeDataset ;
   dcterms:source "http://www.encodeproject.org/sources/leidos/" ;
@@ -192,24 +194,24 @@ EncodeExamples:ENCBS562VSE
   skos:prefLabel "ENCBS562VSE" ;
 .
 EncodeExamples:ENCBS719AMH
-  a DSPCore:BioSample ;
-  DSPCore:dateObtained "2015-10-30T00:00:00"^^xsd:dateTime ;
-  DSPCore:hasAnatomicalSite "http://purl.obolibrary.org/obo/UBERON_0002369"^^xsd:anyURI ;
-  DSPCore:hasAssay EncodeExamples:Assay_ENCSR895SFC ;
-  DSPCore:hasAward "\"http://www.encodeproject.org/awards/U54HG006998/\"" ;
-  DSPCore:hasBioSampleType DSPCoreValueSets:Tissue ;
-  DSPCore:hasCrossReference "ali-mortazavi: human-adrenal-gland-ENTEX52-rep2" ;
-  DSPCore:hasCrossReference "gtex: ENC-1K2DA-016-SM-9JLPP" ;
-  DSPCore:hasCrossReference "http://www.encodeproject.org/biosamples/ENCBS719AMH"^^dcterms:URI ;
-  DSPCore:hasLibraryPrep EncodeExamples:LibraryPrep_for_ENCSR895SFC ;
-  DSPCore:usedBy EncodeExamples:ENCSR895SFC ;
-  DSPdcat_ap:hasDataUseLimitation DSPCore:NoRestriction ;
+  a TerraCore:BioSample ;
   Encode:hasBiologicalReplicateID 2 ;
   Encode:hasReplicationType "isogenic" ;
   Encode:hasStatus "released" ;
   Encode:hasTechnicalReplicateID 1 ;
   Encode:submittedBy "http://www.encodeproject.org/users/bc5b62f7-ce28-4a1e-b6b3-81c9c5a86d7a/"^^xsd:anyURI ;
   Encode:wasPerturbed false ;
+  TerraCore:dateObtained "2015-10-30T00:00:00"^^xsd:dateTime ;
+  TerraCore:hasAnatomicalSite "http://purl.obolibrary.org/obo/UBERON_0002369"^^xsd:anyURI ;
+  TerraCore:hasAssay EncodeExamples:Assay_ENCSR895SFC ;
+  TerraCore:hasAward "\"http://www.encodeproject.org/awards/U54HG006998/\"" ;
+  TerraCore:hasBioSampleType <http://datamodel.terra.bio/TerraCoreValueSets#Tissue> ;
+  TerraCore:hasCrossReference "ali-mortazavi: human-adrenal-gland-ENTEX52-rep2" ;
+  TerraCore:hasCrossReference "gtex: ENC-1K2DA-016-SM-9JLPP" ;
+  TerraCore:hasCrossReference "http://www.encodeproject.org/biosamples/ENCBS719AMH"^^dcterms:URI ;
+  TerraCore:hasLibraryPrep EncodeExamples:LibraryPrep_for_ENCSR895SFC ;
+  TerraCore:usedBy EncodeExamples:ENCSR895SFC ;
+  <http://datamodel.terra.bio/TerraDCAT_ap#hasDataUseLimitation> TerraCore:NoRestriction ;
   dcterms:created "2015-11-25T22:04:52.325534+00:00"^^xsd:dateTime ;
   dcterms:isPartOf EncodeExamples:EncodeDataset ;
   dcterms:source "http://www.encodeproject.org/sources/kristin-ardlie/" ;
@@ -219,26 +221,26 @@ EncodeExamples:ENCBS719AMH
   prov:wasDerivedFrom EncodeExamples:ENCBS562VSE ;
 .
 EncodeExamples:ENCD0271OUW
-  a DSPCore:HumanDonor ;
-  DSPCore:donated EncodeExamples:ENCBS467KQD ;
-  DSPCore:hasAge EncodeExamples:Age_51years ;
-  DSPCore:hasOrganism DSPCore:Homo_sapiens ;
+  a TerraCore:HumanDonor ;
   Encode:hasLifeStage "adult" ;
+  TerraCore:donated EncodeExamples:ENCBS467KQD ;
+  TerraCore:hasAge EncodeExamples:Age_51years ;
+  TerraCore:hasOrganism TerraCore:Homo_sapiens ;
   dcterms:isPartOf EncodeExamples:EncodeDataset ;
   rdfs:label "ENCD0271OUW" ;
 .
 EncodeExamples:ENCD0451RUA
-  a DSPCore:HumanDonor ;
-  DSPCore:donated EncodeExamples:ENCBS562VSE ;
-  DSPCore:hasAge EncodeExamples:Age_54years ;
-  DSPCore:hasCrossReference "GEO: SAMN05897789" ;
-  DSPCore:hasCrossReference "bradley-bernstein:Donor GTEX-1K2DA" ;
-  DSPCore:hasCrossReference "gtex:ENC-002" ;
-  DSPCore:hasCrossReference "gtex:ENC-LQT" ;
-  DSPCore:hasCrossReference "gtex:PT-1K2DA" ;
-  DSPCore:hasCrossReference "http://www.encodeproject.org/human-donors/ENCDO451RUA/"^^dcterms:URI ;
-  DSPCore:hasOrganism DSPCore:Homo_sapiens ;
+  a TerraCore:HumanDonor ;
   Encode:hasLifeStage "adult" ;
+  TerraCore:donated EncodeExamples:ENCBS562VSE ;
+  TerraCore:hasAge EncodeExamples:Age_54years ;
+  TerraCore:hasCrossReference "GEO: SAMN05897789" ;
+  TerraCore:hasCrossReference "bradley-bernstein:Donor GTEX-1K2DA" ;
+  TerraCore:hasCrossReference "gtex:ENC-002" ;
+  TerraCore:hasCrossReference "gtex:ENC-LQT" ;
+  TerraCore:hasCrossReference "gtex:PT-1K2DA" ;
+  TerraCore:hasCrossReference "http://www.encodeproject.org/human-donors/ENCDO451RUA/"^^dcterms:URI ;
+  TerraCore:hasOrganism TerraCore:Homo_sapiens ;
   dcterms:created "2015-02-14T00:31:58.584355+00:00" ;
   dcterms:isPartOf EncodeExamples:EncodeDataset ;
   rdfs:label "ENCD0451RUA" ;
@@ -246,111 +248,111 @@ EncodeExamples:ENCD0451RUA
   prov:wasAttributedTo "http://www.encodeproject.org/labs/encode-consortium/" ;
 .
 EncodeExamples:ENCDO615NVN
-  a DSPCore:HumanDonor ;
-  DSPCore:donated EncodeExamples:ENCBS389AUD ;
-  DSPCore:hasAge EncodeExamples:Age_2-4day ;
-  DSPCore:hasCrossReference "http://encodeproject.org/human-donors/ENCDO615NVN/"^^dcterms:URI ;
-  DSPCore:hasOrganism DSPCore:Homo_sapiens ;
-  DSPCore:hasSex DSPCore:Male ;
+  a TerraCore:HumanDonor ;
   Encode:hasAward "http://encodeproject.org/awards/U01HG007919/"^^xsd:anyURI ;
   Encode:hasHealthStatus "Healthy" ;
   Encode:hasLab "http://encodeproject.org/labs/paul-khavari/"^^xsd:anyURI ;
   Encode:hasLifeStage "newborn" ;
   Encode:submittedBy "http://encodeproject.org/users/37d5e120-ea80-4f13-8096-1f132e424ca1/"^^xsd:anyURI ;
+  TerraCore:donated EncodeExamples:ENCBS389AUD ;
+  TerraCore:hasAge EncodeExamples:Age_2-4day ;
+  TerraCore:hasCrossReference "http://encodeproject.org/human-donors/ENCDO615NVN/"^^dcterms:URI ;
+  TerraCore:hasOrganism TerraCore:Homo_sapiens ;
+  TerraCore:hasSex TerraCore:Male ;
   dcterms:created "2016-07-30T22:48:18.369918+00:00" ;
   dcterms:isPartOf EncodeExamples:EncodeDataset ;
   rdfs:label "ENCDO615NVN" ;
 .
 EncodeExamples:ENCFF005SHK
-  a DSPCore:File ;
-  DSPCore:hasDataModality DSPCoreValueSets:HistoneModification ;
-  DSPCore:hasFormat "fastq" ;
+  a TerraCore:File ;
+  TerraCore:hasDataModality <http://datamodel.terra.bio/TerraCoreValueSets#HistoneModificationLocation> ;
+  TerraCore:hasFormat "fastq" ;
   rdfs:label "ENCFF005SHK" ;
 .
 EncodeExamples:ENCFF037TXJ
-  a DSPCore:File ;
-  DSPCore:wasGeneratedByPipeline EncodeExamples:HistoneChIPSeq_ENCSR960UYN ;
+  a TerraCore:File ;
+  TerraCore:wasGeneratedByPipeline EncodeExamples:HistoneChIPSeq_ENCSR960UYN ;
   rdfs:label "ENCFF037TXJ" ;
 .
 EncodeExamples:ENCFF043TPA
-  a DSPCore:File ;
-  DSPCore:hasCrossReference "https://www.encodeproject.org/files/ENCFF043TPA/"^^dcterms:URI ;
-  DSPCore:hasDataModality DSPCoreValueSets:MicroRNACounts ;
-  DSPCore:hasFormat "bidBed" ;
+  a TerraCore:File ;
+  TerraCore:hasCrossReference "https://www.encodeproject.org/files/ENCFF043TPA/"^^dcterms:URI ;
+  TerraCore:hasDataModality <http://datamodel.terra.bio/TerraCoreValueSets#MicroRNACounts> ;
+  TerraCore:hasFormat "bidBed" ;
   rdfs:label "ENCFF043TPA" ;
   skos:prefLabel "ENCFF043TPA" ;
 .
 EncodeExamples:ENCFF085KIQ
-  a DSPCore:File ;
-  DSPCore:wasGeneratedByPipeline EncodeExamples:ChIPSeqReadMapping_ENCSR960UYN ;
-  DSPCore:wasUsedBy EncodeExamples:HistoneChIPSeq_ENCSR960UYN ;
+  a TerraCore:File ;
+  TerraCore:wasGeneratedByPipeline EncodeExamples:ChIPSeqReadMapping_ENCSR960UYN ;
+  TerraCore:wasUsedBy EncodeExamples:HistoneChIPSeq_ENCSR960UYN ;
   rdfs:label "ENCFF085KIQ" ;
 .
 EncodeExamples:ENCFF147BDY
-  a DSPCore:File ;
-  DSPCore:hasCrossReference "https://www.encodeproject.org/files/ENCFF147BDY/"^^dcterms:URI ;
-  DSPCore:hasDataModality DSPCoreValueSets:MicroRNACounts ;
-  DSPCore:hasFormat "bidBed" ;
+  a TerraCore:File ;
+  TerraCore:hasCrossReference "https://www.encodeproject.org/files/ENCFF147BDY/"^^dcterms:URI ;
+  TerraCore:hasDataModality <http://datamodel.terra.bio/TerraCoreValueSets#MicroRNACounts> ;
+  TerraCore:hasFormat "bidBed" ;
   rdfs:label "ENCFF147BDY" ;
   skos:prefLabel "ENCFF147BDY" ;
 .
 EncodeExamples:ENCFF184XYA
-  a DSPCore:File ;
-  DSPCore:wasGeneratedByPipeline EncodeExamples:ChIPSeqReadMapping_ENCSR960UYN ;
-  DSPCore:wasUsedBy EncodeExamples:HistoneChIPSeq_ENCSR960UYN ;
+  a TerraCore:File ;
+  TerraCore:wasGeneratedByPipeline EncodeExamples:ChIPSeqReadMapping_ENCSR960UYN ;
+  TerraCore:wasUsedBy EncodeExamples:HistoneChIPSeq_ENCSR960UYN ;
   rdfs:label "ENCFF184XYA" ;
   prov:wasDerivedFrom EncodeExamples:ENCFF630HMH ;
   prov:wasDerivedFrom EncodeExamples:ENCFF644JKE ;
 .
 EncodeExamples:ENCFF213BVA
-  a DSPCore:File ;
-  DSPCore:hasCrossReference "https://www.encodeproject.org/files/ENCFF213BVA/"^^dcterms:URI ;
-  DSPCore:hasDataModality DSPCoreValueSets:MicroRNACounts ;
-  DSPCore:hasFormat "bed" ;
+  a TerraCore:File ;
+  TerraCore:hasCrossReference "https://www.encodeproject.org/files/ENCFF213BVA/"^^dcterms:URI ;
+  TerraCore:hasDataModality <http://datamodel.terra.bio/TerraCoreValueSets#MicroRNACounts> ;
+  TerraCore:hasFormat "bed" ;
   rdfs:label "ENCFF213BVA" ;
   skos:prefLabel "ENCFF213BVA" ;
 .
 EncodeExamples:ENCFF424QYJ
-  a DSPCore:File ;
-  DSPCore:hasCrossReference "https://www.encodeproject.org/files/ENCFF424QYJ/"^^dcterms:URI ;
-  DSPCore:hasDataModality DSPCoreValueSets:MicroRNACounts ;
-  DSPCore:hasFormat "bed" ;
+  a TerraCore:File ;
+  TerraCore:hasCrossReference "https://www.encodeproject.org/files/ENCFF424QYJ/"^^dcterms:URI ;
+  TerraCore:hasDataModality <http://datamodel.terra.bio/TerraCoreValueSets#MicroRNACounts> ;
+  TerraCore:hasFormat "bed" ;
   rdfs:label "ENCFF424QYJ" ;
   skos:prefLabel "ENCFF424QYJ" ;
 .
 EncodeExamples:ENCFF467KQD
-  a DSPCore:File ;
+  a TerraCore:File ;
   rdfs:label "ENCFF467KQD" ;
 .
 EncodeExamples:ENCFF488IYR
-  a DSPCore:File ;
-  DSPCore:hasCrossReference "https://www.encodeproject.org/files/ENCFF488IYR/"^^dcterms:URI ;
-  DSPCore:hasDataModality DSPCoreValueSets:MicroRNACounts ;
-  DSPCore:hasFormat "rcc" ;
+  a TerraCore:File ;
+  TerraCore:hasCrossReference "https://www.encodeproject.org/files/ENCFF488IYR/"^^dcterms:URI ;
+  TerraCore:hasDataModality <http://datamodel.terra.bio/TerraCoreValueSets#MicroRNACounts> ;
+  TerraCore:hasFormat "rcc" ;
   rdfs:label "ENCFF488IYR" ;
   skos:prefLabel "ENCFF488IYR" ;
 .
 EncodeExamples:ENCFF512WNL
-  a DSPCore:File ;
-  DSPCore:wasGeneratedByPipeline EncodeExamples:HistoneChIPSeq_ENCSR960UYN ;
+  a TerraCore:File ;
+  TerraCore:wasGeneratedByPipeline EncodeExamples:HistoneChIPSeq_ENCSR960UYN ;
   rdfs:label "ENCFF512WNL" ;
 .
 EncodeExamples:ENCFF630HMH
-  a DSPCore:SequenceFile ;
-  DSPCore:hasChecksum "15f19a784917c20b25e71c1230e77056" ;
-  DSPCore:hasCrossReference "SRA:SRR10838609" ;
-  DSPCore:hasCrossReference "http://encodeproject.org/files/ENCFF630HMH/" ;
-  DSPCore:hasDataModality DSPCoreValueSets:HistoneModification ;
-  DSPCore:hasFormat "fastq" ;
-  DSPCore:hasLibraryLayout "single" ;
-  DSPCore:hasReadCount 13635903 ;
-  DSPCore:hasReadLength 76 ;
-  DSPCore:usedLibrary EncodeExamples:ENCLB793FWQ ;
+  a TerraCore:SequenceFile ;
   Encode:hasAward "http://encodeproject.org/awards/UM1HG009390/"^^xsd:anyURI ;
   Encode:hasLab "http://encodeproject.org/labs/bradley-bernstein/rea"^^xsd:anyURI ;
   Encode:hasPlatform "http://encodeproject.org/platforms/OBI%3A0002002/"^^xsd:anyURI ;
   Encode:hasStatus "released" ;
   Encode:submittedBy "http://encodeproject.org/users/f1843c60-e027-4b18-8582-64d3f3eae45b/"^^xsd:anyURI ;
+  TerraCore:hasChecksum "15f19a784917c20b25e71c1230e77056" ;
+  TerraCore:hasCrossReference "SRA:SRR10838609" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/files/ENCFF630HMH/" ;
+  TerraCore:hasDataModality <http://datamodel.terra.bio/TerraCoreValueSets#HistoneModificationLocation> ;
+  TerraCore:hasFormat "fastq" ;
+  TerraCore:hasLibraryLayout "single" ;
+  TerraCore:hasReadCount 13635903 ;
+  TerraCore:hasReadLength 76 ;
+  TerraCore:usedLibrary EncodeExamples:ENCLB793FWQ ;
   dcterms:created "2019-08-14T04:40:49.919276+00:00" ;
   rdfs:label "ENCFF630HMH" ;
   dcat:byteSize "860967917" ;
@@ -358,31 +360,31 @@ EncodeExamples:ENCFF630HMH
   prov:wasUsedBy EncodeExamples:ChIPSeqReadMapping_ENCSR960UYN ;
 .
 EncodeExamples:ENCFF643CGH
-  a DSPCore:File ;
-  DSPCore:hasCrossReference "http://encodeproject.org/files/ENCFF643CGH" ;
-  DSPCore:hasFormat "tar" ;
-  DSPCore:usedReferenceAssembly DSPCore:GrCh38 ;
+  a TerraCore:File ;
+  TerraCore:hasCrossReference "http://encodeproject.org/files/ENCFF643CGH" ;
+  TerraCore:hasFormat "tar" ;
+  TerraCore:usedReferenceAssembly TerraCore:GrCh38 ;
   dcterms:created "2016-04-19T19:39:31.996215+00:00" ;
   rdfs:label "ENCSR643CGH" ;
   dcat:byteSize "4318261891" ;
   prov:wasUsedBy EncodeExamples:ChIPSeqReadMapping_ENCSR960UYN ;
 .
 EncodeExamples:ENCFF644JKE
-  a DSPCore:SequenceFile ;
-  DSPCore:hasChecksum "6d60145923407d6577d285b704ecb6cc" ;
-  DSPCore:hasCrossReference "SRA:SRR10838608" ;
-  DSPCore:hasCrossReference "http://encodeproject.org/files/ENCFF644JKE/" ;
-  DSPCore:hasDataModality DSPCoreValueSets:HistoneModification ;
-  DSPCore:hasFormat "fastq" ;
-  DSPCore:hasLibraryLayout "single" ;
-  DSPCore:hasReadCount 13366289 ;
-  DSPCore:hasReadLength 76 ;
-  DSPCore:usedLibrary EncodeExamples:ENCLB793FWQ ;
+  a TerraCore:SequenceFile ;
   Encode:hasAward "http://encodeproject.org/awards/UM1HG009390/"^^xsd:anyURI ;
   Encode:hasLab "http://encodeproject.org/labs/bradley-bernstein/"^^xsd:anyURI ;
   Encode:hasPlatform "http://encodeproject.org/platforms/OBI%3A0002002/"^^xsd:anyURI ;
   Encode:hasStatus "released" ;
   Encode:submittedBy "http://encodeproject.org/users/f1843c60-e027-4b18-8582-64d3f3eae45b/"^^xsd:anyURI ;
+  TerraCore:hasChecksum "6d60145923407d6577d285b704ecb6cc" ;
+  TerraCore:hasCrossReference "SRA:SRR10838608" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/files/ENCFF644JKE/" ;
+  TerraCore:hasDataModality <http://datamodel.terra.bio/TerraCoreValueSets#HistoneModificationLocation> ;
+  TerraCore:hasFormat "fastq" ;
+  TerraCore:hasLibraryLayout "single" ;
+  TerraCore:hasReadCount 13366289 ;
+  TerraCore:hasReadLength 76 ;
+  TerraCore:usedLibrary EncodeExamples:ENCLB793FWQ ;
   dcterms:created "2019-08-14T04:40:56.607470+00:00" ;
   rdfs:label "ENCFF644JKE" ;
   dcat:byteSize "839226546" ;
@@ -390,63 +392,57 @@ EncodeExamples:ENCFF644JKE
   prov:wasUsedBy EncodeExamples:ChIPSeqReadMapping_ENCSR960UYN ;
 .
 EncodeExamples:ENCFF660GHH
-  a DSPCore:File ;
-  DSPCore:hasCrossReference "https://www.encodeproject.org/files/ENCFF660GHH/"^^dcterms:URI ;
-  DSPCore:hasDataModality DSPCoreValueSets:MicroRNACounts ;
-  DSPCore:hasFormat "rcc" ;
+  a TerraCore:File ;
+  TerraCore:hasCrossReference "https://www.encodeproject.org/files/ENCFF660GHH/"^^dcterms:URI ;
+  TerraCore:hasDataModality <http://datamodel.terra.bio/TerraCoreValueSets#MicroRNACounts> ;
+  TerraCore:hasFormat "rcc" ;
   rdfs:label "ENCFF660GHH" ;
   skos:prefLabel "ENCFF660GHH" ;
 .
 EncodeExamples:ENCFF675VKU
-  a DSPCore:File ;
-  DSPCore:wasGeneratedByPipeline EncodeExamples:ChIPSeqReadMapping_ENCSR960UYN ;
-  DSPCore:wasUsedBy EncodeExamples:HistoneChIPSeq_ENCSR960UYN ;
+  a TerraCore:File ;
+  TerraCore:wasGeneratedByPipeline EncodeExamples:ChIPSeqReadMapping_ENCSR960UYN ;
+  TerraCore:wasUsedBy EncodeExamples:HistoneChIPSeq_ENCSR960UYN ;
   rdfs:label "ENCFF675VKU" ;
 .
 EncodeExamples:ENCFF761DYG
-  a DSPCore:File ;
-  DSPCore:wasGeneratedByPipeline EncodeExamples:HistoneChIPSeq_ENCSR960UYN ;
+  a TerraCore:File ;
+  TerraCore:wasGeneratedByPipeline EncodeExamples:HistoneChIPSeq_ENCSR960UYN ;
   rdfs:label "ENCFF761DYG" ;
 .
 EncodeExamples:ENCFF822NOY
-  a DSPCore:SequenceFile ;
-  DSPCore:hasChecksum "513043281e6f5be7812e8e31a7694e84" ;
-  DSPCore:hasCrossReference "SRA:SRR1083861" ;
-  DSPCore:hasCrossReference "http://encodeproject.org/files/ENCFF822NOY/" ;
-  DSPCore:hasDataModality DSPCoreValueSets:HistoneModification ;
-  DSPCore:hasFormat "fastq" ;
-  DSPCore:hasLibraryLayout "single" ;
-  DSPCore:hasReadCount 13366289 ;
-  DSPCore:hasReadLength 76 ;
-  DSPCore:usedLibrary EncodeExamples:ENCLB051VTH ;
+  a TerraCore:SequenceFile ;
   Encode:hasAward "http://encodeproject.org/awards/UM1HG009390/"^^xsd:anyURI ;
   Encode:hasLab "http://encodeproject.org/labs/bradley-bernstein/"^^xsd:anyURI ;
   Encode:hasPlatform "http://encodeproject.org/platforms/OBI%3A0002002/"^^xsd:anyURI ;
   Encode:hasStatus "released" ;
   Encode:submittedBy "http://encodeproject.org/users/f1843c60-e027-4b18-8582-64d3f3eae45b/"^^xsd:anyURI ;
+  TerraCore:hasChecksum "513043281e6f5be7812e8e31a7694e84" ;
+  TerraCore:hasCrossReference "SRA:SRR1083861" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/files/ENCFF822NOY/" ;
+  TerraCore:hasDataModality <http://datamodel.terra.bio/TerraCoreValueSets#HistoneModificationLocation> ;
+  TerraCore:hasFormat "fastq" ;
+  TerraCore:hasLibraryLayout "single" ;
+  TerraCore:hasReadCount 13366289 ;
+  TerraCore:hasReadLength 76 ;
+  TerraCore:usedLibrary EncodeExamples:ENCLB051VTH ;
   dcterms:created "2019-08-14T04:40:24.501410+00:00" ;
   rdfs:label "ENCFF822NOY" ;
   dcat:byteSize "1459231970" ;
   prov:wasUsedBy EncodeExamples:ChIPSeqReadMapping_ENCSR960UYN ;
 .
 EncodeExamples:ENCFF848TVR
-  a DSPCore:File ;
-  DSPCore:wasGeneratedByPipeline EncodeExamples:HistoneChIPSeq_ENCSR960UYN ;
+  a TerraCore:File ;
+  TerraCore:wasGeneratedByPipeline EncodeExamples:HistoneChIPSeq_ENCSR960UYN ;
   rdfs:label "ENCFF848TVR" ;
 .
 EncodeExamples:ENCFF855ZNX
-  a DSPCore:File ;
-  DSPCore:wasGeneratedByPipeline EncodeExamples:HistoneChIPSeq_ENCSR960UYN ;
+  a TerraCore:File ;
+  TerraCore:wasGeneratedByPipeline EncodeExamples:HistoneChIPSeq_ENCSR960UYN ;
   rdfs:label "ENCFF855ZNX" ;
 .
 EncodeExamples:ENCFF930TKB
-  a DSPCore:File ;
-  DSPCore:hasChecksum "2e08fe50d79b320b471db897a997edf2" ;
-  DSPCore:hasCrossReference "http://encodeproject.org/files/ENCFF930TKB/" ;
-  DSPCore:hasDataModality DSPCoreValueSets:HistoneModification ;
-  DSPCore:hasFormat "bigBed" ;
-  DSPCore:usedReferenceAssembly DSPCore:GrCh38 ;
-  DSPCore:wasGeneratedByPipeline EncodeExamples:HistoneChIPSeq_ENCSR960UYN ;
+  a TerraCore:File ;
   Encode:hasAward "http://encodeproject.org/awards/U41HG006992/"^^xsd:anyURI ;
   Encode:hasFileFormatType "narrowPeak" ;
   Encode:hasLab "http://encodeproject.org/labs/encode-processing-pipeline/"^^xsd:anyURI ;
@@ -454,66 +450,68 @@ EncodeExamples:ENCFF930TKB
   Encode:hasStatus "released" ;
   Encode:hasStepRun "http://encodeproject.org/analysis-step-runs/5965076a-01ea-4fd1-babb-0f02204f8068/"^^xsd:anyURI ;
   Encode:submittedBy "http://encodeproject.org/users/98fb23d3-0d79-4c3d-981d-01539e6589f1/"^^xsd:anyURI ;
+  TerraCore:hasChecksum "2e08fe50d79b320b471db897a997edf2" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/files/ENCFF930TKB/" ;
+  TerraCore:hasDataModality <http://datamodel.terra.bio/TerraCoreValueSets#HistoneModificationLocation> ;
+  TerraCore:hasFormat "bigBed" ;
+  TerraCore:usedReferenceAssembly TerraCore:GrCh38 ;
+  TerraCore:wasGeneratedByPipeline EncodeExamples:HistoneChIPSeq_ENCSR960UYN ;
   dcterms:created "2019-09-03T23:58:20.469500+00:00" ;
   rdfs:label "ENCFF930TKB" ;
   dcat:byteSize "1135574" ;
   prov:wasDerivedFrom EncodeExamples:ENCFF761DYG ;
 .
 EncodeExamples:ENCFF957AVX
-  a DSPCore:SequenceFile ;
-  DSPCore:hasChecksum "fb07cf5173c3a66a00455b28bd2f522a" ;
-  DSPCore:hasCrossReference "SRA:SRR1083861" ;
-  DSPCore:hasCrossReference "http://encodeproject.org/files/ENCFF957AVX/" ;
-  DSPCore:hasDataModality DSPCoreValueSets:HistoneModification ;
-  DSPCore:hasFormat "fastq" ;
-  DSPCore:hasLibraryLayout "single" ;
-  DSPCore:hasReadCount 24261464 ;
-  DSPCore:hasReadLength 76 ;
-  DSPCore:usedLibrary EncodeExamples:ENCLB051VTH ;
+  a TerraCore:SequenceFile ;
   Encode:hasAward "http://encodeproject.org/awards/UM1HG009390/"^^xsd:anyURI ;
   Encode:hasLab "http://encodeproject.org/labs/bradley-bernstein/"^^xsd:anyURI ;
   Encode:hasPlatform "http://encodeproject.org/platforms/OBI%3A0002002/"^^xsd:anyURI ;
   Encode:hasStatus "released" ;
   Encode:submittedBy "http://encodeproject.org/users/f1843c60-e027-4b18-8582-64d3f3eae45b/"^^xsd:anyURI ;
+  TerraCore:hasChecksum "fb07cf5173c3a66a00455b28bd2f522a" ;
+  TerraCore:hasCrossReference "SRA:SRR1083861" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/files/ENCFF957AVX/" ;
+  TerraCore:hasDataModality <http://datamodel.terra.bio/TerraCoreValueSets#HistoneModificationLocation> ;
+  TerraCore:hasFormat "fastq" ;
+  TerraCore:hasLibraryLayout "single" ;
+  TerraCore:hasReadCount 24261464 ;
+  TerraCore:hasReadLength 76 ;
+  TerraCore:usedLibrary EncodeExamples:ENCLB051VTH ;
   dcterms:created "2019-08-14T04:40:28.475795+00:00" ;
   rdfs:label "ENCFF957AVX" ;
   dcat:byteSize "1411503581" ;
   prov:wasUsedBy EncodeExamples:ChIPSeqReadMapping_ENCSR960UYN ;
 .
 EncodeExamples:ENCLB011GAL
-  a DSPCore:Library ;
-  DSPCore:hasCrossReference "ali-mortazavi: human-adrenal-gland-ENTEX52-Lib2" ;
-  DSPCore:hasCrossReference "http://www.encodeproject.org/libraries/ENCLB011GAL/"^^dcterms:URI ;
+  a TerraCore:Library ;
   Encode:hasStrandSpecificity false ;
   Encode:submittedBy "http://www.encodeproject.org/users/bc5b62f7-ce28-4a1e-b6b3-81c9c5a86d7a/"^^xsd:anyURI ;
+  TerraCore:hasCrossReference "ali-mortazavi: human-adrenal-gland-ENTEX52-Lib2" ;
+  TerraCore:hasCrossReference "http://www.encodeproject.org/libraries/ENCLB011GAL/"^^dcterms:URI ;
   dcterms:created "2016-07-25T22:17:41.258151+00:00" ;
   rdfs:label "ENCLB011GAL" ;
   skos:prefLabel "ENCLB011GAL" ;
 .
 EncodeExamples:ENCLB051VTH
-  a DSPCore:Library ;
-  DSPCore:hasCrossReference "http://encodeproject.org/libraries/ENCLB051VTH/" ;
-  DSPCore:usedSample EncodeExamples:ENCBS467KQD ;
+  a TerraCore:Library ;
   Encode:hasAward "http:encodeproject.org/awards/UM1HG009390/"^^xsd:anyURI ;
   Encode:hasLab "http://encodeproject.org/labs/bradley-bernstein/"^^xsd:anyURI ;
   Encode:hasLibraryMaterial "http://purl.obolibrary.org/obo/SO_0000352" ;
   Encode:hasLibraryMaterialName "DNA" ;
   Encode:hasSizeRange "200-600" ;
   Encode:hasStrandSpecificity false ;
+  TerraCore:hasCrossReference "http://encodeproject.org/libraries/ENCLB051VTH/" ;
+  TerraCore:usedSample EncodeExamples:ENCBS467KQD ;
   dcterms:created "2019-08-14T04:40:16.153978+00:00" ;
   rdfs:label "ENCLB051VTH" ;
   prov:wasGeneratedBy EncodeExamples:LibraryPrep_for_ENCLB051VTH ;
 .
 EncodeExamples:ENCLB134JON
-  a DSPCore:Library ;
+  a TerraCore:Library ;
   rdfs:label "ENCLB134JON" ;
 .
 EncodeExamples:ENCLB793FWQ
-  a DSPCore:Library ;
-  DSPCore:hasAntibody EncodeExamples:ENCAB000ADU ;
-  DSPCore:hasCrossReference "GEO:GSM4250754" ;
-  DSPCore:hasCrossReference "http://encodeproject.org/libraries/ENCLB793FWQ/" ;
-  DSPCore:usedSample EncodeExamples:ENCBS467KQD ;
+  a TerraCore:Library ;
   Encode:hasAward "http://encodeproject.org/awards/UM1HG009390/"^^xsd:anyURI ;
   Encode:hasLab "http://encodeproject.org/labs/bradley-bernstein/"^^xsd:anyURI ;
   Encode:hasLibraryMaterial "http://purl.obolibrary.org/obo/SO_0000352" ;
@@ -521,14 +519,18 @@ EncodeExamples:ENCLB793FWQ
   Encode:hasSizeRange "200-600" ;
   Encode:hasStrandSpecificity false ;
   Encode:submittedBy "http://encodeproject.org/users/f1843c60-e027-4b18-8582-64d3f3eae45b/"^^xsd:anyURI ;
+  TerraCore:hasAntibody EncodeExamples:ENCAB000ADU ;
+  TerraCore:hasCrossReference "GEO:GSM4250754" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/libraries/ENCLB793FWQ/" ;
+  TerraCore:usedSample EncodeExamples:ENCBS467KQD ;
   dcterms:created "2019-08-14T04:40:41.383274+00:00" ;
   rdfs:label "ENCLB793FWQ" ;
   prov:wasGeneratedBy EncodeExamples:LibraryPrep_for_ENCLB793FWQ ;
 .
 EncodeExamples:ENCLB994HJD
-  a DSPCore:Library ;
-  DSPCore:usedSample EncodeExamples:ENCBS420UOM ;
+  a TerraCore:Library ;
   Encode:hasSizeRange "<30" ;
+  TerraCore:usedSample EncodeExamples:ENCBS420UOM ;
   rdfs:label "ENCLB994HJD" ;
 .
 EncodeExamples:ENCSR463NAD
@@ -537,18 +539,18 @@ EncodeExamples:ENCSR463NAD
 .
 EncodeExamples:ENCSR812FNU
   a Encode:Experiment ;
-  DSPCore:usedSample EncodeExamples:ENCBS389AUD ;
   Encode:hasAward "http://encodeproject.org/awards/U01HG007919"^^xsd:anyURI ;
   Encode:hasLab "http://encodeproject.org/awards/michael-snyder"^^xsd:anyURI ;
+  TerraCore:usedSample EncodeExamples:ENCBS389AUD ;
   dcterms:description "CTCF ChIP-seq on primary keratinocytes in day 6 of differentiation" ;
   rdfs:label "ENCSR812FNU" ;
 .
 EncodeExamples:ENCSR895SFC
   a Encode:Experiment ;
-  DSPCore:dateReleased "2016-08-01T00:00:00"^^xsd:dateTime ;
-  DSPCore:hasCrossReference "http://www.encodeproject.org/experiments/ENCSR895SFC"^^dcterms:URI ;
-  DSPCore:usedSample EncodeExamples:ENCBS719AMH ;
   Encode:hasStatus "released" ;
+  TerraCore:dateReleased "2016-08-01T00:00:00"^^xsd:dateTime ;
+  TerraCore:hasCrossReference "http://www.encodeproject.org/experiments/ENCSR895SFC"^^dcterms:URI ;
+  TerraCore:usedSample EncodeExamples:ENCBS719AMH ;
   dcterms:created "2016-07-25T22:17:18.167352+00" ;
   dcterms:dateSubmitted "2016-07-31" ;
   dcterms:description "\"Nanostring miRNA Array on human adrenal gland\"" ;
@@ -557,20 +559,20 @@ EncodeExamples:ENCSR895SFC
 .
 EncodeExamples:ENCSR960UYN
   a Encode:Experiment ;
-  DSPCore:hasAssay EncodeExamples:Assay_ENCSR960UYN ;
-  DSPCore:hasCrossReference "GEO:GSE143118" ;
-  DSPCore:hasCrossReference "http://encodeproject.org/experiments/ENCSR960UYN/" ;
   Encode:hasAward "http://encodeproject.org/awards/UM1HG009390/"^^xsd:anyURI ;
   Encode:hasLab "http://encodeproject.org/labs/bradley-bernstein/"^^xsd:anyURI ;
   Encode:hasStatus "released" ;
   Encode:submittedBy "http://encodeproject.org/users/f1843c60-e027-4b18-8582-64d3f3eae45b/"^^xsd:anyURI ;
+  TerraCore:hasAssay EncodeExamples:Assay_ENCSR960UYN ;
+  TerraCore:hasCrossReference "GEO:GSE143118" ;
+  TerraCore:hasCrossReference "http://encodeproject.org/experiments/ENCSR960UYN/" ;
   dcterms:created "2019-08-14T04:40:12.199029+00:00" ;
   dcterms:dateSubmitted "2019-08-14T00:00:00"^^xsd:dateTime ;
   rdfs:label "ENCSR960UYN" ;
 .
 EncodeExamples:EncodeDataset
-  a DSPdcat_ap:Dataset ;
-  DSPdcat_ap:hasDataUseLimitation DSPCore:NoRestriction ;
+  a <http://datamodel.terra.bio/TerraDCAT_ap#Dataset> ;
+  <http://datamodel.terra.bio/TerraDCAT_ap#hasDataUseLimitation> TerraCore:NoRestriction ;
   dcterms:conformsTo <http://datamodel.terra.bio/DSPCore> ;
   dcterms:hasPart EncodeExamples:ENCBS562VSE ;
   dcterms:hasPart EncodeExamples:ENCBS719AMH ;
@@ -580,10 +582,10 @@ EncodeExamples:EncodeDataset
 .
 EncodeExamples:HistoneChIPSeq_ENCSR960UYN
   a Encode:HistoneChIPseqUnreplicated ;
-  DSPCore:hasVersion "1" ;
   Encode:hasStatus "released" ;
   Encode:hasStepRun "http://encodeproject.org/analysis-step-runs/5965076a-01ea-4fd1-babb-0f02204f8068/"^^xsd:anyURI ;
   Encode:hasStepRun "http://encodeproject.org/analysis-step-runs/c3068bb9-7426-43a8-ab9d-3014dfe14ffa/"^^xsd:anyURI ;
+  TerraCore:hasVersion "1" ;
   dcterms:created "2019-09-04T00:03:41.287262+00:00" ;
   rdfs:label "HistoneChIPSeq_ENCSR960UYN" ;
   prov:generated EncodeExamples:ENCFF037TXJ ;
@@ -596,20 +598,20 @@ EncodeExamples:HistoneChIPSeq_ENCSR960UYN
   prov:used EncodeExamples:ENCFF675VKU ;
 .
 EncodeExamples:LibraryPrep_for_ENCLB051VTH
-  a DSPCore:LibraryPrep ;
+  a TerraCore:LibraryPrep ;
   rdfs:label "LibraryPrep_for_ENCLB051VTH" ;
   prov:generated EncodeExamples:ENCLB051VTH ;
 .
 EncodeExamples:LibraryPrep_for_ENCLB793FWQ
-  a DSPCore:LibraryPrep ;
-  DSPCore:usedSample EncodeExamples:ENCBS467KQD ;
+  a TerraCore:LibraryPrep ;
   Encode:hasLab "http://encodeproject.org/labs/bradley-bernstein/"^^xsd:anyURI ;
+  TerraCore:usedSample EncodeExamples:ENCBS467KQD ;
   dcterms:created "2019-08-14T04:40:41.383274+00:00" ;
   rdfs:label "LibraryPrep_for_ENCLB793FWQ" ;
   prov:generated EncodeExamples:ENCLB793FWQ ;
 .
 EncodeExamples:LibraryPrep_for_ENCSR895SFC
-  a DSPCore:LibraryPrep ;
+  a TerraCore:LibraryPrep ;
   rdfs:label "LibraryPrep_for_ENCSR895SFC" ;
   prov:generated EncodeExamples:ENCLB011GAL ;
 .
@@ -634,10 +636,10 @@ EncodeExamples:Nanostring_nCounter_miRNA_ExpressionAssay
   prov:generated EncodeExamples:ENCFF660GHH ;
 .
 EncodeExamples:Sequencing_ENCSR960UYN
-  a DSPCore:Sequencing ;
-  DSPCore:hasDataModality DSPCoreValueSets:HistoneModification ;
-  DSPCore:usedLibrary EncodeExamples:ENCLB793FWQ ;
+  a TerraCore:Sequencing ;
   Encode:hasPlatform "http://purl.obolibrary.org/obo/OBI_0002002"^^xsd:anyURI ;
+  TerraCore:hasDataModality <http://datamodel.terra.bio/TerraCoreValueSets#HistoneModificationLocation> ;
+  TerraCore:usedLibrary EncodeExamples:ENCLB793FWQ ;
   dcterms:created "2019-08-14T04:40:56.607470+00:00" ;
   rdfs:label "Sequencing_ENCSR960UYN" ;
   prov:generated EncodeExamples:ENCFF630HMH ;
@@ -661,17 +663,17 @@ Encode:Experiment
     ] ;
 .
 Encode:hasAuditFinding
-  rdfs:domain DSPCore:Antibody ;
-  rdfs:domain DSPCore:BioSample ;
-  rdfs:domain DSPCore:File ;
   rdfs:domain Encode:Experiment ;
+  rdfs:domain TerraCore:Antibody ;
+  rdfs:domain TerraCore:BioSample ;
+  rdfs:domain TerraCore:File ;
 .
 Encode:hasPlatform
-  rdfs:domain DSPCore:Activity ;
+  rdfs:domain TerraCore:Activity ;
   rdfs:subPropertyOf prov:used ;
 .
 Encode:wasFoundIn
-  rdfs:range DSPCore:Activity ;
-  rdfs:range DSPCore:Antibody ;
-  rdfs:range DSPCore:File ;
+  rdfs:range TerraCore:Activity ;
+  rdfs:range TerraCore:Antibody ;
+  rdfs:range TerraCore:File ;
 .

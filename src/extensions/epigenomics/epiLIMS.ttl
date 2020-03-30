@@ -1,12 +1,14 @@
 # baseURI: http://datamodel.terra.bio/epiLIMS
-# imports: http://datamodel.terra.bio/DSPCore
-# prefix: epiLIMS
+# imports: http://data.terra.bio/EncodeExamples
+# imports: http://datamodel.terra.bio/TerraCore
+# imports: http://datamodel.terra.bio/TerraCoreValueSets
+# imports: http://datamodel.terra.bio/TerraDCAT_ap
 
 @prefix : <http://datamodel.terra.bio/epiLIMS#> .
-@prefix DSPCore: <http://datamodel.terra.bio/DSPCore#> .
-@prefix DSPdcat_ap: <http://datamodel.terra.bio/DSPdcat_ap/> .
+@prefix DSPdcat_ap: <http://datamodel.terra.bio/TerraDCAT_ap#> .
+@prefix TerraCore: <http://datamodel.terra.bio/TerraCore#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix epiLIMS: <http://datamodel.terra.bio/epiLIMS#> .
+@prefix epiLIMS: <http://data.terra.bio/epiLIMS#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -14,274 +16,233 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-DSPCore:BioSample
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty DSPCore:hasBioSampleType ;
-    ] ;
-.
-DSPCore:Donor
-  dcterms:isPartOf epiLIMS:EpiLIMS ;
+<http://data.terra.bio/EncodeExamples#ENCD0451RUA>
+  TerraCore:hasSex TerraCore:Male ;
 .
 <http://datamodel.terra.bio/epiLIMS>
   a owl:Ontology ;
-  owl:imports <http://datamodel.terra.bio/DSPCore> ;
-  owl:versionInfo "Created with TopBraid Composer" ;
+  owl:imports <http://data.terra.bio/EncodeExamples> ;
+  owl:imports <http://datamodel.terra.bio/TerraCore> ;
+  owl:imports <http://datamodel.terra.bio/TerraCoreValueSets> ;
+  owl:imports <http://datamodel.terra.bio/TerraDCAT_ap> ;
 .
-epiLIMS:Age_1
-  a DSPCore:Age ;
-  DSPCore:hasAgeCategory "Postnatal" ;
-  DSPCore:hasLowerBound "78"^^xsd:decimal ;
-  DSPCore:hasUnit "years" ;
-  DSPCore:hasUpperBound "78"^^xsd:decimal ;
+:Age_1
+  a TerraCore:Age ;
+  TerraCore:hasAgeCategory "Postnatal" ;
+  TerraCore:hasLowerBound "78"^^xsd:decimal ;
+  TerraCore:hasUnit "years" ;
+  TerraCore:hasUpperBound "78"^^xsd:decimal ;
   rdfs:label "Age_1" ;
   skos:prefLabel "Age_1" ;
 .
-epiLIMS:AlignmentFile_19487
-  a DSPCore:AlignmentFile ;
-  DSPCore:hasFormat "bam" ;
-  DSPCore:hasPercentDuplicateFragments 8.8798 ;
-  DSPCore:hasReferenceAssembly "hg19_picard" ;
+:AlignmentFile_19487
+  a TerraCore:AlignmentFile ;
+  TerraCore:hasFormat "bam" ;
+  TerraCore:hasPercentDuplicateFragments 8.8798 ;
+  TerraCore:usedReferenceAssembly "hg19_picard" ;
   dcterms:created "2018-07-12T12:11:20.000Z" ;
   dcterms:modified "2019-06-04T17:53:38.000Z" ;
   rdfs:label "AlignmentFile_19487" ;
   skos:prefLabel "AlignmentFile_19487" ;
 .
-epiLIMS:AlignmentFile_19667
-  a DSPCore:AlignmentFile ;
-  DSPCore:hasFormat "bam" ;
-  DSPCore:hasPercentDuplicateFragments 7.1352 ;
-  DSPCore:hasReferenceAssembly "hg19_picard" ;
+:AlignmentFile_19667
+  a TerraCore:AlignmentFile ;
+  TerraCore:hasFormat "bam" ;
+  TerraCore:hasPercentDuplicateFragments 7.1352 ;
+  TerraCore:usedReferenceAssembly "hg19_picard" ;
   rdfs:label "AlignmentFile_19667" ;
   skos:prefLabel "AlignmentFile_19667" ;
 .
-epiLIMS:AlignmentFile_37341
-  a DSPCore:AlignmentFile ;
-  DSPCore:hasPercentDuplicateFragments 5.1709 ;
+:AlignmentFile_37341
+  a TerraCore:AlignmentFile ;
+  TerraCore:hasPercentDuplicateFragments 5.1709 ;
   rdfs:label "AlignmentFile_37341" ;
   skos:prefLabel "AlignmentFile_37341" ;
-  prov:wasUsedBy epiLIMS:AlignmentPostProcessing_19487 ;
+  prov:wasUsedBy :AlignmentPostProcessing_19487 ;
 .
-epiLIMS:AlignmentFile_37342
-  a DSPCore:AlignmentFile ;
-  DSPCore:hasPercentDuplicateFragments 5.2252 ;
+:AlignmentFile_37342
+  a TerraCore:AlignmentFile ;
+  TerraCore:hasPercentDuplicateFragments 5.2252 ;
   rdfs:label "AlignmentFile_37342" ;
   skos:prefLabel "AlignmentFile_37342" ;
-  prov:wasUsedBy epiLIMS:AlignmentPostProcessing_19487 ;
+  prov:wasUsedBy :AlignmentPostProcessing_19487 ;
 .
-epiLIMS:AlignmentFile_37855
-  a DSPCore:AlignmentFile ;
-  DSPCore:hasPercentDuplicateFragments 4.1652 ;
+:AlignmentFile_37855
+  a TerraCore:AlignmentFile ;
+  TerraCore:hasPercentDuplicateFragments 4.1652 ;
   rdfs:label "AlignmentFile_37855" ;
   skos:prefLabel "AlignmentFile_37855" ;
-  prov:wasUsedBy epiLIMS:AlignmentPostProcessing_19667 ;
+  prov:wasUsedBy :AlignmentPostProcessing_19667 ;
 .
-epiLIMS:AlignmentFile_37856
-  a DSPCore:AlignmentFile ;
-  DSPCore:hasPercentDuplicateFragments 4.2536 ;
+:AlignmentFile_37856
+  a TerraCore:AlignmentFile ;
+  TerraCore:hasPercentDuplicateFragments 4.2536 ;
   rdfs:label "AlignmentFile_37856" ;
   skos:prefLabel "AlignmentFile_37856" ;
-  prov:wasUsedBy epiLIMS:AlignmentPostProcessing_19667 ;
+  prov:wasUsedBy :AlignmentPostProcessing_19667 ;
 .
-epiLIMS:AlignmentPostProcessing_19487
-  a DSPCore:AlignmentPostProcessing ;
+:AlignmentPostProcessing_19487
+  a TerraCore:AlignmentPostProcessing ;
   rdfs:label "AlignmentPostProcessing_19487" ;
   skos:prefLabel "AlignmentPostProcessing_19487" ;
-  prov:generated epiLIMS:AlignmentFile_19487 ;
+  prov:generated :AlignmentFile_19487 ;
 .
-epiLIMS:AlignmentPostProcessing_19667
-  a DSPCore:AlignmentPostProcessing ;
+:AlignmentPostProcessing_19667
+  a TerraCore:AlignmentPostProcessing ;
   rdfs:label "AlignmentPostProcessing_19667" ;
   skos:prefLabel "AlignmentPostProcessing_19667" ;
-  prov:generated epiLIMS:AlignmentFile_19667 ;
+  prov:generated :AlignmentFile_19667 ;
 .
-epiLIMS:Aln_37341
-  a DSPCore:Alignment ;
+:Aln_37341
+  a TerraCore:Alignment ;
   rdfs:label "Aln_37341" ;
   skos:prefLabel "Aln_37341" ;
-  prov:generated epiLIMS:AlignmentFile_37341 ;
+  prov:generated :AlignmentFile_37341 ;
 .
-epiLIMS:Aln_37342
-  a DSPCore:Alignment ;
+:Aln_37342
+  a TerraCore:Alignment ;
   rdfs:label "Aln_37342" ;
   skos:prefLabel "Aln_37342" ;
-  prov:generated epiLIMS:AlignmentFile_37342 ;
+  prov:generated :AlignmentFile_37342 ;
 .
-epiLIMS:Aln_37855
-  a DSPCore:Alignment ;
+:Aln_37855
+  a TerraCore:Alignment ;
   rdfs:label "Aln_37855" ;
   skos:prefLabel "Aln_37855" ;
-  prov:generated epiLIMS:AlignmentFile_37855 ;
+  prov:generated :AlignmentFile_37855 ;
 .
-epiLIMS:Aln_37856
-  a DSPCore:Alignment ;
+:Aln_37856
+  a TerraCore:Alignment ;
   rdfs:label "Aln_37856" ;
   skos:prefLabel "Aln_37856" ;
-  prov:generated epiLIMS:AlignmentFile_37856 ;
+  prov:generated :AlignmentFile_37856 ;
 .
-epiLIMS:BioSAli_6648
-  a DSPCore:BioSample ;
-  DSPCore:derived epiLIMS:BioSAli_6793 ;
-  DSPCore:derivedFrom epiLIMS:BioSam_3165 ;
-  DSPCore:hasBioSampleType <http://datamodel.broadinstitute.org/DSPCoreValueSets#Tissue> ;
+:BioSAli_6648
+  a TerraCore:BioSample ;
+  TerraCore:derived :BioSAli_6793 ;
+  TerraCore:derivedFrom :BioSam_3165 ;
+  TerraCore:hasBioSampleType <http://datamodel.terra.bio/TerraCoreValueSets#Tissue> ;
   dcterms:created "2018-06-12T20:12:54.000Z"^^xsd:dateTime ;
-  dcterms:isPartOf epiLIMS:EpiLIMS ;
+  dcterms:isPartOf :EpiLIMS ;
   rdfs:label "BioSAli 6648" ;
   skos:prefLabel "BioSAli 6648" ;
 .
-epiLIMS:BioSAli_6793
-  a DSPCore:BioSample ;
-  DSPCore:derived epiLIMS:BioSAli_6802 ;
-  DSPCore:derivedFrom epiLIMS:BioSAli_6648 ;
+:BioSAli_6793
+  a TerraCore:BioSample ;
+  TerraCore:derived :BioSAli_6802 ;
+  TerraCore:derivedFrom :BioSAli_6648 ;
   dcterms:created "2018-06-12T18:51:41.000Z"^^xsd:dateTime ;
-  dcterms:isPartOf epiLIMS:EpiLIMS ;
+  dcterms:isPartOf :EpiLIMS ;
   rdfs:label "BioSAli 6793" ;
   skos:prefLabel "BioSAli 6793" ;
 .
-epiLIMS:BioSAli_6802
-  a DSPCore:BioSample ;
-  DSPCore:derivedFrom epiLIMS:BioSAli_6793 ;
-  DSPCore:hasAlignment epiLIMS:Aln_37341 ;
-  DSPCore:hasAlignment epiLIMS:Aln_37342 ;
-  DSPCore:hasAlignment epiLIMS:Aln_37855 ;
-  DSPCore:hasAlignment epiLIMS:Aln_37856 ;
-  DSPCore:hasLibraryPrep epiLIMS:ChIP_9523 ;
-  DSPCore:hasResultFile epiLIMS:AlignmentFile_19487 ;
-  DSPCore:hasResultFile epiLIMS:AlignmentFile_19667 ;
-  DSPCore:hasSequencing epiLIMS:Sequencing_CoPA_13999 ;
-  DSPCore:hasSequencing epiLIMS:Sequencing_CoPA_14339 ;
+:BioSAli_6802
+  a TerraCore:BioSample ;
+  TerraCore:derivedFrom :BioSAli_6793 ;
+  TerraCore:hasAlignment :Aln_37341 ;
+  TerraCore:hasAlignment :Aln_37342 ;
+  TerraCore:hasAlignment :Aln_37855 ;
+  TerraCore:hasAlignment :Aln_37856 ;
+  TerraCore:hasLibraryPrep :ChIP_9523 ;
+  TerraCore:hasResultFile :AlignmentFile_19487 ;
+  TerraCore:hasResultFile :AlignmentFile_19667 ;
+  TerraCore:hasSequencing :Sequencing_CoPA_13999 ;
+  TerraCore:hasSequencing :Sequencing_CoPA_14339 ;
   dcterms:created "2018-06-13T20:37:50.000Z"^^xsd:dateTime ;
-  dcterms:isPartOf epiLIMS:EpiLIMS ;
+  dcterms:isPartOf :EpiLIMS ;
   rdfs:label "BioSAli 6802" ;
   skos:prefLabel "BioSAli 6802" ;
-  prov:wasUsedBy epiLIMS:ChIP_9523 ;
+  prov:wasUsedBy :ChIP_9523 ;
 .
-epiLIMS:BioSam_3165
-  a DSPCore:BioSample ;
-  DSPCore:dateObtained "2018-04-04T04:00:00.000Z"^^xsd:dateTime ;
-  DSPCore:derived epiLIMS:BioSAli_6648 ;
-  DSPCore:donatedBy epiLIMS:Donor_963 ;
-  DSPCore:hasBioSampleType <http://datamodel.broadinstitute.org/DSPCoreValueSets#Tissue> ;
+:BioSam_3165
+  a TerraCore:BioSample ;
+  TerraCore:dateObtained "2018-04-04T04:00:00.000Z"^^xsd:dateTime ;
+  TerraCore:derived :BioSAli_6648 ;
+  TerraCore:donatedBy :Donor_963 ;
+  TerraCore:hasBioSampleType <http://datamodel.terra.bio/TerraCoreValueSets#Tissue> ;
   dcterms:created "2018-04-09T18:50:31.000Z"^^xsd:dateTime ;
-  dcterms:isPartOf epiLIMS:EpiLIMS ;
+  dcterms:isPartOf :EpiLIMS ;
   rdfs:label "BioSam_3165" ;
   skos:prefLabel "BioSam_3165" ;
 .
-epiLIMS:ChIP_9523
-  a DSPCore:ChIP ;
+:ChIP_9523
+  a TerraCore:ChIP ;
   rdfs:label "ChIP 9523" ;
   skos:prefLabel "ChIP 9523" ;
-  prov:generated epiLIMS:DNA_Lib_9367 ;
+  prov:generated :DNA_Lib_9367 ;
 .
-epiLIMS:DNA_Lib_9367
-  a DSPCore:Library ;
+:DNA_Lib_9367
+  a TerraCore:Library ;
   dcterms:created "2018-07-12T04:06:15.000Z" ;
   dcterms:modified "2019-05-31T11:21:25.000Z" ;
   rdfs:label "DNA_Lib 9367" ;
   skos:prefLabel "DNA_Lib 9367" ;
-  prov:wasUsedBy epiLIMS:Sequencing_CoPA_13999 ;
-  prov:wasUsedBy epiLIMS:Sequencing_CoPA_14339 ;
+  prov:wasUsedBy :Sequencing_CoPA_13999 ;
+  prov:wasUsedBy :Sequencing_CoPA_14339 ;
 .
-epiLIMS:DataCollection_EncodeEpiLIMS
-  a <http://datamodel.terra.bio/DSPdcat_ap#DataCollection> ;
-  <http://datamodel.terra.bio/DSPdcat_ap#hasDataset> epiLIMS:EpiLIMS ;
-  dcterms:title "Encode and Epigenomics Lab Data Demonstration Dataset" ;
-  rdfs:label "DataCollection_EncodeEpiLIMS" ;
-  skos:prefLabel "DataCollection_EncodeEpiLIMS" ;
-.
-epiLIMS:Donor_963
-  a DSPCore:Human ;
-  DSPCore:donated epiLIMS:BioSam_3165 ;
-  DSPCore:hasAge epiLIMS:Age_1 ;
-  DSPCore:hasOrganism DSPCore:Homo_sapiens ;
-  DSPCore:hasSex DSPCore:Male ;
-  dcterms:isPartOf epiLIMS:EpiLIMS ;
+:Donor_963
+  a TerraCore:HumanDonor ;
+  TerraCore:donated :BioSam_3165 ;
+  TerraCore:hasAge :Age_1 ;
+  TerraCore:hasOrganism TerraCore:Homo_sapiens ;
+  TerraCore:hasSex TerraCore:Male ;
+  dcterms:isPartOf :EpiLIMS ;
   rdfs:label "Donor_963" ;
   skos:prefLabel "Donor_963" ;
 .
-epiLIMS:EpiLIMS
-  a <http://datamodel.terra.bio/DSPdcat_ap#Dataset> ;
-  DSPCore:hasDataUseRequirement DSPCore:UserRestriction ;
-  DSPCore:hasPrimaryConsent DSPCore:GeneralResearchUse ;
-  dcterms:hasPart epiLIMS:BioSam_3165 ;
-  dcterms:hasPart epiLIMS:Donor_963 ;
+:EpiLIMS
+  a DSPdcat_ap:Dataset ;
+  TerraCore:hasDataUseRequirement TerraCore:UserRestriction ;
+  TerraCore:hasPrimaryConsent TerraCore:GeneralResearchUse ;
+  dcterms:hasPart :BioSam_3165 ;
+  dcterms:hasPart :Donor_963 ;
   dcterms:title "Epigenomics LIMS Example" ;
   rdfs:label "EpiLIMS" ;
   skos:prefLabel "EpiLIMS" ;
 .
-epiLIMS:PurchasableAntibody
-  a owl:Class ;
-  rdfs:comment "Purchasable antibody which is a protein, but the salient attributes are about the vendor and the target." ;
-  rdfs:label "PurchasableAntibody" ;
-  rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000040> ;
-  skos:prefLabel "PurchasableAntibody" ;
-.
-epiLIMS:SequenceFile_CoPA_13999_1
-  a DSPCore:SequenceFile ;
-  DSPCore:hasAverageReadLength "76"^^xsd:decimal ;
-  DSPCore:hasFormat "fastq" ;
+:SequenceFile_CoPA_13999_1
+  a TerraCore:SequenceFile ;
+  TerraCore:hasAverageReadLength "76"^^xsd:decimal ;
+  TerraCore:hasFormat "fastq" ;
   rdfs:label "SequenceFile_CoPA_13999_1" ;
   skos:prefLabel "SequenceFile_CoPA_13999_1" ;
-  prov:wasUsedBy epiLIMS:Aln_37341 ;
+  prov:wasUsedBy :Aln_37341 ;
 .
-epiLIMS:SequenceFile_CoPA_13999_2
-  a DSPCore:SequenceFile ;
-  DSPCore:hasAverageReadLength "76"^^xsd:decimal ;
-  DSPCore:hasFormat "fastq" ;
+:SequenceFile_CoPA_13999_2
+  a TerraCore:SequenceFile ;
+  TerraCore:hasAverageReadLength "76"^^xsd:decimal ;
+  TerraCore:hasFormat "fastq" ;
   rdfs:label "SequenceFile_CoPA_13999_2" ;
   skos:prefLabel "SequenceFile_CoPA_13999_2" ;
-  prov:wasUsedBy epiLIMS:Aln_37342 ;
+  prov:wasUsedBy :Aln_37342 ;
 .
-epiLIMS:SequenceFile_CoPA_14339_1
-  a DSPCore:SequenceFile ;
-  DSPCore:hasAverageReadLength "76"^^xsd:decimal ;
-  DSPCore:hasFormat "fastq" ;
+:SequenceFile_CoPA_14339_1
+  a TerraCore:SequenceFile ;
+  TerraCore:hasAverageReadLength "76"^^xsd:decimal ;
+  TerraCore:hasFormat "fastq" ;
   rdfs:label "SequenceFile_CoPA_14339_1" ;
   skos:prefLabel "SequenceFile_CoPA_14339_1" ;
-  prov:wasUsedBy epiLIMS:Aln_37855 ;
+  prov:wasUsedBy :Aln_37855 ;
 .
-epiLIMS:SequenceFile_CoPA_14339_2
-  a DSPCore:SequenceFile ;
-  DSPCore:hasAverageReadLength "76"^^xsd:decimal ;
-  DSPCore:hasFormat "fastq" ;
+:SequenceFile_CoPA_14339_2
+  a TerraCore:SequenceFile ;
+  TerraCore:hasAverageReadLength "76"^^xsd:decimal ;
+  TerraCore:hasFormat "fastq" ;
   rdfs:label "SequenceFile_CoPA_14339_2" ;
   skos:prefLabel "SequenceFile_CoPA_14339_2" ;
-  prov:wasUsedBy epiLIMS:Aln_37856 ;
+  prov:wasUsedBy :Aln_37856 ;
 .
-epiLIMS:Sequencing_CoPA_13999
-  a DSPCore:Sequencing ;
+:Sequencing_CoPA_13999
+  a TerraCore:Sequencing ;
   rdfs:label "Sequencing_CoPA_13999" ;
   skos:prefLabel "Sequencing_CoPA_13999" ;
-  prov:generated epiLIMS:SequenceFile_CoPA_13999_1 ;
-  prov:generated epiLIMS:SequenceFile_CoPA_13999_2 ;
+  prov:generated :SequenceFile_CoPA_13999_1 ;
+  prov:generated :SequenceFile_CoPA_13999_2 ;
 .
-epiLIMS:Sequencing_CoPA_14339
-  a DSPCore:Sequencing ;
+:Sequencing_CoPA_14339
+  a TerraCore:Sequencing ;
   rdfs:label "Sequencing_CoPA_14339" ;
   skos:prefLabel "Sequencing_CoPA_14339" ;
-  prov:generated epiLIMS:SequenceFile_CoPA_14339_1 ;
-  prov:generated epiLIMS:SequenceFile_CoPA_14339_2 ;
-.
-epiLIMS:hasPurchasableAntibody
-  a owl:DatatypeProperty ;
-  rdfs:label "hasPurchasableAntibody" ;
-  rdfs:range xsd:string ;
-  skos:prefLabel "hasPurchasableAntibody" ;
-.
-<http://purl.obolibrary.org/obo/BFO_0000001>
-  owl:equivalentClass prov:Entity ;
-.
-prov:generated
-  rdfs:range <http://purl.obolibrary.org/obo/BFO_0000001> ;
-.
-prov:influenced
-  rdfs:range <http://purl.obolibrary.org/obo/BFO_0000001> ;
-.
-prov:wasGeneratedBy
-  rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
-.
-prov:wasInfluencedBy
-  rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
-  rdfs:range <http://purl.obolibrary.org/obo/BFO_0000001> ;
+  prov:generated :SequenceFile_CoPA_14339_1 ;
+  prov:generated :SequenceFile_CoPA_14339_2 ;
 .
