@@ -19,7 +19,7 @@ These terms are often used interchangeably<sup>1</sup>.  We use them as follows.
 * A **knowledge graph** is a data model populated with data.
 
 
-[![Figure 1- DSPCore Data Model Overview Draft 1](https://github.com/broadinstitute/dsp-data-models/blob/master/documents/DSP%20Core%20Data%20Model%20Draft%201.jpg "Figure 1- DSPCore Data Model Overview Draft 1")](https://github.com/broadinstitute/dsp-data-models/blob/master/documents/DSP%20Core%20Data%20Model%20Draft%201.jpg "Figure 1- DSPCore Data Model Overview Draft 1")
+[![Figure 1- DSPCore Data Model Overview Draft 1](https://github.com/DataBiosphere/terra-core-data-model/blob/master/documents/DSP%20Core%20Data%20Model%20Draft%201.jpg "Figure 1- DSPCore Data Model Overview Draft 1")](https://github.com/broadinstitute/dsp-data-models/blob/master/documents/DSP%20Core%20Data%20Model%20Draft%201.jpg "Figure 1- DSPCore Data Model Overview Draft 1")
 
 ### Status
 DSPCore is currently under development and will be available in  RDF/XML and Turtle (.ttl) serializations.
