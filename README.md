@@ -1,34 +1,34 @@
-## DSPCore Data Model
+## Core Data Model for Terra (Terra Core)
 
-### What is DSPCore
-DSPCore is a common data model proposal for biomedical research intended to facilitate and encourage data sharing and reuse.  Its purpose is to enable researchers to find highly connected biomedical data in a federated search space.  
+### What is Terra Core?
+The Core Data Model for Terra is a common data model for biomedical research intended to facilitate and encourage data sharing and reuse.  Its purpose is to enable researchers to find highly connected biomedical data in a federated search space.  
 
 Examples of searches include:
 * *Find all glioma data that I can access for commercial research*
 * *Find single-cell data from samples with HIV and an intracellular pathogens*
 * *I need RNA-seq, Hi-C, and ChIP-seq data from adult brain tissue -- normal and diseased - with malignant glioma*
 
-The DSPCore data model is formally specified using OWL and is available in RDF serialization formats.  It is expected that the data model will be translated into appropriate syntaxes for implementation across a range of applications.  See [Using DSPCore](#using-dspcore).
+The Core Data Model for Terra is formally specified using OWL and is currently available in the [Turtle](https://www.w3.org/TR/turtle/) RDF serialization format.  It is expected that the data model will be translated into appropriate syntaxes for implementation across a range of applications.  See [Using Terra Core](#using-Terra-Core).  The namespace and default prefix are "TerraCore".
 
-The data model has been developed by The Broad Institute of MIT and Harvard’s Data Science Platform team and the DSPCore Data Model Team at the Broad.
+The data model has been developed by The Broad Institute of MIT and Harvard’s Data Science Platform team and the Terra Core Data Model Team at the Broad.  Our intent is to open this to the biomedical community for improvement over time while ensuring it remains a minimal model supporting search and analysis for researchers.  
 
 ### Terminology: Data Model, Ontology, Knowledge Graph
 These terms are often used interchangeably<sup>1</sup>.  We use them as follows.
 * An **ontology** is a formally specified vocabulary which defines the concepts and relationships that characterize a domain.  Further, we assume that an ontology represents all key high-level concepts in a domain and minimally provides parent-child relationships among the concepts.
-* A **data model** connects various domain vocabularies to “connect the dots” with a specific purpose in mind.  Data models are specific to selected use cases or objectives.  A good data model leverages standard vocabularies often in the form of ontologies and defines and extends concepts and relationships only when necessary.<sup>2</sup>
+* A **data model** connects various domain vocabularies to “connect the dots” with a specific purpose in mind.  It is intended to capture how the data is connected in ways that are meaningful to subject matter experts.  Data models are specific to selected use cases or objectives.  A good data model leverages standard vocabularies often in the form of ontologies and defines and extends concepts and relationships only when necessary.<sup>2</sup>
 * A **knowledge graph** is a data model populated with data.
+* A **schema** defines the structure of the data generally used to store data. It is often an implementation of a data model either implicitly or explicitly but usually includes optimizations for storage or performance that are not relevant to the data model. Examples of schemas include the relational schemas used for a particular dataset in Google's BigQuery or other relational database systems, HCA's JSON schema for [Biomaterial-Cell line](https://data.humancellatlas.org/metadata/dictionary/biomaterial/cell_line).
 
-
-[![Figure 1- DSPCore Data Model Overview Draft 1](https://github.com/DataBiosphere/terra-core-data-model/blob/master/documents/TerraCoreDataModel-Overview_Apr2020.jpg)
+[![Figure 1- Terra Core Data Model Overview Draft 1](https://github.com/DataBiosphere/terra-core-data-model/blob/master/documents/DSP%20Core%20Data%20Model%20Draft%201.jpg "Figure 1- Terra Core Data Model Overview Draft 1")](https://github.com/broadinstitute/dsp-data-models/blob/master/documents/DSP%20Core%20Data%20Model%20Draft%201.jpg "Figure 1- Terra Core Data Model Overview Draft 1")
 
 ### Status
-DSPCore is currently under development and will be available in  RDF/XML and Turtle (.ttl) serializations.
+The Core Data Model for Terra is currently under development, is available in Turtle (.ttl) serialization form and may be released in other forms over time.
 
 ### Versions
 Stable Release Versions
 Not yet available
 
-### How did DSPCore Come About?
+### How Did Terra Core Come About?
 
 Since its founding, the Broad Institute has been involved in systematic efforts to create large datasets to serve as a foundation for biological and medical studies around the world.  These efforts require collecting data and their provenance, but also enabling researchers to find and reuse the data.  How do we do this as the volume, variety, and complexity of biomedical data increases?  At a minimum, we need to understand the data and how they are connected.  
 
@@ -44,22 +44,25 @@ We then formed a team of researchers within the Broad to ensure that the data mo
 
 Finally, we selected several datasets to test the model in our own pilot project.
 
-### Using DSPCore
-In addition to the formal specification in OWL (serialized in Turtle format), the Data Sciences Platform Team has defined a JSON representation of the Data Model that will be used internally at Broad Institute to pilot the data model.  This JSON representation is an example of how the data model can be used to design schemas for relational data.
+### Using Terra Core
+Terra Core is currently composed of three separate OWL files. TerraDCAT_ap.ttl is an extension of the (W3C's Data Catalog Vocabulary)[https://www.w3.org/TR/vocab-dcat-2/] which adds data use terms from the (Data Use Ontology)[https://github.com/EBISPOT/DUO].  TerraCoreValueSets.ttl provides controlled vocabulary terms to support TerraCoreDataModel.ttl which contains the classes and properties required to connect core biomedical data concepts.
+
+In addition to the formal specification in OWL (serialized in Turtle format), the Data Sciences Platform Team has defined a JSON representation of the Data Model that will be used internally at Broad Institute to pilot the data model.  This JSON representation will be ingested into the Terra Repository, implemented using Google's BigQuery.  This is an example of how the data model can be used to design schemas.  
 
 ### License
 [BSD 3-Clause License](https://github.com/broadinstitute/dsp-data-models/blob/master/LICENSE)
 
 ### Contact
-Please use this repository's [Issue Tracker](https://github.com/broadinstitute/dsp-data-models/issues "Issue Tracker") to share comments or concerns related to the data model.  DSPCore Data Model is not currently open to public contribution. DSPCore Data Model is currently wholly managed by Broad’s DSP Team.
+Please use this repository's [Issue Tracker](https://github.com/broadinstitute/dsp-data-models/issues "Issue Tracker") to share comments or concerns related to the data model.  Terra Core is not currently open to public contribution; it is currently wholly managed by Broad’s DSP Team.
 
 ### Acknowledgements
 **Data Sciences Platform, Broad Institute**  
-Dan Moran, Jeremy Hert, Ben Carlin, Raaid Arshad, Rori Cremer, Andrea Haessly, Jeff Korte, Emily Munro-Ludders, David Wine, Denis Loginov, and others.
+Dan Moran, Sarah Wessel, Jeremy Hert, Ben Carlin, Raaid Arshad, Quazi Hoque, Rori Cremer, Andrea Haessly, Jeff Korte, Emily Munro-Ludders, Jerome Chadel,David Wine, Denis Loginov, and others.
 
-**DSPCore Data Model Team**  
+**Terra Core Data Model Team**  
 Larry Babb, Senior Principal Software Engineer  
 Clare Bernard, PhD, Director of Product, Data Science Platform  
+Sinéad Chapman, Associate Director, Genetics Project Management, Stanley Center for Psychiatric Research  
 Paul Clemons, PhD, Director, Computational Chemical Biology Research   
 Rachel Liao, PhD, Scientific Advisor to the Director   
 Marco Ocana, Principal Software Engineer   
