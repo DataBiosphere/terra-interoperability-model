@@ -19,7 +19,7 @@ These terms are often used interchangeably<sup>1</sup>.  We use them as follows.
 * A **knowledge graph** is a data model populated with data.
 * A **schema** defines the structure of the data generally used to store data. It is often an implementation of a data model either implicitly or explicitly but usually includes optimizations for storage or performance that are not relevant to the data model. Examples of schemas include the relational schemas used for a particular dataset in Google's BigQuery or other relational database systems, HCA's JSON schema for [Biomaterial-Cell line](https://data.humancellatlas.org/metadata/dictionary/biomaterial/cell_line).
 
-[![Figure 1- Terra Core Data Model Overview Draft 1](https://github.com/DataBiosphere/terra-core-data-model/blob/master/documents/DSP%20Core%20Data%20Model%20Draft%201.jpg "Figure 1- Terra Core Data Model Overview Draft 1")](https://github.com/broadinstitute/dsp-data-models/blob/master/documents/DSP%20Core%20Data%20Model%20Draft%201.jpg "Figure 1- Terra Core Data Model Overview Draft 1")
+![Figure - Terra Core Data Model Overview Draft](https://github.com/DataBiosphere/terra-core-data-model/blob/master/documents/TerraCoreDataModel-Overview_Apr2020.jpg)
 
 ### Status
 The Core Data Model for Terra is currently under development, is available in Turtle (.ttl) serialization form and may be released in other forms over time.
