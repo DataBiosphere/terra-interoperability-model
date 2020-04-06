@@ -12,7 +12,7 @@ The Core Data Model for Terra is formally specified using OWL and is currently a
 
 The data model has been developed by The Broad Institute of MIT and Harvard’s Data Science Platform team and the Terra Core Data Model Team at the Broad.  Our intent is to open this to the biomedical community for improvement over time while ensuring it remains a minimal model supporting search and analysis for researchers.  
 
-### Terminology: Data Model, Ontology, Knowledge Graph
+### Terminology: Data Model, Ontology, Knowledge Graph, Schema
 These terms are often used interchangeably<sup>1</sup>.  We use them as follows.
 * An **ontology** is a formally specified vocabulary which defines the concepts and relationships that characterize a domain.  Further, we assume that an ontology represents all key high-level concepts in a domain and minimally provides parent-child relationships among the concepts.
 * A **data model** connects various domain vocabularies to “connect the dots” with a specific purpose in mind.  It is intended to capture how the data is connected in ways that are meaningful to subject matter experts.  Data models are specific to selected use cases or objectives.  A good data model leverages standard vocabularies often in the form of ontologies and defines and extends concepts and relationships only when necessary.<sup>2</sup>
