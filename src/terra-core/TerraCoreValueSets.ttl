@@ -171,7 +171,7 @@ TerraCoreValueSets:DataModality
   rdfs:subClassOf obo:IAO_0000030 ;
   skos:altLabel "Biological Data Type" ;
   skos:altLabel "Data Category" ;
-  skos:definition "Data modality describes the biological nature of the information gathered as the result of an Activity, independent of the technology or methods used to produce the information" ;
+  skos:definition "Data modality describes the biological nature of the information gathered as the result of an Activity, independent of the technology or methods used to produce the information." ;
 .
 TerraCoreValueSets:DerivedType
   a owl:Class ;
@@ -189,6 +189,15 @@ TerraCoreValueSets:ElectrocardiogramModality
   rdfs:comment "Is this an Imaging technology or should we have a category for lab tests and consider this a Lab Test or is it a type of assay?" ;
   rdfs:label "Electrocardiogram" ;
   rdfs:subClassOf TerraCoreValueSets:MedicalImagingModality ;
+.
+TerraCoreValueSets:Electrophysiology
+  a TerraCoreValueSets:ElectrophysiologyModality ;
+  rdfs:label "Electrophysiology" ;
+.
+TerraCoreValueSets:ElectrophysiologyModality
+  a owl:Class ;
+  rdfs:label "Electrophysiology" ;
+  rdfs:subClassOf TerraCoreValueSets:ImagingModality ;
 .
 TerraCoreValueSets:Epigenomic
   a TerraCoreValueSets:EpigenomicModality ;
@@ -345,6 +354,7 @@ TerraCoreValueSets:MolecularSampleType
   a owl:Class ;
   rdfs:label "MolecularSampleType" ;
   rdfs:subClassOf TerraCoreValueSets:SampleType ;
+  skos:definition "A classification of molecular sample types." ;
 .
 TerraCoreValueSets:Monocyte
   a TerraCoreValueSets:MonocyteType ;
@@ -447,7 +457,7 @@ TerraCoreValueSets:SampleType
   a owl:Class ;
   rdfs:label "SampleType" ;
   rdfs:subClassOf obo:IAO_0000030 ;
-  skos:definition "A classification of samples based on the type of material collected and grouped into primary, cell line and derived type." ;
+  skos:definition "A classification of samples based on the type of material collected and grouped by subclass." ;
 .
 TerraCoreValueSets:Semen
   a TerraCoreValueSets:SemenType ;
