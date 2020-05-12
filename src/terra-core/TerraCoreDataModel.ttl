@@ -182,23 +182,17 @@ TerraCore:AlignmentPostProcessing
   owl:disjointWith TerraCore:Alignment ;
   owl:disjointWith TerraCore:AssayActivity ;
   owl:disjointWith TerraCore:LibraryPrep ;
-  owl:disjointWith TerraCore:Pipeline ;
   owl:disjointWith TerraCore:Sequencing ;
   owl:disjointWith TerraCore:VariantCalling ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty prov:generated ;
       owl:someValuesFrom TerraCore:AlignmentFile ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty prov:used ;
       owl:someValuesFrom TerraCore:AlignmentFile ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:onProperty prov:used ;
-      owl:someValuesFrom prov:SoftwareAgent ;
     ] ;
   skos:prefLabel "AlignmentPostProcessing" ;
   prov:definition "An activity that further processed the output of an Alignment Activity on a genetic sequence." ;
@@ -265,91 +259,51 @@ TerraCore:BioSample
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasBioSampleType ;
     ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraDCAT_ap:hasDataUseLimitation ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:dateObtained ;
-    ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasAnatomicalSite ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasPreservationState ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dct:source ;
     ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:derived ;
-    ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasCrossReference ;
     ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraDCAT_ap:hasDataUseRequirement ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty dct:created ;
-    ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty prov:wasDerivedFrom ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:donatedBy ;
     ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty prov:hadActivity ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty prov:wasUsedBy ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:onProperty dct:isPartOf ;
-      owl:someValuesFrom TerraDCAT_ap:Dataset ;
-    ] ;
-  skos:definition "A physical sample consisting of one or more cells taken from an organism (living or deceased) or derived from such a Sample" ;
+  skos:definition "Data about a physical sample consisting of one or more cells taken from an organism (living or deceased) or derived from such a Sample." ;
   skos:prefLabel "BioSample" ;
 .
 TerraCore:BiologicalSex
   a owl:Class ;
   rdfs:label "Biological sex" ;
   rdfs:subClassOf obo:BFO_0000019 ;
-  owl:equivalentClass obo:PATO_0001894 ;
+  rdfs:subClassOf obo:PATO_0001894 ;
   skos:definition "A quality of an organism indicating physical sexual characteristics. Equivalent of PATO's phenotypic sex but pseudohermaphrodite is not relevant to existing data and is not recommended." ;
 .
 TerraCore:ChromosomalLocation
   a owl:Class ;
   rdfs:label "ChromosomalLocation" ;
   rdfs:subClassOf TerraCore:SequenceLocation ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasChromosome ;
@@ -487,9 +441,13 @@ TerraCore:Homo_sapiens
 .
 TerraCore:HumanDonor
   a owl:Class ;
-  TerraCore:hasOrganism TerraCore:Homo_sapiens ;
   rdfs:label "HumanDonor" ;
   rdfs:subClassOf TerraCore:Donor ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:hasValue TerraCore:Homo_sapiens ;
+      owl:onProperty TerraCore:hasOrganism ;
+    ] ;
   skos:definition "Extension of Donor class for Humans." ;
 .
 TerraCore:Library
@@ -504,7 +462,7 @@ TerraCore:Library
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasAssay ;
+      owl:onProperty TerraCore:hadAssay ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -554,7 +512,7 @@ TerraCore:MolecularSample
   rdfs:label "MolecularSample" ;
   rdfs:subClassOf TerraCore:Sample ;
   skos:prefLabel "MolecularSample" ;
-  prov:definition "A physical sample collected from one or more molecular entities, either purified from a Sample or synthesized." ;
+  prov:definition "Data about a physical sample collected from one or more molecular entities, either purified from a Sample or synthesized." ;
 .
 TerraCore:Mus_musculus
   a obo:NCBITaxon_10090 ;
@@ -575,12 +533,17 @@ TerraCore:Pipeline
   owl:disjointWith TerraCore:LibraryPrep ;
   owl:disjointWith TerraCore:Sequencing ;
   owl:disjointWith TerraCore:VariantCalling ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasVersion ;
+      owl:onProperty prov:generated ;
+      owl:someValuesFrom TerraCore:File ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty prov:used ;
+      owl:someValuesFrom TerraCore:File ;
+    ] ;
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty prov:used ;
       owl:someValuesFrom prov:SoftwareAgent ;
@@ -638,32 +601,49 @@ TerraCore:Sample
   a owl:Class ;
   rdfs:label "Sample" ;
   rdfs:subClassOf obo:OBI_0100051 ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dct:created ;
-    ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraDCAT_ap:hasDataUseLimitation ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:dateObtained ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dct:created ;
+    ] ;
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty prov:wasUsedBy ;
+      owl:onProperty TerraDCAT_ap:hasDataUseRequirement ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://xmlns.com/foaf/0.1/depicts> ;
+      owl:onProperty prov:hadDerivation ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dct:isPartOf ;
     ] ;
-  skos:definition "Physical material collected for the purpose of research" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass TerraCore:Sample ;
+      owl:onProperty prov:wasDerivedFrom ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass TerraCore:Activity ;
+      owl:onProperty prov:wasUsedBy ;
+    ] ;
+  skos:definition "Data about a physical material collected for the purpose of research." ;
   skos:prefLabel "Sample" ;
 .
 TerraCore:SequenceFile
@@ -825,14 +805,6 @@ TerraCore:dateObtained
   skos:definition "Date the BioSample was originally obtained from its Donor." ;
   skos:prefLabel "Date Obtained" ;
 .
-TerraCore:derived
-  a owl:ObjectProperty ;
-  rdfs:domain TerraCore:BioSample ;
-  rdfs:range TerraCore:BioSample ;
-  owl:equivalentProperty prov:hadDerivation ;
-  owl:inverseOf prov:wasDerivedFrom ;
-  skos:definition "Inverse of prov:wasDerivedFrom per PROV recommendation." ;
-.
 TerraCore:donated
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:Donor ;
@@ -850,6 +822,30 @@ TerraCore:donatedBy
   owl:inverseOf TerraCore:donated ;
   skos:definition "The donatedBy property references the Donor organism from which the BioSample was acquired." ;
   skos:prefLabel "donatedBy" ;
+.
+TerraCore:hadAssay
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:BioSample ;
+  rdfs:label "hadAssay" ;
+  rdfs:range TerraCore:AssayActivity ;
+  rdfs:subPropertyOf prov:wasUsedBy ;
+  skos:prefLabel "hadAssay" ;
+.
+TerraCore:hadLibraryPrep
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:BioSample ;
+  rdfs:label "hadLibraryPrep" ;
+  rdfs:range TerraCore:LibraryPrep ;
+  rdfs:subPropertyOf prov:wasUsedBy ;
+  skos:prefLabel "hadLibraryPrep" ;
+.
+TerraCore:hadSequencing
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:BioSample ;
+  rdfs:label "hadSequencing" ;
+  rdfs:range TerraCore:Sequencing ;
+  rdfs:subPropertyOf prov:wasUsedBy ;
+  skos:prefLabel "hadSequencing" ;
 .
 TerraCore:hasAge
   a owl:ObjectProperty ;
@@ -896,14 +892,6 @@ TerraCore:hasAlignedFragments
   rdfs:range xsd:integer ;
   skos:prefLabel "hasAlignedFragments" ;
 .
-TerraCore:hasAlignment
-  a owl:ObjectProperty ;
-  rdfs:domain TerraCore:BioSample ;
-  rdfs:label "hasAlignment" ;
-  rdfs:range TerraCore:Alignment ;
-  rdfs:subPropertyOf prov:wasUsedBy ;
-  skos:prefLabel "hasAlignment" ;
-.
 TerraCore:hasAllele
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:VariantCall ;
@@ -935,14 +923,6 @@ TerraCore:hasAntibody
   rdfs:range TerraCore:Antibody ;
   rdfs:subPropertyOf prov:used ;
   skos:prefLabel "hasAntibody" ;
-.
-TerraCore:hasAssay
-  a owl:ObjectProperty ;
-  rdfs:domain TerraCore:BioSample ;
-  rdfs:label "hasAssay" ;
-  rdfs:range TerraCore:AssayActivity ;
-  rdfs:subPropertyOf prov:wasUsedBy ;
-  skos:prefLabel "hasAssay" ;
 .
 TerraCore:hasAssayCategory
   a owl:ObjectProperty ;
@@ -1117,14 +1097,6 @@ TerraCore:hasLibraryLayout
     ] ;
   skos:prefLabel "hasLibraryLayout" ;
 .
-TerraCore:hasLibraryPrep
-  a owl:ObjectProperty ;
-  rdfs:domain TerraCore:BioSample ;
-  rdfs:label "hasLibraryPrep" ;
-  rdfs:range TerraCore:LibraryPrep ;
-  rdfs:subPropertyOf prov:wasUsedBy ;
-  skos:prefLabel "hasLibraryPrep" ;
-.
 TerraCore:hasLocation
   a owl:DatatypeProperty ;
   rdfs:comment "Location of variation on a sequence.  For example, for human genome: chr7:140753336-140753337" ;
@@ -1263,14 +1235,6 @@ TerraCore:hasSequenceLocation
   rdfs:range TerraCore:SequenceLocation ;
   skos:prefLabel "hasSequenceLocation" ;
 .
-TerraCore:hasSequencing
-  a owl:ObjectProperty ;
-  rdfs:domain TerraCore:BioSample ;
-  rdfs:label "hasSequencing" ;
-  rdfs:range TerraCore:Sequencing ;
-  rdfs:subPropertyOf prov:wasUsedBy ;
-  skos:prefLabel "hasSequencing" ;
-.
 TerraCore:hasSex
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:Donor ;
@@ -1320,14 +1284,6 @@ TerraCore:hasVariantCall
   rdfs:label "hasVariantCall" ;
   rdfs:range TerraCore:VariantCall ;
   skos:prefLabel "hasVariantCall" ;
-.
-TerraCore:hasVariantCalling
-  a owl:ObjectProperty ;
-  rdfs:domain TerraCore:BioSample ;
-  rdfs:label "hasVariantCalling" ;
-  rdfs:range TerraCore:VariantCalling ;
-  rdfs:subPropertyOf prov:wasUsedBy ;
-  skos:prefLabel "hasVariantCalling" ;
 .
 TerraCore:hasVariantReference
   a owl:ObjectProperty ;
@@ -1430,6 +1386,13 @@ prov:Entity
 .
 prov:Person
   owl:equivalentClass <http://xmlns.com/foaf/0.1/Person> ;
+.
+prov:SoftwareAgent
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dct:hasVersion ;
+    ] ;
 .
 prov:hadDerivation
   a owl:ObjectProperty ;
