@@ -41,42 +41,42 @@ TerraCore:Activity
   a owl:Class ;
   rdfs:label "Activity" ;
   rdfs:subClassOf prov:Activity ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dct:created ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty prov:endedAtTime ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty prov:startedAtTime ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasDataModality ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty prov:wasAssociatedWith ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:usedSample ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty prov:generated ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty prov:used ;
@@ -88,12 +88,12 @@ TerraCore:Address
   a owl:Class ;
   rdfs:label "Address" ;
   rdfs:subClassOf obo:IAO_0000030 ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasPostalCode ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasCountry ;
@@ -104,7 +104,7 @@ TerraCore:Age
   a owl:Class ;
   rdfs:label "Age" ;
   rdfs:subClassOf obo:OBI_0001167 ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasAgeCategory ;
@@ -114,12 +114,12 @@ TerraCore:Age
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasAgeUnit ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasLowerBound ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasUpperBound ;
@@ -136,22 +136,22 @@ TerraCore:Alignment
   owl:disjointWith TerraCore:Pipeline ;
   owl:disjointWith TerraCore:Sequencing ;
   owl:disjointWith TerraCore:VariantCalling ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:usedReferenceAssembly ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty prov:generated ;
       owl:someValuesFrom TerraCore:AlignmentFile ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty prov:used ;
       owl:someValuesFrom TerraCore:SequenceFile ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty prov:used ;
       owl:someValuesFrom prov:SoftwareAgent ;
@@ -163,12 +163,12 @@ TerraCore:AlignmentFile
   a owl:Class ;
   rdfs:label "AlignmentFile" ;
   rdfs:subClassOf TerraCore:File ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:usedReferenceAssembly ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasPercentAlignedReads ;
@@ -201,17 +201,17 @@ TerraCore:Antibody
   a owl:Class ;
   rdfs:label "Antibody" ;
   rdfs:subClassOf obo:BFO_0000040 ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasHostOrganism ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasClonality ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasTarget ;
@@ -227,22 +227,22 @@ TerraCore:AssayActivity
   owl:disjointWith TerraCore:Pipeline ;
   owl:disjointWith TerraCore:Sequencing ;
   owl:disjointWith TerraCore:VariantCalling ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasAssayCategory ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasAssayType ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty prov:generated ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty prov:generated ;
       owl:someValuesFrom TerraCore:File ;
@@ -314,7 +314,7 @@ TerraCore:Country
   a owl:Class ;
   rdfs:label "Country" ;
   rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasAlpha2Code ;
@@ -332,32 +332,32 @@ TerraCore:Donor
   a owl:Class ;
   rdfs:label "Donor" ;
   rdfs:subClassOf obo:OBI_0100026 ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasOrganism ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasAge ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasSex ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasMedicalHistory ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:donated ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty dct:isPartOf ;
       owl:someValuesFrom TerraDCAT_ap:Dataset ;
@@ -382,22 +382,22 @@ TerraCore:File
   rdfs:comment "Used definition from http://semanticscience.org/resource/SIO_000396 but equivalence to http://www.w3.org/ns/dcat#Distribution doesn't make sense to me; thus we have our own object.  Also added electronic.  This will be subclassed for different file types to allow for file type-specific metadata, but for now, all metadata is an option for all Files." ;
   rdfs:label "File" ;
   rdfs:subClassOf obo:IAO_0000030 ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasFileFormat ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dcat:byteSize ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasChecksum ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty TerraCore:hasCrossReference ;
       owl:someValuesFrom dct:URI ;
@@ -454,17 +454,17 @@ TerraCore:Library
   a owl:Class ;
   rdfs:label "Library" ;
   rdfs:subClassOf obo:BFO_0000040 ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty prov:wasGeneratedBy ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hadAssay ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty prov:wasUsedBy ;
@@ -482,7 +482,7 @@ TerraCore:LibraryPrep
   owl:disjointWith TerraCore:Pipeline ;
   owl:disjointWith TerraCore:Sequencing ;
   owl:disjointWith TerraCore:VariantCalling ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty prov:generated ;
       owl:someValuesFrom TerraCore:Library ;
@@ -554,22 +554,22 @@ TerraCore:PrincipalInvestigator
   a owl:Class ;
   rdfs:label "Principal Investigator" ;
   rdfs:subClassOf prov:Person ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty <http://xmlns.com/foaf/0.1/title> ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty <http://xmlns.com/foaf/0.1/family_name> ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty <http://xmlns.com/foaf/0.1/givenname> ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty <http://xmlns.com/foaf/0.1/mbox> ;
@@ -584,7 +584,7 @@ TerraCore:ReferenceAssembly
   a owl:Class ;
   rdfs:label "ReferenceAssembly" ;
   rdfs:subClassOf obo:OBI_0001573 ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasOrganism ;
@@ -650,22 +650,22 @@ TerraCore:SequenceFile
   a owl:Class ;
   rdfs:label "SequenceFile" ;
   rdfs:subClassOf TerraCore:File ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasLibraryLayout ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasPercentDuplicateFragments ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasReadCount ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasReadLength ;
@@ -676,17 +676,17 @@ TerraCore:SequenceLocation
   a owl:Class ;
   rdfs:label "SequenceLocation" ;
   rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasLocation ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasStartPosition ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasStopPosition ;
@@ -704,12 +704,12 @@ TerraCore:Sequencing
   owl:disjointWith TerraCore:LibraryPrep ;
   owl:disjointWith TerraCore:Pipeline ;
   owl:disjointWith TerraCore:VariantCalling ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:usedSample ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty prov:generated ;
       owl:someValuesFrom TerraCore:SequenceFile ;
@@ -726,22 +726,22 @@ TerraCore:VariantCall
   a owl:Class ;
   rdfs:label "VariantCall" ;
   rdfs:subClassOf obo:OBI_0001364 ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasAllele ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasSequenceLocation ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasVariantReference ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty prov:used ;
       owl:someValuesFrom TerraCore:VariantCallSet ;
@@ -753,7 +753,7 @@ TerraCore:VariantCallSet
   a owl:Class ;
   rdfs:label "VariantCallSet" ;
   rdfs:subClassOf TerraCore:File ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasVariantCall ;
@@ -771,17 +771,17 @@ TerraCore:VariantCalling
   owl:disjointWith TerraCore:LibraryPrep ;
   owl:disjointWith TerraCore:Pipeline ;
   owl:disjointWith TerraCore:Sequencing ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty prov:generated ;
       owl:someValuesFrom TerraCore:VariantCallSet ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty prov:used ;
       owl:someValuesFrom TerraCore:AlignmentFile ;
     ] ;
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty prov:used ;
       owl:someValuesFrom prov:SoftwareAgent ;
@@ -1388,7 +1388,7 @@ prov:Person
   owl:equivalentClass <http://xmlns.com/foaf/0.1/Person> ;
 .
 prov:SoftwareAgent
-  owl:equivalentClass [
+  rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty dct:hasVersion ;
