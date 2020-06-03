@@ -1,4 +1,5 @@
 # baseURI: http://datamodel.terra.bio/TerraCore
+# imports: http://datamodel.terra.bio/EFO_subset.owl
 # imports: http://datamodel.terra.bio/OBI_assaySubset.owl
 # imports: http://datamodel.terra.bio/OBI_core
 # imports: http://datamodel.terra.bio/TerraCoreValueSets
@@ -9,6 +10,7 @@
 # prefix: TerraCore
 
 @prefix : <http://datamodel.terra.bio/TerraCore#> .
+@prefix EFO_subset: <http://datamodel.terra.bio/EFO_subset.owl#> .
 @prefix OBI_Taxon_Organisms: <http://datamodel.terra.bio/OBI_Taxon_Organisms.owl#> .
 @prefix TerraCore: <http://datamodel.terra.bio/TerraCore#> .
 @prefix TerraCoreValueSets: <http://datamodel.terra.bio/TerraCoreValueSets#> .
@@ -28,6 +30,7 @@
 
 <http://datamodel.terra.bio/TerraCore>
   a owl:Ontology ;
+  owl:imports <http://datamodel.terra.bio/EFO_subset.owl> ;
   owl:imports <http://datamodel.terra.bio/OBI_assaySubset.owl> ;
   owl:imports <http://datamodel.terra.bio/OBI_core> ;
   owl:imports <http://datamodel.terra.bio/TerraCoreValueSets> ;
@@ -55,6 +58,11 @@ TerraCore:Activity
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty prov:startedAtTime ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hadProtocol ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -109,11 +117,6 @@ TerraCore:Age
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasAgeCategory ;
     ] ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasAgeUnit ;
-    ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
@@ -124,18 +127,17 @@ TerraCore:Age
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasUpperBound ;
     ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasAgeUnit ;
+    ] ;
   skos:prefLabel "Age " ;
 .
 TerraCore:Alignment
   a owl:Class ;
   rdfs:label "Alignment" ;
   rdfs:subClassOf TerraCore:Activity ;
-  owl:disjointWith TerraCore:AlignmentPostProcessing ;
-  owl:disjointWith TerraCore:AssayActivity ;
-  owl:disjointWith TerraCore:LibraryPrep ;
-  owl:disjointWith TerraCore:Pipeline ;
-  owl:disjointWith TerraCore:Sequencing ;
-  owl:disjointWith TerraCore:VariantCalling ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -156,6 +158,12 @@ TerraCore:Alignment
       owl:onProperty prov:used ;
       owl:someValuesFrom prov:SoftwareAgent ;
     ] ;
+  owl:disjointWith TerraCore:AlignmentPostProcessing ;
+  owl:disjointWith TerraCore:AssayActivity ;
+  owl:disjointWith TerraCore:LibraryPreparation ;
+  owl:disjointWith TerraCore:Pipeline ;
+  owl:disjointWith TerraCore:Sequencing ;
+  owl:disjointWith TerraCore:VariantCalling ;
   skos:prefLabel "Alignment" ;
   prov:definition "An activity that aligns the output of a Sequencing Activity (a genetic sequence) to produce an aligned sequence." ;
 .
@@ -179,11 +187,6 @@ TerraCore:AlignmentPostProcessing
   a owl:Class ;
   rdfs:label "AlignmentPostProcessing" ;
   rdfs:subClassOf TerraCore:Pipeline ;
-  owl:disjointWith TerraCore:Alignment ;
-  owl:disjointWith TerraCore:AssayActivity ;
-  owl:disjointWith TerraCore:LibraryPrep ;
-  owl:disjointWith TerraCore:Sequencing ;
-  owl:disjointWith TerraCore:VariantCalling ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty prov:generated ;
@@ -194,6 +197,11 @@ TerraCore:AlignmentPostProcessing
       owl:onProperty prov:used ;
       owl:someValuesFrom TerraCore:AlignmentFile ;
     ] ;
+  owl:disjointWith TerraCore:Alignment ;
+  owl:disjointWith TerraCore:AssayActivity ;
+  owl:disjointWith TerraCore:LibraryPreparation ;
+  owl:disjointWith TerraCore:Sequencing ;
+  owl:disjointWith TerraCore:VariantCalling ;
   skos:prefLabel "AlignmentPostProcessing" ;
   prov:definition "An activity that further processed the output of an Alignment Activity on a genetic sequence." ;
 .
@@ -221,12 +229,6 @@ TerraCore:AssayActivity
   a owl:Class ;
   rdfs:label "Assay" ;
   rdfs:subClassOf TerraCore:Activity ;
-  owl:disjointWith TerraCore:Alignment ;
-  owl:disjointWith TerraCore:AlignmentPostProcessing ;
-  owl:disjointWith TerraCore:LibraryPrep ;
-  owl:disjointWith TerraCore:Pipeline ;
-  owl:disjointWith TerraCore:Sequencing ;
-  owl:disjointWith TerraCore:VariantCalling ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -247,6 +249,12 @@ TerraCore:AssayActivity
       owl:onProperty prov:generated ;
       owl:someValuesFrom TerraCore:File ;
     ] ;
+  owl:disjointWith TerraCore:Alignment ;
+  owl:disjointWith TerraCore:AlignmentPostProcessing ;
+  owl:disjointWith TerraCore:LibraryPreparation ;
+  owl:disjointWith TerraCore:Pipeline ;
+  owl:disjointWith TerraCore:Sequencing ;
+  owl:disjointWith TerraCore:VariantCalling ;
   skos:prefLabel "Assay" ;
   prov:definition "An activity that generates an electronic record documenting the result of the Assay performed." ;
 .
@@ -254,11 +262,6 @@ TerraCore:BioSample
   a owl:Class ;
   rdfs:label "BioSample" ;
   rdfs:subClassOf TerraCore:Sample ;
-  owl:equivalentClass [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasBioSampleType ;
-    ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
@@ -289,6 +292,11 @@ TerraCore:BioSample
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:donatedBy ;
     ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasBioSampleType ;
+    ] ;
   skos:definition "Data about a physical sample consisting of one or more cells taken from an organism (living or deceased) or derived from such a Sample." ;
   skos:prefLabel "BioSample" ;
 .
@@ -298,6 +306,12 @@ TerraCore:BiologicalSex
   rdfs:subClassOf obo:BFO_0000019 ;
   rdfs:subClassOf obo:PATO_0001894 ;
   skos:definition "A quality of an organism indicating physical sexual characteristics. Equivalent of PATO's phenotypic sex but pseudohermaphrodite is not relevant to existing data and is not recommended." ;
+.
+TerraCore:CellDissociation
+  a owl:Class ;
+  rdfs:label "CellDissociation" ;
+  rdfs:subClassOf TerraCore:Activity ;
+  skos:definition "Activity which results in the separation of a biological specimen into individual cells or a cell suspension." ;
 .
 TerraCore:ChromosomalLocation
   a owl:Class ;
@@ -472,22 +486,28 @@ TerraCore:Library
   skos:definition "A collection of nucleic acid molecules." ;
   skos:prefLabel "Library" ;
 .
-TerraCore:LibraryPrep
+TerraCore:LibraryPreparation
   a owl:Class ;
-  rdfs:label "LibraryPrep" ;
+  rdfs:label "LibraryPreparation" ;
   rdfs:subClassOf TerraCore:Activity ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasLibraryPreparationType ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty prov:generated ;
+      owl:someValuesFrom TerraCore:Library ;
+    ] ;
   owl:disjointWith TerraCore:Alignment ;
   owl:disjointWith TerraCore:AlignmentPostProcessing ;
   owl:disjointWith TerraCore:AssayActivity ;
   owl:disjointWith TerraCore:Pipeline ;
   owl:disjointWith TerraCore:Sequencing ;
   owl:disjointWith TerraCore:VariantCalling ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:onProperty prov:generated ;
-      owl:someValuesFrom TerraCore:Library ;
-    ] ;
-  skos:prefLabel "LibraryPrep" ;
+  skos:definition "Activity which results in the creation of a library from fragments of genomic material in preparation for further analysis." ;
+  skos:prefLabel "LibraryPreparation" ;
 .
 TerraCore:Male
   a TerraCore:MaleSex ;
@@ -527,12 +547,6 @@ TerraCore:Pipeline
   a owl:Class ;
   rdfs:label "Pipeline" ;
   rdfs:subClassOf TerraCore:Activity ;
-  owl:disjointWith TerraCore:Alignment ;
-  owl:disjointWith TerraCore:AlignmentPostProcessing ;
-  owl:disjointWith TerraCore:AssayActivity ;
-  owl:disjointWith TerraCore:LibraryPrep ;
-  owl:disjointWith TerraCore:Sequencing ;
-  owl:disjointWith TerraCore:VariantCalling ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty prov:generated ;
@@ -548,6 +562,12 @@ TerraCore:Pipeline
       owl:onProperty prov:used ;
       owl:someValuesFrom prov:SoftwareAgent ;
     ] ;
+  owl:disjointWith TerraCore:Alignment ;
+  owl:disjointWith TerraCore:AlignmentPostProcessing ;
+  owl:disjointWith TerraCore:AssayActivity ;
+  owl:disjointWith TerraCore:LibraryPreparation ;
+  owl:disjointWith TerraCore:Sequencing ;
+  owl:disjointWith TerraCore:VariantCalling ;
   prov:definition "An activity that records the output of a specific software pipeline.  Pipeline version, components, arguments are described in prov:SoftwareAgent." ;
 .
 TerraCore:PrincipalInvestigator
@@ -698,12 +718,6 @@ TerraCore:Sequencing
   a owl:Class ;
   rdfs:label "Sequencing" ;
   rdfs:subClassOf TerraCore:Activity ;
-  owl:disjointWith TerraCore:Alignment ;
-  owl:disjointWith TerraCore:AlignmentPostProcessing ;
-  owl:disjointWith TerraCore:AssayActivity ;
-  owl:disjointWith TerraCore:LibraryPrep ;
-  owl:disjointWith TerraCore:Pipeline ;
-  owl:disjointWith TerraCore:VariantCalling ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
@@ -714,8 +728,20 @@ TerraCore:Sequencing
       owl:onProperty prov:generated ;
       owl:someValuesFrom TerraCore:SequenceFile ;
     ] ;
+  owl:disjointWith TerraCore:Alignment ;
+  owl:disjointWith TerraCore:AlignmentPostProcessing ;
+  owl:disjointWith TerraCore:AssayActivity ;
+  owl:disjointWith TerraCore:LibraryPreparation ;
+  owl:disjointWith TerraCore:Pipeline ;
+  owl:disjointWith TerraCore:VariantCalling ;
   skos:prefLabel "Sequencing" ;
   prov:definition "An activity that produces an electronic record of a genetic sequence in a Sample" ;
+.
+TerraCore:SingleCellIsolation
+  a owl:Class ;
+  rdfs:label "SingleCellIsolation" ;
+  rdfs:subClassOf TerraCore:Activity ;
+  skos:definition "Activity to separate individual cells or nuclei.  Is this redundant with CellDissociation?" ;
 .
 TerraCore:UserRestriction
   a obo:DUO_0000026 ;
@@ -765,12 +791,6 @@ TerraCore:VariantCalling
   a owl:Class ;
   rdfs:label "VariantCalling" ;
   rdfs:subClassOf TerraCore:Activity ;
-  owl:disjointWith TerraCore:Alignment ;
-  owl:disjointWith TerraCore:AlignmentPostProcessing ;
-  owl:disjointWith TerraCore:AssayActivity ;
-  owl:disjointWith TerraCore:LibraryPrep ;
-  owl:disjointWith TerraCore:Pipeline ;
-  owl:disjointWith TerraCore:Sequencing ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty prov:generated ;
@@ -786,6 +806,12 @@ TerraCore:VariantCalling
       owl:onProperty prov:used ;
       owl:someValuesFrom prov:SoftwareAgent ;
     ] ;
+  owl:disjointWith TerraCore:Alignment ;
+  owl:disjointWith TerraCore:AlignmentPostProcessing ;
+  owl:disjointWith TerraCore:AssayActivity ;
+  owl:disjointWith TerraCore:LibraryPreparation ;
+  owl:disjointWith TerraCore:Pipeline ;
+  owl:disjointWith TerraCore:Sequencing ;
   skos:definition "An activity that identifies genetic sequence alterations in a Sample" ;
   skos:prefLabel "VariantCalling" ;
 .
@@ -835,9 +861,18 @@ TerraCore:hadLibraryPrep
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "hadLibraryPrep" ;
-  rdfs:range TerraCore:LibraryPrep ;
+  rdfs:range TerraCore:LibraryPreparation ;
   rdfs:subPropertyOf prov:wasUsedBy ;
   skos:prefLabel "hadLibraryPrep" ;
+.
+TerraCore:hadProtocol
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:Activity ;
+  rdfs:label "hadProtocol" ;
+  rdfs:range dct:URI ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf prov:used ;
+  skos:prefLabel "hadProtocol" ;
 .
 TerraCore:hadSequencing
   a owl:ObjectProperty ;
@@ -1097,6 +1132,13 @@ TerraCore:hasLibraryLayout
     ] ;
   skos:prefLabel "hasLibraryLayout" ;
 .
+TerraCore:hasLibraryPreparationType
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:Library ;
+  rdfs:domain TerraCore:LibraryPreparation ;
+  rdfs:label "hasLibraryPreparationType" ;
+  rdfs:range obo:OBI_0000711 ;
+.
 TerraCore:hasLocation
   a owl:DatatypeProperty ;
   rdfs:comment "Location of variation on a sequence.  For example, for human genome: chr7:140753336-140753337" ;
@@ -1198,14 +1240,6 @@ TerraCore:hasPreservationState
         ) ;
     ] ;
   skos:definition "Method used to preserve the BioSample, if relevant, or Fresh for BioSamples that were not preserved." ;
-.
-TerraCore:hasProtocol
-  a owl:DatatypeProperty ;
-  rdfs:domain TerraCore:Activity ;
-  rdfs:label "hasProtocol" ;
-  rdfs:range xsd:string ;
-  rdfs:subPropertyOf prov:used ;
-  skos:prefLabel "hasProtocol" ;
 .
 TerraCore:hasReadCount
   a owl:DatatypeProperty ;
