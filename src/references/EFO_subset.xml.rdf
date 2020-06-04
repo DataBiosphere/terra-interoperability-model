@@ -6,7 +6,6 @@
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:error="http://org.semanticweb.owlapi/error#"
      xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:efo="http://www.ebi.ac.uk/efo/">
     <owl:Ontology rdf:about="http://datamodel.terra.bio/EFO_subset.owl"/>
@@ -54,20 +53,6 @@
     
 
 
-    <!-- http://org.semanticweb.owlapi/error#Error1 -->
-
-    <owl:Class rdf:about="http://org.semanticweb.owlapi/error#Error1">
-        <owl:equivalentClass rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010047"/>
-    </owl:Class>
-    
-
-
-    <!-- http://org.semanticweb.owlapi/error#Error2 -->
-
-    <owl:Class rdf:about="http://org.semanticweb.owlapi/error#Error2">
-        <owl:equivalentClass rdf:resource="http://www.ebi.ac.uk/efo/EFO_0001457"/>
-    </owl:Class>
-    
 
 
     <!-- http://purl.obolibrary.org/obo/OBI_0000070 -->
