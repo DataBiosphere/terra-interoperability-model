@@ -1,12 +1,3 @@
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // pCL_4.owl - File obtained from https://bioportal.bioontology.org/ontologies/PCL
-    // Released: 04/26/2020
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://www.jcvi.org/framework/nsf2_full_mtg#"
      xml:base="http://www.jcvi.org/framework/nsf2_full_mtg"
@@ -23,6 +14,14 @@
         <owl:versionInfo>$Id: pcl_4_0.owl, Ver 1.0, April 12, 2020, Brian Aevermann $</owl:versionInfo>
     </owl:Ontology>
     
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // pCL_4.owl - File obtained from https://bioportal.bioontology.org/ontologies/PCL
+    // Released: 04/26/2020
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
     <!-- 

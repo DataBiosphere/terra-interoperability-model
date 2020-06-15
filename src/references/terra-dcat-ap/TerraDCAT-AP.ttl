@@ -1,11 +1,12 @@
 # baseURI: http://datamodel.terra.bio/TerraDCAT_ap
 # imports: http://www.w3.org/ns/dcat
 # imports: https://raw.githubusercontent.com/EBISPOT/DUO/master/duo-basic.owl
+# prefix: TerraDCAT_ap
 
 @prefix : <http://datamodel.terra.bio/TerraDCAT_ap#> .
 @prefix TerraDCAT_ap: <http://datamodel.terra.bio/TerraDCAT_ap#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix duo: <http://purl.obolibrary.org/obo/duo-basic.owl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -41,32 +42,32 @@ TerraDCAT_ap:DataCollection
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:allValuesFrom prov:Person ;
-      owl:onProperty dcterms:creator ;
+      owl:onProperty dct:creator ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:creator ;
+      owl:onProperty dct:creator ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:description ;
+      owl:onProperty dct:description ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:issued ;
+      owl:onProperty dct:issued ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:modified ;
+      owl:onProperty dct:modified ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:publisher ;
+      owl:onProperty dct:publisher ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -106,7 +107,7 @@ TerraDCAT_ap:DataCollection
   owl:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:title ;
+      owl:onProperty dct:title ;
     ] ;
   skos:prefLabel "DataCollection" ;
   dcat:themeTaxonomy TerraDCAT_ap:DSPThemeTaxonomy ;
@@ -120,7 +121,7 @@ TerraDCAT_ap:DataSnapshot
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:allValuesFrom prov:Person ;
-      owl:onProperty dcterms:creator ;
+      owl:onProperty dct:creator ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -140,22 +141,22 @@ TerraDCAT_ap:DataSnapshot
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:creator ;
+      owl:onProperty dct:creator ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:description ;
+      owl:onProperty dct:description ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:issued ;
+      owl:onProperty dct:issued ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:modified ;
+      owl:onProperty dct:modified ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -207,8 +208,13 @@ TerraDCAT_ap:Dataset
   rdfs:subClassOf dcat:Dataset ;
   rdfs:subClassOf [
       a owl:Restriction ;
+      owl:allValuesFrom TerraDCAT_ap:DataCollection ;
+      owl:onProperty dct:isPartOf ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
       owl:allValuesFrom prov:Person ;
-      owl:onProperty dcterms:creator ;
+      owl:onProperty dct:creator ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -218,37 +224,52 @@ TerraDCAT_ap:Dataset
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:creator ;
+      owl:onProperty dct:creator ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:description ;
+      owl:onProperty dct:description ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:issued ;
+      owl:onProperty dct:identifier ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:modified ;
+      owl:onProperty dct:issued ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:publisher ;
+      owl:onProperty dct:modified ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:title ;
+      owl:onProperty dct:publisher ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dct:title ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:accrualPeriodicity ;
+      owl:onProperty dct:accrualPeriodicity ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dct:license ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:landingPage ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -268,25 +289,44 @@ TerraDCAT_ap:Dataset
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:conformsTo ;
+      owl:onProperty dct:conformsTo ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcterms:hasPart ;
+      owl:onProperty dct:hasPart ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dct:isPartOf ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:contactPoint ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dcat:theme ;
     ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty prov:wasGeneratedBy ;
+      owl:someValuesFrom prov:Activity ;
+    ] ;
   skos:prefLabel "Dataset" ;
-  prov:definition "Extension of DCAT:Dataset to support Data Use Ontology terms and set required properties for DSP DCAT Application Profile.  A collection of one or more entities submitted by a single responsible party or authorizing agent." ;
+  prov:definition "An extension of DCAT:Dataset to support Data Use Ontology terms.  A collection of one or more entities submitted by a single responsible party or authorizing agent." ;
 .
-TerraDCAT_ap:hadAffiliation
+TerraDCAT_ap:hasCustodian
   a rdf:Property ;
-  rdfs:label "hasAffiliation" ;
-  rdfs:range xsd:string ;
+  rdfs:domain TerraDCAT_ap:DataCollection ;
+  rdfs:domain TerraDCAT_ap:Dataset ;
+  rdfs:label "hasCustodian" ;
+  rdfs:range dct:Agent ;
+  rdfs:subPropertyOf dct:publisher ;
+  skos:definition "The entity operationally responsible for managing the item and responsible for authorizing users of the Dataset or DataCollection." ;
 .
 TerraDCAT_ap:hasDataCollection
   a owl:ObjectProperty ;
@@ -330,6 +370,25 @@ TerraDCAT_ap:hasDataset
   rdfs:range TerraDCAT_ap:Dataset ;
   rdfs:subPropertyOf dcat:dataset ;
   skos:prefLabel "hasDataset" ;
+.
+TerraDCAT_ap:hasOriginalPublication
+  a rdf:Property ;
+  rdfs:domain TerraDCAT_ap:DataCollection ;
+  rdfs:domain TerraDCAT_ap:Dataset ;
+  rdfs:label "hasOriginalPublication" ;
+  rdfs:range dct:URI ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf dct:isReferencedBy ;
+  skos:definition "The original publication associated with this Dataset or DataCollection." ;
+.
+TerraDCAT_ap:hasOwner
+  a rdf:Property ;
+  rdfs:domain TerraDCAT_ap:DataCollection ;
+  rdfs:domain TerraDCAT_ap:Dataset ;
+  rdfs:label "hasOwner" ;
+  rdfs:range dct:Agent ;
+  rdfs:subPropertyOf dct:publisher ;
+  skos:definition "The entity responsible for making the item available and responsible for identifying authorized users of the Dataset or DataCollection." ;
 .
 TerraDCAT_ap:wasPrincipalInvestigator
   a owl:ObjectProperty ;
