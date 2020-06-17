@@ -1,12 +1,13 @@
 # baseURI: http://datamodel.terra.bio/TerraCore
+# imports: http://datamodel.terra.bio/CL_subset.owl
 # imports: http://datamodel.terra.bio/EFO_subset.owl
 # imports: http://datamodel.terra.bio/OBI_assaySubset.owl
 # imports: http://datamodel.terra.bio/OBI_core
 # imports: http://datamodel.terra.bio/TerraCoreValueSets
 # imports: http://datamodel.terra.bio/TerraDCAT_ap
-# imports: http://purl.obolibrary.org/obo/
+# imports: http://datamodel.terra.bio/UBERON_subset.owl
+# imports: http://www.jcvi.org/framework/nsf2_full_mtg
 # imports: http://www.w3.org/2002/07/owl
-# imports: http://xmlns.com/foaf/0.1/
 # prefix: TerraCore
 
 @prefix : <http://datamodel.terra.bio/TerraCore#> .
@@ -19,6 +20,7 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix duo: <http://purl.obolibrary.org/obo/duo-basic.owl#> .
+@prefix nsf2_full_mtg: <http://www.jcvi.org/framework/nsf2_full_mtg#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -30,14 +32,15 @@
 
 <http://datamodel.terra.bio/TerraCore>
   a owl:Ontology ;
+  owl:imports <http://datamodel.terra.bio/CL_subset.owl> ;
   owl:imports <http://datamodel.terra.bio/EFO_subset.owl> ;
   owl:imports <http://datamodel.terra.bio/OBI_assaySubset.owl> ;
   owl:imports <http://datamodel.terra.bio/OBI_core> ;
   owl:imports <http://datamodel.terra.bio/TerraCoreValueSets> ;
   owl:imports <http://datamodel.terra.bio/TerraDCAT_ap> ;
-  owl:imports obo: ;
+  owl:imports <http://datamodel.terra.bio/UBERON_subset.owl> ;
+  owl:imports <http://www.jcvi.org/framework/nsf2_full_mtg> ;
   owl:imports <http://www.w3.org/2002/07/owl> ;
-  owl:imports <http://xmlns.com/foaf/0.1/> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
 TerraCore:Activity
@@ -534,6 +537,17 @@ TerraCore:MolecularSample
   rdfs:subClassOf TerraCore:Sample ;
   skos:prefLabel "MolecularSample" ;
   prov:definition "Data about a physical sample collected from one or more molecular entities, either purified from a Sample or synthesized." ;
+.
+TerraCore:MouseDonor
+  a owl:Class ;
+  rdfs:label "MouseDonor" ;
+  rdfs:subClassOf TerraCore:Donor ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:hasValue TerraCore:Mus_musculus ;
+      owl:onProperty TerraCore:hasOrganism ;
+    ] ;
+  skos:definition "Extension of Donor class for mice." ;
 .
 TerraCore:Mus_musculus
   a obo:NCBITaxon_10090 ;
@@ -1081,6 +1095,12 @@ TerraCore:hasDataUseRequirement
   rdfs:domain TerraCore:Library ;
   rdfs:domain TerraCore:Sample ;
 .
+TerraCore:hasDevelopmentalStage
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:BioSample ;
+  rdfs:label "hasDevelopmentalStage" ;
+  skos:prefLabel "hasDevelopmentalStage" ;
+.
 TerraCore:hasDuplicateFragments
   a owl:DatatypeProperty ;
   rdfs:comment "For alignment data types." ;
@@ -1302,6 +1322,14 @@ TerraCore:hasStopPosition
   rdfs:domain TerraCore:SequenceLocation ;
   rdfs:label "hasStopPosition" ;
   rdfs:range xsd:integer ;
+.
+TerraCore:hasStrain
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:MouseDonor ;
+  rdfs:label "hasStrain" ;
+  rdfs:range xsd:string ;
+  skos:definition "Text string to represent the strain." ;
+  skos:prefLabel "hasStrain" ;
 .
 TerraCore:hasTarget
   a owl:DatatypeProperty ;
