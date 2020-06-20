@@ -277,6 +277,16 @@
     
 
 
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009091 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009091">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sample dissociation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0002694"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.ebi.ac.uk/efo/EFO_0009106 -->
 
     <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009106">
@@ -343,6 +353,26 @@
         <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0009106"/>
         <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell separation by density gradient centrifugation</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">density gradient</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009128 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009128">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">enzymatic dissociation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0009091"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009129 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009129">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mechanical dissociation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0009091"/>
         <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
     </owl:Class>
     
