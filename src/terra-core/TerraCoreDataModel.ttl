@@ -1,18 +1,18 @@
 # baseURI: http://datamodel.terra.bio/TerraCore
-# imports: http://datamodel.terra.bio/CL_subset.owl
 # imports: http://datamodel.terra.bio/EFO_subset.owl
-# imports: http://datamodel.terra.bio/OBI_assaySubset.owl
+# imports: http://datamodel.terra.bio/NCBITaxon_Organisms.owl
+# imports: http://datamodel.terra.bio/OBI_assaySubset
 # imports: http://datamodel.terra.bio/OBI_core
 # imports: http://datamodel.terra.bio/TerraCoreValueSets
 # imports: http://datamodel.terra.bio/TerraDCAT_ap
-# imports: http://datamodel.terra.bio/UBERON_subset.owl
-# imports: http://www.jcvi.org/framework/nsf2_full_mtg
 # imports: http://www.w3.org/2002/07/owl
 # prefix: TerraCore
 
 @prefix : <http://datamodel.terra.bio/TerraCore#> .
 @prefix EFO_subset: <http://datamodel.terra.bio/EFO_subset.owl#> .
+@prefix NCBITaxon_Organisms: <http://datamodel.terra.bio/NCBITaxon_Organisms.owl#> .
 @prefix OBI_Taxon_Organisms: <http://datamodel.terra.bio/OBI_Taxon_Organisms.owl#> .
+@prefix OBI_assaySubset: <http://datamodel.terra.bio/OBI_assaySubset#> .
 @prefix TerraCore: <http://datamodel.terra.bio/TerraCore#> .
 @prefix TerraCoreValueSets: <http://datamodel.terra.bio/TerraCoreValueSets#> .
 @prefix TerraDCAT_ap: <http://datamodel.terra.bio/TerraDCAT_ap#> .
@@ -32,14 +32,12 @@
 
 <http://datamodel.terra.bio/TerraCore>
   a owl:Ontology ;
-  owl:imports <http://datamodel.terra.bio/CL_subset.owl> ;
   owl:imports <http://datamodel.terra.bio/EFO_subset.owl> ;
-  owl:imports <http://datamodel.terra.bio/OBI_assaySubset.owl> ;
+  owl:imports <http://datamodel.terra.bio/NCBITaxon_Organisms.owl> ;
+  owl:imports <http://datamodel.terra.bio/OBI_assaySubset> ;
   owl:imports <http://datamodel.terra.bio/OBI_core> ;
   owl:imports <http://datamodel.terra.bio/TerraCoreValueSets> ;
   owl:imports <http://datamodel.terra.bio/TerraDCAT_ap> ;
-  owl:imports <http://datamodel.terra.bio/UBERON_subset.owl> ;
-  owl:imports <http://www.jcvi.org/framework/nsf2_full_mtg> ;
   owl:imports <http://www.w3.org/2002/07/owl> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
@@ -310,12 +308,6 @@ TerraCore:BiologicalSex
   rdfs:subClassOf obo:BFO_0000019 ;
   rdfs:subClassOf obo:PATO_0001894 ;
   skos:definition "A quality of an organism indicating physical sexual characteristics. Equivalent of PATO's phenotypic sex but pseudohermaphrodite is not relevant to existing data and is not recommended." ;
-.
-TerraCore:CellDissociation
-  a owl:Class ;
-  rdfs:label "CellDissociation" ;
-  rdfs:subClassOf TerraCore:Activity ;
-  skos:definition "Activity which results in the separation of a biological specimen into individual cells or a cell suspension." ;
 .
 TerraCore:ChromosomalLocation
   a owl:Class ;
@@ -688,6 +680,13 @@ TerraCore:Sample
   skos:definition "Data about a physical material collected for the purpose of research." ;
   skos:prefLabel "Sample" ;
 .
+TerraCore:SampleDissociation
+  a owl:Class ;
+  rdfs:label "SampleDissociation" ;
+  rdfs:subClassOf TerraCore:Activity ;
+  owl:equivalentClass <http://www.ebi.ac.uk/efo/EFO_0009091> ;
+  skos:definition "Activity which results in the separation of a Sample into a cell suspension." ;
+.
 TerraCore:SequenceFile
   a owl:Class ;
   rdfs:label "SequenceFile" ;
@@ -759,6 +758,16 @@ TerraCore:Sequencing
   owl:disjointWith TerraCore:VariantCalling ;
   skos:prefLabel "Sequencing" ;
   prov:definition "An activity that produces an electronic record of a genetic sequence from a Sample" ;
+.
+TerraCore:SingleCell
+  a owl:Class ;
+  rdfs:label "SingleCell" ;
+  rdfs:subClassOf TerraCore:BioSample ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasAnatomicalRegion ;
+    ] ;
 .
 TerraCore:SingleCellIsolation
   a owl:Class ;
@@ -968,6 +977,16 @@ TerraCore:hasAlpha2Code
   rdfs:label "hasAlpha2Code" ;
   rdfs:range xsd:string ;
 .
+TerraCore:hasAnatomicalRegion
+  a owl:DatatypeProperty ;
+  rdfs:comment "Many groups are convening to define Common Coordinate Frameworks for specific organs/species.  This will be a rapidly evolving area in the near future.  Thus allowing text or URI as we wait for the field to mature allows us to support what we hope will at a minimum be controlled vocabulary under discussion of these groups." ;
+  rdfs:domain TerraCore:BioSample ;
+  rdfs:label "hasAnatomicalRegion" ;
+  rdfs:range xsd:anyURI ;
+  rdfs:range xsd:string ;
+  skos:definition "A reference to the physical location within the AnatomicalSite from which the BioSample was taken." ;
+  skos:prefLabel "hasAnatomicalRegion" ;
+.
 TerraCore:hasAnatomicalSite
   a owl:DatatypeProperty ;
   rdfs:comment "May want to consider restricting this to UBERON terms but currently any URI is allowed." ;
@@ -1029,6 +1048,12 @@ TerraCore:hasBirthDate
   rdfs:label "hasBirthDate" ;
   rdfs:range xsd:dateTime ;
   rdfs:subPropertyOf dct:date ;
+.
+TerraCore:hasCellType
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:SingleCell ;
+  rdfs:label "hasCellType" ;
+  rdfs:range obo:CL_0000003 ;
 .
 TerraCore:hasChecksum
   a owl:DatatypeProperty ;
@@ -1099,6 +1124,8 @@ TerraCore:hasDevelopmentalStage
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasDevelopmentalStage" ;
+  rdfs:range dct:URI ;
+  rdfs:range xsd:string ;
   skos:prefLabel "hasDevelopmentalStage" ;
 .
 TerraCore:hasDuplicateFragments
