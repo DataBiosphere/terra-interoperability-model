@@ -1,7 +1,7 @@
 ## Core Data Model for Terra (Terra Core)
 
 ### What is Terra Core?
-The Core Data Model for Terra is a common data model for biomedical research intended to facilitate and encourage data sharing and reuse.  Its purpose is to enable researchers to find highly connected biomedical data in a federated search space.  
+The Core Data Model for Terra is a common set of concepts and relationships for biomedical research for biomedical research intended to facilitate and encourage data sharing and reuse.  Its purpose is to enable researchers to find highly connected biomedical data in a federated search space.  
 
 Examples of searches include:
 * *Find all glioma data that I can access for commercial research*
