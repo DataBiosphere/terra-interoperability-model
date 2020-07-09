@@ -331,11 +331,19 @@ TerraCore:Country
     ] ;
   skos:definition "A country represented by the ISO-3166 Alpha-2 code and name (as a label). https://www.iso.org/obp/ui/#search" ;
 .
+TerraCore:Dog
+  a obo:NCBITaxon_9615 ;
+  rdfs:label "Dog" ;
+.
 TerraCore:DogDonor
   a owl:Class ;
-  TerraCore:hasOrganism TerraCore:Canis_lupus_familaris ;
   rdfs:label "DogDonor" ;
   rdfs:subClassOf TerraCore:Donor ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:hasValue TerraCore:Dog ;
+      owl:onProperty TerraCore:hasOrganism ;
+    ] ;
   skos:definition "Extension of Donor class for dogs." ;
 .
 TerraCore:Donor
