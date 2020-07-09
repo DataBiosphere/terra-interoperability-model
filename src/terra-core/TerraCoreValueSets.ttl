@@ -103,11 +103,6 @@ TerraCoreValueSets:CTScanModality
   rdfs:label "CT scan" ;
   rdfs:subClassOf TerraCoreValueSets:MedicalImagingModality ;
 .
-TerraCoreValueSets:Canis_lupus_familaris
-  a obo:NCBITaxon_9615 ;
-  rdfs:label "Canis lupus familiaris" ;
-  skos:definition "Instance of dog organism to define organism type." ;
-.
 TerraCoreValueSets:CellFreeDNA
   a TerraCoreValueSets:CellFreeDNAType ;
   rdfs:label "Cell free DNA" ;
