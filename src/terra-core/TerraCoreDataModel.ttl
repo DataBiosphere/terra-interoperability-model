@@ -331,6 +331,12 @@ TerraCore:Country
     ] ;
   skos:definition "A country represented by the ISO-3166 Alpha-2 code and name (as a label). https://www.iso.org/obp/ui/#search" ;
 .
+TerraCore:Diagnosis
+  a owl:Class ;
+  rdfs:label "Diagnosis" ;
+  rdfs:subClassOf obo:IAO_0000030 ;
+  skos:definition "Result of a medical investigation that often identies a disease or condition." ;
+.
 TerraCore:Dog
   a obo:NCBITaxon_9615 ;
   rdfs:label "Dog" ;
@@ -382,6 +388,36 @@ TerraCore:Donor
     ] ;
   skos:definition "An organism from which a sample or test result is available" ;
   skos:prefLabel "Donor" ;
+.
+TerraCore:FamilyMember
+  a owl:Class ;
+  rdfs:label "Family Member" ;
+  rdfs:subClassOf obo:OBI_0100026 ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hadMannerOfDeath ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasEthnicity ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasRace ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasSex ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:hasValue TerraCore:Homo_sapiens ;
+      owl:onProperty TerraCore:hasOrganism ;
+    ] ;
 .
 TerraCore:Female
   a TerraCore:FemaleSex ;
@@ -867,6 +903,34 @@ TerraCore:Weight
   owl:equivalentClass obo:PATO_0000128 ;
   skos:definition "A measurement of the mass of an entity." ;
 .
+TerraCore:ageAtDiagnosis
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:Diagnosis ;
+  rdfs:label "ageAtDiagnosis" ;
+  rdfs:range TerraCore:Age ;
+  skos:definition "A reference to the Age of the Donor at the point in time that diagnosis was made." ;
+  skos:prefLabel "ageAtDiagnosis" ;
+.
+TerraCore:ageAtOnset
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:Diagnosis ;
+  rdfs:label "ageAtOnset" ;
+  rdfs:range TerraCore:Age ;
+  skos:definition "A reference to the Age of the Donor at the onset of the disease associated with the diagnosis." ;
+  skos:prefLabel "ageAtOnset" ;
+.
+TerraCore:confirmedDisease
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:Diagnosis ;
+  rdfs:label "confirmedDisease" ;
+  rdfs:range obo:MONDO_0000001 ;
+.
+TerraCore:contributedToDeath
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:Diagnosis ;
+  rdfs:label "contributedToDeath" ;
+  rdfs:range xsd:boolean ;
+.
 TerraCore:dateObtained
   a rdf:Property ;
   rdfs:domain TerraCore:BioSample ;
@@ -875,6 +939,25 @@ TerraCore:dateObtained
   rdfs:subPropertyOf dct:date ;
   skos:definition "Date the BioSample was originally obtained from its Donor." ;
   skos:prefLabel "Date Obtained" ;
+.
+TerraCore:dateOfBirth
+  a rdf:Property ;
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:Donor ;
+  rdfs:domain TerraCore:FamilyMember ;
+  rdfs:label "Date of Birth" ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf dct:date ;
+.
+TerraCore:dateOfDeath
+  a rdf:Property ;
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:Donor ;
+  rdfs:domain TerraCore:FamilyMember ;
+  rdfs:label "Date of Death" ;
+  rdfs:range xsd:date ;
+  rdfs:range xsd:dateTime ;
+  rdfs:subPropertyOf dct:date ;
 .
 TerraCore:donated
   a owl:ObjectProperty ;
@@ -894,6 +977,21 @@ TerraCore:donatedBy
   skos:definition "The donatedBy property references the Donor organism from which the BioSample was acquired." ;
   skos:prefLabel "donatedBy" ;
 .
+TerraCore:exhibitsDisease
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:BioSample ;
+  rdfs:label "exhibitsDisease" ;
+  rdfs:range obo:OGMS_0000031 ;
+.
+TerraCore:hadAgeAtDeath
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:FamilyMember ;
+  rdfs:domain TerraCore:HumanDonor ;
+  rdfs:label "hadAgeAtDeath" ;
+  rdfs:range TerraCore:Age ;
+  skos:definition "A reference to the Age of the Donor at time of death." ;
+  skos:prefLabel "hadAgeAtDeath" ;
+.
 TerraCore:hadAssay
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:BioSample ;
@@ -902,6 +1000,16 @@ TerraCore:hadAssay
   rdfs:subPropertyOf prov:wasUsedBy ;
   skos:prefLabel "hadAssay" ;
 .
+TerraCore:hadDiagnosis
+  a owl:DatatypeProperty ;
+  rdfs:comment "Considering using HANCESTRO ancestry category subclasses as options here.  In the meantime, capturing a text string.  Also consider whether we need to track reported and genetic as determined by genetic analysis." ;
+  rdfs:domain TerraCore:FamilyMember ;
+  rdfs:domain TerraCore:HumanDonor ;
+  rdfs:label "hadDiagnosis" ;
+  rdfs:range TerraCore:Diagnosis ;
+  skos:definition "A property that relects a HumanDonor's reported race. " ;
+  skos:prefLabel "had diagnosis" ;
+.
 TerraCore:hadLibraryPrep
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:BioSample ;
@@ -909,6 +1017,14 @@ TerraCore:hadLibraryPrep
   rdfs:range TerraCore:LibraryPreparation ;
   rdfs:subPropertyOf prov:wasUsedBy ;
   skos:prefLabel "hadLibraryPrep" ;
+.
+TerraCore:hadMannerOfDeath
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:FamilyMember ;
+  rdfs:domain TerraCore:HumanDonor ;
+  rdfs:label "had manner of death" ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "had manner of death" ;
 .
 TerraCore:hadProtocol
   a owl:DatatypeProperty ;
@@ -931,6 +1047,7 @@ TerraCore:hasAge
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:domain TerraCore:Donor ;
+  rdfs:domain TerraCore:FamilyMember ;
   rdfs:label "hasAge" ;
   rdfs:range TerraCore:Age ;
   skos:definition "A reference to the Age of the Donor at the point in time that data was collected or that the BioSample was obtained." ;
@@ -1050,12 +1167,13 @@ TerraCore:hasBioSampleType
   rdfs:range TerraCoreValueSets:BioSampleType ;
   rdfs:subPropertyOf TerraCore:hasSampleType ;
 .
-TerraCore:hasBirthDate
+TerraCore:hasBirthYear
   a rdf:Property ;
+  a owl:DatatypeProperty ;
   rdfs:domain TerraCore:Donor ;
-  rdfs:label "hasBirthDate" ;
-  rdfs:range xsd:dateTime ;
-  rdfs:subPropertyOf dct:date ;
+  rdfs:domain TerraCore:FamilyMember ;
+  rdfs:label "has birth year" ;
+  rdfs:range xsd:integer ;
 .
 TerraCore:hasCellType
   a owl:ObjectProperty ;
@@ -1069,6 +1187,15 @@ TerraCore:hasChecksum
   rdfs:label "hasChecksum" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasChecksum" ;
+.
+TerraCore:hasChild
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:FamilyMember ;
+  rdfs:domain TerraCore:HumanDonor ;
+  rdfs:label "hasChild" ;
+  rdfs:range TerraCore:FamilyMember ;
+  rdfs:range TerraCore:HumanDonor ;
+  skos:definition "A property that identifies genetic children." ;
 .
 TerraCore:hasChromosome
   a owl:DatatypeProperty ;
@@ -1157,11 +1284,20 @@ TerraCore:hasEstimatedLibrarySize
 TerraCore:hasEthnicity
   a owl:DatatypeProperty ;
   rdfs:comment "Considering using HANCESTRO ancestry category subclasses as options here.  In the meantime, capturing a text string.  Also consider whether we need to track reported and genetic as determined by genetic analysis." ;
+  rdfs:domain TerraCore:FamilyMember ;
   rdfs:domain TerraCore:HumanDonor ;
-  rdfs:label "hasEthnicity" ;
+  rdfs:label "has ethnicity" ;
   rdfs:range xsd:string ;
   skos:definition "A property that relects a HumanDonor's reported ethnic origin. " ;
-  skos:prefLabel "hasEthnicity" ;
+  skos:prefLabel "has ethnicity" ;
+.
+TerraCore:hasFamilyID
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:FamilyMember ;
+  rdfs:domain TerraCore:HumanDonor ;
+  rdfs:label "hasFamilyID" ;
+  rdfs:range xsd:string ;
+  skos:definition "A property identifies the family with whom this Donor is affiliated." ;
 .
 TerraCore:hasFileFormat
   a owl:DatatypeProperty ;
@@ -1186,6 +1322,15 @@ TerraCore:hasGRCName
   rdfs:label "hasGRCName" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasGRCName" ;
+.
+TerraCore:hasHalfSibling
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:FamilyMember ;
+  rdfs:domain TerraCore:HumanDonor ;
+  rdfs:label "hasHalfSibling" ;
+  rdfs:range TerraCore:FamilyMember ;
+  rdfs:range TerraCore:HumanDonor ;
+  skos:definition "A property that identifies genetic half siblings." ;
 .
 TerraCore:hasLibraryLayout
   a owl:DatatypeProperty ;
@@ -1271,6 +1416,15 @@ TerraCore:hasPairedEndIdentifier
         ) ;
     ] ;
 .
+TerraCore:hasParent
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:FamilyMember ;
+  rdfs:domain TerraCore:HumanDonor ;
+  rdfs:label "hasParent" ;
+  rdfs:range TerraCore:FamilyMember ;
+  rdfs:range TerraCore:HumanDonor ;
+  skos:definition "A property that identifies genetic parents." ;
+.
 TerraCore:hasPercentAlignedReads
   a owl:DatatypeProperty ;
   rdfs:comment "Domain will change from File to SequencingOutputFile or SequenceActivity in future." ;
@@ -1310,6 +1464,16 @@ TerraCore:hasPreservationState
     ] ;
   skos:definition "Method used to preserve the BioSample, if relevant, or Fresh for BioSamples that were not preserved." ;
 .
+TerraCore:hasRace
+  a owl:DatatypeProperty ;
+  rdfs:comment "Considering using HANCESTRO ancestry category subclasses as options here.  In the meantime, capturing a text string.  Also consider whether we need to track reported and genetic as determined by genetic analysis." ;
+  rdfs:domain TerraCore:FamilyMember ;
+  rdfs:domain TerraCore:HumanDonor ;
+  rdfs:label "hasRace" ;
+  rdfs:range xsd:string ;
+  skos:definition "A property that relects a HumanDonor's reported race. " ;
+  skos:prefLabel "has race" ;
+.
 TerraCore:hasReadCount
   a owl:DatatypeProperty ;
   rdfs:comment "Domain will change from File to SequencingOutputFile or SequenceActivity in future." ;
@@ -1345,6 +1509,15 @@ TerraCore:hasSex
   rdfs:range TerraCore:BiologicalSex ;
   skos:definition "A reference to the BiologicalSex of the Donor organism." ;
   skos:prefLabel "hasSex" ;
+.
+TerraCore:hasSibling
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:FamilyMember ;
+  rdfs:domain TerraCore:HumanDonor ;
+  rdfs:label "hasSibling" ;
+  rdfs:range TerraCore:FamilyMember ;
+  rdfs:range TerraCore:HumanDonor ;
+  skos:definition "A property that identifies full genetic siblings." ;
 .
 TerraCore:hasStartPosition
   a owl:DatatypeProperty ;
@@ -1488,6 +1661,9 @@ obo:NCBITaxon_10090
 .
 obo:NCBITaxon_9606
   skos:definition "Instance of Homo sapiens organism to define organism type." ;
+.
+obo:OGMS_0000031
+  owl:equivalentClass obo:MONDO_0000001 ;
 .
 prov:Agent
   owl:equivalentClass <http://xmlns.com/foaf/0.1/Agent> ;
