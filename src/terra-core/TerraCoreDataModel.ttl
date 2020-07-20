@@ -32,6 +32,10 @@
 
 <http://datamodel.terra.bio/TerraCore>
   a owl:Ontology ;
+  dc:creator "Kathy Reinold" ;
+  dct:date "20 Jul 2020" ;
+  dct:license <https://github.com/DataBiosphere/terra-interoperability-model/blob/master/LICENSE> ;
+  rdfs:comment "Please cite The Broad Institute of Harvard and MIT, Data Sciences Platform." ;
   owl:imports <http://datamodel.terra.bio/EFO_subset.owl> ;
   owl:imports <http://datamodel.terra.bio/NCBITaxon_Organisms.owl> ;
   owl:imports <http://datamodel.terra.bio/OBI_assaySubset> ;
@@ -39,7 +43,7 @@
   owl:imports <http://datamodel.terra.bio/TerraCoreValueSets> ;
   owl:imports <http://datamodel.terra.bio/TerraDCAT_ap> ;
   owl:imports <http://www.w3.org/2002/07/owl> ;
-  owl:versionInfo "Created with TopBraid Composer" ;
+  owl:versionInfo "Version 1.0.0" ;
 .
 TerraCore:Activity
   a owl:Class ;
@@ -301,6 +305,13 @@ TerraCore:BioSample
     ] ;
   skos:definition "Data about a physical sample consisting of one or more cells taken from an organism (living or deceased) or derived from such a Sample." ;
   skos:prefLabel "BioSample" ;
+.
+TerraCore:BioSampleDissociation
+  a owl:Class ;
+  rdfs:label "BioSampleDissociation" ;
+  rdfs:subClassOf TerraCore:Activity ;
+  owl:equivalentClass <http://www.ebi.ac.uk/efo/EFO_0009091> ;
+  skos:definition "Activity which results in the separation of a BioSample into individual cells or a cell suspension." ;
 .
 TerraCore:BiologicalSex
   a owl:Class ;
@@ -572,7 +583,7 @@ TerraCore:MolecularSample
   rdfs:label "MolecularSample" ;
   rdfs:subClassOf TerraCore:Sample ;
   skos:prefLabel "MolecularSample" ;
-  prov:definition "Data about a physical sample collected from one or more molecular entities, either purified from a Sample or synthesized." ;
+  prov:definition "Data about a physical sample consisting of one or more molecular entities, either purified from a Sample or synthesized." ;
 .
 TerraCore:MouseDonor
   a owl:Class ;
@@ -593,6 +604,13 @@ TerraCore:NoRestriction
   a obo:DUO_0000004 ;
   rdfs:label "NoRestriction" ;
   skos:prefLabel "NoRestriction" ;
+.
+TerraCore:NucleusIsolation
+  a owl:Class ;
+  rdfs:label "NucleusIsolation" ;
+  rdfs:subClassOf TerraCore:Activity ;
+  owl:equivalentClass <http://www.ebi.ac.uk/efo/EFO_0007831> ;
+  skos:definition "Activity to separate the nucleus from the cell.  " ;
 .
 TerraCore:Pipeline
   a owl:Class ;
@@ -724,13 +742,6 @@ TerraCore:Sample
   skos:definition "Data about a physical material collected for the purpose of research." ;
   skos:prefLabel "Sample" ;
 .
-TerraCore:SampleDissociation
-  a owl:Class ;
-  rdfs:label "SampleDissociation" ;
-  rdfs:subClassOf TerraCore:Activity ;
-  owl:equivalentClass <http://www.ebi.ac.uk/efo/EFO_0009091> ;
-  skos:definition "Activity which results in the separation of a Sample into a cell suspension." ;
-.
 TerraCore:SequenceFile
   a owl:Class ;
   rdfs:label "SequenceFile" ;
@@ -812,6 +823,13 @@ TerraCore:SingleCell
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasAnatomicalRegion ;
     ] ;
+  skos:definition "Data about a physical sample consisting of a single cell or nucleus taken from an organism (living or deceased) or derived from such a Sample." ;
+.
+TerraCore:SingleCellAssignment
+  a owl:Class ;
+  rdfs:label "SingleCellAssignment" ;
+  rdfs:subClassOf TerraCore:Activity ;
+  skos:definition "An activity that infers a cell type based on analysis.  " ;
 .
 TerraCore:SingleCellIsolation
   a owl:Class ;
@@ -1000,6 +1018,24 @@ TerraCore:hadAssay
   rdfs:subPropertyOf prov:wasUsedBy ;
   skos:prefLabel "hadAssay" ;
 .
+TerraCore:hadCellCycle
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:SingleCell ;
+  rdfs:label "hadCellCycle" ;
+  rdfs:range dct:URI ;
+  rdfs:range xsd:string ;
+  skos:definition "A property that describes the stage of the cell cycle at the time the sample was obtained." ;
+  skos:prefLabel "hadCellCycle" ;
+.
+TerraCore:hadCellState
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:SingleCell ;
+  rdfs:label "hadCellState" ;
+  rdfs:range dct:URI ;
+  rdfs:range xsd:string ;
+  skos:definition "A property that describes the cell’s metabolic or electrophysiological state." ;
+  skos:prefLabel "hadCellState" ;
+.
 TerraCore:hadDiagnosis
   a owl:DatatypeProperty ;
   rdfs:comment "Considering using HANCESTRO ancestry category subclasses as options here.  In the meantime, capturing a text string.  Also consider whether we need to track reported and genetic as determined by genetic analysis." ;
@@ -1105,7 +1141,7 @@ TerraCore:hasAlpha2Code
 TerraCore:hasAnatomicalRegion
   a owl:DatatypeProperty ;
   rdfs:comment "Many groups are convening to define Common Coordinate Frameworks for specific organs/species.  This will be a rapidly evolving area in the near future.  Thus allowing text or URI as we wait for the field to mature allows us to support what we hope will at a minimum be controlled vocabulary under discussion of these groups." ;
-  rdfs:domain TerraCore:BioSample ;
+  rdfs:domain TerraCore:SingleCell ;
   rdfs:label "hasAnatomicalRegion" ;
   rdfs:range xsd:anyURI ;
   rdfs:range xsd:string ;
@@ -1130,6 +1166,12 @@ TerraCore:hasAntibody
   rdfs:range TerraCore:Antibody ;
   rdfs:subPropertyOf prov:used ;
   skos:prefLabel "hasAntibody" ;
+.
+TerraCore:hasAprioriCellType
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:SingleCell ;
+  rdfs:label "hasAprioriCellType" ;
+  rdfs:range obo:CL_0000003 ;
 .
 TerraCore:hasAssayCategory
   a owl:ObjectProperty ;
@@ -1174,12 +1216,6 @@ TerraCore:hasBirthYear
   rdfs:domain TerraCore:FamilyMember ;
   rdfs:label "has birth year" ;
   rdfs:range xsd:integer ;
-.
-TerraCore:hasCellType
-  a owl:ObjectProperty ;
-  rdfs:domain TerraCore:SingleCell ;
-  rdfs:label "hasCellType" ;
-  rdfs:range obo:CL_0000003 ;
 .
 TerraCore:hasChecksum
   a owl:DatatypeProperty ;
@@ -1563,7 +1599,6 @@ TerraCore:hasUpperBound
 .
 TerraCore:hasVariantCall
   a owl:ObjectProperty ;
-  rdfs:domain TerraCore:BioSample ;
   rdfs:domain TerraCore:VariantCallSet ;
   rdfs:label "hasVariantCall" ;
   rdfs:range TerraCore:VariantCall ;
@@ -1606,6 +1641,12 @@ TerraCore:investigatedBy
   a owl:ObjectProperty ;
   rdfs:label "investigatedBy" ;
   skos:prefLabel "investigatedBy" ;
+.
+TerraCore:isWholeCell
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:SingleCell ;
+  rdfs:label "isWholeCell" ;
+  rdfs:range xsd:boolean ;
 .
 TerraCore:usedLibrary
   a owl:ObjectProperty ;
