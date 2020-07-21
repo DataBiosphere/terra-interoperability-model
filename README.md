@@ -36,7 +36,7 @@ Prefixes are shorthand to reference concepts and properties in another namespace
 * PREFIX prov: <http://www.w3.org/ns/prov#> .<br>
 * PREFIX skos: <http://www.w3.org/2004/02/skos/core#> .
 
-![Figure - Terra Interoperability Model Overview Draft](https://github.com/DataBiosphere/terra-core-data-model/blob/master/documents/Terra Interoperability Model V1.jpg)
+![Figure - Terra Interoperability Model Overview Draft](https://github.com/DataBiosphere/terra-interoperability-model/blob/master/documents/Terra%20Interoperability%20Model%20V1.jpg)
 
 ### Status
 The Terra Interoperability Model is currently under development, is available in Turtle (.ttl) serialization form, and may be released in other forms over time.
