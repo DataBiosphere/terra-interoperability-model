@@ -1022,7 +1022,7 @@ TerraCore:hadCellCycle
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:SingleCell ;
   rdfs:label "hadCellCycle" ;
-  rdfs:range dct:URI ;
+  rdfs:range xsd:anyURI ;
   rdfs:range xsd:string ;
   skos:definition "A property that describes the stage of the cell cycle at the time the sample was obtained." ;
   skos:prefLabel "hadCellCycle" ;
@@ -1031,7 +1031,7 @@ TerraCore:hadCellState
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:SingleCell ;
   rdfs:label "hadCellState" ;
-  rdfs:range dct:URI ;
+  rdfs:range xsd:anyURI ;
   rdfs:range xsd:string ;
   skos:definition "A property that describes the cell’s metabolic or electrophysiological state." ;
   skos:prefLabel "hadCellState" ;
@@ -1066,7 +1066,7 @@ TerraCore:hadProtocol
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:Activity ;
   rdfs:label "hadProtocol" ;
-  rdfs:range dct:URI ;
+  rdfs:range xsd:anyURI ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf prov:used ;
   skos:prefLabel "hadProtocol" ;
@@ -1143,7 +1143,7 @@ TerraCore:hasAnatomicalRegion
   rdfs:comment "Many groups are convening to define Common Coordinate Frameworks for specific organs/species.  This will be a rapidly evolving area in the near future.  Thus allowing text or URI as we wait for the field to mature allows us to support what we hope will at a minimum be controlled vocabulary under discussion of these groups." ;
   rdfs:domain TerraCore:SingleCell ;
   rdfs:label "hasAnatomicalRegion" ;
-  rdfs:range dct:URI ;
+  rdfs:range xsd:anyURI ;
   rdfs:range xsd:string ;
   skos:definition "A reference to the physical location within the AnatomicalSite from which the BioSample was taken." ;
   skos:prefLabel "hasAnatomicalRegion" ;
@@ -1153,7 +1153,7 @@ TerraCore:hasAnatomicalSite
   rdfs:comment "May want to consider restricting this to UBERON terms but currently any URI is allowed." ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasAnatomicalSite" ;
-  rdfs:range dct:URI ;
+  rdfs:range xsd:anyURI ;
   skos:definition "A reference to the site within the organism from which the BioSample was taken." ;
   skos:prefLabel "hasAnatomicalSite" ;
 .
@@ -1259,7 +1259,7 @@ TerraCore:hasCountry
 TerraCore:hasCrossReference
   a owl:ObjectProperty ;
   rdfs:label "hasCrossReference" ;
-  rdfs:range dct:URI ;
+  rdfs:range xsd:anyURI ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf skos:closeMatch ;
   skos:definition "Reference to the entity in another electronic system.  The data stored about the entity may vary from system to system, but this relationship asserts that the reference represents the same entity." ;
@@ -1295,7 +1295,7 @@ TerraCore:hasDevelopmentalStage
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasDevelopmentalStage" ;
-  rdfs:range dct:URI ;
+  rdfs:range xsd:anyURI ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasDevelopmentalStage" ;
 .
@@ -1581,7 +1581,7 @@ TerraCore:hasTarget
   rdfs:domain TerraCore:Antibody ;
   rdfs:domain TerraCore:AssayActivity ;
   rdfs:label "hasTarget" ;
-  rdfs:range dct:URI ;
+  rdfs:range xsd:anyURI ;
   skos:prefLabel "hasTarget" ;
 .
 TerraCore:hasUnit
