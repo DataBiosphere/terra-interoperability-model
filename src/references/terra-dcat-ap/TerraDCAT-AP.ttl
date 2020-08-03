@@ -376,7 +376,7 @@ TerraDCAT_ap:hasOriginalPublication
   rdfs:domain TerraDCAT_ap:DataCollection ;
   rdfs:domain TerraDCAT_ap:Dataset ;
   rdfs:label "hasOriginalPublication" ;
-  rdfs:range dct:URI ;
+  rdfs:range xsd:anyURI ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf dct:isReferencedBy ;
   skos:definition "The original publication associated with this Dataset or DataCollection." ;

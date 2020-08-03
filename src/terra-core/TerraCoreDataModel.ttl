@@ -1022,7 +1022,7 @@ TerraCore:hadCellCycle
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:SingleCell ;
   rdfs:label "hadCellCycle" ;
-  rdfs:range dct:URI ;
+  rdfs:range xsd:anyURI ;
   rdfs:range xsd:string ;
   skos:definition "A property that describes the stage of the cell cycle at the time the sample was obtained." ;
   skos:prefLabel "hadCellCycle" ;
@@ -1031,7 +1031,7 @@ TerraCore:hadCellState
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:SingleCell ;
   rdfs:label "hadCellState" ;
-  rdfs:range dct:URI ;
+  rdfs:range xsd:anyURI ;
   rdfs:range xsd:string ;
   skos:definition "A property that describes the cell’s metabolic or electrophysiological state." ;
   skos:prefLabel "hadCellState" ;
@@ -1066,7 +1066,7 @@ TerraCore:hadProtocol
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:Activity ;
   rdfs:label "hadProtocol" ;
-  rdfs:range dct:URI ;
+  rdfs:range xsd:anyURI ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf prov:used ;
   skos:prefLabel "hadProtocol" ;
@@ -1259,7 +1259,7 @@ TerraCore:hasCountry
 TerraCore:hasCrossReference
   a owl:ObjectProperty ;
   rdfs:label "hasCrossReference" ;
-  rdfs:range dct:URI ;
+  rdfs:range xsd:anyURI ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf skos:closeMatch ;
   skos:definition "Reference to the entity in another electronic system.  The data stored about the entity may vary from system to system, but this relationship asserts that the reference represents the same entity." ;
@@ -1295,7 +1295,7 @@ TerraCore:hasDevelopmentalStage
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasDevelopmentalStage" ;
-  rdfs:range dct:URI ;
+  rdfs:range xsd:anyURI ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasDevelopmentalStage" ;
 .
