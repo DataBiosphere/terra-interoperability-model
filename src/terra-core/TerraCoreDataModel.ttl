@@ -665,6 +665,48 @@ TerraCore:PrincipalInvestigator
     ] ;
   prov:definition "The principal or lead person who carries out an investigation assigned by a sponsor or authorizing agent." ;
 .
+TerraCore:Project
+  a owl:Class ;
+  rdfs:label "Project" ;
+  rdfs:subClassOf prov:Activity ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue 1 ;
+      owl:onProperty dct:title ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasCrossReference ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:wasFundedBy ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasOriginalPublication ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dct:contributor ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dct:isReferencedBy ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:wasPrincipalInvestigator ;
+    ] ;
+  skos:definition "A collective effort with an objective related to biomedical research." ;
+  skos:prefLabel "Project" ;
+.
 TerraCore:Rabbit
   a obo:NCBITaxon_9986 ;
   rdfs:label "Rabbit" ;
