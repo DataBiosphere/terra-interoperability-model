@@ -93,7 +93,7 @@ Timothy Tickle, PhD, Principal Product Manager
 Andrew Zimmer, Director, Data Donation Platform<br><br>
 Special thanks to our guest subject matter experts: Charles Epstein, Orr Ashenberg, Tommaso Biancalani, Caroline Porter
 
-We are also grateful for the work of many other groups who have contributed through prior and ongoing work in this area.  Several groups have graciously allowed us to participate in standards discussions, such as the Human Cell Atlas Metadat Community, NCI Cancer Research Data Metadata group, [Single Cell Portal](https://portals.broadinstitute.org/single_cell "Single Cell Portal") and several [GA4GH Working Streams](https://www.ga4gh.org/how-we-work/workstreams "GA4GH Working Streams").
+We are also grateful for the work of many other groups who have contributed through prior and ongoing work in this area.  Several groups have graciously allowed us to participate in standards discussions, such as the Human Cell Atlas Metadata Community, NCI Cancer Research Data Metadata group, [Single Cell Portal](https://portals.broadinstitute.org/single_cell "Single Cell Portal") and several [GA4GH Working Streams](https://www.ga4gh.org/how-we-work/workstreams "GA4GH Working Streams").
 
 **Alumni Contributors, Broad Institute**<br>
 Ben Carlin
