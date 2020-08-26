@@ -5,7 +5,7 @@ The following is a list of the ontologies and vocabularies currently referenced 
  
 
 | prefix  | Name                                   | Domain                     | Link                                                   | PURL/OWL                                         |
-|---------|----------------------------------------|----------------------------|--------------------------------------------------------|--------------------------------------------------|
+|---------|----------------------------------------|----------------------------|-----------------------------------------|-----------------------------------|
 | CL      | Cell ontology                          | Cell types                 | https://www.ebi.ac.uk/ols/ontologies/clo               | http://purl.obolibrary.org/obo/clo.owl           |
 | dcat    | Data Catalog                           | Datasets, Data Catalogs    |                                                        | http://www.w3.org/ns/dcat/                       |
 | dcterms | Dublin Core Terms                      | Standard                   |                                                        | http://purl.org/dc/terms/1.1/                    |
