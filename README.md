@@ -67,6 +67,8 @@ Finally, we selected several datasets to test the model in our own pilot project
 ### Using Terra Interoperability Model
 TIM is currently composed of three separate OWL files. TerraDCAT_ap.ttl is an extension of the (W3C's Data Catalog Vocabulary)[https://www.w3.org/TR/vocab-dcat-2/] which adds data use terms from the (Data Use Ontology)[https://github.com/EBISPOT/DUO].  TerraCoreValueSets.ttl provides controlled vocabulary terms to support TerraCoreDataModel.ttl which contains the classes and properties required to connect core biomedical data concepts.
 
+The list of external ontologies and vocabularies that are used in the Terra Interoperability Model can be found in the [Ontologies document](docs/Ontologies.md).
+
 In addition to the formal specification in OWL (serialized in Turtle format), the Data Sciences Platform Team has defined a JSON representation of the Data Model that will be used internally at Broad Institute to pilot the data model.  This JSON representation will be ingested into the Terra Repository and implemented using Google's BigQuery.  This is an example of how the data model can be used to design schemas.  
 
 ### License
