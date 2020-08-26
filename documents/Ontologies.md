@@ -15,7 +15,7 @@ The following is a list of the ontologies and vocabularies currently referenced 
 | mondo   | Monarch Disease Ontology               | Disease                    | https://monarchinitiative.org/disease                  | http://purl.obolibrary.org/obo/mondo.owl         |
 | OBI     | Ontology for Biomedical Investigations | Assays                     | http://obi-ontology.org/                               | http://purl.obolibrary.org/obo/obi.owl           |
 | owl     | Web Ontology Language                  | Standard                   | https://www.w3.org/OWL/                                | http://www.w3.org/2002/07/owl#                   |
-| prov    | Provenance Ontology                    | Provenance, activities     |                                                        |                                                  |
+| prov    | Provenance Ontology                    | Provenance, activities     | http://www.w3.org/TR/prov-o/                                                      |http://www.w3.org/ns/prov#                                          |
 | rdf     | Resource Description Framework         | Standard                   | https://lov.linkeddata.es/dataset/lov/vocabs/rdf       | http://www.w3.org/2002/07/owl#                   |
 | rdfs    | Resource Description Framework Schema  | Standard                   | https://lov.linkeddata.es/dataset/lov/vocabs/rdfs      | http://www.w3.org/2000/01/rdf-schema#            |
 | skos    | Simple Knowledge Organization System   | Standard                   | https://www.w3.org/2009/08/skos-reference/skos.html    | http://www.w3.org/2004/02/skos/core#             |
