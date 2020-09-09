@@ -877,7 +877,7 @@ TerraCore:SingleCellIsolation
   a owl:Class ;
   rdfs:label "SingleCellIsolation" ;
   rdfs:subClassOf TerraCore:Activity ;
-  skos:definition "Activity to separate individual cells or nuclei.  Is this redundant with CellDissociation?" ;
+  skos:definition "Activity to separate individual cells or nuclei. " ;
 .
 TerraCore:UserRestriction
   a obo:DUO_0000026 ;
