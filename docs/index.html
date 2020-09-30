@@ -1,21 +1,89 @@
 <!DOCTYPE html>
-
-<!-- Change dcat to Terra; need to deal with included ontologies/vocabs, stylesheet?-->
-
 <html>
 <head>
     <title>Terra Interoperability Model (TIM)</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="alternate" type="text/turtle" href="dcat.ttl">
-	<link rel="alternate" type="application/rdf+xml" href="dcat.rdf">
-	<link rel="alternate" type="application/ld+json" href="dcat.jsonld">
-<!--	<link rel="alternate" type="text/plain" href="dcat.nt"> -->
-	<link rel="stylesheet" type="text/css" href="//www.w3.org/StyleSheets/TR/base">
+	<link rel="alternate" type="text/turtle" href="../src/terra-core/TerraCoreDataModel.ttl">
+<!--	<link rel="alternate" type="application/rdf+xml" href="???.rdf"> -->
+
+<!-- Need to be able to resolve
+# baseURI: http://datamodel.terra.bio/TerraCore => href="../src/terra-core/TerraCoreDataModel.ttl"
+# imports: http://datamodel.terra.bio/EFO_subset => href="../references/EFO_subset.xml.rdf"
+# imports: http://datamodel.terra.bio/NCBITaxon_Organisms => href="../references/NCBITaxon_Organsms.xml.rdf"
+# imports: http://datamodel.terra.bio/OBI_assaySubset => href="../references/OBI_assaySubset.xml.rdf"
+# imports: http://datamodel.terra.bio/OBI_core => href="../references/OBI_core.xml.rdf"
+# imports: http://datamodel.terra.bio/TerraCoreValueSets  => href="../src/terra-core/TerraCoreValueSets.ttl"
+# imports: http://datamodel.terra.bio/TerraDCAT_ap  => href="../src/terra-core/TerraDCAT-AP.ttl"
+-->
+
 </head>
+<style>
+p {
+	margin-left: 30px;
+	}
+
+div {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-right: 100px;
+	margin-left: 20px;
+	font-size: 120%;
+}
+p.a {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-right: 100px;
+	margin-left: 40px;
+	font-size: 120%;}
+</style>
+
+
 <body>
+	<div id="logo">
+		<a href="/" class="active"><img class="site-logo" typeof="foaf:Image" src="https://www.broadinstitute.org/sites/all/themes/custom/at_broad/logo.png" alt="Broad Institute" /></a>            
+	</div>
+
+<div>
 	<h1>Terra Interoperability Model</h1>
 	<h2>What is the Terra Interoperability Model (TIM)?</h2>
-	<p>TIM is a data model that captures a common set of concepts and relationships for biomedical research intended to facilitate and encourage data sharing and reuse. Its purpose is to enable researchers to find highly connected biomedical data in a federated search space and support interoperability among datasets.
-	</p>
+
+		<p>TIM is a data model that captures a common set of concepts and relationships for biomedical research intended to facilitate and encourage data sharing and reuse. Its purpose is to enable researchers to find highly connected biomedical data in a federated search space and support interoperability among datasets.
+		</p>
+
+		<p>Examples of searches include:</p>
+
+			<ul>
+				<li>Find all glioma data that I can access for commercial research</li>
+				<li>Find single-cell data from samples with HIV and an intracellular pathogens</li>
+				<li>I need RNA-seq, Hi-C, and ChIP-seq data from adult brain tissue -- normal and diseased -- with malignant glioma</li>
+			</ul>
+		<p>
+			TIM is formally specified using OWL and is currently available in the Turtle RDF serialization format. It is expected that the data model will be translated into appropriate syntaxes for implementation across a range of applications. See Using Terra Interoperability Model. 
+		</p>
+		<p>
+			The data model has been developed by The Broad Institute of MIT and Harvard’s Data Science Platform team and the Core Data Model Team at the Broad. Our intent is to open this model to the biomedical community for improvement over time while ensuring it remains a minimal model supporting search and analysis for researchers.
+		</p>
+	<h2>Status</h2>
+		<p>
+			The Terra Interoperability Model (TIM) is currently under development. It is published both in human- and machine-readable forms. A <code>GET</code> request leverages <a href="http://www.w3.org/blog/2006/02/content-negotiation/">HTTP Content Negotiation</a> to return the appropriate format. The available serializations are available directly using the links below.
+		</p>
+		<p>TIM consists of three related data models and imports subsets of several well-known ontologies which were created using OntoFox (add references)based on MIREOT.  See </p>
+	<h2>Versions</h2>
+		<p>The TerraCore imports two other model files, TerraDCAT_ap and TerraCoreValueSets; together these three files make up the Terra Interoperability Model (TIM).  TIM also imports subsets of several well-known ontologies.  These are provided under References below.  </p>
+		<p class="indent">
+			<b>Terra Interoperability Model</b><br>
+<!--  *** indent again -->
+
+			<a href="index.html">TerraCoreDataModel.html</a><br>
+			&nbsp;&nbsp;	HTML (this document)<br>
+			<a href="../src/terra-core/TerraCoreDataModel.ttl">TerraCoreDataModel.ttl</a><br>
+			&nbsp;&nbsp;	RDF (Turtle)<br>
+			<a href="../src/terra-core/TerraCoreValueSets.ttl">TerraCoreValueSets.ttl</a><br>
+			&nbsp;&nbsp;	RDF (Turtle)<br>
+			<a href="../src/terra-core/TerraDCAT-AP.ttl">TerraDCAT-AP.ttl</a><br>
+			&nbsp;&nbsp;	RDF (Turtle)<br>
+		</p>
+	
+</div>
 </body>
 </html>
