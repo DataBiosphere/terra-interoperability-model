@@ -1,14 +1,12 @@
 # baseURI: http://datamodel.terra.bio/TerraCoreValueSets
-# imports: http://datamodel.terra.bio/CL_subset.owl
-# imports: http://datamodel.terra.bio/UBERON_subset.owl
+# imports: http://datamodel.terra.bio/CL_subset
+# imports: http://datamodel.terra.bio/UBERON_subset
 # imports: http://www.w3.org/2004/02/skos/core#
 # prefix: TerraCoreValueSets
 
 @prefix : <http://datamodel.terra.bio/TerraCoreValueSets#> .
-@prefix CL_subset: <http://datamodel.terra.bio/CL_subset.owl#> .
 @prefix TerraCoreValueSets: <http://datamodel.terra.bio/TerraCoreValueSets#> .
 @prefix TerraDCAT_ap: <http://datamodel.terra.bio/TerraDCAT_ap#> .
-@prefix UBERON_subset: <http://datamodel.terra.bio/UBERON_subset.owl#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -16,21 +14,12 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://datamodel.terra.bio/DSPCoreValueSets#3DContactMapsModality>
-  a owl:Class ;
-  rdfs:label "3D Contact Maps" ;
-  rdfs:subClassOf TerraCoreValueSets:EpigenomicModality ;
-.
 <http://datamodel.terra.bio/TerraCoreValueSets>
   a owl:Ontology ;
-  owl:imports <http://datamodel.terra.bio/CL_subset.owl> ;
-  owl:imports <http://datamodel.terra.bio/UBERON_subset.owl> ;
+  owl:imports <http://datamodel.terra.bio/CL_subset> ;
+  owl:imports <http://datamodel.terra.bio/UBERON_subset> ;
   owl:imports skos: ;
   owl:versionInfo "Created with TopBraid Composer" ;
-.
-<http://datamodel.terra.bio/TerraCoreValueSets#3DContactMaps>
-  a <http://datamodel.terra.bio/DSPCoreValueSets#3DContactMapsModality> ;
-  rdfs:label "3D Contact Maps" ;
 .
 TerraCoreValueSets:AmnioticFluid
   a TerraCoreValueSets:AmnioticFluidType ;
@@ -135,6 +124,15 @@ TerraCoreValueSets:CerebrospinalFluidType
 TerraCoreValueSets:ChromatinAccessibilityModality
   a owl:Class ;
   rdfs:label "DNA Chromatin Accessibility" ;
+  rdfs:subClassOf TerraCoreValueSets:EpigenomicModality ;
+.
+TerraCoreValueSets:ContactMaps3D
+  a TerraCoreValueSets:ContactMaps3DModality ;
+  rdfs:label "3D Contact Maps" ;
+.
+TerraCoreValueSets:ContactMaps3DModality
+  a owl:Class ;
+  rdfs:label "3D Contact Maps" ;
   rdfs:subClassOf TerraCoreValueSets:EpigenomicModality ;
 .
 TerraCoreValueSets:DNABinding
