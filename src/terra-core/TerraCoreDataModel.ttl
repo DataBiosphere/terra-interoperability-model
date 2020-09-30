@@ -1,5 +1,5 @@
 # baseURI: http://datamodel.terra.bio/TerraCore
-# imports: http://datamodel.terra.bio/EFO_subset.owl
+# imports: http://datamodel.terra.bio/EFO_subset
 # imports: http://datamodel.terra.bio/NCBITaxon_Organisms.owl
 # imports: http://datamodel.terra.bio/OBI_assaySubset
 # imports: http://datamodel.terra.bio/OBI_core
@@ -9,10 +9,6 @@
 # prefix: TerraCore
 
 @prefix : <http://datamodel.terra.bio/TerraCore#> .
-@prefix EFO_subset: <http://datamodel.terra.bio/EFO_subset.owl#> .
-@prefix NCBITaxon_Organisms: <http://datamodel.terra.bio/NCBITaxon_Organisms.owl#> .
-@prefix OBI_Taxon_Organisms: <http://datamodel.terra.bio/OBI_Taxon_Organisms.owl#> .
-@prefix OBI_assaySubset: <http://datamodel.terra.bio/OBI_assaySubset#> .
 @prefix TerraCore: <http://datamodel.terra.bio/TerraCore#> .
 @prefix TerraCoreValueSets: <http://datamodel.terra.bio/TerraCoreValueSets#> .
 @prefix TerraDCAT_ap: <http://datamodel.terra.bio/TerraDCAT_ap#> .
@@ -36,7 +32,7 @@
   dct:date "20 Jul 2020" ;
   dct:license <https://github.com/DataBiosphere/terra-interoperability-model/blob/master/LICENSE> ;
   rdfs:comment "Please cite The Broad Institute of Harvard and MIT, Data Sciences Platform." ;
-  owl:imports <http://datamodel.terra.bio/EFO_subset.owl> ;
+  owl:imports <http://datamodel.terra.bio/EFO_subset> ;
   owl:imports <http://datamodel.terra.bio/NCBITaxon_Organisms.owl> ;
   owl:imports <http://datamodel.terra.bio/OBI_assaySubset> ;
   owl:imports <http://datamodel.terra.bio/OBI_core> ;
@@ -303,6 +299,8 @@ TerraCore:BioSample
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasBioSampleType ;
     ] ;
+  skos:altLabel "Biospecimen" ;
+  skos:altLabel "Specimen from organism" ;
   skos:definition "Data about a physical sample consisting of one or more cells taken from an organism (living or deceased) or derived from such a Sample." ;
   skos:prefLabel "BioSample" ;
 .
@@ -877,7 +875,7 @@ TerraCore:SingleCellIsolation
   a owl:Class ;
   rdfs:label "SingleCellIsolation" ;
   rdfs:subClassOf TerraCore:Activity ;
-  skos:definition "Activity to separate individual cells or nuclei.  Is this redundant with CellDissociation?" ;
+  skos:definition "Activity to separate individual cells or nuclei. " ;
 .
 TerraCore:UserRestriction
   a obo:DUO_0000026 ;
