@@ -8,7 +8,7 @@
 @prefix TerraCore: <http://datamodel.terra.bio/TerraCore#> .
 @prefix TerraDCAT_ap: <http://datamodel.terra.bio/TerraDCAT_ap#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix dog: <http://datamodel.terra.bio/DogAgingDataModel#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -385,8 +385,8 @@
   a TerraDCAT_ap:Dataset ;
   TerraDCAT_ap:hasDataUseLimitation TerraCore:GeneralResearchUse ;
   TerraDCAT_ap:hasDataUseRequirement TerraCore:UserRestriction ;
-  dcterms:modified "11-24-2019T12:47Z" ;
-  dcterms:title "Dog Aging Project" ;
+  dct:modified "11-24-2019T12:47Z" ;
+  dct:title "Dog Aging Project" ;
   rdfs:label "Dog Aging Project" ;
   dcat:theme TerraDCAT_ap:BiomedicalResearch ;
 .
