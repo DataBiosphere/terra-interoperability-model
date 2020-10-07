@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Terra Interoperability Model (TIM)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="alternate" type="text/turtle" href="https://raw.githubusercontent.com/DataBiosphere/terra-interoperability-model/master/releases/1.x/terra-core/TerraCoreDataModel.ttl">
+</head>
+
+<style>
+p {
+	margin-left: 30px;
+	}
+
+div {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-right: 100px;
+	margin-left: 20px;
+	font-size: 100%;
+}
+ul.a {
+	font-size:90%;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+</style>
+
+<body>
+	<div id="logo">
+		<a href="/" class="active"><img class="site-logo" typeof="foaf:Image" src="https://www.broadinstitute.org/sites/all/themes/custom/at_broad/logo.png" alt="Broad Institute" /></a>            
+	</div>
+<div>
+<h2 id="terra-interoperability-model">Terra Interoperability Model</h2>
+
+<h3 id="what-is-the-terra-interoperability-model-tim-">What is the Terra Interoperability Model (TIM)?</h3>
+	<p>TIM is a data model that captures a common set of concepts and relationships for biomedical research intended to facilitate and encourage data sharing and reuse.  Its purpose is to enable researchers to find highly connected biomedical data in a federated search space and support interoperability among datasets.  </p>
+	<p>Examples of searches include:</p>
+	<ul><ul>
+	<li><em>Find all glioma data that I can access for commercial research</em></li>
+	<li><em>Find single-cell data from samples with HIV and an intracellular pathogens</em></li>
+	<li><em>I need RNA-seq, Hi-C, and ChIP-seq data from adult brain tissue -- normal and diseased -- with malignant glioma</em></li>
+	</ul></ul>
+	<p>TIM is formally specified using OWL.  Although the human-readable document is rather limited at this time, TIM is published both in human- and machine-readable forms.  A <code>GET</code> request leverages <a href="http://www.w3.org/blog/2006/02/content-negotiation/">HTTP Content Negotiation</a> to return the appropriate format. The available serializations are available directly using the links below.</p> 
+
+<h3>Status</h3>
+		<p>The Terra Interoperability Model (TIM) is currently under development. Our github repository is <a href=https://github.com/DataBiosphere/terra-interoperability-model>terra-interoperability-model</a>. Both JSON format and Terra Data Repository schema implementations are anticipated.</p>
+<h3>Versions</h3>
+	<p>The TerraCore imports two other model files, TerraDCAT_ap and TerraCoreValueSets; together these three files make up the Terra Interoperability Model (TIM).  </p>
+	<p class="indent">
+		<b>Terra Interoperability Model</b><br>
+		&nbsp; <a id="TerraCore" href="https://raw.githubusercontent.com/DataBiosphere/terra-interoperability-model/master/releases/1.x/terra-core/TerraCoreDataModel.ttl">
+			TerraCoreDataModel.ttl</a><br>
+		&nbsp; <a href="https://raw.githubusercontent.com/DataBiosphere/terra-interoperability-model/master/releases/1.x/terra-core/TerraCoreValueSets.ttl">
+			TerraCoreValueSets.ttl</a><br>
+		&nbsp; <a href="https://raw.githubusercontent.com/DataBiosphere/terra-interoperability-model/master/releases/1.x/terra-core/TerraDCAT-AP.ttl">
+			TerraDCAT-AP.ttl</a><br>
+	</p>
+
+<!-- Would be better to make available a full release -->
+	<p class="indent">
+		<b>References</b><br>
+		&nbsp; TIM also imports subsets of several well-known ontologies, including   
+		<a href="http://uberon.github.io/">UBERON</a>, 
+		<a href="http://obi-ontology.org/">Ontology of Biomedical Investigations</a>, 
+		<a href="https://www.ebi.ac.uk/ols/ontologies/ncit">NCI Thesaurus OBO Edition</a>,
+		<a href="https://www.ebi.ac.uk/efo/">EFO</a>, and 
+		<a href="http://obofoundry.org/ontology/cl.html">Cell Ontology</a>.  <br>
+		&nbsp; <a href="https://raw.githubusercontent.com/DataBiosphere/terra-interoperability-model/master/releases/1.x/references/References.zip">
+		References.zip</a>
+
+	</p>
+
+<h3 id="license">License</h3>
+	<p><a href="https://github.com/DataBiosphere/terra-interoperability-model/blob/master/LICENSE">BSD 3-Clause License</a></p>
+	
+<h3 id="contact">Contact</h3>
+	<p>Please use the repository&#39;s <a href="https://github.com/DataBiosphere/terra-interoperability-model/issues" title="Issue Tracker">Issue Tracker</a> to share comments or concerns related to the data model.  TIM is not currently open to public contribution; it is currently wholly managed by Broad’s DSP Data Modeling Team.</p>
+
+<h3 id="illustration">Illustration</h3>
+<p>The following diagram illustrates selected key concepts and relationships to provide an overview of the model.
+</p>
+<br><br>
+<img src="https://raw.githubusercontent.com/DataBiosphere/terra-interoperability-model/master/documents/Terra%20Interoperability%20Model%20V1.jpg"
+	alt="Figure - Terra Interoperability Model Overview Draft"
+	class="center"
+>
+<br><br>
+<p>Prefixes are shorthand to reference concepts and properties in another namespace.  The following prefixes are used in the illustration.</p>
+<ul class='a'>
+<li>Default PREFIX : <a href="http://datamodel.terra.bio/TerraCore#">http://datamodel.terra.bio/TerraCore#</a> .  </em><br>
+<li>PREFIX core: represents one of the 3 Terra Interoperability Model Core models<ul>
+<em><a href="http://datamodel.terra.bio/TerraCore">
+	http://datamodel.terra.bio/TerraCore#</a> .</em><br>
+<em><a href="http://datamodel.terra.bio/TerraCoreValueSets.ttl">
+	http://datamodel.terra.bio/TerraCoreValueSets#</a> .</em><br>
+<em><a href="http://datamodel.terra.bio/TerrDCAT-AP.ttl#">
+	http://datamodel.terra.bio/TerraDCAT_ap#</a> .</em><br>
+</ul>
+</li>
+<em>PREFIX dcat: <a href="http://www.w3.org/ns/dcat#">http://www.w3.org/ns/dcat#</a> .</em><br>
+<em>PREFIX duo: <a href="http://purl.obolibrary.org/obo/duo-basic.owl#">http://purl.obolibrary.org/obo/duo-basic.owl#</a> .</em><br>
+<em>PREFIX obo: <a href="http://purl.obolibrary.org/obo/">http://purl.obolibrary.org/obo/</a> .</em><br>
+<em>PREFIX prov: <a href="http://www.w3.org/ns/prov#">http://www.w3.org/ns/prov#</a> .</em><br>
+<em>PREFIX skos: <a href="http://www.w3.org/2004/02/skos/core#">http://www.w3.org/2004/02/skos/core#</a> .</em><br>
+</ul>
+<p style="font-size: 90%;">Diagram produced using <a href="https://cmap.ihmc.us/">Cmap</a> from the Florida Institute for Human &amp; Machine Cognition (IHMC).<br></p>
+</div>
+
+</body>
+</html>
