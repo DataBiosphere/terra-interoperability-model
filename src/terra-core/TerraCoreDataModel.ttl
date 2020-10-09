@@ -266,6 +266,33 @@ TerraCore:BioSample
   rdfs:subClassOf TerraCore:Sample ;
   rdfs:subClassOf [
       a owl:Restriction ;
+      owl:allValuesFrom [
+          a rdfs:Datatype ;
+          owl:oneOf (
+              "primary"
+              "metastatic"
+            ) ;
+        ] ;
+      owl:onProperty TerraCore:hasPrimaryMetastaticIndicator ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom [
+          a rdfs:Datatype ;
+          owl:oneOf (
+              "tumor"
+              "normal"
+            ) ;
+        ] ;
+      owl:onProperty TerraCore:hasTumorNormalIndicator ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasAge ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasAnatomicalSite ;
     ] ;
@@ -293,6 +320,16 @@ TerraCore:BioSample
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:donatedBy ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty prov:wasUsedBy ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty prov:wasUsedBy ;
+      owl:someValuesFrom TerraCore:Activity ;
     ] ;
   owl:equivalentClass [
       a owl:Restriction ;
@@ -496,6 +533,45 @@ TerraCore:HermaphroditeSex
   rdfs:subClassOf TerraCore:BiologicalSex ;
   owl:equivalentClass obo:PATO_0001340 ;
   skos:altLabel "Hermaphrodite" ;
+.
+TerraCore:Histopathology
+  a owl:Class ;
+  rdfs:label "Histopathology" ;
+  rdfs:subClassOf TerraCore:Activity ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom [
+          a rdfs:Datatype ;
+          owl:oneOf (
+              "tumor"
+              "normal"
+              "abnormal"
+              "peritumoral"
+            ) ;
+        ] ;
+      owl:onProperty TerraCore:hasTumorMorphology ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:confirmedDisease ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasGrade ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasStage ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasTumorMorphology ;
+    ] ;
+  owl:equivalentClass obo:OBI_0002564 ;
 .
 TerraCore:Homo_sapiens
   a obo:NCBITaxon_9606 ;
@@ -1035,12 +1111,6 @@ TerraCore:donatedBy
   skos:definition "The donatedBy property references the Donor organism from which the BioSample was acquired." ;
   skos:prefLabel "donatedBy" ;
 .
-TerraCore:exhibitsDisease
-  a owl:ObjectProperty ;
-  rdfs:domain TerraCore:BioSample ;
-  rdfs:label "exhibitsDisease" ;
-  rdfs:range obo:OGMS_0000031 ;
-.
 TerraCore:hadAgeAtDeath
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:FamilyMember ;
@@ -1399,6 +1469,11 @@ TerraCore:hasGRCName
   rdfs:range xsd:string ;
   skos:prefLabel "hasGRCName" ;
 .
+TerraCore:hasGrade
+  a rdf:Property ;
+  rdfs:label "hasGrade" ;
+  rdfs:range xsd:string ;
+.
 TerraCore:hasHalfSibling
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:FamilyMember ;
@@ -1464,6 +1539,11 @@ TerraCore:hasMolecularSampleType
   rdfs:range TerraCoreValueSets:MolecularSampleType ;
   rdfs:subPropertyOf TerraCore:hasSampleType ;
 .
+TerraCore:hasMorphology
+  a owl:ObjectProperty ;
+  rdfs:label "hasMorphology" ;
+  rdfs:range xsd:string ;
+.
 TerraCore:hasNonDuplicatedFragments
   a owl:DatatypeProperty ;
   rdfs:comment "For alignment file types." ;
@@ -1491,6 +1571,18 @@ TerraCore:hasPairedEndIdentifier
           2
         ) ;
     ] ;
+.
+TerraCore:hasPairedNormal
+  a rdf:Property ;
+  rdfs:domain TerraCore:BioSample ;
+  rdfs:label "hasPairedNormal" ;
+  rdfs:range TerraCore:BioSample ;
+.
+TerraCore:hasPairedTumor
+  a rdf:Property ;
+  rdfs:domain TerraCore:BioSample ;
+  rdfs:label "hasPairedTumor" ;
+  rdfs:range TerraCore:BioSample ;
 .
 TerraCore:hasParent
   a owl:ObjectProperty ;
@@ -1539,6 +1631,12 @@ TerraCore:hasPreservationState
         ) ;
     ] ;
   skos:definition "Method used to preserve the BioSample, if relevant, or Fresh for BioSamples that were not preserved." ;
+.
+TerraCore:hasPrimaryMetastaticIndicator
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:BioSample ;
+  rdfs:label "hasPrimaryMetastaticIndicator" ;
+  rdfs:range xsd:string ;
 .
 TerraCore:hasRace
   a owl:DatatypeProperty ;
@@ -1595,6 +1693,11 @@ TerraCore:hasSibling
   rdfs:range TerraCore:HumanDonor ;
   skos:definition "A property that identifies full genetic siblings." ;
 .
+TerraCore:hasStage
+  a rdf:Property ;
+  rdfs:label "hasStage" ;
+  rdfs:range xsd:string ;
+.
 TerraCore:hasStartPosition
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:SequenceLocation ;
@@ -1623,6 +1726,18 @@ TerraCore:hasTarget
   rdfs:label "hasTarget" ;
   rdfs:range xsd:anyURI ;
   skos:prefLabel "hasTarget" ;
+.
+TerraCore:hasTumorMorphology
+  a owl:ObjectProperty ;
+  rdfs:label "hasTumorMorphology" ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf TerraCore:hasMorphology ;
+.
+TerraCore:hasTumorNormalIndicator
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:BioSample ;
+  rdfs:label "hasTumorNormalIndicator" ;
+  rdfs:range xsd:string ;
 .
 TerraCore:hasUnit
   a owl:DatatypeProperty ;
