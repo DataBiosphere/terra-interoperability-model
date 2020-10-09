@@ -321,6 +321,16 @@ TerraCore:BioSample
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:donatedBy ;
     ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty prov:wasUsedBy ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty prov:wasUsedBy ;
+      owl:someValuesFrom TerraCore:Activity ;
+    ] ;
   owl:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -1100,12 +1110,6 @@ TerraCore:donatedBy
   owl:inverseOf TerraCore:donated ;
   skos:definition "The donatedBy property references the Donor organism from which the BioSample was acquired." ;
   skos:prefLabel "donatedBy" ;
-.
-TerraCore:exhibitsDisease
-  a owl:ObjectProperty ;
-  rdfs:domain TerraCore:BioSample ;
-  rdfs:label "exhibitsDisease" ;
-  rdfs:range obo:OGMS_0000031 ;
 .
 TerraCore:hadAgeAtDeath
   a owl:ObjectProperty ;
