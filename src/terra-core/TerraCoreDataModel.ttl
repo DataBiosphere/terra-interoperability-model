@@ -500,7 +500,7 @@ TerraCore:File
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty TerraCore:hasCrossReference ;
-      owl:someValuesFrom dct:URI ;
+      owl:someValuesFrom xsd:anyURI ;
     ] ;
   skos:definition "A file is an information-bearing electronic object that contains a physical embodiment of some information using a particular character encoding." ;
   skos:prefLabel "File" ;
