@@ -1,0 +1,27 @@
+runtime: python38
+
+handlers:
+- url: /
+  static_files: TerraCoreDataModel.html
+  upload: TerraCoreDataModel.html
+
+- url: /TerraCore
+  static_files: TerraCoreDataModel.html
+  upload: TerraCoreDataModel.html
+  http_headers:
+    Vary: negotiate,accept,Accept-Encoding
+    Tcn: choice
+
+- url: /TerraCore1
+  static_files: TerraCore.ttl
+  upload: TerraCore.ttl
+  http_headers:
+    Content-Type: text/turtle
+
+- url: /TerraCoreValueSets
+  static_files: TerraCoreValueSets/TerraCoreValueSets.html
+  upload: TerraCoreValueSets/TerraCoreValueSets.html
+
+- url: /TerraDCAT_ap
+  static_files: TerraDCAT_ap/TerraDCAT_ap.html
+  upload: TerraDCAT_ap/TerraDCAT_ap.html

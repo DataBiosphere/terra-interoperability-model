@@ -1,0 +1,7 @@
+URI: TerraDCAT_ap
+
+URI: TerraDCAT_ap.html
+Content-type: text/html
+
+URI: TerraDCAT_ap.ttl
+Content-type: text/turtle
