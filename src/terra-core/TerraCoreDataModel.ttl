@@ -9,6 +9,7 @@
 # prefix: TerraCore
 
 @prefix : <http://datamodel.terra.bio/TerraCore#> .
+@prefix OBI_assaySubset: <http://datamodel.terra.bio/OBI_assaySubset#> .
 @prefix TerraCore: <http://datamodel.terra.bio/TerraCore#> .
 @prefix TerraCoreValueSets: <http://datamodel.terra.bio/TerraCoreValueSets#> .
 @prefix TerraDCAT_ap: <http://datamodel.terra.bio/TerraDCAT_ap#> .
