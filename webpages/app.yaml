@@ -18,6 +18,14 @@ handlers:
   http_headers:
     Content-Type: text/turtle
 
+- url: /CL_subset
+  static_files: CL_subset.html
+  upload: CL_subset.html
+
+- url: /UBERON_subset
+  static_files: UBERON_subset.html
+  upload: UBERON_subset.html
+
 - url: /TerraCoreValueSets
   static_files: TerraCoreValueSets/TerraCoreValueSets.html
   upload: TerraCoreValueSets/TerraCoreValueSets.html

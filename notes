@@ -1,0 +1,8 @@
+file:/home/BROAD.MIT.EDU/emandakh/wolf/sandbox/terra-interoperability-model/webpages/www/TerraDCAT_ap/TerraDCAT_ap.ttl
+    ttl parsed
+        Could not load imported ontology: <http://purl.org/dc/terms/> Cause: Problem parsing http://purl.org/dc/terms/
+
+
+file:/home/BROAD.MIT.EDU/emandakh/wolf/sandbox/terra-interoperability-model/webpages/www/TerraDCAT_ap/TerraCoreDataModel.ttl
+    ttl parsed
+        Problem parsing http://purl.org/dc/terms/ Could not parse ontology.  Either a suitable parser could not be found, or parsing failed.  See parser logs below for explanation.

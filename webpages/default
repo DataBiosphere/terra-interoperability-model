@@ -1,0 +1,8 @@
+<Directory /app/www/>
+        Options Indexes FollowSymLinks
+        DirectoryIndex TerraCoreValueSets.var
+        AllowOverride None
+        Order allow,deny
+        allow from all
+        AddHandler type-map var
+</Directory>

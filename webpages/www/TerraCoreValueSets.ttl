@@ -1,12 +1,12 @@
-# baseURI: http://localhost/TerraCoreValueSets
-# imports: http://localhost/CL_subset
-# imports: http://localhost/UBERON_subset
+# baseURI: http://datamodel.terra.bio/TerraCoreValueSets
+# imports: http://datamodel.terra.bio/CL_subset
+# imports: http://datamodel.terra.bio/UBERON_subset
 # imports: http://www.w3.org/2004/02/skos/core#
 # prefix: TerraCoreValueSets
 
-@prefix : <http://localhost/TerraCoreValueSets#> .
-@prefix TerraCoreValueSets: <http://localhost/TerraCoreValueSets#> .
-@prefix TerraDCAT_ap: <http://localhost/TerraDCAT_ap#> .
+@prefix : <http://datamodel.terra.bio/TerraCoreValueSets#> .
+@prefix TerraCoreValueSets: <http://datamodel.terra.bio/TerraCoreValueSets#> .
+@prefix TerraDCAT_ap: <http://datamodel.terra.bio/TerraDCAT_ap#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -14,10 +14,10 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://localhost/TerraCoreValueSets>
+<http://datamodel.terra.bio/TerraCoreValueSets>
   a owl:Ontology ;
-  owl:imports <http://localhost/CL_subset> ;
-  owl:imports <http://localhost/UBERON_subset> ;
+  owl:imports <http://datamodel.terra.bio/CL_subset> ;
+  owl:imports <http://datamodel.terra.bio/UBERON_subset> ;
   owl:imports skos: ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
