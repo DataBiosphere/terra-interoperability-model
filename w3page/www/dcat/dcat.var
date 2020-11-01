@@ -1,0 +1,7 @@
+URI: dcat
+
+URI: dcat.html
+Content-type: text/html
+
+URI: dcat.ttl
+Content-type: text/turtle
