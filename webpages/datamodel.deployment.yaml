@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: datamodel
+  labels:
+    app: datamodel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: datamodel
+  template:
+    metadata:
+      labels:
+        app: datamodel
+    spec:
+      containers:
+      - name: datamodel
+        image: gcr.io/broad-dsp-devops-k8s/terrainteropmodel:0.0.2
+        ports:
+        - containerPort: 80
