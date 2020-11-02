@@ -43,9 +43,8 @@ The Terra Interoperability Model is currently under development, is available in
 
 ### Versions
 <b>Stable Release Versions</b><br>
-  Not yet available
+  Release 1.x is currently available.  Some additions are expected by end Q1 2021. At that point, we anticipate that the data model will be backwards compatible.
 
-<b>Current Development Release 1.0.0</b><br>
 It is our intention to begin designating specific classes as "stable" as the model develops and to offer Stable Release Versions as the model matures.
 
 ### How Did Terra Interoperability Model Come About?
