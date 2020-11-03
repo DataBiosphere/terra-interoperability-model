@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: datamodel
-        image: gcr.io/broad-dsp-devops-k8s/terrainteropmodel:0.0.5
+        image: gcr.io/broad-dsp-devops-k8s/terrainteropmodel:0.0.7
         ports:
         - containerPort: 80
