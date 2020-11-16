@@ -22,7 +22,7 @@
             "type": "string"
         },
         "reference_assembly": {
-            "description": "???",
+            "description": "Reference genomic assembly",
             "type": "string"
         },
         "cross_references": {
