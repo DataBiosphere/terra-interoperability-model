@@ -18,5 +18,5 @@ The following is a list of the ontologies and vocabularies currently referenced 
 | rdf    | Resource Description Framework | Standard | https://lov.linkeddata.es/dataset/lov/vocabs/rdf | http://www.w3.org/2002/07/owl# |
 | rdfs  | Resource Description Framework Schema  | Standard | https://lov.linkeddata.es/dataset/lov/vocabs/rdfs | http://www.w3.org/2000/01/rdf-schema# |
 | skos   | Simple Knowledge Organization System | Standard  | https://www.w3.org/2009/08/skos-reference/skos.html | http://www.w3.org/2004/02/skos/core# |
-| taxon  | Organism classification | Organism |http://bioportal.bioontology.org>ontologies/NCBITAXON| http://purl.bioontology.org/ontology/NCBITAXON/  |
+| taxon  | Organism classification | Organism |http://bioportal.bioontology.org/ontologies/NCBITAXON| http://purl.bioontology.org/ontology/NCBITAXON/  |
 | uberon | Uber Anatomy Ontology | Anatomy | https://www.ebi.ac.uk/ols/ontologies/uberon | http://purl.obolibrary.org/obo/uberon.owl |

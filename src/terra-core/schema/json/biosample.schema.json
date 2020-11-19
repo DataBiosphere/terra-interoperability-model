@@ -1,0 +1,58 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/DataBiosphere/terra-interoperability-model/tree/master/src/terra-core/schema/json/biosample.schema.json",
+    "title": "Biosample",
+    "description": "A biosample",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "ID of the biosample",
+            "type": "string"
+        },
+        "name": {
+            "description": "Name of the biosample",
+            "type": "string"
+        },
+        "biosample_type": {
+            "description": "Type of the biosample",
+            "type": "string"
+        },
+        "anatomical_site": {
+            "description": "Anatomical site",
+            "type": "string"
+        },
+        "preservation_state": {
+            "description": "Preservation state",
+            "type": "string"
+        },
+        "cross_references": {
+            "description": "Cross references",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "part_of": {
+            "description": "The something it is a part of",
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        },
+        "derived_from": {
+            "description": "The sample ID for the sample it is derived from",
+            "type": "string"
+        },
+        "donated_by": {
+            "description": "The donor ID for the donor it is from",
+            "type": "string"
+        },
+        "disease": {
+            "description": "Disease",
+            "type": "string"
+        }
+    },
+    "required": ["id", "biosample_type", "donated_by"]
+}
