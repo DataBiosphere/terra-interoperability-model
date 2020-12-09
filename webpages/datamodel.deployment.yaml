@@ -16,6 +16,15 @@ spec:
     spec:
       containers:
       - name: datamodel
-        image: gcr.io/broad-dsp-devops-k8s/terrainteropmodel:0.0.10
+        image: gcr.io/broad-dsp-devops-k8s/terrainteropmodel:0.0.14
         ports:
         - containerPort: 80
+        - containerPort: 443
+        volumeMounts:
+        - name: datamodel-tls-secret
+          mountPath: "/etc/datamodel/ssl"
+          readOnly: true
+      volumes:
+      - name: datamodel-tls-secret
+        secret:
+          secretName: datamodel-tls-secret
