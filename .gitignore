@@ -1,2 +1,5 @@
 .DS_Store
-
+*.cert
+*.key
+*.pem
+ssl/
