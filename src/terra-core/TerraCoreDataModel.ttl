@@ -396,7 +396,7 @@ TerraCore:DogDonor
   owl:equivalentClass [
       a owl:Restriction ;
       owl:hasValue TerraCore:Dog ;
-      owl:onProperty TerraCore:hasOrganism ;
+      owl:onProperty TerraCore:hasOrganismType ;
     ] ;
   skos:definition "Extension of Donor class for dogs." ;
 .
@@ -407,7 +407,7 @@ TerraCore:Donor
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasOrganism ;
+      owl:onProperty TerraCore:hasOrganismType ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -464,7 +464,7 @@ TerraCore:FamilyMember
   owl:equivalentClass [
       a owl:Restriction ;
       owl:hasValue TerraCore:Homo_sapiens ;
-      owl:onProperty TerraCore:hasOrganism ;
+      owl:onProperty TerraCore:hasOrganismType ;
     ] ;
 .
 TerraCore:Female
@@ -510,7 +510,7 @@ TerraCore:File
 TerraCore:GRCh37
   a TerraCore:ReferenceAssembly ;
   TerraCore:hasGRCName "GRCh37" ;
-  TerraCore:hasOrganism TerraCore:Homo_sapiens ;
+  TerraCore:hasOrganismType TerraCore:Homo_sapiens ;
   rdfs:label "GRCh37" ;
 .
 TerraCore:GeneralResearchUse
@@ -521,7 +521,7 @@ TerraCore:GeneralResearchUse
 TerraCore:GrCh38
   a TerraCore:ReferenceAssembly ;
   TerraCore:hasGRCName "GRCh38" ;
-  TerraCore:hasOrganism TerraCore:Homo_sapiens ;
+  TerraCore:hasOrganismType TerraCore:Homo_sapiens ;
   rdfs:label "GRCh38" ;
 .
 TerraCore:Hermaphrodite
@@ -587,7 +587,7 @@ TerraCore:HumanDonor
   owl:equivalentClass [
       a owl:Restriction ;
       owl:hasValue TerraCore:Homo_sapiens ;
-      owl:onProperty TerraCore:hasOrganism ;
+      owl:onProperty TerraCore:hasOrganismType ;
     ] ;
   skos:definition "Extension of Donor class for Humans." ;
 .
@@ -668,7 +668,7 @@ TerraCore:MouseDonor
   owl:equivalentClass [
       a owl:Restriction ;
       owl:hasValue TerraCore:Mus_musculus ;
-      owl:onProperty TerraCore:hasOrganism ;
+      owl:onProperty TerraCore:hasOrganismType ;
     ] ;
   skos:definition "Extension of Donor class for mice." ;
 .
@@ -806,7 +806,7 @@ TerraCore:ReferenceAssembly
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasOrganism ;
+      owl:onProperty TerraCore:hasOrganismType ;
     ] ;
   skos:prefLabel "ReferenceAssembly" ;
   prov:definition "DNA sequence data identified as representative of specific organism's DNA." ;
@@ -1554,14 +1554,14 @@ TerraCore:hasNonDuplicatedFragments
   rdfs:range xsd:integer ;
   skos:prefLabel "hasNonDuplicatedFragments" ;
 .
-TerraCore:hasOrganism
+TerraCore:hasOrganismType
   a owl:ObjectProperty ;
   rdfs:comment "For example: Homo sapiens from obo:NCBITaxon_9606" ;
   rdfs:domain TerraCore:Donor ;
-  rdfs:label "hasOrganism" ;
+  rdfs:label "hasOrganismType" ;
   rdfs:range obo:OBI_0100026 ;
   skos:definition "A reference to the organism type." ;
-  skos:prefLabel "hasOrganism" ;
+  skos:prefLabel "hasOrganismType" ;
 .
 TerraCore:hasPairedEndIdentifier
   a owl:DatatypeProperty ;
