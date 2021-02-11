@@ -284,7 +284,7 @@ TerraDCAT_ap:Dataset
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraDCAT_ap:wasPrincipalInvestigator ;
+      owl:onProperty TerraDCAT_ap:hasPrincipalInvestigator ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -390,10 +390,10 @@ TerraDCAT_ap:hasOwner
   rdfs:subPropertyOf dct:publisher ;
   skos:definition "The entity responsible for making the item available and responsible for identifying authorized users of the Dataset or DataCollection." ;
 .
-TerraDCAT_ap:wasPrincipalInvestigator
+TerraDCAT_ap:hasPrincipalInvestigator
   a owl:ObjectProperty ;
   rdfs:domain TerraDCAT_ap:Dataset ;
-  rdfs:label "wasPrincipalInvestigator" ;
+  rdfs:label "principal investigator" ;
   rdfs:subPropertyOf prov:wasInfluencedBy ;
 .
 prov:value
