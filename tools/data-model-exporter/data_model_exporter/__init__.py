@@ -30,3 +30,4 @@ def main():
     # todo:  output - write a JSON schema file
 if __name__ == "__main__":
     main()
+    
