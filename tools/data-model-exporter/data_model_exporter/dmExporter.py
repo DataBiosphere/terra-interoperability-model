@@ -1,5 +1,4 @@
-__version__ = '0.1.0'
-#!/usr/bin/env python
+"""!/usr/bin/env python"""
 
 # Create a basic CLI tool that parses the arg list defined in the spec
 # (as linked in the parent epic) and hands off the args to a stub driver method
@@ -30,4 +29,3 @@ def main():
     # todo:  output - write a JSON schema file
 if __name__ == "__main__":
     main()
-    
