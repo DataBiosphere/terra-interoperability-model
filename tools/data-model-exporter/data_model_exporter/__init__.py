@@ -7,24 +7,26 @@ __version__ = '0.1.0'
 import argparse
 
 # arguments defined in spec
-# 1) a class listing file
-# 2) a path to the data model *.TTL file we are transforming
+# 1) a path to the data model *.TTL file
+# 2) a "class file" (newline delimited list of strings that correspond to RDF classes)
 
-def get_arguments(
+def get_arguments():
     parser = argparse.ArgumentParser(description='Process data model export')
-    parser.add_argument('integers', metavar='N', type=int, nargs='+',
-                        help='an integer for the accumulator')
-    parser.add_argument('--sum', dest='accumulate', action='store_const',
-                        const=sum, default=max,
-                        help='sum the integers (default: find the max)')
-
+    parser.add_argument('-f', '--filePath', help="a path to the data model", required=True)
+    parser.add_argument('-c', '--classPath', help="a class listing file", required=True)
     args = parser.parse_args()
-    print(args.accumulate(args.integers))
-)
+    return args.filePath, args.classPath
 
+# class to implement RDF to JSON transformation
+# todo: DSPDC-1537
+def rdf_to_json(filePath, classPath):
+    print (filePath, classPath)
 
-
-
-
-
-# output - receive a properly transformed JSON schema file.
+def main():
+    # get CLI arguments
+    filePath, classPath = get_arguments()
+    # invoke driver to transform RDF to JSON
+    rdf_to_json(filePath, classPath)
+    # todo:  output - write a JSON schema file
+if __name__ == "__main__":
+    main()
