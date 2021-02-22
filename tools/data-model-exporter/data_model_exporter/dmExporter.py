@@ -27,12 +27,13 @@ def get_arguments():
 
 def run(file_path, class_name):
     with open(file_path, 'r') as ttl_file:
+        # TODO: confirm that this URL is valid
         rdf_term = Terra.term(class_name)
         print("rdf_term: "+rdf_term)
         # parse the file
         g = Graph()
         g.parse(ttl_file, format='turtle')
-
+        # TODO:
         properties = {
             "describedBy": {
                 "description": "The URL reference to the JSON Schema that defines this object.",
@@ -76,7 +77,8 @@ def run(file_path, class_name):
             '$id': rdf_term,
             '$schema': "http://json-schema.org/draft-07/schema#/",
             'title': g.value(rdf_term, RDFS.label),
-            'description': str(g.value(rdf_term, Prov.definition)),
+            # TODO: change "description" to "definition"
+            'definition': str(g.value(rdf_term, Prov.definition)),
             'definitions': {},
             'type': 'object',
             'additionalProperties': True,
