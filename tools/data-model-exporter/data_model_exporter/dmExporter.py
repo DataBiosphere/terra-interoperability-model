@@ -7,7 +7,7 @@ import argparse
 import json
 
 from rdflib import Graph, Namespace, OWL, RDFS
-
+# TODO: can pull this out of the local file (prefix: TerraDCAT_ap)
 Terra = Namespace("http://datamodel.terra.bio/TerraDCAT_ap#")
 # the builtin RDFLIB PROV NS does not define 'definition' for unknown reasons, hence this ad hoc def
 Prov = Namespace("http://www.w3.org/ns/prov#")
@@ -18,15 +18,17 @@ Prov = Namespace("http://www.w3.org/ns/prov#")
 def get_arguments():
     parser = argparse.ArgumentParser(description='Process data model export')
     parser.add_argument('-f', '--filePath', help="a path to the data model", required=True)
-    # todo: add required flag back in, remove default? cant get CLI list parsing working properly.
-    parser.add_argument('-c', '--classPath', type=list, help="a class listing file", default = ['Activity'])
+    # TODO: add required flag back in, remove default? cant get CLI list parsing working properly.
+    # TODO: this will be parsed from a file later on
+    parser.add_argument('-c', '--classPath', nargs='+', help="a class listing file", required=True)
     args = parser.parse_args()
     return args.filePath, args.classPath
 
 
-def run(filePath, class_name):
-    with open(filePath, 'r') as ttl_file:
+def run(file_path, class_name):
+    with open(file_path, 'r') as ttl_file:
         rdf_term = Terra.term(class_name)
+        print("rdf_term: "+rdf_term)
         # parse the file
         g = Graph()
         g.parse(ttl_file, format='turtle')
@@ -66,7 +68,7 @@ def run(filePath, class_name):
                     '$ref': ref,
                 }
 
-                # TODO are we limiting this solely to 1?
+                # should limit this to exactly 1 (take the cardinality seriously)
                 if cardinality and cardinality.value == 1:
                     required.append(prop.n3(g.namespace_manager))
 
@@ -93,13 +95,16 @@ def run(filePath, class_name):
 #  A sample spike script for how this would be approached can be found here.
 def rdf_to_json(filePath, classPath):
     # todo: debugging, remove this line
+    print ("RUNNING rdf_to_json()")
     print (filePath, classPath)
     #   Edge Cases:
     #   We should use RDF lib, it can easily parse TTL files and serialize to JSON schema (https://rdflib.readthedocs.io for parsing
     #   If the path to the TTL file is invalid, RDFLib will barf; we should handle this and output a useful error message
+    #   This should not happen because they should be being created by a tool that creates valid TTL files.
     #   We will be punting on rdfs:subClassOf properties as there is an open question as to how we'll represent the parent classes in a json schema
 
     # iterate over classPath
+    print("Iterating over classPath...")
     for class_name in classPath:
         # extract json for each individual class
         run(filePath, class_name)
