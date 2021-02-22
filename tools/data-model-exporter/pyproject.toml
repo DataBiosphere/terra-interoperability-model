@@ -6,9 +6,13 @@ authors = ["Quazi Hoque <qhoque@broadinstitute.org>"]
 
 [tool.poetry.dependencies]
 python = "^2.7"
+rdflib = "^5.0.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^4.6"
+
+[tool.poetry.scripts]
+export = 'data_model_exporter.dmExporter:main'
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
