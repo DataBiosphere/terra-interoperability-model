@@ -77,8 +77,8 @@ def run(file_path, class_name):
             '$id': rdf_term,
             '$schema': "http://json-schema.org/draft-07/schema#/",
             'title': g.value(rdf_term, RDFS.label),
-            # TODO: change "description" to "definition"
-            'definition': str(g.value(rdf_term, Prov.definition)),
+            # json convention uses a "description" field as the definition
+            'description': str(g.value(rdf_term, Prov.definition)),
             'definitions': {},
             'type': 'object',
             'additionalProperties': True,
