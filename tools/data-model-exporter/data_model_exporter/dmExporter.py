@@ -27,13 +27,13 @@ def get_arguments():
 
 def run(file_path, class_name):
     with open(file_path, 'r') as ttl_file:
-        # TODO: confirm that this URL is valid
         rdf_term = Terra.term(class_name)
+        print("rdf_term:"+rdf_term)
+        # TODO REMOVE
         print("rdf_term: "+rdf_term)
         # parse the file
         g = Graph()
         g.parse(ttl_file, format='turtle')
-        # TODO:
         properties = {
             "describedBy": {
                 "description": "The URL reference to the JSON Schema that defines this object.",
@@ -45,7 +45,6 @@ def run(file_path, class_name):
             }
         }
         # 'required' properties are those with a cardinality of exactly 1, and the hardcoded 'id' property
-        # TODO verify the hardcoding of 'id'
         required = ['id','describedBy']
 
         ## TODO punting on rdfs:subClassOf linkage
@@ -62,11 +61,31 @@ def run(file_path, class_name):
                 # required prop?
                 cardinality = g.value(container_node, OWL.cardinality, None)
                 prop = g.value(container_node, OWL.onProperty, None)
-
+                # subject = container_node, predicate = OWL.onProperty, object)
                 # TODO fix up the logic we are using on rdfs:range vs other
                 ref = prop.n3(g.namespace_manager)
+
+                print ("\nNOW WORKING ON: "+str(ref))
+
+                # need to be able to pull object at line 347 in TerraDCAT-AP.ttl
+                # (TerraDCAT_ap:hasDataUseLimitation, rdfs:range)
+                # ref = "TerraDCAT_ap:hasDataUseLimitation"
+                # pull all RDF triples with the given rdf_term as the 'subject'
+                # pull all RDF [???] objects with the given ref as the rdf_term
+                # trying to figure out which graph function should be used to pull
+                # out the references at the bottom of the TTL file
+                term_references = g.triples((ref, None, None))
+                for reference in term_references:
+                    new_container_node = reference[2]
+                    newProp = g.value(new_container_node, OWL.onProperty, None)
+                    newRef = newProp.n3(g.namespace_manager)
+                    print ("Pulling: "+str(newRef))
+
                 properties[prop.n3(g.namespace_manager)] = {
+                    'description': ref,
+                    # TODO: pull the URL reference out of the graph
                     '$ref': ref,
+
                 }
 
                 # should limit this to exactly 1 (take the cardinality seriously)
