@@ -65,26 +65,29 @@ def run(file_path, class_name):
                 # TODO fix up the logic we are using on rdfs:range vs other
                 ref = prop.n3(g.namespace_manager)
 
+                # object we pulled out during 1st traversal
                 print ("\nNOW WORKING ON: "+str(ref))
 
-                # need to be able to pull object at line 347 in TerraDCAT-AP.ttl
-                # (TerraDCAT_ap:hasDataUseLimitation, rdfs:range)
-                # ref = "TerraDCAT_ap:hasDataUseLimitation"
-                # pull all RDF triples with the given rdf_term as the 'subject'
-                # pull all RDF [???] objects with the given ref as the rdf_term
-                # trying to figure out which graph function should be used to pull
-                # out the references at the bottom of the TTL file
-                term_references = g.triples((ref, None, None))
-                for reference in term_references:
-                    new_container_node = reference[2]
-                    newProp = g.value(new_container_node, OWL.onProperty, None)
-                    newRef = newProp.n3(g.namespace_manager)
-                    print ("Pulling: "+str(newRef))
+
+                # second traversal, using objects from 1st as the subject
+                # processing subclasses with rdfs:range
+                # TODO: Not all of the subclasses from the 1st traversal
+                # have an RDFS range. We should be pulling all of the rdfs:range
+                # bc if an object exists with rdfs:range, we will put it
+                second_triples = g.triples((prop, RDFS.range, None))
+
+                #if second_triples[1] == OWL.equivalentClass:
+
+                for reference in second_triples:
+                    rdfsRangeValue = reference[2]
+                    print ("Pulling: "+str(rdfsRangeValue))
+                # TODO: remove (debugging)
+                #import pdb ; pdb.set_trace()
 
                 properties[prop.n3(g.namespace_manager)] = {
                     'description': ref,
                     # TODO: pull the URL reference out of the graph
-                    '$ref': ref,
+                    '$ref': rdfsRangeValue,
 
                 }
 
