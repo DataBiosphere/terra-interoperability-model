@@ -28,9 +28,6 @@ def get_arguments():
 def run(file_path, class_name):
     with open(file_path, 'r') as ttl_file:
         rdf_term = Terra.term(class_name)
-        print("rdf_term:"+rdf_term)
-        # TODO REMOVE
-        print("rdf_term: "+rdf_term)
         # parse the file
         g = Graph()
         g.parse(ttl_file, format='turtle')
@@ -71,7 +68,6 @@ def run(file_path, class_name):
 
                 # second traversal, using objects from 1st as the subject
                 # processing subclasses with rdfs:range
-                # TODO: Not all of the subclasses from the 1st traversal
                 # have an RDFS range. We should be pulling all of the rdfs:range
                 # bc if an object exists with rdfs:range, we will put it
                 second_triples = g.triples((prop, RDFS.range, None))
@@ -80,8 +76,7 @@ def run(file_path, class_name):
 
                 for reference in second_triples:
                     rdfsRangeValue = reference[2]
-                    print ("Pulling: "+str(rdfsRangeValue))
-                # TODO: remove (debugging)
+
                 #import pdb ; pdb.set_trace()
 
                 properties[prop.n3(g.namespace_manager)] = {
@@ -109,6 +104,8 @@ def run(file_path, class_name):
         }
 
         print(json.dumps(json_schema, indent=4))
+        with open('data.json', 'w') as f:
+            json.dump(json_schema, f)
 
 # class to implement RDF to JSON transformation
 # todo: DSPDC-1537
@@ -118,9 +115,6 @@ def run(file_path, class_name):
 #  Execute the processing logic as defined in the spec
 #  A sample spike script for how this would be approached can be found here.
 def rdf_to_json(filePath, classPath):
-    # todo: debugging, remove this line
-    print ("RUNNING rdf_to_json()")
-    print (filePath, classPath)
     #   Edge Cases:
     #   We should use RDF lib, it can easily parse TTL files and serialize to JSON schema (https://rdflib.readthedocs.io for parsing
     #   If the path to the TTL file is invalid, RDFLib will barf; we should handle this and output a useful error message
@@ -128,7 +122,6 @@ def rdf_to_json(filePath, classPath):
     #   We will be punting on rdfs:subClassOf properties as there is an open question as to how we'll represent the parent classes in a json schema
 
     # iterate over classPath
-    print("Iterating over classPath...")
     for class_name in classPath:
         # extract json for each individual class
         run(filePath, class_name)
