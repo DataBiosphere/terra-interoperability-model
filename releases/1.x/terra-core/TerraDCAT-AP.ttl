@@ -1,6 +1,6 @@
 # baseURI: https://datamodel.terra.bio/TerraDCAT_ap
 # imports: http://www.w3.org/ns/dcat
-# imports: https://raw.githubusercontent.com/EBISPOT/DUO/master/duo-basic.owl
+# imports: http://raw.githubusercontent.com/EBISPOT/DUO/master/duo-basic.owl
 # prefix: TerraDCAT_ap
 
 @prefix : <https://datamodel.terra.bio/TerraDCAT_ap#> .

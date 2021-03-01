@@ -25,11 +25,11 @@ The following diagram illustrates selected key concepts and relationships to pro
 
 Prefixes are shorthand to reference concepts and properties in another namespace.  The following prefixes are used in the illustration.
 
-* Default PREFIX : <http://datamodel.terra.bio/TerraCore#> .  
+* Default PREFIX : <https://datamodel.terra.bio/TerraCore#> .  
 * PREFIX core: represents one of the 3 Terra Interoperability Model Core models
-  * <http://datamodel.terra.bio/TerraCore#> .
-  * <http://datamodel.terra.bio/TerraCoreValueSets#> .
-  * <http://datamodel.terra.bio/TerraDCAT_ap#> .
+  * <https://datamodel.terra.bio/TerraCore#> .
+  * <https://datamodel.terra.bio/TerraCoreValueSets#> .
+  * <https://datamodel.terra.bio/TerraDCAT_ap#> .
 * PREFIX dcat: <http://www.w3.org/ns/dcat#> .
 * PREFIX duo: <http://purl.obolibrary.org/obo/duo-basic.owl#> .<br>
 * PREFIX obo: <http://purl.obolibrary.org/obo/> .<br>
