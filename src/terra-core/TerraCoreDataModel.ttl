@@ -1,19 +1,19 @@
-# baseURI: http://datamodel.terra.bio/TerraCore
-# imports: http://datamodel.terra.bio/EFO_subset
-# imports: http://datamodel.terra.bio/NCBITaxon_Organisms_subset
-# imports: http://datamodel.terra.bio/OBI_assaySubset
-# imports: http://datamodel.terra.bio/OBI_core
-# imports: http://datamodel.terra.bio/TerraCoreValueSets
-# imports: http://datamodel.terra.bio/TerraDCAT_ap
+# baseURI: https://datamodel.terra.bio/TerraCore
+# imports: https://datamodel.terra.bio/EFO_subset
+# imports: https://datamodel.terra.bio/NCBITaxon_Organisms_subset
+# imports: https://datamodel.terra.bio/OBI_assaySubset
+# imports: https://datamodel.terra.bio/OBI_core
+# imports: https://datamodel.terra.bio/TerraCoreValueSets
+# imports: https://datamodel.terra.bio/TerraDCAT_ap
 # imports: http://www.w3.org/2002/07/owl
 # prefix: TerraCore
 
-@prefix : <http://datamodel.terra.bio/TerraCore#> .
-@prefix NCBITaxon_Organisms: <http://datamodel.terra.bio/NCBITaxon_Organisms_subset#> .
-@prefix OBI_assaySubset: <http://datamodel.terra.bio/OBI_assaySubset#> .
-@prefix TerraCore: <http://datamodel.terra.bio/TerraCore#> .
-@prefix TerraCoreValueSets: <http://datamodel.terra.bio/TerraCoreValueSets#> .
-@prefix TerraDCAT_ap: <http://datamodel.terra.bio/TerraDCAT_ap#> .
+@prefix : <https://datamodel.terra.bio/TerraCore#> .
+@prefix NCBITaxon_Organisms: <https://datamodel.terra.bio/NCBITaxon_Organisms_subset#> .
+@prefix OBI_assaySubset: <https://datamodel.terra.bio/OBI_assaySubset#> .
+@prefix TerraCore: <https://datamodel.terra.bio/TerraCore#> .
+@prefix TerraCoreValueSets: <https://datamodel.terra.bio/TerraCoreValueSets#> .
+@prefix TerraDCAT_ap: <https://datamodel.terra.bio/TerraDCAT_ap#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
@@ -28,18 +28,18 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://datamodel.terra.bio/TerraCore>
+<https://datamodel.terra.bio/TerraCore>
   a owl:Ontology ;
   dc:creator "Kathy Reinold" ;
   dct:date "20 Jul 2020" ;
   dct:license <https://github.com/DataBiosphere/terra-interoperability-model/blob/master/LICENSE> ;
   rdfs:comment "Please cite The Broad Institute of Harvard and MIT, Data Sciences Platform." ;
-  owl:imports <http://datamodel.terra.bio/EFO_subset> ;
-  owl:imports <http://datamodel.terra.bio/NCBITaxon_Organisms_subset> ;
-  owl:imports <http://datamodel.terra.bio/OBI_assaySubset> ;
-  owl:imports <http://datamodel.terra.bio/OBI_core> ;
-  owl:imports <http://datamodel.terra.bio/TerraCoreValueSets> ;
-  owl:imports <http://datamodel.terra.bio/TerraDCAT_ap> ;
+  owl:imports <https://datamodel.terra.bio/EFO_subset> ;
+  owl:imports <https://datamodel.terra.bio/NCBITaxon_Organisms_subset> ;
+  owl:imports <https://datamodel.terra.bio/OBI_assaySubset> ;
+  owl:imports <https://datamodel.terra.bio/OBI_core> ;
+  owl:imports <https://datamodel.terra.bio/TerraCoreValueSets> ;
+  owl:imports <https://datamodel.terra.bio/TerraDCAT_ap> ;
   owl:imports <http://www.w3.org/2002/07/owl> ;
   owl:versionInfo "Version 1.0.0" ;
 .
@@ -481,7 +481,7 @@ TerraCore:FemaleSex
 .
 TerraCore:File
   a owl:Class ;
-  rdfs:comment "Used definition from http://semanticscience.org/resource/SIO_000396 but equivalence to http://www.w3.org/ns/dcat#Distribution doesn't make sense to me; thus we have our own object.  Also added electronic.  This will be subclassed for different file types to allow for file type-specific metadata, but for now, all metadata is an option for all Files." ;
+  rdfs:comment "Used definition from http://semanticscience.org/resource/SIO_000396 but equivalence to http://www.w3.org/ns/dcat#Distribution doesn't make sense in this context; thus we have our own class.  Also added electronic. " ;
   rdfs:label "File" ;
   rdfs:subClassOf obo:IAO_0000030 ;
   rdfs:subClassOf [
@@ -1371,6 +1371,14 @@ TerraCore:hasDonor
   skos:definition "This property references the Donor organism from which the BioSample was acquired." ;
   skos:prefLabel "hasDonor" ;
 .
+TerraCore:hasDonorAge
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:BioSample ;
+  rdfs:label "hasDonorAge" ;
+  rdfs:range TerraCore:Age ;
+  skos:definition "A reference to the Age of the Donor at the point in time that the BioSample was obtained." ;
+  skos:prefLabel "hasDonorAge" ;
+.
 TerraCore:hasDuplicateFragments
   a owl:DatatypeProperty ;
   rdfs:comment "For alignment data types." ;
@@ -1409,7 +1417,7 @@ TerraCore:hasFamilyID
 .
 TerraCore:hasFileFormat
   a owl:DatatypeProperty ;
-  rdfs:comment "Indicate the full file extension including compression extensions." ;
+  rdfs:comment "Indicate the full file extension including compression extensions; this follows the HCA convention." ;
   rdfs:domain TerraCore:File ;
   rdfs:label "hasFileFormat" ;
   rdfs:range xsd:string ;
@@ -1430,6 +1438,15 @@ TerraCore:hasGRCName
   rdfs:label "hasGRCName" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasGRCName" ;
+.
+TerraCore:hasGeneExpressionProgram
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:SingleCell ;
+  rdfs:label "hasGeneExpressionProgram" ;
+  rdfs:range xsd:anyURI ;
+  rdfs:range xsd:string ;
+  skos:definition "A property that characterizes the gene expression patterns at work in the cell." ;
+  skos:prefLabel "hasGeneExpressionProgram" ;
 .
 TerraCore:hasGrade
   a rdf:Property ;
@@ -1604,7 +1621,7 @@ TerraCore:hasPreservationState
           "FFPE"
           "Fresh"
           "Frozen"
-          "OCT"
+          "OCT-embedded"
           "Snap Frozen"
         ) ;
     ] ;
@@ -1678,6 +1695,14 @@ TerraCore:hasSex
   rdfs:range TerraCore:BiologicalSex ;
   skos:definition "A reference to the BiologicalSex of the Donor organism." ;
   skos:prefLabel "hasSex" ;
+.
+TerraCore:hasSexAssignedAtBirth
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:Donor ;
+  rdfs:label "hasSex" ;
+  rdfs:range TerraCore:BiologicalSex ;
+  skos:definition "A reference to the BiologicalSex of the Donor organism." ;
+  skos:prefLabel "hasSexAssignedAtBirth" ;
 .
 TerraCore:hasSibling
   a owl:ObjectProperty ;
