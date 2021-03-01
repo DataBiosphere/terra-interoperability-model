@@ -1,10 +1,10 @@
-# baseURI: http://datamodel.terra.bio/TerraDCAT_ap
+# baseURI: https://datamodel.terra.bio/TerraDCAT_ap
 # imports: http://www.w3.org/ns/dcat
 # imports: https://raw.githubusercontent.com/EBISPOT/DUO/master/duo-basic.owl
 # prefix: TerraDCAT_ap
 
-@prefix : <http://datamodel.terra.bio/TerraDCAT_ap#> .
-@prefix TerraDCAT_ap: <http://datamodel.terra.bio/TerraDCAT_ap#> .
+@prefix : <https://datamodel.terra.bio/TerraDCAT_ap#> .
+@prefix TerraDCAT_ap: <https://datamodel.terra.bio/TerraDCAT_ap#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix duo: <http://purl.obolibrary.org/obo/duo-basic.owl#> .
@@ -15,7 +15,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://datamodel.terra.bio/TerraDCAT_ap>
+<https://datamodel.terra.bio/TerraDCAT_ap>
   a owl:Ontology ;
   rdfs:comment "DSP DCAT AP is the Broad Data Sciences Platform's application profile.  It is an RDF vocabulary which extends the W3C's Data Catalog Vocabulary (https://www.w3.org/TR/vocab-dcat/)." ;
   owl:imports <http://www.w3.org/ns/dcat> ;
@@ -39,7 +39,7 @@ TerraDCAT_ap:DataCollection
   a owl:Class ;
   rdfs:label "DataCollection" ;
   rdfs:subClassOf dcat:Catalog ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:allValuesFrom prov:Person ;
       owl:onProperty dct:creator ;
@@ -118,7 +118,7 @@ TerraDCAT_ap:DataSnapshot
   a owl:Class ;
   rdfs:label "DataSnapshot" ;
   rdfs:subClassOf dcat:Distribution ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:allValuesFrom prov:Person ;
       owl:onProperty dct:creator ;
@@ -206,112 +206,102 @@ TerraDCAT_ap:Dataset
   a owl:Class ;
   rdfs:label "Dataset" ;
   rdfs:subClassOf dcat:Dataset ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:allValuesFrom TerraDCAT_ap:DataCollection ;
       owl:onProperty dct:isPartOf ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:allValuesFrom prov:Person ;
-      owl:onProperty dct:creator ;
-    ] ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:cardinality 1 ;
       owl:onProperty TerraDCAT_ap:hasDataUseLimitation ;
     ] ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dct:creator ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dct:description ;
-    ] ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dct:identifier ;
     ] ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dct:issued ;
     ] ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dct:modified ;
     ] ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dct:publisher ;
     ] ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dct:title ;
     ] ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dct:accrualPeriodicity ;
     ] ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dct:license ;
     ] ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dcat:landingPage ;
     ] ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraDCAT_ap:hasDataSnapshot ;
     ] ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraDCAT_ap:hasDataUseRequirement ;
     ] ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraDCAT_ap:wasPrincipalInvestigator ;
+      owl:onProperty TerraDCAT_ap:hasPrincipalInvestigator ;
     ] ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty dct:conformsTo ;
     ] ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty dct:hasPart ;
     ] ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty dct:isPartOf ;
     ] ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty dcat:contactPoint ;
     ] ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dcat:theme ;
     ] ;
-  rdfs:subClassOf [
+  rdfs:equivalentClass [
       a owl:Restriction ;
       owl:onProperty prov:wasGeneratedBy ;
       owl:someValuesFrom prov:Activity ;
@@ -390,10 +380,10 @@ TerraDCAT_ap:hasOwner
   rdfs:subPropertyOf dct:publisher ;
   skos:definition "The entity responsible for making the item available and responsible for identifying authorized users of the Dataset or DataCollection." ;
 .
-TerraDCAT_ap:wasPrincipalInvestigator
+TerraDCAT_ap:hasPrincipalInvestigator
   a owl:ObjectProperty ;
   rdfs:domain TerraDCAT_ap:Dataset ;
-  rdfs:label "wasPrincipalInvestigator" ;
+  rdfs:label "principal investigator" ;
   rdfs:subPropertyOf prov:wasInfluencedBy ;
 .
 prov:value

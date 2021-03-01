@@ -1,10 +1,10 @@
-# baseURI: http://datamodel.terra.bio/TerraDCAT_ap
+# baseURI: https://datamodel.terra.bio/TerraDCAT_ap
 # imports: http://www.w3.org/ns/dcat
-# imports: https://raw.githubusercontent.com/EBISPOT/DUO/master/duo-basic.owl
+# imports: http://raw.githubusercontent.com/EBISPOT/DUO/master/duo-basic.owl
 # prefix: TerraDCAT_ap
 
-@prefix : <http://datamodel.terra.bio/TerraDCAT_ap#> .
-@prefix TerraDCAT_ap: <http://datamodel.terra.bio/TerraDCAT_ap#> .
+@prefix : <https://datamodel.terra.bio/TerraDCAT_ap#> .
+@prefix TerraDCAT_ap: <https://datamodel.terra.bio/TerraDCAT_ap#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix duo: <http://purl.obolibrary.org/obo/duo-basic.owl#> .
@@ -15,7 +15,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://datamodel.terra.bio/TerraDCAT_ap>
+<https://datamodel.terra.bio/TerraDCAT_ap>
   a owl:Ontology ;
   rdfs:comment "DSP DCAT AP is the Broad Data Sciences Platform's application profile.  It is an RDF vocabulary which extends the W3C's Data Catalog Vocabulary (https://www.w3.org/TR/vocab-dcat/)." ;
   owl:imports <http://www.w3.org/ns/dcat> ;

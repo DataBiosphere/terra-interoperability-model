@@ -1,17 +1,17 @@
-# baseURI: http://datamodel.terra.bio/TerraCore
-# imports: http://datamodel.terra.bio/EFO_subset
-# imports: http://datamodel.terra.bio/NCBITaxon_Organisms.owl
-# imports: http://datamodel.terra.bio/OBI_assaySubset
-# imports: http://datamodel.terra.bio/OBI_core
-# imports: http://datamodel.terra.bio/TerraCoreValueSets
-# imports: http://datamodel.terra.bio/TerraDCAT_ap
-# imports: http://www.w3.org/2002/07/owl
+# baseURI: https://datamodel.terra.bio/TerraCore
+# imports: https://datamodel.terra.bio/EFO_subset
+# imports: https://datamodel.terra.bio/NCBITaxon_Organisms.owl
+# imports: https://datamodel.terra.bio/OBI_assaySubset
+# imports: https://datamodel.terra.bio/OBI_core
+# imports: https://datamodel.terra.bio/TerraCoreValueSets
+# imports: https://datamodel.terra.bio/TerraDCAT_ap
+# imports: https://www.w3.org/2002/07/owl
 # prefix: TerraCore
 
-@prefix : <http://datamodel.terra.bio/TerraCore#> .
-@prefix TerraCore: <http://datamodel.terra.bio/TerraCore#> .
-@prefix TerraCoreValueSets: <http://datamodel.terra.bio/TerraCoreValueSets#> .
-@prefix TerraDCAT_ap: <http://datamodel.terra.bio/TerraDCAT_ap#> .
+@prefix : <https://datamodel.terra.bio/TerraCore#> .
+@prefix TerraCore: <https://datamodel.terra.bio/TerraCore#> .
+@prefix TerraCoreValueSets: <https://datamodel.terra.bio/TerraCoreValueSets#> .
+@prefix TerraDCAT_ap: <https://datamodel.terra.bio/TerraDCAT_ap#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
@@ -26,18 +26,18 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://datamodel.terra.bio/TerraCore>
+<https://datamodel.terra.bio/TerraCore>
   a owl:Ontology ;
   dc:creator "Kathy Reinold" ;
   dct:date "20 Jul 2020" ;
   dct:license <https://github.com/DataBiosphere/terra-interoperability-model/blob/master/LICENSE> ;
   rdfs:comment "Please cite The Broad Institute of Harvard and MIT, Data Sciences Platform." ;
-  owl:imports <http://datamodel.terra.bio/EFO_subset> ;
-  owl:imports <http://datamodel.terra.bio/NCBITaxon_Organisms.owl> ;
-  owl:imports <http://datamodel.terra.bio/OBI_assaySubset> ;
-  owl:imports <http://datamodel.terra.bio/OBI_core> ;
-  owl:imports <http://datamodel.terra.bio/TerraCoreValueSets> ;
-  owl:imports <http://datamodel.terra.bio/TerraDCAT_ap> ;
+  owl:imports <https://datamodel.terra.bio/EFO_subset> ;
+  owl:imports <https://datamodel.terra.bio/NCBITaxon_Organisms.owl> ;
+  owl:imports <https://datamodel.terra.bio/OBI_assaySubset> ;
+  owl:imports <https://datamodel.terra.bio/OBI_core> ;
+  owl:imports <https://datamodel.terra.bio/TerraCoreValueSets> ;
+  owl:imports <https://datamodel.terra.bio/TerraDCAT_ap> ;
   owl:imports <http://www.w3.org/2002/07/owl> ;
   owl:versionInfo "Version 1.0.0" ;
 .
