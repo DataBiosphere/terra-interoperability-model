@@ -18,11 +18,35 @@ Prov = Namespace("http://www.w3.org/ns/prov#")
 def get_arguments():
     parser = argparse.ArgumentParser(description='Process data model export')
     parser.add_argument('-f', '--filePath', help="a path to the data model", required=True)
-    # TODO: add required flag back in, remove default? cant get CLI list parsing working properly.
-    # TODO: this will be parsed from a file later on
-    parser.add_argument('-c', '--classPath', nargs='+', help="a class listing file", required=True)
+    # TODO: two methods to input classes, CLI list vs CLI filepath argument - keep both?
+    parser.add_argument('-l', '--classList', nargs='+', help="a class listing string")
+    parser.add_argument('-c', '--classPath', help="a class listing file")
     args = parser.parse_args()
-    return args.filePath, args.classPath
+    # TODO: is there a nicer way to check that only one arg was provided?
+    if (args.classList is None and args.classPath is None):
+        print ("ERROR, you must provide a classList 'l' or classPath 'c' argument")
+        exit()
+    elif (args.classList and args.classPath):
+        print ("ERROR, you may only provide a single classList argument")
+        exit()
+    elif (args.classList):
+        return args.filePath, args.classList
+    elif (args.classPath):
+        classList = []
+        classCount = 0
+        with open(args.classPath, 'r') as class_file:
+            while True:
+                line = class_file.readline()
+                if not line:
+                    break
+                else:
+                    classCount += 1
+                    classList.append(line.strip())
+        print (str(classCount)+" classes parsed from "+args.classPath)
+        print ("classList:  "+str(classList))
+        return args.filePath, classList
+    else:
+        print ("Error parsing arguments, please try again...")
 
 
 def run(file_path, class_name):
@@ -62,29 +86,26 @@ def run(file_path, class_name):
                 # TODO fix up the logic we are using on rdfs:range vs other
                 ref = prop.n3(g.namespace_manager)
 
-                # object we pulled out during 1st traversal
-                print ("\nNOW WORKING ON: "+str(ref))
-
-
                 # second traversal, using objects from 1st as the subject
                 # processing subclasses with rdfs:range
                 # have an RDFS range. We should be pulling all of the rdfs:range
                 # bc if an object exists with rdfs:range, we will put it
-                second_triples = g.triples((prop, RDFS.range, None))
 
-                #if second_triples[1] == OWL.equivalentClass:
+                # pull the rdfsRangeValue directly out using Graph.value function
+                # this results in nulls for dct: terms
+                rdfsRangeValue = g.value(prop, RDFS.range)
 
-                for reference in second_triples:
-                    rdfsRangeValue = reference[2]
-
-                #import pdb ; pdb.set_trace()
-
-                properties[prop.n3(g.namespace_manager)] = {
-                    'description': ref,
-                    # TODO: pull the URL reference out of the graph
-                    '$ref': rdfsRangeValue,
-
-                }
+                # using a try/catch for when we run into UnboundLocalError: 'rdfsRangeValue' referenced before assignment
+                try:
+                    properties[prop.n3(g.namespace_manager)] = {
+                        'description': ref,
+                        # TODO: pull the URL reference out of the graph
+                        '$ref': rdfsRangeValue,
+                    }
+                except Exception as e:
+                    raise e
+                    print ("ERROR:"+str(e))
+                    #exit()
 
                 # should limit this to exactly 1 (take the cardinality seriously)
                 if cardinality and cardinality.value == 1:
@@ -102,10 +123,8 @@ def run(file_path, class_name):
             'properties': properties,
             'required': required
         }
+        return json_schema
 
-        print(json.dumps(json_schema, indent=4))
-        with open('data.json', 'w') as f:
-            json.dump(json_schema, f)
 
 # class to implement RDF to JSON transformation
 # todo: DSPDC-1537
@@ -114,23 +133,32 @@ def run(file_path, class_name):
 #  The path to the relevant TIM TTL file (again can be hardcoded or just threaded through via the CLI)
 #  Execute the processing logic as defined in the spec
 #  A sample spike script for how this would be approached can be found here.
-def rdf_to_json(filePath, classPath):
+def rdf_to_json(filePath, classList):
     #   Edge Cases:
     #   We should use RDF lib, it can easily parse TTL files and serialize to JSON schema (https://rdflib.readthedocs.io for parsing
     #   If the path to the TTL file is invalid, RDFLib will barf; we should handle this and output a useful error message
     #   This should not happen because they should be being created by a tool that creates valid TTL files.
     #   We will be punting on rdfs:subClassOf properties as there is an open question as to how we'll represent the parent classes in a json schema
 
-    # iterate over classPath
-    for class_name in classPath:
+    # iterate over classList
+    jsonSchemaList = {}
+    for class_name in classList:
         # extract json for each individual class
-        run(filePath, class_name)
+        jsonSchemaList[class_name] = run(filePath, class_name)
+    return jsonSchemaList
 
 def main():
     # get CLI arguments
-    filePath, classPath = get_arguments()
+    filePath, classList = get_arguments()
     # invoke driver to transform RDF to JSON
-    rdf_to_json(filePath, classPath)
-    # todo:  output - write a JSON schema file
+    jsonDict = rdf_to_json(filePath, classList)
+    # write one file per class provided
+    for key in jsonDict:
+        outFileName = "{0}.json".format(key)
+        with open(outFileName, 'w') as f:
+            # TODO: print the json output to the terminal
+            print(json.dumps(jsonDict[key], indent=4))
+            json.dump(jsonDict[key], f)
+
 if __name__ == "__main__":
     main()
