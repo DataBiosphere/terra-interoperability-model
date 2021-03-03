@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
 """Create a basic CLI tool that parses the arg list defined in the spec
-(as linked in the parent epic) and hands off the args to a stub driver method"""
+(as linked in the parent epic) and hands off the args to a stub driver method
+"""
 
 import argparse
 import json
@@ -18,7 +19,8 @@ logging.basicConfig(level=logging.INFO,format="%(message)s")
 def get_arguments():
     """Arguments defined in spec
     1) a path to the data model *.TTL file
-    2) a "class file" (newline delimited list of strings that correspond to RDF classes)"""
+    2) a "class file" (newline delimited list of strings that correspond to RDF classes)
+    """
     parser = argparse.ArgumentParser(description='Process data model export')
     parser.add_argument('-f', '--file_path', help="a path to the data model", required=True)
     # TODO: two methods to input classes, CLI list vs CLI file_path argument - keep both?
@@ -115,7 +117,8 @@ def rdf_to_json(file_path, class_list):
     but can be hardcoded or passed via the CLI to start for testing purposes)
     The path to the relevant TIM TTL file (again can be hardcoded or just threaded through via the CLI)
     Execute the processing logic as defined in the spec
-    A sample spike script for how this would be approached can be found here."""
+    A sample spike script for how this would be approached can be found here.
+    """
 
     # iterate over class_list
     json_schema_list = {}
