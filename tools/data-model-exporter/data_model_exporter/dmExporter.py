@@ -52,7 +52,7 @@ def get_arguments():
         logging.error("Error parsing arguments, please try again...")
 
 
-def run(file_path, class_name):
+def extract(file_path, class_name):
     with open(file_path, 'r') as ttl_file:
         rdf_term = Terra.term(class_name)
         # parse the file
@@ -124,7 +124,7 @@ def rdf_to_json(file_path, class_list):
     json_schema_list = {}
     for class_name in class_list:
         # extract json for each individual class
-        json_schema_list[class_name] = run(file_path, class_name)
+        json_schema_list[class_name] = extract(file_path, class_name)
     return json_schema_list
 
 
