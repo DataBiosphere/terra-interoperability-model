@@ -1,6 +1,6 @@
 # baseURI: https://datamodel.terra.bio/TerraCoreValueSets
-# imports: https://datamodel.terra.bio/CL_subset
-# imports: https://datamodel.terra.bio/UBERON_subset
+# imports: https://datamodel.terra.bio/imports/CL_subset
+# imports: https://datamodel.terra.bio/imports/UBERON_subset
 # imports: https://www.w3.org/2004/02/skos/core#
 # prefix: TerraCoreValueSets
 
@@ -16,8 +16,8 @@
 
 <https://datamodel.terra.bio/TerraCoreValueSets>
   a owl:Ontology ;
-  owl:imports <https://datamodel.terra.bio/CL_subset> ;
-  owl:imports <https://datamodel.terra.bio/UBERON_subset> ;
+  owl:imports <https://datamodel.terra.bio/imports/CL_subset> ;
+  owl:imports <https://datamodel.terra.bio/imports/UBERON_subset> ;
   owl:imports skos: ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
