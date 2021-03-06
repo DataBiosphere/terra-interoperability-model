@@ -1,0 +1,12 @@
+emandakh@wp70c-641:~/wolf$ sudo certbot certonly --preferred-challenges dns --manual -d datamodel.terra.bio
+
+emandakh@wp70c-641:~/wolf/sandbox/terra-interoperability-model$ sudo mv webpages/ssl/fullchain.pem webpages/ssl/fullchain_old.pem
+emandakh@wp70c-641:~/wolf/sandbox/terra-interoperability-model$ sudo mv webpages/ssl/privkey.pem webpages/ssl/privkey_old.pem
+
+emandakh@wp70c-641:~/wolf/sandbox/terra-interoperability-model$ sudo cp /etc/letsencrypt/live/datamodel.terra.bio/fullchain.pem webpages/ssl/fullchain.pem
+emandakh@wp70c-641:~/wolf/sandbox/terra-interoperability-model$ sudo cp /etc/letsencrypt/live/datamodel.terra.bio/privkey.pem webpages/ssl/privkey.pem
+
+emandakh@wp70c-641:~/wolf/sandbox/terra-interoperability-model/webpages/ssl$ kubectl delete secret datamodel-tls-secret
+emandakh@wp70c-641:~/wolf/sandbox/terra-interoperability-model/webpages/ssl$ sudo kubectl create secret tls datamodel-tls-secret --cert=fullchain.pem --key=privkey.pem
+
+#restart pod
