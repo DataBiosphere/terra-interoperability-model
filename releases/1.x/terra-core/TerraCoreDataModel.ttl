@@ -1,8 +1,8 @@
 # baseURI: https://datamodel.terra.bio/TerraCore
-# imports: https://datamodel.terra.bio/EFO_subset
-# imports: https://datamodel.terra.bio/NCBITaxon_Organisms.owl
-# imports: https://datamodel.terra.bio/OBI_assaySubset
-# imports: https://datamodel.terra.bio/OBI_core
+# imports: https://datamodel.terra.bio/imports/EFO_subset
+# imports: https://datamodel.terra.bio/imports/NCBITaxon_Organisms.owl
+# imports: https://datamodel.terra.bio/imports/OBI_assaySubset
+# imports: https://datamodel.terra.bio/imports/OBI_core
 # imports: https://datamodel.terra.bio/TerraCoreValueSets
 # imports: https://datamodel.terra.bio/TerraDCAT_ap
 # imports: https://www.w3.org/2002/07/owl
@@ -32,10 +32,10 @@
   dct:date "20 Jul 2020" ;
   dct:license <https://github.com/DataBiosphere/terra-interoperability-model/blob/master/LICENSE> ;
   rdfs:comment "Please cite The Broad Institute of Harvard and MIT, Data Sciences Platform." ;
-  owl:imports <https://datamodel.terra.bio/EFO_subset> ;
-  owl:imports <https://datamodel.terra.bio/NCBITaxon_Organisms.owl> ;
-  owl:imports <https://datamodel.terra.bio/OBI_assaySubset> ;
-  owl:imports <https://datamodel.terra.bio/OBI_core> ;
+  owl:imports <https://datamodel.terra.bio/imports/EFO_subset> ;
+  owl:imports <https://datamodel.terra.bio/imports/NCBITaxon_Organisms.owl> ;
+  owl:imports <https://datamodel.terra.bio/imports/OBI_assaySubset> ;
+  owl:imports <https://datamodel.terra.bio/imports/OBI_core> ;
   owl:imports <https://datamodel.terra.bio/TerraCoreValueSets> ;
   owl:imports <https://datamodel.terra.bio/TerraDCAT_ap> ;
   owl:imports <http://www.w3.org/2002/07/owl> ;
