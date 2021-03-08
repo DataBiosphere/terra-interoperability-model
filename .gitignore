@@ -2,4 +2,4 @@
 *.cert
 *.key
 *.pem
-ssl/
+webpages/ssl/
