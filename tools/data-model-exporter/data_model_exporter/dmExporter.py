@@ -8,6 +8,8 @@ import argparse
 import json
 import logging
 import sys
+import os.path
+from os import path
 
 from rdflib import Graph, Namespace, OWL, RDFS
 
@@ -138,6 +140,10 @@ def rdf_to_json(file_path, class_list):
     return json_schema_list
 
 
+def write_to_json(out_file_name,json_dict,key):
+    with open(out_file_name, 'w') as f:
+        logging.info(json.dumps(json_dict[key], indent=4))
+        json.dump(json_dict[key], f)
 def main():
     # get CLI arguments
     file_path, class_list = get_arguments()
@@ -146,10 +152,14 @@ def main():
     # write one file per class provided
     for key in json_dict:
         out_file_name = f"{key}.json"
-        with open(out_file_name, 'w') as f:
-            logging.info(json.dumps(json_dict[key], indent=4))
-            json.dump(json_dict[key], f)
-
+        if(path.exists(out_file_name)):
+            rewrite = input(out_file_name + "already exists. Rewrite? (y/n)")
+            if rewrite == "y":
+               write_to_json(out_file_name,json_dict,key)
+            else:
+                print("not overwriting " + out_file_name)
+        else:
+            write_to_json(out_file_name,json_dict,key)
 
 if __name__ == "__main__":
     main()
