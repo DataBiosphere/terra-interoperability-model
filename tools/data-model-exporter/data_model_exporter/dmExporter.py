@@ -22,13 +22,22 @@ def get_arguments():
     2) a "class file" (newline delimited list of strings that correspond to RDF classes)
     """
     parser = argparse.ArgumentParser(description='Process data model export')
-    parser.add_argument('-f', '--file_path', help="a path to the data model", required=True)
+    parser.add_argument('-f', '--file_path', help="a path to the data model")
     # TODO: two methods to input classes, CLI list vs CLI file_path argument - keep both?
     parser.add_argument('-l', '--class_list', nargs='+', help="a class listing string")
     parser.add_argument('-c', '--class_path', help="a class listing file")
     args = parser.parse_args()
 
-    if args.class_list is None and args.class_path is None:
+    if args.file_path is None and args.class_list is None and args.class_path is None:
+        logging.error("If you want to run the script with a file of classes:"
+                      "\npoetry run ./dmExporter.py -f \"filepath\" -c \"class_name.txt\""
+                      "\nIf you want to run the script with a list of classes"
+                      "\npoetry run ./dmExporter.py -f \"filepath\" -l \"DataCollection BiomedicalResearch\"")
+        sys.exit(1)
+    elif args.file_path is None:
+        logging.error("Provide a file path 'f' argument")
+        sys.exit(1)
+    elif args.class_list is None and args.class_path is None:
         logging.error("Provide a class_list 'l' or class_path 'c' argument")
         sys.exit(1)
     elif args.class_list and args.class_path:
@@ -109,7 +118,8 @@ def run(file_path, class_name):
         }
         return json_schema
 
-
+#Todo: write docstring for extract and rdf_to_json to properly state that the first is the actual extraction of each
+# class while the later is the iterator for all the classes
 def rdf_to_json(file_path, class_list):
     """function to implement RDF to JSON transformation
     Per the spec linked in the parent epic, we will need to implement a method that consumes as input:
