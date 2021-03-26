@@ -8,7 +8,6 @@ import argparse
 import json
 import logging
 import sys
-import os.path
 from os import path
 
 from rdflib import Graph, Namespace, OWL, RDFS
@@ -24,22 +23,12 @@ def get_arguments():
     2) a "class file" (newline delimited list of strings that correspond to RDF classes)
     """
     parser = argparse.ArgumentParser(description='Process data model export')
-    parser.add_argument('-f', '--file_path', help="a path to the data model")
-    # TODO: two methods to input classes, CLI list vs CLI file_path argument - keep both?
-    parser.add_argument('-l', '--class_list', nargs='+', help="a class listing string")
-    parser.add_argument('-c', '--class_path', help="a class listing file")
+    parser.add_argument('-f', '--file-path', help="path to the data model e.g.: 'src/terra-core/TerraDCAT-AP.ttl'", required = True)
+    parser.add_argument('-l', '--class-list', nargs='+', help="a class listing string e.g.: 'DataCollection BiomedicalResearch'")
+    parser.add_argument('-c', '--class-path', help="a class listing file e.g.: 'class_name.txt'")
     args = parser.parse_args()
 
-    if args.file_path is None and args.class_list is None and args.class_path is None:
-        logging.error("If you want to run the script with a file of classes:"
-                      "\npoetry run ./dmExporter.py -f \"filepath\" -c \"class_name.txt\""
-                      "\nIf you want to run the script with a list of classes"
-                      "\npoetry run ./dmExporter.py -f \"filepath\" -l \"DataCollection BiomedicalResearch\"")
-        sys.exit(1)
-    elif args.file_path is None:
-        logging.error("Provide a file path 'f' argument")
-        sys.exit(1)
-    elif args.class_list is None and args.class_path is None:
+    if args.class_list is None and args.class_path is None:
         logging.error("Provide a class_list 'l' or class_path 'c' argument")
         sys.exit(1)
     elif args.class_list and args.class_path:
@@ -120,23 +109,14 @@ def run(file_path, class_name):
         }
         return json_schema
 
-#Todo: write docstring for extract and rdf_to_json to properly state that the first is the actual extraction of each
-# class while the later is the iterator for all the classes
 def rdf_to_json(file_path, class_list):
-    """function to implement RDF to JSON transformation
-    Per the spec linked in the parent epic, we will need to implement a method that consumes as input:
-    A list of class names (this will be parsed from a file later on,
-    but can be hardcoded or passed via the CLI to start for testing purposes)
-    The path to the relevant TIM TTL file (again can be hardcoded or just threaded through via the CLI)
-    Execute the processing logic as defined in the spec
-    A sample spike script for how this would be approached can be found here.
     """
-
-    # iterate over class_list
-    json_schema_list = {}
-    for class_name in class_list:
-        # extract json for each individual class
-        json_schema_list[class_name] = run(file_path, class_name)
+    Function to convert RDF to JSON and store the class names with their schemas in a dictionary
+    :param file_path: File Path to RDF
+    :param class_list: List of classes to parse
+    :return: Dictionary {key=class_name : value=json_schema}
+    """
+    json_schema_list ={class_name: run(file_path, class_name) for class_name in class_list}
     return json_schema_list
 
 
@@ -144,6 +124,7 @@ def write_to_json(out_file_name,json_dict,key):
     with open(out_file_name, 'w') as f:
         logging.info(json.dumps(json_dict[key], indent=4))
         json.dump(json_dict[key], f)
+
 def main():
     # get CLI arguments
     file_path, class_list = get_arguments()
@@ -152,12 +133,10 @@ def main():
     # write one file per class provided
     for key in json_dict:
         out_file_name = f"{key}.json"
-        if(path.exists(out_file_name)):
-            rewrite = input(out_file_name + "already exists. Rewrite? (y/n)")
+        if path.exists(out_file_name):
+            rewrite = input(out_file_name + " already exists. Overwrite? (y/n)")
             if rewrite == "y":
-               write_to_json(out_file_name,json_dict,key)
-            else:
-                print("not overwriting " + out_file_name)
+                write_to_json(out_file_name,json_dict,key)
         else:
             write_to_json(out_file_name,json_dict,key)
 
