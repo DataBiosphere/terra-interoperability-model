@@ -52,7 +52,13 @@ def get_arguments():
         logging.error("Error parsing arguments, please try again...")
 
 
-def run(file_path, class_name):
+def ttl_to_json(file_path, class_name):
+    """
+    Reads ttl file from given file_path and pulls properties for the given class_name
+    :param file_path: File path to ttl file to read
+    :param class_name: Class name of class to grab properties from
+    :return: Json schema of given class
+    """
     with open(file_path, 'r') as ttl_file:
         rdf_term = Terra.term(class_name)
         # parse the file
@@ -116,7 +122,7 @@ def rdf_to_json(file_path, class_list):
     :param class_list: List of classes to parse
     :return: Dictionary {key=class_name : value=json_schema}
     """
-    json_schema_list ={class_name: run(file_path, class_name) for class_name in class_list}
+    json_schema_list = {class_name: ttl_to_json(file_path, class_name) for class_name in class_list}
     return json_schema_list
 
 
@@ -136,9 +142,9 @@ def main():
         if path.exists(out_file_name):
             rewrite = input(out_file_name + " already exists. Overwrite? (y/n)")
             if rewrite == "y":
-                write_to_json(out_file_name,json_dict,key)
+                write_to_json(out_file_name, json_dict, key)
         else:
-            write_to_json(out_file_name,json_dict,key)
+            write_to_json(out_file_name, json_dict, key)
 
 if __name__ == "__main__":
     main()
