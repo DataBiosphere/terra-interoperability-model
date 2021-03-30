@@ -1,41 +1,49 @@
 # Data Model Exporter
-#### _Early prototype for converting RDF to JSON schema_
+## _Early prototype for converting RDF to JSON schema_
 
 ### Dependencies
-#### _You will need Python3 and Poetry installed on your machine_
-##### Python 3.9.1
-###### _Download & Install:_ https://www.python.org/downloads/
+You will need Python 3 and Poetry installed on your machine.
 
-##### Poetry
-###### _Documentation:_ https://python-poetry.org/docs/
+#### Python 3.9.1
+_Download & Install:_ https://www.python.org/downloads/
+
+#### Poetry
+_Documentation:_ https://python-poetry.org/docs/
 
 
 ### SET UP
-#### Install the Poetry vm and depedencies
+Initialize and configure the Poetry virtual environment:
 ```sh
-cd [directory with .toml file]
+cd tools/data-model-exporter  # Navigate to the data-model-exporter directory, where our Poetry config is (pyproject.toml)
 poetry install
+poetry run pre-commit install
 ```
 
-#### Create a txt file containing the list of classes that need to be pulled in the directory
+### RUN THE SCRIPT
 
-###### Navigate to the directory containing the script file:
+* Create a text file containing the list of classes that need to be pulled in the directory
+
+* Navigate to the directory containing the script file:
 ```sh
-cd ../terra-interoperability-model/tools/data-model-exporter/data_model_exporter
+cd tools/data-model-exporter/data_model_exporter
 ```
 
-#### Using poetry run the following command line:  
-```py
+* Invoke the script using Poetry:
+```sh
 # run the script with a file of classes
-poetry run ./dmExporter.py -f "filepath" -c "class_name.txt"```py
-# run the script with a list of classes
+poetry run ./dmExporter.py -f "filepath" -c "class_name.txt"
+```
+
+```sh
+# run the script with a space-delimited list of classes
 poetry run ./dmExporter.py -f "filepath" -l "DataCollection BiomedicalResearch"
 ```
-###### _This will create individual json files for each schema converted_
+
+This will create individual .json files for each schema converted.
 
 
-#### Troubleshooting
-###### _if poetry commands are not working after installing poetry, add this alias to your bash profile_
+### Troubleshooting
+If Poetry commands are not working after installing Poetry, add this alias to your bash profile to ensure that Poetry is on your path:
 ```sh
 export PATH=$PATH:$HOME/.poetry/bin
 ```
