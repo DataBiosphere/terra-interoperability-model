@@ -3,3 +3,7 @@
 *.key
 *.pem
 webpages/ssl/
+**/__pycache__
+tools/data-model-exporter/poetry.lock
+tools/data-model-exporter/.mypy_cache
+tools/data-model-exporter/.pytest_cache

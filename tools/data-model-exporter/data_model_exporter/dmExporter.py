@@ -15,7 +15,8 @@ from rdflib import Graph, Namespace, OWL, RDFS
 Terra = Namespace("http://datamodel.terra.bio/TerraDCAT_ap#")
 # the builtin RDFLIB PROV NS does not define 'definition' for unknown reasons, hence this ad hoc def
 Prov = Namespace("http://www.w3.org/ns/prov#")
-logging.basicConfig(level=logging.INFO,format="%(message)s")
+logging.basicConfig(level=logging.INFO, format="%(message)s")
+
 
 def get_arguments():
     """Arguments defined in spec
@@ -23,8 +24,16 @@ def get_arguments():
     2) a "class file" (newline delimited list of strings that correspond to RDF classes)
     """
     parser = argparse.ArgumentParser(description='Process data model export')
-    parser.add_argument('-f', '--file-path', help="path to the data model e.g.: 'src/terra-core/TerraDCAT-AP.ttl'", required = True)
-    parser.add_argument('-l', '--class-list', nargs='+', help="a class listing string e.g.: 'DataCollection BiomedicalResearch'")
+    parser.add_argument(
+        '-f',
+        '--file-path',
+        help="path to the data model e.g.: 'src/terra-core/TerraDCAT-AP.ttl'",
+        required=True)
+    parser.add_argument(
+        '-l',
+        '--class-list',
+        nargs='+',
+        help="a class listing string e.g.: 'DataCollection BiomedicalResearch'")
     parser.add_argument('-c', '--class-path', help="a class listing file e.g.: 'class_name.txt'")
     args = parser.parse_args()
 
@@ -115,6 +124,7 @@ def ttl_to_json(file_path, class_name):
         }
         return json_schema
 
+
 def rdf_to_json(file_path, class_list):
     """
     Function to convert RDF to JSON and store the class names with their schemas in a dictionary
@@ -126,10 +136,11 @@ def rdf_to_json(file_path, class_list):
     return json_schema_list
 
 
-def write_to_json(out_file_name,json_dict,key):
+def write_to_json(out_file_name, json_dict, key):
     with open(out_file_name, 'w') as f:
         logging.info(json.dumps(json_dict[key], indent=4))
         json.dump(json_dict[key], f)
+
 
 def main():
     # get CLI arguments
@@ -145,6 +156,7 @@ def main():
                 write_to_json(out_file_name, json_dict, key)
         else:
             write_to_json(out_file_name, json_dict, key)
+
 
 if __name__ == "__main__":
     main()
