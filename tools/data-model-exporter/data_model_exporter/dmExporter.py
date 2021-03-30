@@ -9,6 +9,7 @@ import json
 import logging
 import sys
 from os import path
+from typing import Any
 
 from rdflib import Graph, Namespace, OWL, RDFS
 
@@ -17,8 +18,10 @@ Terra = Namespace("http://datamodel.terra.bio/TerraDCAT_ap#")
 Prov = Namespace("http://www.w3.org/ns/prov#")
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 
+JsonSchema = dict[str, Any]
 
-def get_arguments():
+
+def get_arguments() -> tuple[str, list[str]]:
     """Arguments defined in spec
     1) a path to the data model *.TTL file
     2) a "class file" (newline delimited list of strings that correspond to RDF classes)
@@ -59,9 +62,10 @@ def get_arguments():
         return args.file_path, class_list
     else:
         logging.error("Error parsing arguments, please try again...")
+        exit(1)
 
 
-def ttl_to_json(file_path, class_name):
+def ttl_to_json(file_path: str, class_name: str) -> JsonSchema:
     """
     Reads ttl file from given file_path and pulls properties for the given class_name
     :param file_path: File path to ttl file to read
@@ -125,7 +129,7 @@ def ttl_to_json(file_path, class_name):
         return json_schema
 
 
-def rdf_to_json(file_path, class_list):
+def rdf_to_json(file_path: str, class_list: list[str]) -> dict[str, JsonSchema]:
     """
     Function to convert RDF to JSON and store the class names with their schemas in a dictionary
     :param file_path: File Path to RDF
@@ -136,13 +140,13 @@ def rdf_to_json(file_path, class_list):
     return json_schema_list
 
 
-def write_to_json(out_file_name, json_dict, key):
+def write_to_json(out_file_name: str, json_dict: dict[str, JsonSchema], key: str) -> None:
     with open(out_file_name, 'w') as f:
         logging.info(json.dumps(json_dict[key], indent=4))
         json.dump(json_dict[key], f)
 
 
-def main():
+def main() -> None:
     # get CLI arguments
     file_path, class_list = get_arguments()
     # invoke driver to transform RDF to JSON
