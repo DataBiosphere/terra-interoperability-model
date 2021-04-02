@@ -1,0 +1,50 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Validate Python
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  python-validation:
+    runs-on: ubuntu-latest
+    env:
+      ENV: test
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install Poetry
+      uses: snok/install-poetry@v1.1.1
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-poetry
+      with:
+        path: ~/.cache/pypoetry
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./tools/data-model-exporter/pyproject.toml') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+    - name: Install dependencies
+      id: dependencies
+      run: poetry install
+      working-directory: ${{ github.workspace }}/tools/data-model-exporter
+    - name: Enforce coding style guide
+      run: poetry run flake8
+      working-directory: ${{ github.workspace }}/tools/data-model-exporter
+      if: always() && steps.dependencies.outcome == 'success' # run all three checks, even if a prior check fails
+    - name: Check static types
+      run: poetry run mypy
+      working-directory: ${{ github.workspace }}/tools/data-model-exporter
+      if: always() && steps.dependencies.outcome == 'success' # run all three checks, even if a prior check fails
+    - name: Run test suite
+      run: poetry run pytest
+      working-directory: ${{ github.workspace }}/tools/data-model-exporter
+      if: always() && steps.dependencies.outcome == 'success' # run all three checks, even if a prior check fails

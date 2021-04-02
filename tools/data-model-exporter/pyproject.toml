@@ -8,6 +8,7 @@ authors = ["Quazi Hoque <qhoque@broadinstitute.org>"]
 python = "^3.9"
 rdflib = "^5.0.0"
 unittest = "^0.0"
+pdbpp = "^0.10.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^4.6"

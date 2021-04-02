@@ -8,6 +8,7 @@ import argparse
 import json
 import logging
 import sys
+from collections import OrderedDict
 
 from rdflib import Graph, Namespace, OWL, RDFS
 
@@ -16,7 +17,7 @@ Terra = Namespace("http://datamodel.terra.bio/TerraDCAT_ap#")
 Prov = Namespace("http://www.w3.org/ns/prov#")
 logging.basicConfig(level=logging.INFO,format="%(message)s")
 
-def get_arguments():
+def get_arguments(args):
     """Arguments defined in spec
     1) a path to the data model *.TTL file
     2) a "class file" (newline delimited list of strings that correspond to RDF classes)
@@ -26,7 +27,7 @@ def get_arguments():
     # TODO: two methods to input classes, CLI list vs CLI file_path argument - keep both?
     parser.add_argument('-l', '--class_list', nargs='+', help="a class listing string")
     parser.add_argument('-c', '--class_path', help="a class listing file")
-    args = parser.parse_args()
+    args = parser.parse_args(args)
 
     if args.class_list is None and args.class_path is None:
         logging.error("Provide a class_list 'l' or class_path 'c' argument")
@@ -119,18 +120,17 @@ def rdf_to_json(file_path, class_list):
     Execute the processing logic as defined in the spec
     A sample spike script for how this would be approached can be found here.
     """
-
     # iterate over class_list
-    json_schema_list = {}
+    json_schema_dict = OrderedDict()
     for class_name in class_list:
         # extract json for each individual class
-        json_schema_list[class_name] = extract(file_path, class_name)
-    return json_schema_list
+        json_schema_dict[class_name] = extract(file_path, class_name)
+    return json_schema_dict
 
 
 def main():
     # get CLI arguments
-    file_path, class_list = get_arguments()
+    file_path, class_list = get_arguments(sys.argv[1:])
     # invoke driver to transform RDF to JSON
     json_dict = rdf_to_json(file_path, class_list)
     # write one file per class provided
