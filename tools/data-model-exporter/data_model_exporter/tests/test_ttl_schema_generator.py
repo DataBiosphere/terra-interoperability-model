@@ -59,7 +59,7 @@ class TtlSchemaGeneratorTestCase(unittest.TestCase):
         self.assertEqual(this_is_zombocom.allowed_types, [PrimitiveType('string')])
         redundancy_dict = this_is_zombocom.as_dict()
         self.assertEqual(redundancy_dict['type'], 'array')
-        self.assertEqual(redundancy_dict['items'], {'type':  'string'})
+        self.assertEqual(redundancy_dict['items'], {'type': 'string'})
 
     def test_annotates_allvaluesfrom_as_type(self):
         self.assertIn('zombo:limit', self.generator.schema.properties)
