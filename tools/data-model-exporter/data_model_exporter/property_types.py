@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from .typing import TypeEntry
+from .typing import SingleTypeConstraint
 
 
 @dataclass
@@ -9,10 +9,10 @@ class TypeAnnotation:
 
 
 class PrimitiveType(TypeAnnotation):
-    def type_entry(self) -> TypeEntry:
+    def type_constraint_dict(self) -> SingleTypeConstraint:
         return {'type': self.name}
 
 
 class RefType(TypeAnnotation):
-    def type_entry(self) -> TypeEntry:
+    def type_constraint_dict(self) -> SingleTypeConstraint:
         return {'$ref': self.name}

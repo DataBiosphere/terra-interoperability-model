@@ -9,7 +9,7 @@ from rdflib.collection import Collection
 from .schema import Schema
 from .property import Property
 from .property_types import PrimitiveType, RefType
-from .typing import JsonSchema, PropertyType
+from .typing import JsonSchema, PropertyType, RdfNodeName
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 
@@ -76,7 +76,7 @@ class TtlSchemaGenerator:
     def _annotate_by_class_namespace(self) -> None:
         for predicate, ttl_object in self.graph.predicate_objects(self.term):
             if predicate in [PROV.definition, SKOS.definition]:
-                self.schema.description = ttl_object.value
+                self.schema.set_description(ttl_object.value, self.namespaced_name_for_node(predicate))
             elif predicate == RDFS.label:
                 self.schema.title = ttl_object.value
             elif predicate == SKOS.prefLabel:
@@ -166,9 +166,9 @@ class TtlSchemaGenerator:
         if property_name not in self.schema.properties:
             self.schema.properties[property_name] = Property(property_name, str(target_property))
 
-    def namespaced_name_for_node(self, node: rdflib.term.Identifier) -> str:
+    def namespaced_name_for_node(self, node: rdflib.term.Identifier) -> RdfNodeName:
         name: str = node.n3(self.graph.namespace_manager)  # hardcoding type for type annotations
-        return name
+        return RdfNodeName(name)
 
     def _annotate_blank_node(self, predicate: rdflib.term.Identifier, ttl_object: rdflib.term.Identifier) -> None:
         if self.graph.value(ttl_object, RDF.type) != OWL.Restriction:

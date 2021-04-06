@@ -2,7 +2,8 @@ from dataclasses import dataclass, field
 import logging
 from typing import Any, Literal, Optional
 
-from .typing import ArrayFieldTypeInformation, JsonSchema, PropertyType, TypeListing, TypeInformation
+from .typing import ArrayTypeConstraintExpression, JsonSchema, PropertyType, RdfNodeName, \
+    SingletonTypeConstraintExpression, TypeConstraintExpression
 from .property_types import PrimitiveType, RefType
 
 
@@ -12,7 +13,7 @@ logging.basicConfig(level=logging.INFO, format="%(message)s")
 @dataclass
 class Property:
     name: str
-    description: str  # should be initialized as un-namespaced uriref of property
+    description: str = ""
     comment: Optional[str] = None
     title: Optional[str] = None
     skos_preflabel: Optional[str] = None
@@ -20,24 +21,33 @@ class Property:
     allowed_values: list[str] = field(default_factory=list)
     min_cardinality: Optional[int] = None
     max_cardinality: Optional[int] = None
-    force_array_type: bool = False
     required: bool = False
     parent_properties: list[RefType] = field(default_factory=list)
 
     # some flags for internal validation that don't end up in the json
 
     # set to true if a single-type constraint has been applied
-    expect_no_further_type_constraints: bool = False
+    expect_no_further_type_constraints: bool = field(default=False, init=False, repr=False, compare=False)
+    description_already_set_by: Optional[RdfNodeName] = field(default=None, init=False, repr=False, compare=False)
+
+    def set_description(self, new_description: str, source: RdfNodeName) -> None:
+        if self.description_already_set_by:
+            logging.warning(
+                f"Setting description of property {self.name} to {new_description} (based on {source})"
+                f"when it has already been defined by {self.description_already_set_by}."
+            )
+
+        self.description = new_description
+        self.description_already_set_by = source
 
     def is_array_type(self) -> bool:
         return self.min_cardinality is not None \
-            or self.max_cardinality is not None \
-            or self.force_array_type
+            or self.max_cardinality is not None
 
     def add_type(self, new_type: PropertyType, restrictive: bool = False) -> None:
         if any(self.allowed_values):
             raise ValueError(
-                "Tried to add a type constraint for property {self.name}, which already has value constraints."
+                f"Tried to add a type constraint for property {self.name}, which already has value constraints."
             )
 
         if self.expect_no_further_type_constraints:
@@ -57,19 +67,19 @@ class Property:
 
         self.allowed_values.append(new_value)
 
-    def base_type_info(self) -> TypeListing:
+    def base_type_info(self) -> SingletonTypeConstraintExpression:
         type_count = len(self.allowed_types)
 
         if type_count == 0:
-            return PrimitiveType('string').type_entry()
+            return PrimitiveType('string').type_constraint_dict()
 
         if type_count == 1:
-            return self.allowed_types[0].type_entry()  # type: ignore
+            return self.allowed_types[0].type_constraint_dict()  # type: ignore
 
         one_of_literal: Literal['oneOf'] = 'oneOf'  # necessary for type annotations
         return {
             one_of_literal: [
-                allowed_type.type_entry()
+                allowed_type.type_constraint_dict()
                 for allowed_type in self.allowed_types
             ]
         }
@@ -83,7 +93,7 @@ class Property:
             'maxItems': self.max_cardinality,
             'oneOf': self.allowed_values,
             'rdfs:PropertyOf': [
-                parent_property.type_entry()
+                parent_property.type_constraint_dict()
                 for parent_property
                 in self.parent_properties
             ],
@@ -91,9 +101,9 @@ class Property:
 
         return {k: v for k, v in fields.items() if bool(v)}
 
-    def type_info(self) -> TypeInformation:
+    def type_info(self) -> TypeConstraintExpression:
         if self.is_array_type():
-            base_info = ArrayFieldTypeInformation({
+            base_info = ArrayTypeConstraintExpression({
                 'type': 'array',
                 'items': self.base_type_info()
             })

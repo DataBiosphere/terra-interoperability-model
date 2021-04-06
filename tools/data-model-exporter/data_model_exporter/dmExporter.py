@@ -11,9 +11,6 @@ from os import path
 
 from .ttl_schema_generator import JsonSchema, TtlSchemaGenerator
 
-# the builtin RDFLIB PROV NS does not define 'definition' for unknown reasons, hence this ad hoc def
-logging.basicConfig(level=logging.INFO, format="%(message)s")
-
 
 def get_arguments() -> tuple[str, list[str]]:
     """Arguments defined in spec

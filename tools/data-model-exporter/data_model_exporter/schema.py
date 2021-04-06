@@ -1,8 +1,9 @@
 from dataclasses import dataclass, field
+import logging
 from typing import Any, Optional
 
 from .property import Property
-from .typing import JsonSchema
+from .typing import JsonSchema, RdfNodeName
 
 
 @dataclass
@@ -17,6 +18,8 @@ class Schema:
     exact_synonym: list[str] = field(default_factory=list)
     properties: dict[str, Property] = field(default_factory=dict)
 
+    description_already_set_by: Optional[RdfNodeName] = field(default=None, init=False, repr=False, compare=False)
+
     def optional_fields(self) -> dict[str, Any]:
         fields = {
             'title': self.title,
@@ -28,6 +31,21 @@ class Schema:
         }
 
         return {k: v for k, v in fields.items() if bool(v)}
+
+    def set_description(self, new_description: str, source: RdfNodeName) -> None:
+        if self.description_already_set_by == 'skos:definition':
+            logging.warning(
+                f"Already set description for {self.term} based on skos:definition, ignoring value from {source}."
+            )
+            return
+        elif self.description_already_set_by is not None:
+            logging.warning(
+                f"Overwriting description for {self.term} based on {self.description_already_set_by} using "
+                f"new value from {source}."
+            )
+
+        self.description = new_description
+        self.description_already_set_by = source
 
     def as_dict(self) -> JsonSchema:
         base_info = {
