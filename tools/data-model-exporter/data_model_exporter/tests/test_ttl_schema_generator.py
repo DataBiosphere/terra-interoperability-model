@@ -16,9 +16,6 @@ class TtlSchemaGeneratorTestCase(unittest.TestCase):
         self.generator = TtlSchemaGenerator('Zombocom', self.fixture_path('test.ttl'))
         self.generator.build_schema()
 
-    def test_primary_namespace_detects_correct_namespace(self):
-        self.assertEqual('https://zombo.com/zombo#', str(self.generator.primary_namespace))
-
     def test_ensure_property_initialized_is_idempotent_and_initializes_property(self):
         zombo_node = rdflib.term.URIRef("https://zombo.com/zombo#possibilities")
         self.generator.ensure_property_initialized(zombo_node)
