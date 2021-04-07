@@ -1,0 +1,89 @@
+# baseURI: https://zombo.com/zombo
+# imports: http://www.w3.org/ns/dcat
+# prefix: zombo
+
+@prefix : <https://zombo.com/zombo#> .
+@prefix zombo: <https://zombo.com/zombo#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix duo: <http://purl.obolibrary.org/obo/duo-basic.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://zombo.com/zombo>
+  a owl:Ontology ;
+  rdfs:comment "This is Zombocom." ;
+  owl:imports <http://www.w3.org/ns/dcat> ;
+  owl:versionInfo "Welcome to Zombocom." ;
+.
+zombo:Zombocom
+  a rdfs:Class ;
+  rdfs:label "ZomboLabel" ;
+  skos:prefLabel "ZomboPrefLabel" ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty zombo:possibilities ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom zombo:Possibility ;
+      owl:onProperty zombo:possibilities ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:someValuesFrom xsd:string ;
+      owl:onProperty zombo:redundancy ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom zombo:Yourself ;
+      owl:onProperty zombo:limit ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty zombo:limit ;
+    ] ;
+  prov:definition "This is Zombocom."
+.
+zombo:Possibility
+  a rdfs:Class ;
+  rdfs:label "Possibility" ;
+  prov:definition "You can do anything at Zombocom." ;
+.
+zombo:redundancy
+  a owl:ObjectProperty ;
+  rdfs:domain zombo:Zombocom ;
+  skos:definition "Yes, this is Zombocom." ;
+  prov:definition "Welcome to Zombocom." ;
+  skos:prefLabel "This" ;
+.
+zombo:greeting
+  a owl:Property ;
+  rdfs:domain zombo:Zombocom ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "Welcome to Zombocom."
+          "This is Zombocom."
+        ) ;
+    ] ;
+.
+zombo:abilityToDoAnything
+  a owl:Property ;
+  rdfs:domain zombo:Yourself ;
+.
+zombo:limit
+  a owl:ObjectProperty ;
+  rdfs:domain zombo:Zombocom ;
+  skos:prefLabel "Limit" ;
+.
+zombo:Yourself
+  a rdfs:Class ;
+  skos:definition "The only limit is yourself." ;
+.

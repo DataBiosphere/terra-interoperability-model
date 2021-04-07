@@ -6,6 +6,7 @@ authors = ["Quazi Hoque <qhoque@broadinstitute.org>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+cached-property = "^1.5.2"
 rdflib = "^5.0.0"
 
 [tool.poetry.dev-dependencies]
