@@ -1,3 +1,6 @@
+"""
+different kinds of type annotation for properties
+"""
 from dataclasses import dataclass
 
 from data_model_exporter.typing import SingleTypeConstraint

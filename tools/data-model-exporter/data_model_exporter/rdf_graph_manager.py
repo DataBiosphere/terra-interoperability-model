@@ -1,3 +1,6 @@
+"""
+a service object containing functions to perform common translations between RDF graphs and our data model
+"""
 from dataclasses import dataclass
 
 from cached_property import cached_property
@@ -13,7 +16,6 @@ PRIMITIVE_TYPES = {
 }
 
 
-# helper functions to perform common translations between RDF graphs and our data model
 @dataclass
 class RdfGraphManager:
     graph: Graph

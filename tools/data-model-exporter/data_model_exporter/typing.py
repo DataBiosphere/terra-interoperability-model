@@ -1,3 +1,8 @@
+"""
+type annotations and schema definitions used elsewhere in the code base live here.
+
+if this file grows, consider splitting it up by purpose/category rather than allowing it to exceed ~100 lines
+"""
 from typing import Any, Literal, Protocol, TypedDict, Union
 
 JsonSchema = dict[str, Any]

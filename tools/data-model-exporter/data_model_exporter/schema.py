@@ -1,3 +1,7 @@
+"""
+Intermediate representation for a class in a TTL schema, including
+logic to serialize to JSON schema
+"""
 from dataclasses import dataclass, field
 import logging
 from typing import Any, Optional

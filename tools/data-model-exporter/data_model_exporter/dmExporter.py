@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
-"""Create a basic CLI tool that parses the arg list defined in the spec
-(as linked in the parent epic) and hands off the args to a stub driver method
+"""
+A basic CLI tool that allows the class and file to parse to be specified and
+passes that information off to the schema generator
 """
 
 import argparse

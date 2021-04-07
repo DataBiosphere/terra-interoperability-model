@@ -1,3 +1,8 @@
+"""
+Intermediate representation for a property of a given class, including
+logic to serialize to JSON schema
+"""
+
 from dataclasses import dataclass, field
 import logging
 from typing import Any, Literal, Optional
@@ -26,6 +31,7 @@ class Property:
 
     # set to true if a single-type constraint has been applied
     expect_no_further_type_constraints: bool = field(default=False, init=False, repr=False, compare=False)
+    # determines if we already pulled in a description from another source
     description_already_set_by: Optional[RdfNodeName] = field(default=None, init=False, repr=False, compare=False)
 
     def set_description(self, new_description: str, source: RdfNodeName) -> None:

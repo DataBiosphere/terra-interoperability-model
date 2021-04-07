@@ -1,3 +1,7 @@
+"""
+tool that scans a TTL schema file's information for a given class,
+transforming it into our intermediate data model (Schema with many Propertys)
+"""
 from dataclasses import dataclass, field
 import logging
 
