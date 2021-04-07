@@ -4,8 +4,8 @@ from cached_property import cached_property
 import rdflib
 from rdflib import Graph, Namespace
 
-from .property_types import PrimitiveType, RefType
-from .typing import PropertyType, RdfNodeName
+from data_model_exporter.property_types import PrimitiveType, RefType
+from data_model_exporter.typing import PropertyType, RdfNodeName
 
 PRIMITIVE_TYPES = {
     'xsd:string': 'string',

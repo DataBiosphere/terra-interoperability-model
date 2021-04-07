@@ -2,8 +2,9 @@ from dataclasses import dataclass, field
 import logging
 from typing import Any, Optional
 
-from .property import Property
-from .typing import JsonSchema, RdfNodeName
+from data_model_exporter.common import OPTIONAL_FIELD_VALUES_TO_OMIT
+from data_model_exporter.property import Property
+from data_model_exporter.typing import JsonSchema, RdfNodeName
 
 
 @dataclass
@@ -30,7 +31,7 @@ class Schema:
             'skos:altLabel': self.skos_altlabels,
         }
 
-        return {k: v for k, v in fields.items() if bool(v)}
+        return {k: v for k, v in fields.items() if v not in OPTIONAL_FIELD_VALUES_TO_OMIT}
 
     def set_description(self, new_description: str, source: RdfNodeName) -> None:
         if self.description_already_set_by == 'skos:definition':

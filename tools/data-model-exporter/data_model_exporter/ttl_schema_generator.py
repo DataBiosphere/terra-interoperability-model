@@ -5,11 +5,11 @@ import rdflib
 from rdflib import Graph, Namespace, RDF, RDFS, OWL, SKOS
 from rdflib.collection import Collection
 
-from .rdf_graph_manager import RdfGraphManager
-from .schema import Schema
-from .property import Property
-from .property_types import RefType
-from .typing import JsonSchema
+from data_model_exporter.rdf_graph_manager import RdfGraphManager
+from data_model_exporter.schema import Schema
+from data_model_exporter.property import Property
+from data_model_exporter.property_types import RefType
+from data_model_exporter.typing import JsonSchema
 
 # we manually define this because the preinstalled PROV namespace in rdflib doesn't include some terms we use,
 # e.g. 'definition'

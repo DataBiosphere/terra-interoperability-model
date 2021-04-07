@@ -2,12 +2,10 @@ from dataclasses import dataclass, field
 import logging
 from typing import Any, Literal, Optional
 
-from .typing import ArrayTypeConstraintExpression, JsonSchema, PropertyType, RdfNodeName, \
+from data_model_exporter.common import OPTIONAL_FIELD_VALUES_TO_OMIT
+from data_model_exporter.typing import ArrayTypeConstraintExpression, JsonSchema, PropertyType, RdfNodeName, \
     SingletonTypeConstraintExpression, TypeConstraintExpression
-from .property_types import PrimitiveType, RefType
-
-
-logging.basicConfig(level=logging.INFO, format="%(message)s")
+from data_model_exporter.property_types import PrimitiveType, RefType
 
 
 @dataclass
@@ -99,7 +97,7 @@ class Property:
             ],
         }
 
-        return {k: v for k, v in fields.items() if bool(v)}
+        return {k: v for k, v in fields.items() if v not in OPTIONAL_FIELD_VALUES_TO_OMIT}
 
     def type_info(self) -> TypeConstraintExpression:
         if self.is_array_type():

@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from .typing import SingleTypeConstraint
+from data_model_exporter.typing import SingleTypeConstraint
 
 
 @dataclass

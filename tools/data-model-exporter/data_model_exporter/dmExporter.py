@@ -9,7 +9,7 @@ import json
 import logging
 from os import path
 
-from .ttl_schema_generator import JsonSchema, TtlSchemaGenerator
+from data_model_exporter.ttl_schema_generator import JsonSchema, TtlSchemaGenerator
 
 
 def get_arguments() -> tuple[str, list[str]]:
