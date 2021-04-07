@@ -74,6 +74,8 @@ class Property:
     def base_type_info(self) -> SingletonTypeConstraintExpression:
         type_count = len(self.allowed_types)
 
+        # defaulting to 'string' type is an assumption we're choosing to make for our JSON schema
+        # and not an inherent property of TTL schemas
         if type_count == 0:
             return PrimitiveType('string').type_constraint_dict()
 
