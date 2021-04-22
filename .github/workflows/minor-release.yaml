@@ -1,0 +1,61 @@
+name: Release Minor Version
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release-minor-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # we need all tags + history
+      - name: Get current tag
+        id: current_tag
+        uses: WyriHaximus/github-action-get-previous-tag@v1
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Parse current tag
+        id: parse_current_tag
+        uses: booxmedialtd/ws-action-parse-semver@v1
+        with:
+          input_string: ${{ steps.current_tag.outputs.tag }}
+      - name: Compute next tag
+        id: next_tag
+        uses: zwaldowski/semver-release-action@v1
+        with:
+          dry_run: true
+          bump: minor
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+      - name: Update release dir and push tag
+        run: |
+          cp -R src/imports/ releases/v${{ steps.parse_current_tag.outputs.major }}
+          cp -R src/terra-core/ releases/v${{ steps.parse_current_tag.outputs.major }}
+          git config user.name "TIM Release Bot"
+          git config user.email "<>"
+          git add .
+          git commit -m 'Releasing version ${{ steps.next_tag.outputs.version }}' || true
+          git tag ${{ steps.next_tag.outputs.version }}
+          git push origin ${{ steps.next_tag.outputs.version }}
+      - name: Notify slack success
+        if: success()
+        id: slack # IMPORTANT: reference this step ID value in future Slack steps
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_TOKEN }}
+        uses: voxmedia/github-action-slack-notify-build@v1
+        with:
+          channel_id: C01GBDNLH18
+          status: SUCCESS
+          color: good
+      - name: Notify slack fail
+        if: failure()
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_TOKEN }}
+        uses: voxmedia/github-action-slack-notify-build@v1
+        with:
+          channel_id: C01GBDNLH18
+          status: FAILED
+          color: danger
+
