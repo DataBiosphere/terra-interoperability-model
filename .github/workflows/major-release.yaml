@@ -44,6 +44,7 @@ jobs:
           trimmed_tag=$(echo ${{ steps.next_tag.outputs.version }} | cut -f1 -d'.')
           echo "::set-output name=trimmed_tag::$trimmed_tag"
       - name: Create release dir and push tag
+        # we use rsync rather than a cp to ensure deleted files are reflected in the updated release dir
         run: |
           mkdir releases/v${{ steps.trim_tag.outputs.trimmed_tag }}
           rsync -avu --delete "src/imports" "releases/v${{ steps.trim_tag.outputs.trimmed_tag }}"
