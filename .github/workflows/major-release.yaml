@@ -1,10 +1,19 @@
-name: Release Minor Version
+name: Release Major Version
+
+## This workflow creates a TIM major release (semantically versioned)
+## 1. Determines the current tag
+## 2. Computes the next major version (i.e,. 1.1.0 -> 2.0.0)
+## 3. Copies any updated files to the a new major version release directory
+##    (i.e., if our next tag is 2.0.0, copy into the v2 directory)
+## 4. Commits the new release dir and tags with the new major
+##    version
+## 5. Notifies slack of success/failure.
 
 on:
   workflow_dispatch:
 
 jobs:
-  release-minor-version:
+  release-major-version:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -25,21 +34,27 @@ jobs:
         uses: zwaldowski/semver-release-action@v1
         with:
           dry_run: true
-          bump: minor
+          bump: major
           github_token: ${{ secrets.GITHUB_TOKEN }}
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-      - name: Update release dir and push tag
-        # we use rsync rather than a cp to ensure deleted files are reflected in the updated release dir
+      - name: Trim tag for release dir
+        id: trim_tag
         run: |
-          rsync -avu --delete "src/imports" "releases/v${{ steps.parse_current_tag.outputs.major }}"
-          rsync -avu --delete "src/terra-core" "releases/v${{ steps.parse_current_tag.outputs.major }}"
+          trimmed_tag=$(echo ${{ steps.next_tag.outputs.version }} | cut -f1 -d'.')
+          echo "::set-output name=trimmed_tag::$trimmed_tag"
+      - name: Create release dir and push tag
+        run: |
+          mkdir releases/v${{ steps.trim_tag.outputs.trimmed_tag }}
+          rsync -avu --delete "src/imports" "releases/v${{ steps.trim_tag.outputs.trimmed_tag }}"
+          rsync -avu --delete "src/terra-core" "releases/v${{ steps.trim_tag.outputs.trimmed_tag }}"
           git config user.name "TIM Release Bot"
           git config user.email "<>"
-          git add .
-          git commit -a -m 'Releasing version ${{ steps.next_tag.outputs.version }}' || true
+          git add releases/v${{ steps.trim_tag.outputs.trimmed_tag }}/*
+          git commit -a -m 'Updating release'
           git push origin master
           git tag ${{ steps.next_tag.outputs.version }}
+          git commit -m 'Releasing version ${{ steps.next_tag.outputs.version }}' || true
           git push origin ${{ steps.next_tag.outputs.version }}
       - name: Notify slack success
         if: success()
