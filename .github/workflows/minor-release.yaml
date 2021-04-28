@@ -1,5 +1,14 @@
 name: Release Minor Version
 
+## This workflow creates a TIM minor release (semantically versioned)
+## 1. Determines the current tag
+## 2. Computes the next minor version (i.e,. 1.0.0 -> 1.0.1)
+## 3. Copies any updated files to the current major version's release directory
+##    (i.e., if our next tag is 1.1.3, copy into the v1 directory)
+## 4. Commits the updated release dir and tags with the new minor
+##    version
+## 5. Notifies slack of success/failure.
+
 on:
   workflow_dispatch:
 
@@ -9,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0 # all tags + history
+          fetch-depth: 0 # we need all tags + history
       - name: Get current tag
         id: current_tag
         uses: WyriHaximus/github-action-get-previous-tag@v1
@@ -20,7 +29,7 @@ jobs:
         uses: booxmedialtd/ws-action-parse-semver@v1
         with:
           input_string: ${{ steps.current_tag.outputs.tag }}
-      - name: Get next tag
+      - name: Compute next tag
         id: next_tag
         uses: zwaldowski/semver-release-action@v1
         with:
