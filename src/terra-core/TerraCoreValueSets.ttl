@@ -1,7 +1,7 @@
 # baseURI: https://datamodel.terra.bio/TerraCoreValueSets
+# imports: http://www.w3.org/2004/02/skos/core#
 # imports: https://datamodel.terra.bio/CL_subset
 # imports: https://datamodel.terra.bio/UBERON_subset
-# imports: http://www.w3.org/2004/02/skos/core#
 # prefix: TerraCoreValueSets
 
 @prefix : <https://datamodel.terra.bio/TerraCoreValueSets#> .
@@ -16,9 +16,9 @@
 
 <https://datamodel.terra.bio/TerraCoreValueSets>
   a owl:Ontology ;
+  owl:imports skos: ;
   owl:imports <https://datamodel.terra.bio/CL_subset> ;
   owl:imports <https://datamodel.terra.bio/UBERON_subset> ;
-  owl:imports skos: ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
 TerraCoreValueSets:AmnioticFluid
@@ -159,7 +159,7 @@ TerraCoreValueSets:DNAMethylationModality
 .
 TerraCoreValueSets:DataModality
   a owl:Class ;
-  rdfs:comment "Activities that produce such results include assays, analysis pipelines, lab tests, and imaging -- x-ray, CT-scan, or microscopy. This term attempts to characterize the data in terms of its channel of biological investigation." ;
+  rdfs:comment "This term attempts to characterize entities in terms of its channel of biological investigation.  For example, activities that produce such results include assays, analysis pipelines, lab tests, and imaging -- x-ray, CT-scan, or microscopy as well as the data these activities generate." ;
   rdfs:label "Data Modality" ;
   rdfs:subClassOf obo:IAO_0000030 ;
   skos:altLabel "Biological Data Type" ;
@@ -200,6 +200,7 @@ TerraCoreValueSets:EpigenomicModality
   a owl:Class ;
   rdfs:label "Epigenomic" ;
   rdfs:subClassOf TerraCoreValueSets:DataModality ;
+  skos:definition "A property that indicates this entity is related to the biological investigation of the epigenome." ;
 .
 TerraCoreValueSets:Erythrocyte
   a TerraCoreValueSets:ErythrocyteType ;
@@ -231,6 +232,7 @@ TerraCoreValueSets:GenomicModality
   a owl:Class ;
   rdfs:label "Genomic" ;
   rdfs:subClassOf TerraCoreValueSets:DataModality ;
+  skos:definition "A property that indicates this entity is related to the biological investigation of the genome." ;
 .
 TerraCoreValueSets:Genotyping
   a TerraCoreValueSets:GenotypingModality ;
@@ -314,6 +316,7 @@ TerraCoreValueSets:Metabolomic
   a owl:Class ;
   rdfs:label "Metabolomic" ;
   rdfs:subClassOf TerraCoreValueSets:DataModality ;
+  skos:definition "A property that indicates this entity is related to the biological investigation of the metabolome." ;
 .
 TerraCoreValueSets:MetagenomicModality
   a owl:Class ;
@@ -329,6 +332,7 @@ TerraCoreValueSets:Microbiome
   a owl:Class ;
   rdfs:label "Microbiome" ;
   rdfs:subClassOf TerraCoreValueSets:DataModality ;
+  skos:definition "A property that indicates this entity is related to the biological investigation of the microbiome." ;
 .
 TerraCoreValueSets:Microscopy
   a TerraCoreValueSets:MicroscopyModality ;
@@ -422,6 +426,7 @@ TerraCoreValueSets:Proteomic
   a owl:Class ;
   rdfs:label "Proteomic" ;
   rdfs:subClassOf TerraCoreValueSets:DataModality ;
+  skos:definition "A property that indicates this entity is related to the biological investigation of the proteome." ;
 .
 TerraCoreValueSets:RNABinding
   a TerraCoreValueSets:RNABindingModality ;
@@ -433,7 +438,7 @@ TerraCoreValueSets:RNABindingModality
   rdfs:subClassOf TerraCoreValueSets:EpigenomicModality ;
 .
 TerraCoreValueSets:RnaSeq
-  a TerraCoreValueSets:TranscriptomicUnbiased ;
+  a TerraCoreValueSets:TranscriptomicNonTargeted ;
   rdfs:label "RNASeq" ;
 .
 TerraCoreValueSets:Saliva
@@ -471,6 +476,11 @@ TerraCoreValueSets:SerumType
   rdfs:label "Serum" ;
   rdfs:subClassOf TerraCoreValueSets:Blood ;
   owl:equivalentClass obo:UBERON_0001977 ;
+.
+TerraCoreValueSets:SpatialTranscriptomicModality
+  a owl:Class ;
+  rdfs:label "Spatial Transcriptomics" ;
+  rdfs:subClassOf TerraCoreValueSets:Transcriptomic ;
 .
 TerraCoreValueSets:Stool
   a TerraCoreValueSets:StoolType ;
@@ -524,15 +534,17 @@ TerraCoreValueSets:Transcriptomic
   a owl:Class ;
   rdfs:label "Transcriptomic" ;
   rdfs:subClassOf TerraCoreValueSets:DataModality ;
+  skos:definition "A property that indicates this entity is related to the biological investigation of the transcriptome." ;
+.
+TerraCoreValueSets:TranscriptomicNonTargeted
+  a owl:Class ;
+  rdfs:label "Transcriptomic NonTargeted" ;
+  rdfs:subClassOf TerraCoreValueSets:Transcriptomic ;
+  skos:altLabel "Transcriptomic NonTargeted" ;
 .
 TerraCoreValueSets:TranscriptomicTargetedModality
   a owl:Class ;
   rdfs:label "Transcriptomic Targeted" ;
-  rdfs:subClassOf TerraCoreValueSets:Transcriptomic ;
-.
-TerraCoreValueSets:TranscriptomicUnbiased
-  a owl:Class ;
-  rdfs:label "Transcriptomic Unbiased" ;
   rdfs:subClassOf TerraCoreValueSets:Transcriptomic ;
 .
 TerraCoreValueSets:Urine
