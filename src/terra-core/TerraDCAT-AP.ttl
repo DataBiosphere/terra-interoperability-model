@@ -15,6 +15,9 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+prov:value
+  rdfs:subPropertyOf prov:influenced ;
+.
 <https://datamodel.terra.bio/TerraDCAT_ap>
   a owl:Ontology ;
   rdfs:comment "DSP DCAT AP is the Broad Data Sciences Platform's application profile.  It is an RDF vocabulary which extends the W3C's Data Catalog Vocabulary (https://www.w3.org/TR/vocab-dcat/)." ;
@@ -37,13 +40,13 @@ TerraDCAT_ap:DSPThemeTaxonomy
 TerraDCAT_ap:DataCollection
   a rdfs:Class ;
   a owl:Class ;
+  rdfs:label "DataCollection" ;
+  rdfs:subClassOf dcat:Catalog ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:allValuesFrom prov:Person ;
       owl:onProperty dct:creator ;
     ] ;
-  rdfs:label "DataCollection" ;
-  rdfs:subClassOf dcat:Catalog ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -120,11 +123,6 @@ TerraDCAT_ap:DataSnapshot
   rdfs:subClassOf dcat:Distribution ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:allValuesFrom prov:Person ;
-      owl:onProperty dct:creator ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
       owl:allValuesFrom xsd:decimal ;
       owl:onProperty dcat:byteSize ;
     ] ;
@@ -132,6 +130,11 @@ TerraDCAT_ap:DataSnapshot
       a owl:Restriction ;
       owl:allValuesFrom xsd:string ;
       owl:onProperty dcat:mediaType ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom prov:Person ;
+      owl:onProperty dct:creator ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -324,6 +327,7 @@ TerraDCAT_ap:hasDataCollection
   rdfs:label "hasDataCollection" ;
   rdfs:range TerraDCAT_ap:DataCollection ;
   rdfs:subPropertyOf dcat:catalog ;
+  skos:definition "A collection of data that is included within this DataCollection." ;
   skos:prefLabel "hasDataCollection" ;
 .
 TerraDCAT_ap:hasDataSnapshot
@@ -332,6 +336,7 @@ TerraDCAT_ap:hasDataSnapshot
   rdfs:label "hasDataSnapshot" ;
   rdfs:range TerraDCAT_ap:DataSnapshot ;
   rdfs:subPropertyOf dcat:distribution ;
+  skos:definition "An available distribution of the Dataset. " ;
   skos:prefLabel "hasDataSnapshot" ;
 .
 TerraDCAT_ap:hasDataUseModifier
@@ -341,6 +346,7 @@ TerraDCAT_ap:hasDataUseModifier
   rdfs:domain TerraDCAT_ap:Dataset ;
   rdfs:label "hasDataUseModifier" ;
   rdfs:range <http://purl.obolibrary.org/obo/DUO_0000017> ;
+  skos:definition "The Data Use Ontology term to indicate conditions for use of the data." ;
   skos:prefLabel "hasDataUseModifier" ;
 .
 TerraDCAT_ap:hasDataUsePermission
@@ -350,15 +356,16 @@ TerraDCAT_ap:hasDataUsePermission
   rdfs:domain TerraDCAT_ap:Dataset ;
   rdfs:label "hasDataUseLimitation" ;
   rdfs:range <http://purl.obolibrary.org/obo/DUO_0000001> ;
+  skos:definition "The Data Use Ontology term to indicate consent permissions for the use of the data." ;
   skos:prefLabel "hasDataUsePermission" ;
 .
 TerraDCAT_ap:hasDataset
   a owl:ObjectProperty ;
   rdfs:domain TerraDCAT_ap:DataCollection ;
   rdfs:label "hasDataset" ;
-  rdfs:range TerraDCAT_ap:DataCollection ;
   rdfs:range TerraDCAT_ap:Dataset ;
   rdfs:subPropertyOf dcat:dataset ;
+  skos:definition "A Dataset that is included within this DataCollection." ;
   skos:prefLabel "hasDataset" ;
 .
 TerraDCAT_ap:hasOriginalPublication
@@ -382,10 +389,7 @@ TerraDCAT_ap:hasOwner
 .
 TerraDCAT_ap:hasPrincipalInvestigator
   a owl:ObjectProperty ;
-  rdfs:domain TerraDCAT_ap:Dataset ;
   rdfs:label "has principal investigator" ;
   rdfs:subPropertyOf prov:wasInfluencedBy ;
-.
-prov:value
-  rdfs:subPropertyOf prov:influenced ;
+  skos:definition "A Principal Investigator associated with this entity." ;
 .
