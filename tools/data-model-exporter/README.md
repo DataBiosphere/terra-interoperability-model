@@ -31,12 +31,12 @@ cd tools/data-model-exporter/data_model_exporter
 * Invoke the script using Poetry:
 ```sh
 # run the script with a file of classes
-poetry run ./dmExporter.py -f "filepath" -c "class_name.txt"
+poetry run ./dmExporter.py -f filepath -c /foo/bar/classes.txt
 ```
 
 ```sh
 # run the script with a space-delimited list of classes
-poetry run ./dmExporter.py -f "filepath" -l "DataCollection BiomedicalResearch"
+poetry run ./dmExporter.py -f filepath -l DataCollection BiomedicalResearch
 ```
 
 This will create individual .json files for each schema converted.
