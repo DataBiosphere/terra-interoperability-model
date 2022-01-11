@@ -28,8 +28,30 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+obo:BFO_0000001
+  owl:equivalentClass prov:Entity ;
+.
 prov:Agent
   owl:equivalentClass dct:Agent ;
+  owl:equivalentClass <http://xmlns.com/foaf/0.1/Agent> ;
+.
+prov:Entity
+  owl:equivalentClass obo:BFO_0000001 ;
+.
+prov:Person
+  owl:equivalentClass <http://xmlns.com/foaf/0.1/Person> ;
+.
+prov:hadDerivation
+  a owl:ObjectProperty ;
+  rdfs:label "hadDerivation" ;
+  owl:inverseOf prov:wasDerivedFrom ;
+  prov:definition "Inverse of prov:wasDerivedFrom" ;
+.
+prov:used
+  owl:inverseOf prov:wasUsedBy ;
+.
+<http://xmlns.com/foaf/0.1/Agent>
+  owl:equivalentClass prov:Agent ;
 .
 <https://datamodel.terra.bio/TerraCore>
   a owl:Ontology ;
@@ -73,12 +95,7 @@ TerraCore:Activity
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasDataModality ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:usesProtocol ;
+      owl:onProperty TerraCore:hasProtocol ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -89,6 +106,11 @@ TerraCore:Activity
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty prov:used ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasDataModality ;
     ] ;
   skos:prefLabel "Activity" ;
   prov:definition "An activity occurs over a period of time, generates an entity, and may include consuming, processing, transforming, modifying, relocating, or using entities.  This subclass of prov:Activity restricts members to those with a DataModality relevant to biomedical research." ;
@@ -233,16 +255,6 @@ TerraCore:AssayActivity
   rdfs:subClassOf TerraCore:Activity ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasAssayCategory ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty prov:generated ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasAssayType ;
     ] ;
@@ -273,7 +285,7 @@ TerraCore:BioSample
               "metastatic"
             ) ;
         ] ;
-      owl:onProperty TerraCore:hasPrimaryMetastaticIndicator ;
+      owl:onProperty TerraCore:hasPrimaryOrMetastaticIndicator ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -337,6 +349,7 @@ TerraCore:BioSample
       owl:onProperty TerraCore:hasBioSampleType ;
     ] ;
   skos:altLabel "Biospecimen" ;
+  skos:altLabel "Sample" ;
   skos:altLabel "Specimen from organism" ;
   skos:definition "Data about a physical sample consisting of one or more cells taken from an organism (living or deceased) or derived from such a Sample." ;
   skos:prefLabel "BioSample" ;
@@ -405,6 +418,11 @@ TerraCore:Donor
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dct:identifier ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasOrganismType ;
     ] ;
   rdfs:subClassOf [
@@ -415,7 +433,17 @@ TerraCore:Donor
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasSex ;
+      owl:onProperty TerraCore:hasAgeAtDeath ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasPhenotypicSex ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasSexAssignedAtBirth ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -446,6 +474,16 @@ TerraCore:FamilyMember
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasAgeAtDeath ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasPhenotypicSex ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasEthnicity ;
     ] ;
@@ -458,11 +496,6 @@ TerraCore:FamilyMember
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasRace ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasSex ;
     ] ;
 .
 TerraCore:Female
@@ -522,18 +555,6 @@ TerraCore:GrCh38
   TerraCore:hasGRCName "GRCh38" ;
   TerraCore:hasOrganismType TerraCore:Homo_sapiens ;
 .
-TerraCore:Hermaphrodite
-  a TerraCore:HermaphroditeSex ;
-  rdfs:label "Hermaphrodite" ;
-.
-TerraCore:HermaphroditeSex
-  a owl:Class ;
-  oboInOwl:hasExactSynonym "intersex" ;
-  rdfs:label "Intersex" ;
-  rdfs:subClassOf TerraCore:BiologicalSex ;
-  owl:equivalentClass obo:PATO_0001340 ;
-  skos:altLabel "Hermaphrodite" ;
-.
 TerraCore:Histopathology
   a owl:Class ;
   rdfs:label "Histopathology" ;
@@ -576,6 +597,7 @@ TerraCore:Histopathology
 TerraCore:Homo_sapiens
   a obo:NCBITaxon_9606 ;
   rdfs:label "Human" ;
+  skos:definition "Instance of Homo sapiens organism to define organism type." ;
   skos:prefLabel "Homo sapiens" ;
 .
 TerraCore:HumanDonor
@@ -589,6 +611,14 @@ TerraCore:HumanDonor
     ] ;
   skos:definition "Extension of Donor class for Humans." ;
 .
+TerraCore:Intersex
+  a owl:Class ;
+  oboInOwl:hasExactSynonym "intersex" ;
+  rdfs:label "Intersex" ;
+  rdfs:subClassOf TerraCore:BiologicalSex ;
+  owl:equivalentClass obo:PATO_0001340 ;
+  skos:altLabel "Hermaphrodite" ;
+.
 TerraCore:Library
   a owl:Class ;
   rdfs:label "Library" ;
@@ -601,7 +631,7 @@ TerraCore:Library
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasAssay ;
+      owl:onProperty TerraCore:hasAssayActivity ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -673,6 +703,7 @@ TerraCore:MouseDonor
 TerraCore:Mus_musculus
   a obo:NCBITaxon_10090 ;
   rdfs:label "Mus musculus" ;
+  skos:definition "Instance of Mus musculus organism to define organism type." ;
 .
 TerraCore:NoRestriction
   a obo:DUO_0000004 ;
@@ -750,7 +781,7 @@ TerraCore:Project
   rdfs:subClassOf prov:Activity ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:hasValue 1 ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dct:title ;
     ] ;
   rdfs:subClassOf [
@@ -771,7 +802,7 @@ TerraCore:Project
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:wasFundedBy ;
+      owl:onProperty TerraCore:isFundedBy ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -859,6 +890,11 @@ TerraCore:Sample
       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onClass TerraCore:Activity ;
       owl:onProperty prov:wasUsedBy ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty dct:isPartOf ;
+      owl:someValuesFrom TerraDCAT_ap:Dataset ;
     ] ;
   skos:definition "Data about a physical material collected for the purpose of research." ;
   skos:prefLabel "Sample" ;
@@ -1048,6 +1084,7 @@ TerraCore:confirmsDisease
   rdfs:label "confirmsDisease" ;
   rdfs:range obo:OGMS_0000031 ;
   rdfs:range TerraCore:OntologyReference ;
+  skos:definition "A property that identifies a disease or condition has been confirmed through diagnosis.  Contrast with hasDisease." ;
 .
 TerraCore:hasAge
   a owl:ObjectProperty ;
@@ -1136,6 +1173,7 @@ TerraCore:hasAlpha2Code
 TerraCore:hasAnatomicalRegion
   a owl:DatatypeProperty ;
   rdfs:comment "Many groups are convening to define Common Coordinate Frameworks for specific organs/species.  This will be a rapidly evolving area in the near future.  Thus allowing text or URI as we wait for the field to mature allows us to support what we hope will at a minimum be controlled vocabulary under discussion of these groups." ;
+  rdfs:domain TerraCore:BioSample ;
   rdfs:domain TerraCore:SingleCell ;
   rdfs:label "hasAnatomicalRegion" ;
   rdfs:range xsd:anyURI ;
@@ -1158,30 +1196,14 @@ TerraCore:hasAprioriCellType
   rdfs:label "hasAprioriCellType" ;
   rdfs:range obo:CL_0000003 ;
 .
-TerraCore:hasAssay
+TerraCore:hasAssayActivity
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasAssay" ;
   rdfs:range TerraCore:AssayActivity ;
   rdfs:subPropertyOf prov:wasUsedBy ;
+  skos:definition "A subproperty of usedBy which indicates that an AssayActivity was performed using this entity." ;
   skos:prefLabel "hasAssay" ;
-.
-TerraCore:hasAssayCategory
-  a owl:ObjectProperty ;
-  rdfs:comment "Subject to Terra Core Team Review; seems useful to group assays but still support an ontology term which is recorded in hasAssayType.  This set of options is used by Encode." ;
-  rdfs:domain TerraCore:AssayActivity ;
-  rdfs:label "hasAssayCategory" ;
-  rdfs:range [
-      a rdfs:Datatype ;
-      owl:oneOf (
-          "DNA Binding"
-          "DNA Accessibility"
-          "DNA Methylation"
-          "3D Chromatin Structure"
-          "Transcription"
-          "RNA Binding"
-        ) ;
-    ] ;
 .
 TerraCore:hasAssayType
   a owl:ObjectProperty ;
@@ -1313,6 +1335,7 @@ TerraCore:hasDataUseRequirement
 .
 TerraCore:hasDateCollected
   a rdf:Property ;
+    a owl:DatatypeProperty ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "has date collected" ;
   rdfs:range xsd:dateTime ;
@@ -1358,11 +1381,12 @@ TerraCore:hasDiagnosis
 .
 TerraCore:hasDisease
   a owl:DatatypeProperty ;
+  rdfs:domain rdfs:Resource ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasDisease" ;
   rdfs:range obo:OGMS_0000031 ;
   rdfs:range TerraCore:OntologyReference ;
-  skos:definition "A property that identifies a disease or condition exhibited in the BioSample." ;
+  skos:definition "A property that identifies a disease or condition has been reported in this entity." ;
   skos:prefLabel "hasDisease" ;
 .
 TerraCore:hasDonor
@@ -1402,12 +1426,12 @@ TerraCore:hasEstimatedLibrarySize
 .
 TerraCore:hasEthnicity
   a owl:DatatypeProperty ;
-  rdfs:comment "Considering using HANCESTRO ancestry category subclasses as options here.  In the meantime, capturing a text string.  Also consider whether we need to track reported and genetic as determined by genetic analysis." ;
+  rdfs:comment "Recommend using HANCESTRO ancestry category subclasses as options here.  In the meantime, capturing a text string.  " ;
   rdfs:domain TerraCore:FamilyMember ;
   rdfs:domain TerraCore:HumanDonor ;
   rdfs:label "has ethnicity" ;
   rdfs:range xsd:string ;
-  skos:definition "A property that relects a HumanDonor's reported ethnic origin. " ;
+  skos:definition "A property that relects a HumanDonor's reported major contributing ethnic origins. " ;
   skos:prefLabel "has ethnicity" ;
 .
 TerraCore:hasFamilyID
@@ -1420,11 +1444,20 @@ TerraCore:hasFamilyID
 .
 TerraCore:hasFileFormat
   a owl:DatatypeProperty ;
-  rdfs:comment "Indicate the full file extension including compression extensions; this follows the HCA convention." ;
+  rdfs:comment "The definition of this field follows the convention used by the Human Cell Atlas." ;
   rdfs:domain TerraCore:File ;
   rdfs:label "hasFileFormat" ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf dct:format ;
+  skos:definition "An indication of the format of an electronic file; include the full file extension including compression extensions." ;
+.
+TerraCore:hasFileSize
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:File ;
+  rdfs:label "hasFileSize" ;
+  rdfs:range xsd:decimal ;
+  owl:equivalentProperty <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C171192> ;
+  skos:definition "Property that describes the approximate size of a file." ;
 .
 TerraCore:hasFragments
   a owl:DatatypeProperty ;
@@ -1450,6 +1483,14 @@ TerraCore:hasGeneExpressionProgram
   rdfs:range xsd:string ;
   skos:definition "A property that characterizes the gene expression patterns at work in the cell." ;
   skos:prefLabel "hasGeneExpressionProgram" ;
+.
+TerraCore:hasGenotypicSex
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:Donor ;
+  rdfs:label "hasPhenotypicSex" ;
+  rdfs:range TerraCore:BiologicalSex ;
+  skos:definition "A biological sex quality inhering in an individual based upon genotypic composition of sex chromosomes. [PATO]" ;
+  skos:prefLabel "hasGenotypicSex" ;
 .
 TerraCore:hasGrade
   a rdf:Property ;
@@ -1479,12 +1520,13 @@ TerraCore:hasLibraryLayout
     ] ;
   skos:prefLabel "hasLibraryLayout" ;
 .
-TerraCore:hasLibraryPrep
+TerraCore:hasLibraryPrepActivity
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasLibraryPrep" ;
   rdfs:range TerraCore:LibraryPreparation ;
   rdfs:subPropertyOf prov:wasUsedBy ;
+  skos:definition "A subproperty of usedBy which indicates that LibraryPreparation was performed using this entity." ;
   skos:prefLabel "hasLibraryPrep" ;
 .
 TerraCore:hasLibraryPreparationType
@@ -1607,6 +1649,14 @@ TerraCore:hasPercentDuplicateFragments
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasPercentDuplicateFragments" ;
 .
+TerraCore:hasPhenotypicSex
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:Donor ;
+  rdfs:label "hasPhenotypicSex" ;
+  rdfs:range TerraCore:BiologicalSex ;
+  skos:definition "A reference to the BiologicalSex of the Donor organism." ;
+  skos:prefLabel "hasPhenotypicSex" ;
+.
 TerraCore:hasPostalCode
   a rdf:Property ;
   rdfs:domain TerraCore:Address ;
@@ -1630,11 +1680,20 @@ TerraCore:hasPreservationState
     ] ;
   skos:definition "Method used to preserve the BioSample, if relevant, or Fresh for BioSamples that were not preserved." ;
 .
-TerraCore:hasPrimaryMetastaticIndicator
+TerraCore:hasPrimaryOrMetastaticIndicator
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:BioSample ;
-  rdfs:label "hasPrimaryMetastaticIndicator" ;
+  rdfs:label "hasPrimaryOrMetastaticIndicator" ;
   rdfs:range xsd:string ;
+.
+TerraCore:hasProtocol
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:Activity ;
+  rdfs:label "hasProtocol" ;
+  rdfs:range xsd:anyURI ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf prov:used ;
+  skos:prefLabel "hasProtocol" ;
 .
 TerraCore:hasRace
   a owl:DatatypeProperty ;
@@ -1674,28 +1733,21 @@ TerraCore:hasSequenceLocation
   rdfs:range TerraCore:SequenceLocation ;
   skos:prefLabel "hasSequenceLocation" ;
 .
-TerraCore:hasSequencing
+TerraCore:hasSequencingActivity
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasSequencing" ;
   rdfs:range TerraCore:Sequencing ;
   rdfs:subPropertyOf prov:wasUsedBy ;
+  skos:definition "A subproperty of usedBy which indicates that a SequencingActivity was performed using this entity." ;
   skos:prefLabel "hasSequencing" ;
-.
-TerraCore:hasSex
-  a owl:ObjectProperty ;
-  rdfs:domain TerraCore:Donor ;
-  rdfs:label "hasSex" ;
-  rdfs:range TerraCore:BiologicalSex ;
-  skos:definition "A reference to the BiologicalSex of the Donor organism." ;
-  skos:prefLabel "hasSex" ;
 .
 TerraCore:hasSexAssignedAtBirth
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:Donor ;
-  rdfs:label "hasSex" ;
+  rdfs:label "hasSexAssignedAtBirth" ;
   rdfs:range TerraCore:BiologicalSex ;
-  skos:definition "A reference to the BiologicalSex of the Donor organism." ;
+  skos:definition "A reference to the BiologicalSex assigned to the donor organism at birth by a medical professional." ;
   skos:prefLabel "hasSexAssignedAtBirth" ;
 .
 TerraCore:hasSibling
@@ -1819,7 +1871,7 @@ TerraCore:hasWeightUnit
   skos:definition "A reference to the measurement unit for mass." ;
 .
 TerraCore:isCauseOfDeath
-  a owl:ObjectProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain TerraCore:Diagnosis ;
   rdfs:label "cause of death" ;
   rdfs:range xsd:boolean ;
@@ -1867,20 +1919,12 @@ TerraCore:usesAntibody
 .
 TerraCore:usesLibrary
   a owl:ObjectProperty ;
+  rdfs:domain TerraCore:AssayActivity ;
   rdfs:domain TerraCore:SequenceFile ;
   rdfs:domain TerraCore:Sequencing ;
   rdfs:label "usesLibrary" ;
   rdfs:range TerraCore:Library ;
   rdfs:subPropertyOf prov:used ;
-.
-TerraCore:usesProtocol
-  a owl:DatatypeProperty ;
-  rdfs:domain TerraCore:Activity ;
-  rdfs:label "usesProtocol" ;
-  rdfs:range xsd:anyURI ;
-  rdfs:range xsd:string ;
-  rdfs:subPropertyOf prov:used ;
-  skos:prefLabel "usesProtocol" ;
 .
 TerraCore:usesReferenceAssembly
   a owl:ObjectProperty ;
@@ -1901,49 +1945,27 @@ TerraCore:usesSample
   rdfs:subPropertyOf prov:used ;
   skos:prefLabel "usesSample" ;
 .
-obo:BFO_0000001
-  owl:equivalentClass prov:Entity ;
-.
-obo:NCBITaxon_10090
-  skos:definition "Instance of Mus musculus organism to define organism type." ;
-.
-obo:NCBITaxon_9606
-  skos:definition "Instance of Homo sapiens organism to define organism type." ;
-.
-obo:OGMS_0000031
-  owl:equivalentClass obo:MONDO_0000001 ;
-.
-prov:Agent
-  owl:equivalentClass <http://xmlns.com/foaf/0.1/Agent> ;
-.
-prov:Entity
-  owl:equivalentClass obo:BFO_0000001 ;
-.
-prov:Person
-  owl:equivalentClass <http://xmlns.com/foaf/0.1/Person> ;
-.
-prov:SoftwareAgent
+TerraDCAT_ap:DataCollection
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty dct:hasVersion ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasCustodian ;
     ] ;
 .
-prov:hadDerivation
-  a owl:ObjectProperty ;
-  rdfs:label "hadDerivation" ;
-  owl:inverseOf prov:wasDerivedFrom ;
-  prov:definition "Inverse of prov:wasDerivedFrom" ;
+TerraDCAT_ap:DataSnapshot
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dct:identifier ;
+    ] ;
 .
-prov:used
-  owl:inverseOf prov:wasUsedBy ;
+TerraDCAT_ap:Dataset
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasCustodian ;
+    ] ;
 .
-prov:wasUsedBy
-  a owl:ObjectProperty ;
-  rdfs:label "wasUsedBy" ;
-  rdfs:subPropertyOf prov:wasInfluencedBy ;
-  skos:prefLabel "wasUsedBy" ;
-.
-<http://xmlns.com/foaf/0.1/Agent>
-  owl:equivalentClass prov:Agent ;
+TerraDCAT_ap:hasPrincipalInvestigator
+  rdfs:range TerraCore:PrincipalInvestigator ;
 .

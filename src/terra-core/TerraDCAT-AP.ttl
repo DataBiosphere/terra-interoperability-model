@@ -20,7 +20,7 @@ prov:value
 .
 <https://datamodel.terra.bio/TerraDCAT_ap>
   a owl:Ontology ;
-  rdfs:comment "DSP DCAT AP is the Broad Data Sciences Platform's application profile.  It is an RDF vocabulary which extends the W3C's Data Catalog Vocabulary (https://www.w3.org/TR/vocab-dcat/)." ;
+  rdfs:comment "Terra DCAT AP is the Broad Data Sciences Platform's application profile for data catalog.  It is an RDF vocabulary which extends the W3C's Data Catalog Vocabulary (https://www.w3.org/TR/vocab-dcat/)." ;
   owl:imports <http://www.w3.org/ns/dcat> ;
   owl:imports <https://raw.githubusercontent.com/EBISPOT/DUO/master/duo-basic.owl> ;
   owl:versionInfo "Created with TopBraid Composer" ;
@@ -74,8 +74,8 @@ TerraDCAT_ap:DataCollection
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcat:themeTaxonomy ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dct:title ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -107,14 +107,9 @@ TerraDCAT_ap:DataCollection
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraDCAT_ap:hasDataset ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dct:title ;
-    ] ;
   skos:prefLabel "DataCollection" ;
   dcat:themeTaxonomy TerraDCAT_ap:DSPThemeTaxonomy ;
-  prov:definition "Extension of DCAT:Catalog to support Data Use Ontology terms and set required properties for DSP DCAT Application Profile. A collection of one or more DSPdcat_ap:Datasets or DSPdcat_apDataCollections." ;
+  prov:definition "Extension of DCAT:Catalog to support Data Use Ontology terms and set required properties for Terra DCAT Application Profile. A collection of one or more TerraDCAT_ap:Dataset(s) or TerraDCAT_ap:DataCollection(s)." ;
 .
 TerraDCAT_ap:DataSnapshot
   a rdfs:Class ;
@@ -164,11 +159,6 @@ TerraDCAT_ap:DataSnapshot
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcat:accessURL ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraDCAT_ap:hasDataUsePermission ;
     ] ;
   rdfs:subClassOf [
@@ -202,7 +192,7 @@ TerraDCAT_ap:DataSnapshot
       owl:onProperty TerraDCAT_ap:hasDataUseModifier ;
     ] ;
   skos:prefLabel "DataSnapshot" ;
-  prov:definition "Extension of DCAT:Distribution to support Data Use Ontology terms and set required properties for DSP DCAT Application Profile. A collection of one or more entities from one or more DSPdcat_ap:Datasets or DSPdcat_ap:DataCollections intended to be used for subsequent viewing or analysis." ;
+  prov:definition "Extension of DCAT:Distribution to support Data Use Ontology terms and set required properties for Terra DCAT Application Profile. A collection of one or more entities from one or more TerraDCAT_ap:Datasets or TerraDCAT_ap:DataCollections intended to be used for subsequent viewing or analysis." ;
 .
 TerraDCAT_ap:Dataset
   a rdfs:Class ;
@@ -218,11 +208,6 @@ TerraDCAT_ap:Dataset
       a owl:Restriction ;
       owl:cardinality 1 ;
       owl:onProperty TerraDCAT_ap:hasDataUsePermission ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dct:creator ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
