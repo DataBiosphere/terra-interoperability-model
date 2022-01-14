@@ -289,17 +289,6 @@ TerraCore:BioSample
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:allValuesFrom [
-          a rdfs:Datatype ;
-          owl:oneOf (
-              "tumor"
-              "normal"
-            ) ;
-        ] ;
-      owl:onProperty TerraCore:hasTumorNormalIndicator ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dct:source ;
     ] ;
@@ -715,7 +704,7 @@ TerraCore:NucleusIsolation
   rdfs:label "NucleusIsolation" ;
   rdfs:subClassOf TerraCore:Activity ;
   owl:equivalentClass <http://www.ebi.ac.uk/efo/EFO_0007831> ;
-  skos:definition "Activity to separate the nucleus from the cell.  " ;
+  skos:definition "Activity to separate the nucleus or nuclei from the cell.  " ;
 .
 TerraCore:OntologyReference
   a owl:Class ;
@@ -1335,7 +1324,7 @@ TerraCore:hasDataUseRequirement
 .
 TerraCore:hasDateCollected
   a rdf:Property ;
-    a owl:DatatypeProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "has date collected" ;
   rdfs:range xsd:dateTime ;
@@ -1457,7 +1446,7 @@ TerraCore:hasFileSize
   rdfs:label "hasFileSize" ;
   rdfs:range xsd:decimal ;
   owl:equivalentProperty <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C171192> ;
-  skos:definition "Property that describes the approximate size of a file." ;
+  skos:definition "Property that describes the approximate size of a file in megabytes." ;
 .
 TerraCore:hasFragments
   a owl:DatatypeProperty ;
@@ -1804,12 +1793,6 @@ TerraCore:hasTumorMorphology
   rdfs:label "hasTumorMorphology" ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf TerraCore:hasMorphology ;
-.
-TerraCore:hasTumorNormalIndicator
-  a owl:DatatypeProperty ;
-  rdfs:domain TerraCore:BioSample ;
-  rdfs:label "hasTumorNormalIndicator" ;
-  rdfs:range xsd:string ;
 .
 TerraCore:hasURI
   a owl:DatatypeProperty ;
