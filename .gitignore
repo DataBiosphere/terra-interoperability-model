@@ -8,4 +8,4 @@ webpages/ssl/
 tools/data-model-exporter/poetry.lock
 tools/data-model-exporter/.mypy_cache
 tools/data-model-exporter/.pytest_cache
-src/terra-core/schema/json/*
+#src/terra-core/schema/json/* #uncomment to remove schema output directories
