@@ -10,6 +10,7 @@ import json
 import logging
 from os import path
 
+
 from data_model_exporter.ttl_schema_generator import JsonSchema, TtlSchemaGenerator
 
 
@@ -31,11 +32,11 @@ def get_arguments() -> tuple[str, list[str]]:
         nargs='+',
         help="a class listing string e.g.: 'DataCollection BiomedicalResearch'")
     class_list_source.add_argument('-c', '--class-path', help="a class listing file e.g.: 'class_name.txt'")
-    parser.add_argument('-o', '--one-file', help="argument to combine outputs into one json", action='store_true')
+    parser.add_argument('-cf', '--combined-file', help="argument to combine outputs into one json", action='store_true')
     args = parser.parse_args()
 
     if args.class_list:
-        return args.file_path, args.class_list, args.one_file
+        return args.file_path, args.class_list, args.combined_file
     else:
         with open(args.class_path, 'r') as class_file:
             class_list = [
@@ -45,7 +46,7 @@ def get_arguments() -> tuple[str, list[str]]:
             ]
         logging.info(f"{len(class_list)} classes parsed from {args.class_path}")
         logging.info(f"class_list: {class_list}")
-        return args.file_path, class_list, args.one_file
+        return args.file_path, class_list, args.combined_file
 
 
 def rdf_to_json(file_path: str, class_list: list[str]) -> dict[str, JsonSchema]:
@@ -71,35 +72,37 @@ def write_to_json(out_file_name: str, json_dict: dict[str, JsonSchema], key: str
 def write_dict_to_json(out_file_name: str, json_dict: dict[str, JsonSchema]) -> None:
     logging.info(json.dumps(json_dict, indent=4))
 
+    # output is dict[dict[key]]
     with open(out_file_name, 'w') as f:
-        for key in json_dict:
-            json.dump(json_dict[key], f)
+        json.dump(json_dict, f)
+
 
 def main() -> None:
     # get CLI arguments
-    file_path, class_list, one_file = get_arguments()
+    file_path, class_list, combined_file = get_arguments()
     # invoke driver to transform RDF to JSON
     json_dict = rdf_to_json(file_path, class_list)
     # should we combine into one json?
-    if (one_file):
+    if (combined_file):
         # new name for combined output
         # output dm exports to: src/terra-core/schema/json/
-        out_file_name = f"../../../src/terra-core/schema/json/dmExporter_concatenated.json"
+        out_file_name = f"../../src/terra-core/schema/json/dmExporter_concatenated.json"
         if path.exists(out_file_name):
             rewrite = input(out_file_name + " already exists. Overwrite? (y/n)")
             if rewrite == "y":
                 write_dict_to_json(out_file_name, json_dict)
+        else:
+            write_dict_to_json(out_file_name, json_dict)
     else:
         # write one file per class provided
         for key in json_dict:
             # output dm exports to: src/terra-core/schema/json/
-            out_file_name = f"../../src/terra-core/schema/json/{key}.json"
+            out_file_name = f"../../src/terra-core/schema/json/{key}.jsonskipping."
             if path.exists(out_file_name):
                 rewrite = input(out_file_name + " already exists. Overwrite? (y/n)")
                 if rewrite == "y":
                     write_to_json(out_file_name, json_dict, key)
             else:
-                # conctenate json
                 write_to_json(out_file_name, json_dict, key)
 
 
