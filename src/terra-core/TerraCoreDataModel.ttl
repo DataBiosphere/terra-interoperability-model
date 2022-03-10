@@ -32,6 +32,15 @@
 obo:BFO_0000001
   owl:equivalentClass prov:Entity ;
 .
+dct:contributor
+  TerraCore:hasColumnLabel "contributor" ;
+.
+dct:title
+  TerraCore:hasColumnLabel "title" ;
+.
+dcat:contactPoint
+  TerraCore:hasColumnLabel "contact_point" ;
+.
 prov:Agent
   owl:equivalentClass dct:Agent ;
   owl:equivalentClass <http://xmlns.com/foaf/0.1/Agent> ;
@@ -42,6 +51,9 @@ prov:Entity
 prov:Person
   owl:equivalentClass <http://xmlns.com/foaf/0.1/Person> ;
 .
+prov:generated
+  TerraCore:hasColumnLabel "generated" ;
+.
 prov:hadDerivation
   a owl:ObjectProperty ;
   rdfs:label "hadDerivation" ;
@@ -50,6 +62,10 @@ prov:hadDerivation
 .
 prov:used
   owl:inverseOf prov:wasUsedBy ;
+  TerraCore:hasColumnLabel "used" ;
+.
+prov:wasGeneratedBy
+  TerraCore:hasColumnLabel "generated_by" ;
 .
 <http://xmlns.com/foaf/0.1/Agent>
   owl:equivalentClass prov:Agent ;
@@ -167,6 +183,7 @@ TerraCore:Alignment
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:usesReferenceAssembly ;
+      TerraCore:hasColumnLabel "reference_assembly" ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -960,6 +977,7 @@ TerraCore:Sequencing
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:usesSample ;
+      TerraCore:hasColumnLabel "sample" ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -1055,6 +1073,7 @@ TerraCore:VariantCalling
       a owl:Restriction ;
       owl:onProperty prov:generated ;
       owl:someValuesFrom TerraCore:VariantCallSet ;
+      TerraCore:hasColumnLabel "generated" ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -1270,6 +1289,7 @@ TerraCore:hasChecksum
   rdfs:label "hasChecksum" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasChecksum" ;
+  TerraCore:hasColumnLabel "checksum" ;
 .
 TerraCore:hasChild
   a owl:ObjectProperty ;
@@ -1317,6 +1337,7 @@ TerraCore:hasCrossReference
   rdfs:subPropertyOf skos:closeMatch ;
   skos:definition "Reference to the entity in another electronic system.  The data stored about the entity may vary from system to system, but this relationship asserts that the reference represents the same entity." ;
   skos:prefLabel "hasCrossReference" ;
+  TerraCore:hasColumnLabel "xref" ;
 .
 TerraCore:hasCurrentAddress
   a owl:ObjectProperty ;
@@ -1461,6 +1482,7 @@ TerraCore:hasFileFormat
   rdfs:range xsd:string ;
   rdfs:subPropertyOf dct:format ;
   skos:definition "An indication of the format of an electronic file; include the full file extension including compression extensions." ;
+  TerraCore:hasColumnLabel "file_format" ;
 .
 TerraCore:hasFileSize
   a owl:DatatypeProperty ;
@@ -1893,6 +1915,7 @@ TerraCore:isFundedBy
   a owl:ObjectProperty ;
   rdfs:label "isFundedBy" ;
   skos:definition "A relationship defining the funding source.  The range is expected to include grants, organizations, or a string indicating the funding source." ;
+  TerraCore:hasColumnLabel "funded_by" ;
 .
 TerraCore:isGeneratedByPipeline
   a owl:ObjectProperty ;
@@ -1944,6 +1967,7 @@ TerraCore:usesReferenceAssembly
   rdfs:range TerraCore:ReferenceAssembly ;
   rdfs:subPropertyOf prov:used ;
   skos:prefLabel "usesReferenceAssembly" ;
+  TerraCore:hasColumnLabel "reference_assembly" ;
 .
 TerraCore:usesSample
   a owl:ObjectProperty ;
@@ -1973,6 +1997,16 @@ TerraDCAT_ap:Dataset
       owl:onProperty TerraDCAT_ap:hasCustodian ;
     ] ;
 .
+TerraDCAT_ap:hasDataUseModifier
+  TerraCore:hasColumnLabel "data_use_ modifier" ;
+.
+TerraDCAT_ap:hasDataUsePermission
+  TerraCore:hasColumnLabel "data_use_permission" ;
+.
+TerraDCAT_ap:hasOriginalPublication
+  TerraCore:hasColumnLabel "original_plublication" ;
+.
 TerraDCAT_ap:hasPrincipalInvestigator
   rdfs:range TerraCore:PrincipalInvestigator ;
+  TerraCore:hasColumnLabel "principle_investigator" ;
 .
