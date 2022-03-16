@@ -1,5 +1,4 @@
 # baseURI: https://datamodel.terra.bio/TerraCore
-# imports: http://datashapes.org/dash
 # imports: http://www.w3.org/2002/07/owl
 # imports: https://datamodel.terra.bio/EFO_subset
 # imports: https://datamodel.terra.bio/NCBITaxon_Organisms_subset
@@ -32,15 +31,6 @@
 obo:BFO_0000001
   owl:equivalentClass prov:Entity ;
 .
-dct:contributor
-  TerraCore:hasColumnLabel "contributor" ;
-.
-dct:title
-  TerraCore:hasColumnLabel "title" ;
-.
-dcat:contactPoint
-  TerraCore:hasColumnLabel "contact_point" ;
-.
 prov:Agent
   owl:equivalentClass dct:Agent ;
   owl:equivalentClass <http://xmlns.com/foaf/0.1/Agent> ;
@@ -50,9 +40,6 @@ prov:Entity
 .
 prov:Person
   owl:equivalentClass <http://xmlns.com/foaf/0.1/Person> ;
-.
-prov:generated
-  TerraCore:hasColumnLabel "generated" ;
 .
 prov:hadDerivation
   a owl:ObjectProperty ;
@@ -79,7 +66,6 @@ prov:wasGeneratedBy
   dct:date "20 Jul 2020" ;
   dct:license <https://github.com/DataBiosphere/terra-interoperability-model/blob/master/LICENSE> ;
   rdfs:comment "Please cite The Broad Institute of Harvard and MIT, Data Sciences Platform." ;
-  owl:imports <http://datashapes.org/dash> ;
   owl:imports <http://www.w3.org/2002/07/owl> ;
   owl:imports <https://datamodel.terra.bio/EFO_subset> ;
   owl:imports <https://datamodel.terra.bio/NCBITaxon_Organisms_subset> ;
@@ -1105,7 +1091,6 @@ TerraCore:hasAge
   rdfs:range TerraCore:Age ;
   skos:definition "A reference to the Age of the Donor at the point in time that data was collected or that the BioSample was obtained." ;
   skos:prefLabel "hasAge" ;
-  TerraCore:hasColumnLabel "age" ;
 .
 TerraCore:hasAgeAtDeath
   a owl:ObjectProperty ;
@@ -1277,7 +1262,6 @@ TerraCore:hasChecksum
   rdfs:label "hasChecksum" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasChecksum" ;
-  TerraCore:hasColumnLabel "checksum" ;
 .
 TerraCore:hasChild
   a owl:ObjectProperty ;
@@ -1307,12 +1291,6 @@ TerraCore:hasClonality
         ) ;
     ] ;
 .
-TerraCore:hasColumnLabel
-  a owl:AnnotationProperty ;
-  rdfs:label "has column label" ;
-  rdfs:range xsd:string ;
-  skos:prefLabel "has column label" ;
-.
 TerraCore:hasCountry
   a owl:ObjectProperty ;
   rdfs:label "hasCountry" ;
@@ -1325,7 +1303,6 @@ TerraCore:hasCrossReference
   rdfs:subPropertyOf skos:closeMatch ;
   skos:definition "Reference to the entity in another electronic system.  The data stored about the entity may vary from system to system, but this relationship asserts that the reference represents the same entity." ;
   skos:prefLabel "hasCrossReference" ;
-  TerraCore:hasColumnLabel "xref" ;
 .
 TerraCore:hasCurrentAddress
   a owl:ObjectProperty ;
@@ -1471,7 +1448,6 @@ TerraCore:hasFileFormat
   rdfs:range xsd:string ;
   rdfs:subPropertyOf dct:format ;
   skos:definition "An indication of the format of an electronic file; include the full file extension including compression extensions." ;
-  TerraCore:hasColumnLabel "file_format" ;
 .
 TerraCore:hasFileSize
   a owl:DatatypeProperty ;
@@ -1679,7 +1655,6 @@ TerraCore:hasPhenotypicSex
   rdfs:range TerraCore:BiologicalSex ;
   skos:definition "A reference to the BiologicalSex of the Donor organism." ;
   skos:prefLabel "hasPhenotypicSex" ;
-  TerraCore:hasColumnLabel "phenotypic_sex" ;
 .
 TerraCore:hasPostalCode
   a rdf:Property ;
@@ -1773,7 +1748,6 @@ TerraCore:hasSexAssignedAtBirth
   rdfs:range TerraCore:BiologicalSex ;
   skos:definition "A reference to the BiologicalSex assigned to the donor organism at birth by a medical professional." ;
   skos:prefLabel "hasSexAssignedAtBirth" ;
-  TerraCore:hasColumnLabel "sex_assigned_at_birth" ;
 .
 TerraCore:hasSibling
   a owl:ObjectProperty ;
@@ -1905,7 +1879,6 @@ TerraCore:isFundedBy
   a owl:ObjectProperty ;
   rdfs:label "isFundedBy" ;
   skos:definition "A relationship defining the funding source.  The range is expected to include grants, organizations, or a string indicating the funding source." ;
-  TerraCore:hasColumnLabel "funded_by" ;
 .
 TerraCore:isGeneratedByPipeline
   a owl:ObjectProperty ;
@@ -1957,7 +1930,6 @@ TerraCore:usesReferenceAssembly
   rdfs:range TerraCore:ReferenceAssembly ;
   rdfs:subPropertyOf prov:used ;
   skos:prefLabel "usesReferenceAssembly" ;
-  TerraCore:hasColumnLabel "reference_assembly" ;
 .
 TerraCore:usesSample
   a owl:ObjectProperty ;
@@ -1987,16 +1959,6 @@ TerraDCAT_ap:Dataset
       owl:onProperty TerraDCAT_ap:hasCustodian ;
     ] ;
 .
-TerraDCAT_ap:hasDataUseModifier
-  TerraCore:hasColumnLabel "data_use_ modifier" ;
-.
-TerraDCAT_ap:hasDataUsePermission
-  TerraCore:hasColumnLabel "data_use_permission" ;
-.
-TerraDCAT_ap:hasOriginalPublication
-  TerraCore:hasColumnLabel "original_plublication" ;
-.
 TerraDCAT_ap:hasPrincipalInvestigator
   rdfs:range TerraCore:PrincipalInvestigator ;
-  TerraCore:hasColumnLabel "principle_investigator" ;
 .
