@@ -64,6 +64,9 @@ prov:used
   owl:inverseOf prov:wasUsedBy ;
   TerraCore:hasColumnLabel "used" ;
 .
+prov:wasDerivedFrom
+  TerraCore:hasColumnLabel "derived_from" ;
+.
 prov:wasGeneratedBy
   TerraCore:hasColumnLabel "generated_by" ;
 .
@@ -183,7 +186,6 @@ TerraCore:Alignment
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:usesReferenceAssembly ;
-      TerraCore:hasColumnLabel "reference_assembly" ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -320,37 +322,31 @@ TerraCore:BioSample
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasPreservationState ;
-      TerraCore:hasColumnLabel "preservation_state" ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty prov:wasDerivedFrom ;
-      TerraCore:hasColumnLabel "derived_from" ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasCrossReference ;
-      TerraCore:hasColumnLabel "cross_reference" ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasDonorAge ;
-      TerraCore:hasColumnLabel "donor_age" ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty prov:wasUsedBy ;
-      TerraCore:hasColumnLabel "used_by" ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasDonor ;
-      TerraCore:hasColumnLabel "donor" ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -361,7 +357,6 @@ TerraCore:BioSample
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasBioSampleType ;
-      TerraCore:hasColumnLabel "biosample_type" ;
     ] ;
   skos:altLabel "Biospecimen" ;
   skos:altLabel "Sample" ;
@@ -449,7 +444,6 @@ TerraCore:Donor
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasAgeAtDeath ;
-      TerraCore:hasColumnLabel "age_at_death" ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -470,13 +464,11 @@ TerraCore:Donor
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasBioSample ;
-      TerraCore:hasColumnLabel "biosample" ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty dct:isPartOf ;
       owl:someValuesFrom TerraDCAT_ap:Dataset ;
-      TerraCore:hasColumnLabel "dataset" ;
     ] ;
   skos:definition "An organism from which a sample or test result is available" ;
   skos:prefLabel "Donor" ;
@@ -489,13 +481,11 @@ TerraCore:FamilyMember
       a owl:Restriction ;
       owl:hasValue TerraCore:Homo_sapiens ;
       owl:onProperty TerraCore:hasOrganismType ;
-      TerraCore:hasColumnLabel "organism_type" ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasAgeAtDeath ;
-      TerraCore:hasColumnLabel "age_at_death" ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -506,7 +496,6 @@ TerraCore:FamilyMember
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasEthnicity ;
-      TerraCore:hasColumnLabel "ethnicity" ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -977,7 +966,6 @@ TerraCore:Sequencing
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:usesSample ;
-      TerraCore:hasColumnLabel "sample" ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -1073,7 +1061,6 @@ TerraCore:VariantCalling
       a owl:Restriction ;
       owl:onProperty prov:generated ;
       owl:someValuesFrom TerraCore:VariantCallSet ;
-      TerraCore:hasColumnLabel "generated" ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -1249,6 +1236,7 @@ TerraCore:hasBioSample
   owl:inverseOf TerraCore:hasDonor ;
   skos:definition "This property references the BioSample donated by the Donor." ;
   skos:prefLabel "has BioSample" ;
+  TerraCore:hasColumnLabel "biosample" ;
 .
 TerraCore:hasBioSampleType
   a owl:ObjectProperty ;
@@ -1465,6 +1453,7 @@ TerraCore:hasEthnicity
   rdfs:range xsd:string ;
   skos:definition "A property that relects a HumanDonor's reported major contributing ethnic origins. " ;
   skos:prefLabel "has ethnicity" ;
+  TerraCore:hasColumnLabel "ethnicity" ;
 .
 TerraCore:hasFamilyID
   a owl:ObjectProperty ;
@@ -1633,6 +1622,7 @@ TerraCore:hasOrganismType
   rdfs:range obo:OBI_0100026 ;
   skos:definition "A reference to the organism type." ;
   skos:prefLabel "hasOrganismType" ;
+  TerraCore:hasColumnLabel "organism_type" ;
 .
 TerraCore:hasPairedEndIdentifier
   a owl:DatatypeProperty ;
