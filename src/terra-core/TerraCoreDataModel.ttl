@@ -1704,6 +1704,12 @@ TerraCore:hasPercentDuplicateFragments
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasPercentDuplicateFragments" ;
 .
+TerraCore:hasPerturbation
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:BioSample ;
+  rdfs:label "has perturbation" ;
+  skos:prefLabel "has perturbation" ;
+.
 TerraCore:hasPhenotypicSex
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:Donor ;
