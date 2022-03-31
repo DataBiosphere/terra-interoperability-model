@@ -591,7 +591,6 @@ TerraCore:GeneralResearchUse
 TerraCore:GeneticModification
   a owl:Class ;
   rdfs:label "Genetic modification" ;
-  rdfs:subClassOf TerraCore:Activity ;
   skos:prefLabel "Genetic modification" ;
 .
 TerraCore:GrCh38
@@ -992,7 +991,6 @@ TerraCore:Sample
 TerraCore:SampleTreatment
   a owl:Class ;
   rdfs:label "Sample treatment" ;
-  rdfs:subClassOf TerraCore:Activity ;
   skos:prefLabel "Sample treatment" ;
 .
 TerraCore:SequenceFile
@@ -1964,7 +1962,12 @@ TerraCore:hasSampleTreatment
 TerraCore:hasSampleTreatmentType
   a owl:DatatypeProperty ;
   rdfs:label "has sample treatment type" ;
-  rdfs:range xsd:string ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "1"
+        ) ;
+    ] ;
   skos:prefLabel "has sample treatment type" ;
   prov:definition "The type of a BioSample treatment type, see valuesets for examples." ;
   TerraCore:hasColumnLabel "sample_treatment_type" ;
