@@ -1576,6 +1576,7 @@ TerraCore:hasGeneticModification
 .
 TerraCore:hasGeneticModificationMethod
   a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:BioSample ;
   rdfs:label "has genetic modification method" ;
   rdfs:range [
       a rdfs:Datatype ;
@@ -1593,6 +1594,7 @@ TerraCore:hasGeneticModificationMethod
 .
 TerraCore:hasGeneticModificationType
   a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:BioSample ;
   rdfs:label "has genetic modification type" ;
   rdfs:range [
       a rdfs:Datatype ;
@@ -1868,11 +1870,20 @@ TerraCore:hasSampleTreatment
 .
 TerraCore:hasSampleTreatmentType
   a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:BioSample ;
   rdfs:label "has sample treatment type" ;
   rdfs:range [
       a rdfs:Datatype ;
       owl:oneOf (
-          "1"
+          "antibody"
+          "chemical"
+          "exposure"
+          "infection"
+          "injection"
+          "irradiation"
+          "protein"
+          "transplantation"
+          "RNAi"
         ) ;
     ] ;
   skos:prefLabel "has sample treatment type" ;
