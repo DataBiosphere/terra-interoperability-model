@@ -32,6 +32,9 @@
 obo:BFO_0000001
   owl:equivalentClass prov:Entity ;
 .
+obo:DUO_0000017
+  rdfs:subClassOf dcat:Resource ;
+.
 dct:contributor
   TerraCore:hasColumnLabel "contributor" ;
 .
@@ -588,11 +591,6 @@ TerraCore:GeneralResearchUse
   rdfs:label "General Research Use" ;
   skos:prefLabel "General Research Use" ;
 .
-TerraCore:GeneticModification
-  a owl:Class ;
-  rdfs:label "Genetic modification" ;
-  skos:prefLabel "Genetic modification" ;
-.
 TerraCore:GrCh38
   a TerraCore:ReferenceAssembly ;
   rdfs:label "GRCh38" ;
@@ -987,11 +985,6 @@ TerraCore:Sample
     ] ;
   skos:definition "Data about a physical material collected for the purpose of research." ;
   skos:prefLabel "Sample" ;
-.
-TerraCore:SampleTreatment
-  a owl:Class ;
-  rdfs:label "Sample treatment" ;
-  skos:prefLabel "Sample treatment" ;
 .
 TerraCore:SequenceFile
   a owl:Class ;
