@@ -8,6 +8,7 @@ authors = ["Quazi Hoque <qhoque@broadinstitute.org>"]
 python = "^3.9"
 cached-property = "^1.5.2"
 rdflib = "^5.0.0"
+Owlready2 = "^0.37"
 
 [tool.poetry.dev-dependencies]
 autopep8 = "^1.5.5"
