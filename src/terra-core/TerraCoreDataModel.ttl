@@ -1949,10 +1949,13 @@ TerraCore:hasReportedEthnicity
   TerraCore:hasColumnLabel "reported_ethnicity" ;
 .
 TerraCore:hasSampleTreatment
-  a owl:ObjectProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "has sample treatment" ;
   skos:prefLabel "has sample treatment" ;
+  rdfs:range xsd:string ;
+  prov:definition "A sample treatment of a BioSample." ;
+  TerraCore:hasColumnLabel "sample_treatment" ;
 .
 TerraCore:hasSampleTreatmentType
   a owl:DatatypeProperty ;
