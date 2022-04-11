@@ -2098,7 +2098,7 @@ TerraCore:usesAntibody
   rdfs:range TerraCore:Antibody ;
   rdfs:subPropertyOf prov:used ;
   skos:prefLabel "usesAntibody" ;
-  prov:definition "May be a reference to an antibody used for a SampleTreatment or other Activity." ;
+  prov:definition "A reference to the antibody/antibodies used in this Activity. May be a reference to an antibody used for a SampleTreatment or other Activity." ;
   TerraCore:hasColumnLabel "antibody" ;
 .
 TerraCore:usesLibrary
