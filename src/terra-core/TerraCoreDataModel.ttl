@@ -352,7 +352,7 @@ TerraCore:BioSample
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasDonorAge ;
+      owl:onProperty TerraCore:hasDonorAgeAtCollection ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -507,6 +507,11 @@ TerraCore:FamilyMember
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasPhenotypicSex ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasGeneticAncestry ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -1454,13 +1459,13 @@ TerraCore:hasDonor
   skos:definition "This property references the Donor organism from which the BioSample was acquired." ;
   skos:prefLabel "hasDonor" ;
 .
-TerraCore:hasDonorAge
+TerraCore:hasDonorAgeAtCollection
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:BioSample ;
-  rdfs:label "hasDonorAge" ;
+  rdfs:label "hasDonorAgeAtCollection" ;
   rdfs:range TerraCore:Age ;
   skos:definition "A reference to the Age of the Donor at the point in time that the BioSample was obtained or other representative entity (test, diagnosis, treatment...) was created." ;
-  skos:prefLabel "hasDonorAge" ;
+  skos:prefLabel "hasDonorAgeAtCollection" ;
   TerraCore:hasColumnLabel "donor_age_at_collection" ;
 .
 TerraCore:hasDuplicateFragments
