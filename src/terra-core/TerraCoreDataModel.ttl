@@ -409,11 +409,6 @@ TerraCore:Country
   a owl:Class ;
   rdfs:label "Country" ;
   rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasAlpha2Code ;
-    ] ;
   skos:definition "A country represented by the ISO-3166 Alpha-2 code and name (as a label). https://www.iso.org/obp/ui/#search" ;
 .
 TerraCore:Diagnosis
