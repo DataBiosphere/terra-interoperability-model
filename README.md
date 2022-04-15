@@ -88,6 +88,7 @@ Paul Clemons, PhD, Director, Computational Chemical Biology Research
 Rachel Liao, PhD, Scientific Advisor to the Director   
 Marco Ocana, Principal Software Engineer   
 Kathy Reinold, Principal Data Modeler  
+Sid Cox, PhD, Senior Data Modeler
 Noam Shoresh, PhD, Associate Director, Computational Biology, Epigenomics Program    
 Kathleen Tibbetts, Director, Data Engineering, Data Sciences Platform  
 Timothy Tickle, PhD, Principal Product Manager  
