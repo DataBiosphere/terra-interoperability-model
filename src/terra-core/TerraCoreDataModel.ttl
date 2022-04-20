@@ -379,6 +379,21 @@ TerraCore:BioSample
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasBioSampleType ;
     ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasGeneticModification ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasGeneticModificationType ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasGeneticModificationMethod ;
+    ] ;
   skos:altLabel "Biospecimen" ;
   skos:altLabel "Sample" ;
   skos:altLabel "Specimen from organism" ;
@@ -1553,6 +1568,21 @@ TerraCore:hasDurationUnit
   rdfs:subPropertyOf TerraCore:hasUnit ;
   skos:prefLabel "has duration unit" ;
 .
+TerraCore:hasAmount
+  a owl:DatatypeProperty ;
+  rdfs:label "has amount" ;
+  rdfs:range xsd:decimal ;
+  skos:prefLabel "has amount" ;
+  TerraCore:hasColumnLabel "amount" ;
+  skos:definition "A property that identifies the numerical quantity of a molecular species." ;
+.
+TerraCore:hasAmountUnit
+  a owl:DatatypeProperty ;
+  rdfs:label "has amount unit" ;
+  rdfs:subPropertyOf TerraCore:hasUnit ;
+  skos:prefLabel "has amount unit" ;
+  skos:definition "A property that captures the units of a particular molecular species. The units may be an amount such as moles or grams; or a concentration, such as g/mL or molarity. Other units may include enzyme activity, the specific activity of a radionucleotide, or the titer of an antibody" ;
+.
 TerraCore:hasEstimatedLibrarySize
   a owl:DatatypeProperty ;
   rdfs:comment "For alignment file types." ;
@@ -1568,7 +1598,6 @@ TerraCore:hasFamilyID
   rdfs:domain TerraCore:HumanDonor ;
   rdfs:label "hasFamilyID" ;
   rdfs:range xsd:string ;
-  skos:definition "A property identifies the family with whom this Donor is affiliated." ;
   TerraCore:hasColumnLabel "family_id" ;
 .
 TerraCore:hasFileFormat
@@ -1634,7 +1663,7 @@ TerraCore:hasGeneticModification
   rdfs:label "has genetic modification" ;
   rdfs:range xsd:string ;
   skos:prefLabel "has genetic modification" ;
-  prov:definition "Genetic modification of a BioSample." ;
+  prov:definition "A reference to a genetic modification of a BioSample." ;
   TerraCore:hasColumnLabel "genetic_mod" ;
 .
 TerraCore:hasGeneticModificationMethod
@@ -1675,6 +1704,16 @@ TerraCore:hasGeneticModificationType
           "inhibition"
           "binding"
           "transgene insertion"
+          "deactivation"
+          "perturbation"
+          "selection"
+          "stimulation"
+          "non-specific target control"
+          "repression"
+          "tagging"
+          "characterization"
+          "expression"
+          "in vivo enhancer characterization"
         ) ;
     ] ;
   skos:prefLabel "has genetic modification type" ;
