@@ -1632,6 +1632,7 @@ TerraCore:hasGeneticAncestry
   skos:definition "A property that relects a HumanDonor's reported major contributing ancestral origins  based on genetic/genomic data." ;
   skos:prefLabel "has genetic ancestry" ;
   TerraCore:hasColumnLabel "genetic_ancestry" ;
+.
 
 TerraCore:hasGeneticModificationMethod
   a owl:DatatypeProperty ;
@@ -1641,10 +1642,10 @@ TerraCore:hasGeneticModificationMethod
   skos:prefLabel "has genetic modification method" ;
 .
 
-TerraCore:hasGeneticModification
+TerraCore:hasGeneticModificationType
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:GeneticModification ;
-  rdfs:label "has genetic modification " ;
+  rdfs:label "has genetic modification type" ;
   rdfs:range xsd:string ;
   skos:prefLabel "has genetic modification type" ;
 .
@@ -1825,6 +1826,13 @@ TerraCore:hasPercentDuplicateFragments
   rdfs:label "hasPercentDuplicateFragments" ;
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasPercentDuplicateFragments" ;
+.
+TerraCore:hasPerturbation
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:BioSample ;
+  rdfs:label "has perturbation" ;
+  rdfs:range TerraCore:Perturbation ;
+  skos:prefLabel "has perturbation" ;
 .
 TerraCore:hasPhenotypicSex
   a owl:ObjectProperty ;
