@@ -6,8 +6,8 @@ TIM is a data model that captures a common set of concepts and relationships for
 Examples of searches include:
 
 * *Find all glioma data that I can access for commercial research*
-* *Find single-cell data from samples with HIV and an intracellular pathogens*
-* *I need RNA-seq, Hi-C, and ChIP-seq data from adult brain tissue -- normal and diseased -- with malignant glioma*
+* *Find single-cell data from samples with HIV and an intracellular pathogen*
+* *I need RNA-seq, Hi-C, and ChIP-seq data from adult brain tissue -- normal and diseased with malignant glioma*
 
 TIM is formally specified using OWL and is currently available in the [Turtle](https://www.w3.org/TR/turtle/) RDF serialization format.  It is expected that the data model will be translated into appropriate syntaxes for implementation across a range of applications.  See [Using Terra Interoperability Model](#using-Terra-Interoperability-Model).  The namespace and default prefix are "TerraCore".
 
@@ -64,7 +64,7 @@ We then formed a team of researchers from across the Broad Institute to ensure t
 Finally, we selected several datasets to test the model in our own pilot project.
 
 ### Using Terra Interoperability Model
-TIM is currently composed of three separate OWL files. TerraDCAT_ap.ttl is an extension of the (W3C's Data Catalog Vocabulary)[https://www.w3.org/TR/vocab-dcat-2/] which adds data use terms from the (Data Use Ontology)[https://github.com/EBISPOT/DUO].  TerraCoreValueSets.ttl provides controlled vocabulary terms to support TerraCoreDataModel.ttl which contains the classes and properties required to connect core biomedical data concepts.
+TIM is currently composed of three separate OWL/TTL files. TerraDCAT_ap.ttl is an extension of the (W3C's Data Catalog Vocabulary)[https://www.w3.org/TR/vocab-dcat-2/] which adds data use terms from the (Data Use Ontology)[https://github.com/EBISPOT/DUO].  TerraCoreValueSets.ttl provides controlled vocabulary terms to support TerraCoreDataModel.ttl which contains the classes and properties required to connect core biomedical data concepts.
 
 The list of external ontologies and vocabularies that are used in the Terra Interoperability Model can be found in the [Ontologies document](documents/Ontologies.md).
 
@@ -88,6 +88,7 @@ Paul Clemons, PhD, Director, Computational Chemical Biology Research
 Rachel Liao, PhD, Scientific Advisor to the Director   
 Marco Ocana, Principal Software Engineer   
 Kathy Reinold, Principal Data Modeler  
+Sid Cox, PhD, Senior Data Modeler
 Noam Shoresh, PhD, Associate Director, Computational Biology, Epigenomics Program    
 Kathleen Tibbetts, Director, Data Engineering, Data Sciences Platform  
 Timothy Tickle, PhD, Principal Product Manager  
