@@ -1637,7 +1637,6 @@ TerraCore:hasGeneticModification
   prov:definition "Genetic modification of a BioSample." ;
   TerraCore:hasColumnLabel "genetic_mod" ;
 .
-
 TerraCore:hasGeneticModificationMethod
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:BioSample ;
