@@ -1,4 +1,5 @@
 # baseURI: https://datamodel.terra.bio/TerraCore
+# imports: http://datashapes.org/dash
 # imports: http://www.w3.org/2002/07/owl
 # imports: https://datamodel.terra.bio/EFO_subset
 # imports: https://datamodel.terra.bio/NCBITaxon_Organisms_subset
@@ -96,6 +97,7 @@ prov:wasGeneratedBy
   dct:date "20 Jul 2020" ;
   dct:license <https://github.com/DataBiosphere/terra-interoperability-model/blob/master/LICENSE> ;
   rdfs:comment "Please cite The Broad Institute of Harvard and MIT, Data Sciences Platform." ;
+  owl:imports <http://datashapes.org/dash> ;
   owl:imports <http://www.w3.org/2002/07/owl> ;
   owl:imports <https://datamodel.terra.bio/EFO_subset> ;
   owl:imports <https://datamodel.terra.bio/NCBITaxon_Organisms_subset> ;
@@ -589,7 +591,7 @@ TerraCore:GeneralResearchUse
 TerraCore:GeneticModification
   a owl:Class ;
   rdfs:label "Genetic modification" ;
-  rdfs:subClassOf TerraCore:Perturbation ;
+  rdfs:subClassOf TerraCore:Activity ;
   skos:prefLabel "Genetic modification" ;
 .
 TerraCore:GrCh38
@@ -810,12 +812,6 @@ TerraCore:OntologyReference
   rdfs:label "OntologyReference" ;
   rdfs:subClassOf obo:IAO_0000027 ;
 .
-TerraCore:Perturbation
-  a owl:Class ;
-  rdfs:label "Perturbation" ;
-  rdfs:subClassOf TerraCore:Activity ;
-  skos:prefLabel "Perturbation" ;
-.
 TerraCore:Pipeline
   a owl:Class ;
   rdfs:label "Pipeline" ;
@@ -996,7 +992,7 @@ TerraCore:Sample
 TerraCore:SampleTreatment
   a owl:Class ;
   rdfs:label "Sample treatment" ;
-  rdfs:subClassOf TerraCore:Perturbation ;
+  rdfs:subClassOf TerraCore:Activity ;
   skos:prefLabel "Sample treatment" ;
 .
 TerraCore:SequenceFile
@@ -1545,6 +1541,13 @@ TerraCore:hasDuplicateFragments
   rdfs:range xsd:integer ;
   skos:prefLabel "hasDuplicateFragments" ;
 .
+TerraCore:hasDuration
+  a owl:DatatypeProperty ;
+  rdfs:label "has duration" ;
+  rdfs:range xsd:decimal ;
+  skos:prefLabel "has duration" ;
+  TerraCore:hasColumnLabel "duration" ;
+.
 TerraCore:hasDurationUnit
   a owl:DatatypeProperty ;
   rdfs:label "has duration unit" ;
@@ -1553,7 +1556,7 @@ TerraCore:hasDurationUnit
       owl:oneOf (
           "min"
           "seconds"
-          "fahrenheit"
+          "hours"
         ) ;
     ] ;
   rdfs:subPropertyOf TerraCore:hasUnit ;
@@ -1634,20 +1637,56 @@ TerraCore:hasGeneticAncestry
   TerraCore:hasColumnLabel "genetic_ancestry" ;
 .
 
+TerraCore:hasGeneticModification
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:BioSample ;
+  rdfs:label "has genetic modification" ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "has genetic modification" ;
+  prov:definition "Genetic modification of a BioSample." ;
+  TerraCore:hasColumnLabel "genetic_mod" ;
+.
+
 TerraCore:hasGeneticModificationMethod
   a owl:DatatypeProperty ;
-  rdfs:domain TerraCore:GeneticModification ;
   rdfs:label "has genetic modification method" ;
-  rdfs:range xsd:string ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "CRISPR"
+          "mutagen treatment"
+          "site-specific recombination"
+          "TALEN"
+          "homologous recombination"
+        ) ;
+    ] ;
   skos:prefLabel "has genetic modification method" ;
+  prov:definition "The method of a GeneticModification, see ValueSets." ;
+  TerraCore:hasColumnLabel "genetic_mod_method" ;
 .
 
 TerraCore:hasGeneticModificationType
   a owl:DatatypeProperty ;
-  rdfs:domain TerraCore:GeneticModification ;
   rdfs:label "has genetic modification type" ;
-  rdfs:range xsd:string ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "deletion"
+          "interference"
+          "insertion"
+          "mutagenesis"
+          "replacement"
+          "episome"
+          "activation"
+          "knockout"
+          "disruption"
+          "inhibition"
+          "binding"
+          "transgene insertion"
+        ) ;
+    ] ;
   skos:prefLabel "has genetic modification type" ;
+  TerraCore:hasColumnLabel "genetic_mod_method" ;
 .
 TerraCore:hasGenotypicSex
   a xsd:string ;
@@ -1827,13 +1866,6 @@ TerraCore:hasPercentDuplicateFragments
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasPercentDuplicateFragments" ;
 .
-TerraCore:hasPerturbation
-  a owl:ObjectProperty ;
-  rdfs:domain TerraCore:BioSample ;
-  rdfs:label "has perturbation" ;
-  rdfs:range TerraCore:Perturbation ;
-  skos:prefLabel "has perturbation" ;
-.
 TerraCore:hasPhenotypicSex
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:Donor ;
@@ -1927,16 +1959,14 @@ TerraCore:hasSampleTreatment
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "has sample treatment" ;
-  rdfs:range TerraCore:SampleTreatment ;
-  rdfs:subPropertyOf TerraCore:hasPerturbation ;
   skos:prefLabel "has sample treatment" ;
 .
 TerraCore:hasSampleTreatmentType
   a owl:DatatypeProperty ;
-  rdfs:domain TerraCore:SampleTreatment ;
   rdfs:label "has sample treatment type" ;
   rdfs:range xsd:string ;
   skos:prefLabel "has sample treatment type" ;
+  prov:definition "The type of a BioSample treatment type, see valuesets for examples." ;
   TerraCore:hasColumnLabel "sample_treatment_type" ;
 .
 TerraCore:hasSampleType
@@ -2029,6 +2059,13 @@ TerraCore:hasTemperatureUnit
   rdfs:subPropertyOf TerraCore:hasUnit ;
   skos:prefLabel "has temperature unit" ;
   TerraCore:hasColumnLabel "temperature_unit" ;
+.
+TerraCore:hasTempterature
+  a rdf:Property ;
+  rdfs:label "has tempterature" ;
+  rdfs:range xsd:decimal ;
+  skos:prefLabel "has tempterature" ;
+  TerraCore:hasColumnLabel "temperature" ;
 .
 TerraCore:hasTermName
   a owl:DatatypeProperty ;
@@ -2148,6 +2185,7 @@ TerraCore:usesAntibody
   rdfs:range TerraCore:Antibody ;
   rdfs:subPropertyOf prov:used ;
   skos:prefLabel "usesAntibody" ;
+  prov:definition "May be a reference to an antibody used for a SampleTreatment or other Activity." ;
 .
 TerraCore:usesLibrary
   a owl:ObjectProperty ;
