@@ -407,6 +407,12 @@ TerraCore:BioSampleDissociation
   owl:equivalentClass <http://www.ebi.ac.uk/efo/EFO_0009091> ;
   skos:definition "Activity which results in the separation of a BioSample into individual cells or a cell suspension." ;
 .
+TerraCore:SampleTreatmentActivity
+  a owl:Class ;
+  rdfs:label "SampleTreatmentActivity" ;
+  rdfs:subClassOf TerraCore:Activity ;
+  skos:definition "Activity which results in the transormation of a BioSample by treatment with chemicals, drugs, biological infection, irradiation, exposures, or other non-genetic modifications." ;
+.
 TerraCore:BiologicalSex
   a owl:Class ;
   rdfs:label "Biological sex" ;
