@@ -288,6 +288,7 @@ TerraCore:Antibody
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasTarget ;
     ] ;
+  prov:definition "A reference to the antibody/antibodies used in this Activity.";
 .
 TerraCore:AssayActivity
   a owl:Class ;
@@ -2297,27 +2298,6 @@ TerraCore:usesSample
   rdfs:subPropertyOf prov:used ;
   skos:prefLabel "usesSample" ;
   TerraCore:hasColumnLabel "sample" ;
-.
-TerraDCAT_ap:DataCollection
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraDCAT_ap:hasCustodian ;
-    ] ;
-.
-TerraDCAT_ap:DataSnapshot
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dct:identifier ;
-    ] ;
-.
-TerraDCAT_ap:Dataset
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraDCAT_ap:hasCustodian ;
-    ] ;
 .
 TerraDCAT_ap:hasDataUseModifier
   TerraCore:hasColumnLabel "data_use_ modifier" ;
