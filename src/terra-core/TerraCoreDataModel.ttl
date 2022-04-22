@@ -1293,6 +1293,8 @@ TerraCore:hasAnatomicalRegion
   rdfs:range xsd:string ;
   skos:definition "A reference to the physical location within the AnatomicalSite from which the BioSample was taken." ;
   skos:prefLabel "hasAnatomicalRegion" ;
+  TerraCore:hasColumnLabel "anatomical_region" ;
+
 .
 TerraCore:hasAnatomicalSite
   a owl:DatatypeProperty ;
@@ -1507,6 +1509,7 @@ TerraCore:hasDisease
   rdfs:range TerraCore:OntologyReference ;
   skos:definition "A property that identifies a disease or condition has been reported in this entity." ;
   skos:prefLabel "hasDisease" ;
+  TerraCore:hasColumnLabel "disease" ;
 .
 TerraCore:hasDiseaseStageType
   a owl:DatatypeProperty ;
@@ -1781,6 +1784,8 @@ TerraCore:hasLibraryPrepActivity
   rdfs:subPropertyOf prov:wasUsedBy ;
   skos:definition "A subproperty of usedBy which indicates that LibraryPreparation was performed using this entity." ;
   skos:prefLabel "hasLibraryPrep" ;
+  TerraCore:hasColumnLabel "library_prep" ;
+
 .
 TerraCore:hasLibraryPreparationType
   a owl:ObjectProperty ;
@@ -2012,7 +2017,7 @@ TerraCore:hasSampleTreatment
 .
 TerraCore:hasSampleTreatmentType
   a owl:DatatypeProperty ;
-  rdfs:domain TerraCore:BioSample ;
+  rdfs:domain TerraCore:SampleTreatmentActivity ;
   rdfs:label "has sample treatment type" ;
   rdfs:range [
       a rdfs:Datatype ;
@@ -2026,12 +2031,23 @@ TerraCore:hasSampleTreatmentType
           "protein"
           "transplantation"
           "RNAi"
+          "CRISPRi"
         ) ;
     ] ;
   skos:prefLabel "has sample treatment type" ;
   prov:definition "The type of a BioSample treatment type, see valuesets for examples." ;
   TerraCore:hasColumnLabel "sample_treatment_type" ;
 .
+TerraCore:hasSampleTreatmentMethod
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:SampleTreatmentActivity ;
+  rdfs:label "has sample treatment method" ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "has sample treatment method" ;
+  prov:definition "The method of a SampleTreatmentActivity." ;
+  TerraCore:hasColumnLabel "sample_treatment_method" ;
+.
+
 TerraCore:hasSampleType
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:Sample ;
@@ -2248,7 +2264,7 @@ TerraCore:usesAntibody
   rdfs:range TerraCore:Antibody ;
   rdfs:subPropertyOf prov:used ;
   skos:prefLabel "usesAntibody" ;
-  prov:definition "May be a reference to an antibody used for a SampleTreatment or other Activity." ;
+  prov:definition "May be a reference to an antibody used for a SampleTreatmentActivity or other Activity." ;
   TerraCore:hasColumnLabel "antibody" ;
 .
 TerraCore:usesLibrary
