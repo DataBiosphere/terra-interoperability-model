@@ -1382,7 +1382,7 @@ TerraCore:hasCellState
 TerraCore:hasChecksum
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:File ;
-  rdfs:label "hasChecksum" ;
+  rdfs:label "has checksum" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasChecksum" ;
   TerraCore:hasColumnLabel "checksum" ;
@@ -1391,7 +1391,7 @@ TerraCore:hasChild
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:FamilyMember ;
   rdfs:domain TerraCore:HumanDonor ;
-  rdfs:label "hasChild" ;
+  rdfs:label "has child" ;
   rdfs:range TerraCore:FamilyMember ;
   rdfs:range TerraCore:HumanDonor ;
   skos:definition "A property that identifies genetic children." ;
@@ -1399,7 +1399,7 @@ TerraCore:hasChild
 TerraCore:hasChromosome
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:ChromosomalLocation ;
-  rdfs:label "hasChromosome" ;
+  rdfs:label "has chromosome" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasChromosome" ;
   TerraCore:hasColumnLabel "chromosome" ;
@@ -1407,7 +1407,7 @@ TerraCore:hasChromosome
 TerraCore:hasClonality
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:Antibody ;
-  rdfs:label "hasClonality" ;
+  rdfs:label "has clonality" ;
   rdfs:range [
       a rdfs:Datatype ;
       owl:oneOf (
@@ -1415,7 +1415,18 @@ TerraCore:hasClonality
           "polyclonal"
         ) ;
     ] ;
+  TerraCore:hasColumnLabel "clonality" ; 
 .
+
+TerraCore:hasHostOrganism
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:Antibody ;
+  rdfs:label "has host organism" ;
+  rdfs:range xsd:string ;
+  rdfs:range rdfs:range obo:OBI_0100026 ;
+  TerraCore:hasColumnLabel "host_organism" ; 
+.
+
 TerraCore:hasColumnLabel
   a owl:AnnotationProperty ;
   rdfs:label "has column label" ;
@@ -2121,11 +2132,11 @@ TerraCore:hasTarget
   rdfs:comment "Target is a string for now but will ultimately be a class." ;
   rdfs:domain TerraCore:Antibody ;
   rdfs:domain TerraCore:AssayActivity ;
+  rdfs:domain TerrasCore:SampleTreatmentActivity ;
   rdfs:label "hasTarget" ;
   rdfs:range xsd:anyURI ;
   skos:prefLabel "hasTarget" ;
   TerraCore:hasColumnLabel "target" ;
-
 .
 TerraCore:hasSource
   a owl:DatatypeProperty ;
@@ -2145,7 +2156,7 @@ TerraCore:hasLot
   rdfs:label "hasLot" ;
   rdfs:range xsd:anyURI ;
   skos:prefLabel "hasLot" ;
-  TerraCore:hasColumnLabel "lot" ;
+  TerraCore:hasColumnLabel "lots" ;
 .
 
 TerraCore:hasTemperatureUnit
