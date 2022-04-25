@@ -31,9 +31,6 @@
 obo:BFO_0000001
   owl:equivalentClass prov:Entity ;
 .
-obo:DUO_0000017
-  rdfs:subClassOf dcat:Resource ;
-.
 dct:contributor
   TerraCore:hasColumnLabel "contributor" ;
 .
@@ -1572,6 +1569,7 @@ TerraCore:hasDurationUnit
           "min"
           "seconds"
           "hours"
+          "days"
         ) ;
     ] ;
   rdfs:subPropertyOf TerraCore:hasUnit ;
@@ -1585,18 +1583,17 @@ TerraCore:hasAmount
   rdfs:range xsd:decimal ;
   skos:prefLabel "has amount" ;
   TerraCore:hasColumnLabel "amount" ;
-  skos:definition "A property that identifies the numerical quantity of a molecular species." ;
+  skos:definition "A property that identifies the numerical quantity of an entity." ;
   TerraCore:hasColumnLabel "amount" ;
-
 .
 TerraCore:hasAmountUnit
   a owl:DatatypeProperty ;
-  rdfs:comment "Can replace this with a measurment ontology" ;
+  rdfs:comment "Can replace this with a measurement ontology" ;
   rdfs:label "has amount unit" ;
   rdfs:subPropertyOf TerraCore:hasUnit ;
   rdfs:range xsd:string ;
   skos:prefLabel "has amount unit" ;
-  skos:definition "A property that captures the units of a particular molecular species. The units may be an amount such as moles or grams; or a concentration, such as g/mL or molarity. Other units may include enzyme activity, the specific activity of a radionucleotide, or the titer of an antibody" ;
+  skos:definition "A property that captures the units of an entity. The units may be an amount such as moles or grams; or a concentration, such as g/mL or molarity. Other units may include enzyme activity, the specific activity of a radionucleotide, or the titer of an antibody" ;
   skos:prefLabel "has amount unit" ;
   TerraCore:hasColumnLabel "amount_unit" ;
 .
@@ -2014,6 +2011,8 @@ TerraCore:hasSampleTreatment
   skos:prefLabel "has sample treatment" ;
   rdfs:range TerraCore: SampleTreatmentActivity ;
   prov:definition "A sample treatment of a BioSample." ;
+  rdfs:subPropertyOf prov:wasUsedBy ;
+  skos:definition "A subproperty of usedBy which indicates that a SampleTreatmentActivity was performed using this entity." ;
   TerraCore:hasColumnLabel "sample_treatment" ;
 .
 TerraCore:hasSampleTreatmentType
@@ -2035,6 +2034,7 @@ TerraCore:hasSampleTreatmentType
           "CRISPRi"
         ) ;
     ] ;
+  rdfs:range xsd:string ;
   skos:prefLabel "has sample treatment type" ;
   prov:definition "The type of a BioSample treatment type, see valuesets for examples." ;
   TerraCore:hasColumnLabel "sample_treatment_type" ;
@@ -2140,11 +2140,11 @@ TerraCore:hasTemperatureUnit
   skos:prefLabel "has temperature unit" ;
   TerraCore:hasColumnLabel "temperature_unit" ;
 .
-TerraCore:hasTempterature
+TerraCore:hasTemperature
   a rdf:Property ;
-  rdfs:label "has tempterature" ;
+  rdfs:label "has temperature" ;
   rdfs:range xsd:decimal ;
-  skos:prefLabel "has tempterature" ;
+  skos:prefLabel "has temperature" ;
   TerraCore:hasColumnLabel "temperature" ;
 .
 TerraCore:hasTermName
