@@ -2124,7 +2124,30 @@ TerraCore:hasTarget
   rdfs:label "hasTarget" ;
   rdfs:range xsd:anyURI ;
   skos:prefLabel "hasTarget" ;
+  TerraCore:hasColumnLabel "target" ;
+
 .
+TerraCore:hasSource
+  a owl:DatatypeProperty ;
+  prov:definition "The source of production for an entity." ;
+  rdfs:comment "The source is a string but will ultimately be a Vendor class. Added for Antibodies but domain can expand." ;
+  rdfs:domain TerraCore:Antibody ;
+  rdfs:label "hasSource" ;
+  rdfs:range xsd:anyURI ;
+  skos:prefLabel "hasSource" ;
+  TerraCore:hasColumnLabel "source" ;
+.
+TerraCore:hasLot
+  a owl:DatatypeProperty ;
+  prov:definition "The lot unit of an entity." ;
+  rdfs:comment "A serial or lot number that was manufactured together. Added for Antibodies but domain can expand." ;
+  rdfs:domain TerraCore:Antibody ;
+  rdfs:label "hasLot" ;
+  rdfs:range xsd:anyURI ;
+  skos:prefLabel "hasLot" ;
+  TerraCore:hasColumnLabel "lot" ;
+.
+
 TerraCore:hasTemperatureUnit
   a owl:DatatypeProperty ;
   rdfs:label "has temperature unit" ;
