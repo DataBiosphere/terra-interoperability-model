@@ -1404,6 +1404,7 @@ TerraCore:hasChromosome
   skos:prefLabel "hasChromosome" ;
   TerraCore:hasColumnLabel "chromosome" ;
 .
+
 TerraCore:hasClonality
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:Antibody ;
@@ -1417,7 +1418,6 @@ TerraCore:hasClonality
     ] ;
   TerraCore:hasColumnLabel "clonality" ; 
 .
-
 TerraCore:hasHostOrganism
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:Antibody ;
@@ -2138,6 +2138,18 @@ TerraCore:hasTarget
   skos:prefLabel "hasTarget" ;
   TerraCore:hasColumnLabel "target" ;
 .
+TerraCore:hasImmunogen
+  a owl:DatatypeProperty ;
+  rdfs:comment "Target is a string for now but will ultimately be a class." ;
+  rdfs:domain TerraCore:Antibody ;
+  rdfs:domain TerraCore:AssayActivity ;
+  rdfs:domain TerrasCore:SampleTreatmentActivity ;
+  rdfs:label "has immunogen" ;
+  rdfs:range xsd:anyURI ;
+  skos:prefLabel "has immunogen" ;
+  TerraCore:hasColumnLabel "immunogen" ;
+.
+
 TerraCore:hasSource
   a owl:DatatypeProperty ;
   prov:definition "The source of production for an entity." ;
