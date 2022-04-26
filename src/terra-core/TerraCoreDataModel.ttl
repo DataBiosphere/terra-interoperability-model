@@ -2140,7 +2140,7 @@ TerraCore:hasTarget
 .
 TerraCore:hasImmunogen
   a owl:DatatypeProperty ;
-  rdfs:comment "Target is a string for now but will ultimately be a class." ;
+  rdfs:comment "Target is a string for now but will ultimately be a class. CHEBI term CHEBI:60816" ;
   rdfs:domain TerraCore:Antibody ;
   rdfs:domain TerraCore:AssayActivity ;
   rdfs:domain TerrasCore:SampleTreatmentActivity ;
@@ -2168,9 +2168,18 @@ TerraCore:hasLot
   rdfs:label "hasLot" ;
   rdfs:range xsd:anyURI ;
   skos:prefLabel "hasLot" ;
-  TerraCore:hasColumnLabel "lots" ;
+  TerraCore:hasColumnLabel "lot" ;
 .
-
+TerraCore:hasPartNumber
+  a owl:DatatypeProperty ;
+  prov:definition "The part number or catalogue number (e.g. Stock Keeping Unit) of an entity." ;
+  rdfs:comment "The part number is for reordering. Added for Antibodies but domain can expand." ;
+  rdfs:domain TerraCore:Antibody ;
+  rdfs:label "has part number" ;
+  rdfs:range xsd:anyURI ;
+  skos:prefLabel "has part number" ;
+  TerraCore:hasColumnLabel "part_number" ;
+.
 TerraCore:hasTemperatureUnit
   a owl:DatatypeProperty ;
   rdfs:label "has temperature unit" ;
@@ -2309,9 +2318,10 @@ TerraCore:usesAntibody
   rdfs:domain TerraCore:AssayActivity ;
   rdfs:label "usesAntibody" ;
   rdfs:range TerraCore:Antibody ;
+  rdfs:range xsd:string ;
   rdfs:subPropertyOf prov:used ;
   skos:prefLabel "usesAntibody" ;
-  prov:definition "May be a reference to an antibody used for a SampleTreatmentActivity or other Activity." ;
+  prov:definition "May be a reference to an antibody used for a SampleTreatmentActivity or another Activity." ;
   TerraCore:hasColumnLabel "antibody" ;
 .
 TerraCore:usesLibrary
@@ -2346,7 +2356,7 @@ TerraCore:usesSample
   TerraCore:hasColumnLabel "sample" ;
 .
 TerraDCAT_ap:hasDataUseModifier
-  TerraCore:hasColumnLabel "data_use_ modifier" ;
+  TerraCore:hasColumnLabel "data_use_modifier" ;
 .
 TerraDCAT_ap:hasDataUsePermission
   TerraCore:hasColumnLabel "data_use_permission" ;
