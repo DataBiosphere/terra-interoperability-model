@@ -232,6 +232,13 @@ TerraDCAT_ap:Dataset
   skos:prefLabel "Dataset" ;
   prov:definition "An extension of DCAT:Dataset to support Data Use Ontology terms.  A collection of one or more entities submitted by a single responsible party or authorizing agent." ;
 .
+TerraDCAT_ap:hasConsentGroup
+  a owl:DatatypeProperty ;
+  rdfs:label "has consent group" ;
+  rdfs:range xsd:string ;
+  skos:definition "A reference to the consent group for datasets not yet using the Data Use Ontology; data use permission and data use modifier supersede this value if they are present." ;
+  skos:prefLabel "has consent group" ;
+.
 TerraDCAT_ap:hasCustodian
   a rdf:Property ;
   rdfs:domain TerraDCAT_ap:DataCollection ;
@@ -332,4 +339,13 @@ TerraDCAT_ap:hasPrincipalInvestigator
   rdfs:label "has principal investigator" ;
   rdfs:subPropertyOf prov:wasInfluencedBy ;
   skos:definition "A Principal Investigator associated with this entity." ;
+.
+TerraDCAT_ap:hasRegisteredIdentifier
+  a owl:DatatypeProperty ;
+  rdfs:comment "Consider capturing the system of registration as well." ;
+  rdfs:label "has registered identifier" ;
+  rdfs:range xsd:anyURI ;
+  rdfs:range xsd:string ;
+  skos:definition "Identifies a system, database or registry where this dataset has been assigned an identifier.  Examples include dbGaP, Sequence Read Archive (SRA), GenBank, and the European Genome-phenomeArchive (EGA)." ;
+  skos:prefLabel "has registered identifier" ;
 .
