@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "data-model-exporter"
+version = "0.1.0"
+description = ""
+authors = ["Quazi Hoque <qhoque@broadinstitute.org>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+cached-property = "^1.5.2"
+rdflib = "^5.0.0"
+
+[tool.poetry.dev-dependencies]
+autopep8 = "^1.5.5"
+mypy = "^0.812"
+pre-commit = "^2.11.0"
+pytest = "^4.6"
+
+[tool.poetry.scripts]
+export = 'data_model_exporter.dmExporter:main'
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.autopep8]
+aggressive = 1
+exclude = ".pytest_cache,__pycache__"
+max_line_length = 120
