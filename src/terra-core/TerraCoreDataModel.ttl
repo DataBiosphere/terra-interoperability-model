@@ -444,8 +444,7 @@ TerraCore:SampleTreatmentActivity
   a owl:Class ;
   rdfs:label "SampleTreatmentActivity" ;
   rdfs:subClassOf TerraCore:Activity ;
-  skos:definition "Activity which transforms a BioSample into another BioSample. Typically the sample treatment activity involves adding something to cells or tissue, for example 
- treatment with chemicals, drugs, biological infection, irradiation, exposures, or other non-genetic modifications. This treatment excludes mechanical separation of a BioSample into single cells (covered by BioSampleDissociation), and is not needed for genetic modifications to cells (covered by hasGeneticModification)." ;
+  skos:definition "Activity which transforms a BioSample into another BioSample. Typically the sample treatment activity involves adding something to cells or tissue, for example treatment with chemicals, drugs, biological infection, irradiation, exposures, or other non-genetic modifications. This treatment excludes mechanical separation of a BioSample into single cells (covered by BioSampleDissociation), and is not needed for genetic modifications to cells (covered by hasGeneticModification)." ;
 .
 TerraCore:BiologicalSex
   a owl:Class ;
@@ -2127,7 +2126,7 @@ TerraCore:hasSampleTreatment
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "has sample treatment" ;
   skos:prefLabel "has sample treatment" ;
-  rdfs:range TerraCore: SampleTreatmentActivity ;
+  rdfs:range TerraCore:SampleTreatmentActivity ;
   prov:definition "A sample treatment of a BioSample." ;
   rdfs:subPropertyOf prov:wasUsedBy ;
   skos:definition "A subproperty of usedBy which indicates that a SampleTreatmentActivity was performed using this entity." ;
