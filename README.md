@@ -84,11 +84,11 @@ Dan Moran, Sarah Wessel, Jeremy Hert, Raaid Arshad, Quazi Hoque, Rori Cremer, An
 Larry Babb, Senior Principal Software Engineer  
 Clare Bernard, PhD, Senior Director of Product, Data Science Platform  
 Sinéad Chapman, Associate Director, Genetics Project Management, Stanley Center for Psychiatric Research  
-Paul Clemons, PhD, Director, Computational Chemical Biology Research   
+Paul Clemons, PhD, Director, Computational Chemical Biology Research
+Sid Cox, PhD, Senior Data Modeler
 Rachel Liao, PhD, Scientific Advisor to the Director   
 Marco Ocana, Principal Software Engineer   
 Kathy Reinold, Principal Data Modeler  
-Sid Cox, PhD, Senior Data Modeler
 Noam Shoresh, PhD, Associate Director, Computational Biology, Epigenomics Program    
 Kathleen Tibbetts, Director, Data Engineering, Data Sciences Platform  
 Timothy Tickle, PhD, Principal Product Manager  
