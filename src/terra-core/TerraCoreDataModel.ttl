@@ -2135,6 +2135,7 @@ TerraCore:hasTarget
   rdfs:domain TerrasCore:SampleTreatmentActivity ;
   rdfs:label "hasTarget" ;
   rdfs:range xsd:anyURI ;
+  rdfs:range xsd:string ;
   skos:prefLabel "hasTarget" ;
   TerraCore:hasColumnLabel "target" ;
 .
@@ -2146,6 +2147,7 @@ TerraCore:hasImmunogen
   rdfs:domain TerrasCore:SampleTreatmentActivity ;
   rdfs:label "has immunogen" ;
   rdfs:range xsd:anyURI ;
+  rdfs:range xsd:string ;
   skos:prefLabel "has immunogen" ;
   TerraCore:hasColumnLabel "immunogen" ;
 .
@@ -2157,6 +2159,7 @@ TerraCore:hasSource
   rdfs:domain TerraCore:Antibody ;
   rdfs:label "hasSource" ;
   rdfs:range xsd:anyURI ;
+  rdfs:range xsd:string ;
   skos:prefLabel "hasSource" ;
   TerraCore:hasColumnLabel "source" ;
 .
@@ -2167,6 +2170,7 @@ TerraCore:hasLot
   rdfs:domain TerraCore:Antibody ;
   rdfs:label "hasLot" ;
   rdfs:range xsd:anyURI ;
+  rdfs:range xsd:string ;
   skos:prefLabel "hasLot" ;
   TerraCore:hasColumnLabel "lot" ;
 .
