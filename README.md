@@ -80,20 +80,29 @@ Please use this repository's [Issue Tracker](https://github.com/broadinstitute/d
 **Data Sciences Platform, Broad Institute**  
 Dan Moran, Sarah Wessel, Jeremy Hert, Raaid Arshad, Quazi Hoque, Rori Cremer, Andrea Haessly, Jeff Korte, Jerome Chadel, David Wine, and others.
 
-**Terra Core Data Model Team**  
+**Terra Core Data Model Team, Broad Institute**  
 Larry Babb, Senior Principal Software Engineer  
-Clare Bernard, PhD, Senior Director of Product, Data Science Platform  
-Sinéad Chapman, Associate Director, Genetics Project Management, Stanley Center for Psychiatric Research  
 Paul Clemons, PhD, Director, Computational Chemical Biology Research
 Sid Cox, PhD, Senior Data Modeler
-Rachel Liao, PhD, Scientific Advisor to the Director   
+Rachel Liao, PhD, Scientific Advisor to the Director
+Eugenio Mattei, PhD, Computational Scientist
 Marco Ocana, Principal Software Engineer   
-Kathy Reinold, Principal Data Modeler  
+Kathy Reinold (Chairperson), Principal Data Modeler  
 Noam Shoresh, PhD, Associate Director, Computational Biology, Epigenomics Program    
 Kathleen Tibbetts, Director, Data Engineering, Data Sciences Platform  
-Timothy Tickle, PhD, Principal Product Manager  
-Andrew Zimmer, Director, Data Donation Platform<br><br>
-Special thanks to our guest subject matter experts: Charles Epstein, Orr Ashenberg, Tommaso Biancalani, Caroline Porter
+Timothy Tickle, PhD, Principal Product Manager
+Kyle Vernest, Head of Project Management, Data Sciences Platform
+Andrew Zimmer, Director, Data Donation Platform
+
+**Guest Subject Matter Experts**
+Charles Epstein
+Orr Ashenberg
+Tommaso Biancalani
+Caroline Porter
+
+**Alumni Contributors**
+Clare Bernard, PhD, Senior Director of Product, Data Science Platform  
+Sinéad Chapman, Associate Director, Genetics Project Management, Stanley Center for Psychiatric Research  
 
 We are also grateful for the work of many other groups who have contributed through prior and ongoing work in this area.  Several groups have graciously allowed us to participate in standards discussions, such as the Human Cell Atlas Metadata Community, NCI's [Center for Cancer Data Harmonization](https://datascience.cancer.gov/data-commons/center-cancer-data-harmonization-ccdh), [Single Cell Portal](https://portals.broadinstitute.org/single_cell "Single Cell Portal") and several [GA4GH Working Streams](https://www.ga4gh.org/how-we-work/workstreams "GA4GH Working Streams").
 
