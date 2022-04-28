@@ -41,6 +41,10 @@ The High Level Diagram shows the relationships of the main entities captured by 
 
 ![Figure - Terra Interoperability Model Overview Draft](https://github.com/DataBiosphere/terra-interoperability-model/blob/master/documents/Terra%20Interoperability%20Model%20v2%20High%20Level.png)
 
+Legend explaining the types of entities.
+
+![Figure - Terra Interoperability Model Overview Draft](https://github.com/DataBiosphere/terra-interoperability-model/blob/master/documents/TIM_legend.png)
+
 Example class expanded to show properties: Donor captures study subjects or organism for which data is collected.
 
 ![Figure - Terra Interoperability Model Overview Draft](https://github.com/DataBiosphere/terra-interoperability-model/blob/master/documents/TIM%20v2%20Donor.png)
