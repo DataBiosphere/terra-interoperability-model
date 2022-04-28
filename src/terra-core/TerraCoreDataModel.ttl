@@ -148,6 +148,11 @@ TerraCore:Activity
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasDataModality ;
     ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:usesSample ;
+    ] ;
   skos:prefLabel "Activity" ;
   prov:definition "An activity occurs over a period of time, generates an entity, and may include consuming, processing, transforming, modifying, relocating, or using entities.  This subclass of prov:Activity restricts members to those with a DataModality relevant to biomedical research." ;
 .
@@ -204,7 +209,7 @@ TerraCore:AlignmentActivity
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:usesReferenceAssembly ;
     ] ;
   rdfs:subClassOf [
@@ -221,6 +226,16 @@ TerraCore:AlignmentActivity
       a owl:Restriction ;
       owl:onProperty prov:used ;
       owl:someValuesFrom TerraCore:SequenceFile ;
+    ] ;
+    rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty prov:endedAtTime ;
+    ] ;
+    rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:usesSample ;
     ] ;
   owl:disjointWith TerraCore:AnalysisActivity ;
   owl:disjointWith TerraCore:AssayActivity ;
@@ -329,6 +344,11 @@ TerraCore:AssayActivity
       owl:onProperty prov:generated ;
       owl:someValuesFrom TerraCore:File ;
     ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:usesSample ;
+    ] ;
   owl:disjointWith TerraCore:AlignmentActivity ;
   owl:disjointWith TerraCore:AnalysisActivity ;
   owl:disjointWith TerraCore:LibraryPreparationActivity ;
@@ -384,7 +404,7 @@ TerraCore:BioSample
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasDonorAgeAtCollection ;
     ] ;
   rdfs:subClassOf [
@@ -479,6 +499,16 @@ TerraCore:Diagnosis
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:id ;
     ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasAgeAtDiagnosis ;
+    ] ;  
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasAgeAtOnset ;
+    ] ;  
   skos:definition "Result of a medical investigation that often identies a disease or condition." ;
 .
 TerraCore:Dog
@@ -519,6 +549,11 @@ TerraCore:Donor
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasAgeAtDeath ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasAgeAtDiagnosis ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -601,13 +636,18 @@ TerraCore:FamilyMember
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasSexAssignedAtBirth ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasGeneticAncestry ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasGeneticAncestry ;
+      owl:onProperty TerraCore:hasGenotypicSex ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -1161,6 +1201,11 @@ TerraCore:SequencingActivity
       owl:onProperty prov:generated ;
       owl:someValuesFrom TerraCore:SequenceFile ;
     ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty prov:endedAtTime ;
+    ] ;
   owl:disjointWith TerraCore:AlignmentActivity ;
   owl:disjointWith TerraCore:AnalysisActivity ;
   owl:disjointWith TerraCore:AssayActivity ;
@@ -1235,6 +1280,11 @@ TerraCore:VariantCall
       a owl:Restriction ;
       owl:onProperty prov:used ;
       owl:someValuesFrom TerraCore:VariantCallSetFile ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:usesSample ;
     ] ;
   skos:prefLabel "VariantCall" ;
   prov:definition "A variation in genetic sequence for a particular Sample and VariantCallingActivity." ;
@@ -1410,7 +1460,6 @@ TerraCore:hasAnatomicalRegion
   skos:definition "A reference to the physical location within the AnatomicalSite from which the BioSample was taken." ;
   skos:prefLabel "hasAnatomicalRegion" ;
   TerraCore:hasColumnLabel "anatomical_region" ;
-
 .
 TerraCore:hasAnatomicalSite
   a owl:DatatypeProperty ;
@@ -1418,6 +1467,7 @@ TerraCore:hasAnatomicalSite
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasAnatomicalSite" ;
   rdfs:range xsd:anyURI ;
+  rdfs:range xsd:string ;
   skos:definition "A reference to the site within the organism from which the BioSample was taken." ;
   skos:prefLabel "hasAnatomicalSite" ;
   TerraCore:hasColumnLabel "anatomical_site" ;
@@ -1442,6 +1492,7 @@ TerraCore:hasAssayType
   rdfs:domain TerraCore:AssayActivity ;
   rdfs:label "hasAssayType" ;
   rdfs:range obo:OBI_0000070 ;
+  rdfs:range xsd:string ;
   TerraCore:hasColumnLabel "assay_type" ;
 .
 TerraCore:hasAverageReadLength
@@ -2352,12 +2403,14 @@ TerraCore:isCauseOfDeath
   rdfs:domain TerraCore:Diagnosis ;
   rdfs:label "cause of death" ;
   rdfs:range xsd:boolean ;
+  TerraCore:hasColumnLabel "cause_of_death" ;
 .
 TerraCore:isContributorToDeath
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:Diagnosis ;
   rdfs:label "contributes to death" ;
   rdfs:range xsd:boolean ;
+  TerraCore:hasColumnLabel "contributor_to_death" ;
 .
 TerraCore:isFundedBy
   a owl:ObjectProperty ;
