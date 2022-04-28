@@ -1335,6 +1335,11 @@ TerraCore:VariantCalling
       owl:onProperty prov:used ;
       owl:someValuesFrom TerraCore:AlignmentFile ;
     ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:usesSample ;
+    ] ;
   owl:disjointWith TerraCore:AlignmentActivity ;
   owl:disjointWith TerraCore:AnalysisActivity ;
   owl:disjointWith TerraCore:AssayActivity ;
