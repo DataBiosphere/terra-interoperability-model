@@ -59,7 +59,7 @@ TerraDCAT_ap:DataCollection
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraDCAT_ap:hasDataUsePermission ;
     ] ;
   rdfs:subClassOf [

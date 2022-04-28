@@ -150,7 +150,7 @@ TerraCore:Activity
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:usesSample ;
     ] ;
   skos:prefLabel "Activity" ;
@@ -239,7 +239,7 @@ TerraCore:AlignmentActivity
     ] ;
     rdfs:subClassOf [
       a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:usesSample ;
     ] ;
   owl:disjointWith TerraCore:AnalysisActivity ;
@@ -366,7 +366,7 @@ TerraCore:AssayActivity
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:usesSample ;
     ] ;
   owl:disjointWith TerraCore:AlignmentActivity ;
@@ -1358,7 +1358,7 @@ TerraCore:VariantCall
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:usesSample ;
     ] ;
   skos:prefLabel "VariantCall" ;
@@ -1432,7 +1432,7 @@ TerraCore:VariantCalling
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:usesSample ;
     ] ;
   owl:disjointWith TerraCore:AlignmentActivity ;
