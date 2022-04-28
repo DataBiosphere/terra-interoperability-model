@@ -87,6 +87,11 @@ TerraDCAT_ap:DataCollection
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraDCAT_ap:hasDataset ;
     ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasCustodian ;
+    ] ;
   skos:prefLabel "DataCollection" ;
   dcat:themeTaxonomy TerraDCAT_ap:DSPThemeTaxonomy ;
   prov:definition "Extension of DCAT:Catalog to support Data Use Ontology terms and set required properties for Terra DCAT Application Profile. A collection of one or more TerraDCAT_ap:Dataset(s) or TerraDCAT_ap:DataCollection(s)." ;
@@ -228,6 +233,11 @@ TerraDCAT_ap:Dataset
       a owl:Restriction ;
       owl:onProperty prov:wasGeneratedBy ;
       owl:someValuesFrom prov:Activity ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasCustodian ;
     ] ;
   skos:prefLabel "Dataset" ;
   prov:definition "An extension of DCAT:Dataset to support Data Use Ontology terms.  A collection of one or more entities submitted by a single responsible party or authorizing agent." ;

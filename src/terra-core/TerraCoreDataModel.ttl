@@ -465,6 +465,12 @@ TerraCore:BioSampleDissociationActivity
   owl:equivalentClass <http://www.ebi.ac.uk/efo/EFO_0009091> ;
   skos:definition "Activity which results in the separation of a BioSample into individual cells or a cell suspension." ;
 .
+TerraCore:SampleTreatmentActivity
+  a owl:Class ;
+  rdfs:label "SampleTreatmentActivity" ;
+  rdfs:subClassOf TerraCore:Activity ;
+  skos:definition "Activity which transforms a BioSample into another BioSample. Typically the sample treatment activity involves adding something to cells or tissue, for example treatment with chemicals, drugs, biological infection, irradiation, exposures, or other non-genetic modifications. This treatment excludes mechanical separation of a BioSample into single cells (covered by BioSampleDissociation), and is not needed for genetic modifications to cells (covered by hasGeneticModification)." ;
+.
 TerraCore:BiologicalSex
   a owl:Class ;
   rdfs:label "Biological sex" ;
@@ -1596,7 +1602,7 @@ TerraCore:hasCellState
 TerraCore:hasChecksum
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:File ;
-  rdfs:label "hasChecksum" ;
+  rdfs:label "has checksum" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasChecksum" ;
   TerraCore:hasColumnLabel "checksum" ;
@@ -1605,7 +1611,7 @@ TerraCore:hasChild
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:FamilyMember ;
   rdfs:domain TerraCore:HumanDonor ;
-  rdfs:label "hasChild" ;
+  rdfs:label "has child" ;
   rdfs:range TerraCore:FamilyMember ;
   rdfs:range TerraCore:HumanDonor ;
   skos:definition "A property that identifies genetic children." ;
@@ -1613,15 +1619,16 @@ TerraCore:hasChild
 TerraCore:hasChromosome
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:ChromosomalLocation ;
-  rdfs:label "hasChromosome" ;
+  rdfs:label "has chromosome" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasChromosome" ;
   TerraCore:hasColumnLabel "chromosome" ;
 .
+
 TerraCore:hasClonality
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:Antibody ;
-  rdfs:label "hasClonality" ;
+  rdfs:label "has clonality" ;
   rdfs:range [
       a rdfs:Datatype ;
       owl:oneOf (
@@ -1629,7 +1636,17 @@ TerraCore:hasClonality
           "polyclonal"
         ) ;
     ] ;
+  TerraCore:hasColumnLabel "clonality" ; 
 .
+TerraCore:hasHostOrganism
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:Antibody ;
+  rdfs:label "has host organism" ;
+  rdfs:range xsd:string ;
+  rdfs:range rdfs:range obo:OBI_0100026 ;
+  TerraCore:hasColumnLabel "host_organism" ; 
+.
+
 TerraCore:hasColumnLabel
   a owl:AnnotationProperty ;
   rdfs:label "has column label" ;
@@ -2229,7 +2246,9 @@ TerraCore:hasSampleTreatment
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "has sample treatment" ;
+  skos:prefLabel "has sample treatment" ;
   rdfs:range TerraCore:SampleTreatmentActivity ;
+  prov:definition "A sample treatment of a BioSample." ;
   rdfs:subPropertyOf prov:wasUsedBy ;
   skos:definition "A subproperty of usedBy which indicates that a SampleTreatmentActivity was performed using this entity." ;
   skos:prefLabel "has sample treatment" ;
@@ -2353,10 +2372,57 @@ TerraCore:hasTarget
   rdfs:comment "Target is a string for now but will ultimately be a class." ;
   rdfs:domain TerraCore:Antibody ;
   rdfs:domain TerraCore:AssayActivity ;
+  rdfs:domain TerrasCore:SampleTreatmentActivity ;
   rdfs:label "hasTarget" ;
   rdfs:range xsd:anyURI ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasTarget" ;
+  TerraCore:hasColumnLabel "target" ;
+.
+TerraCore:hasImmunogen
+  a owl:DatatypeProperty ;
+  rdfs:comment "Target is a string for now but will ultimately be a class. CHEBI term CHEBI:60816" ;
+  rdfs:domain TerraCore:Antibody ;
+  rdfs:domain TerraCore:AssayActivity ;
+  rdfs:domain TerrasCore:SampleTreatmentActivity ;
+  rdfs:label "has immunogen" ;
+  rdfs:range xsd:anyURI ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "has immunogen" ;
+  TerraCore:hasColumnLabel "immunogen" ;
+.
+
+TerraCore:hasSource
+  a owl:DatatypeProperty ;
+  prov:definition "The source of production for an entity." ;
+  rdfs:comment "The source is a string but will ultimately be a Vendor class. Added for Antibodies but domain can expand." ;
+  rdfs:domain TerraCore:Antibody ;
+  rdfs:label "hasSource" ;
+  rdfs:range xsd:anyURI ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "hasSource" ;
+  TerraCore:hasColumnLabel "source" ;
+.
+TerraCore:hasLot
+  a owl:DatatypeProperty ;
+  prov:definition "The lot unit of an entity." ;
+  rdfs:comment "A serial or lot number that was manufactured together. Added for Antibodies but domain can expand." ;
+  rdfs:domain TerraCore:Antibody ;
+  rdfs:label "hasLot" ;
+  rdfs:range xsd:anyURI ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "hasLot" ;
+  TerraCore:hasColumnLabel "lot" ;
+.
+TerraCore:hasPartNumber
+  a owl:DatatypeProperty ;
+  prov:definition "The part number or catalogue number (e.g. Stock Keeping Unit) of an entity." ;
+  rdfs:comment "The part number is for reordering. Added for Antibodies but domain can expand." ;
+  rdfs:domain TerraCore:Antibody ;
+  rdfs:label "has part number" ;
+  rdfs:range xsd:anyURI ;
+  skos:prefLabel "has part number" ;
+  TerraCore:hasColumnLabel "part_number" ;
 .
 TerraCore:hasTemperature
   a rdf:Property ;
@@ -2505,9 +2571,10 @@ TerraCore:usesAntibody
   rdfs:domain TerraCore:AssayActivity ;
   rdfs:label "usesAntibody" ;
   rdfs:range TerraCore:Antibody ;
+  rdfs:range xsd:string ;
   rdfs:subPropertyOf prov:used ;
   skos:prefLabel "usesAntibody" ;
-  prov:definition "May be a reference to an antibody used for a SampleTreatmentActivity or other Activity." ;
+  prov:definition "May be a reference to an antibody used for a SampleTreatmentActivity or another Activity." ;
   TerraCore:hasColumnLabel "antibody" ;
 .
 TerraCore:usesLibrary
@@ -2585,7 +2652,7 @@ TerraDCAT_ap:hasConsentGroup
   TerraCore:hasColumnLabel "consent_group" ;
 .
 TerraDCAT_ap:hasDataUseModifier
-  TerraCore:hasColumnLabel "data_use_ modifier" ;
+  TerraCore:hasColumnLabel "data_use_modifier" ;
 .
 TerraDCAT_ap:hasDataUsePermission
   TerraCore:hasColumnLabel "data_use_permission" ;
