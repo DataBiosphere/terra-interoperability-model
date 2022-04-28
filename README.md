@@ -78,6 +78,7 @@ Please use this repository's [Issue Tracker](https://github.com/broadinstitute/d
 
 ### Acknowledgements
 **Data Sciences Platform, Broad Institute**  
+
 Dan Moran, Sarah Wessel, Jeremy Hert, Raaid Arshad, Quazi Hoque, Rori Cremer, Andrea Haessly, Jeff Korte, Jerome Chadel, David Wine, and others.
 
 **Terra Core Data Model Team, Broad Institute**  
@@ -95,12 +96,14 @@ Kyle Vernest, Head of Project Management, Data Sciences Platform
 Andrew Zimmer, Director, Data Donation Platform
 
 **Guest Subject Matter Experts**
+
 Charles Epstein
 Orr Ashenberg
 Tommaso Biancalani
 Caroline Porter
 
 **Alumni Contributors**
+
 Clare Bernard, PhD, Senior Director of Product, Data Science Platform  
 Sinéad Chapman, Associate Director, Genetics Project Management, Stanley Center for Psychiatric Research  
 
