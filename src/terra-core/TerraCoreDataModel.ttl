@@ -1934,6 +1934,7 @@ TerraCore:hasGenotypicSex
   rdfs:domain TerraCore:Donor ;
   rdfs:domain TerraCore:FamilyMember ;
   rdfs:label "hasGenotypicSex" ;
+  rdfs:range xsd:string ;
   skos:definition "A biological sex quality inhering in an individual based upon genotypic composition of sex chromosomes. [PATO]" ;
   skos:prefLabel "hasGenotypicSex" ;
   TerraCore:hasColumnLabel "genotypic_sex" ;
