@@ -1,0 +1,878 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://datamodel.terra.bio/EFO_subset#"
+     xml:base="https://datamodel.terra.bio/EFO_subset"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:efo="http://www.ebi.ac.uk/efo/">
+    <owl:Ontology rdf:about="https://datamodel.terra.bio/EFO_subset"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alternative_term</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has_exact_synonym</rdfs:label>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000412">
+        <rdfs:label xml:lang="en">imported from</rdfs:label>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000111"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+    <!-- http://purl.obolibrary.org/obo/OBI_0000070 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000070">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">assay</rdfs:label>
+        <rdfs:label xml:lang="en">assay</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0002694"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">measuring</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">scientific observation</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000111 xml:lang="en">assay</obo:IAO_0000111>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OBI_0000512 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000512">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">isolation of cell population</rdfs:label>
+        <rdfs:label>single cell isolation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0009106"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">isolation of cell population</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000111 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">isolation of cell population</obo:IAO_0000111>
+        <oboInOwl:hasExactSynonym></oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OBI_0000711 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000711">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">library preparation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0002694"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">library construction</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000111 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">library preparation</obo:IAO_0000111>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nucleic acid library construction</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nucleic acid library preparation</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0001456 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0001456">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA assay</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0002772"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0001457 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0001457">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RNA assay</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0002772"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0002693 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0002693">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA-seq</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0001456"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0002697"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DNA sequencing</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0002694 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0002694">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">experimental process</rdfs:label>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Experiment</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0002697 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0002697">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">assay by high throughput sequencer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0003740"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high throughput sequencing assay</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0002772 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0002772">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">assay by molecule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000070"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0002773 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0002773">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">assay by instrument</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000070"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0003740 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0003740">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">assay by sequencer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0002773"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sequencing assay</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0004187 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0004187">
+        <rdfs:label>cDNA library construction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000711"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cDNA</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">complementary DNA</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>cDNA library construction</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0007045 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0007045">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ATAC-seq</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0002693"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0007688 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0007688">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chromosome conformation capture assay</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0001456"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0007693 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0007693">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hi-C</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0003740"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0009968"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0008679 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0008679">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CEL-seq</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0001457"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0008720 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0008720">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DroNc-seq</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0001457"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0008722 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0008722">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Drop-seq</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0001457"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0008780 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0008780">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">inDrop</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0001457"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0008796 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0008796">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MARS-seq</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0001457"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0008877 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0008877">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quartz-seq</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0001457"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0008904 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0008904">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">scATAC-seq (Microfluidics)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010891"/>
+        <oboInOwl:hasExactSynonym>single cell ATAC-seq (Microfluidics)</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0008905 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0008905">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">scBS-seq</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0001456"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0008906 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0008906">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">scChIP-seq</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0001456"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0008919 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0008919">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Seq-Well</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0001457"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0008925 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0008925">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">scATAC-seq (cell index)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010891"/>
+        <oboInOwl:hasExactSynonym>single cell ATAC-seq (cell index)</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>sci-ATAC-seq</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0008930 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0008930">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Smart-seq</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0001457"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010184"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0008931 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0008931">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Smart-seq2</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0001457"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010184"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0008953 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0008953">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">STRT-seq</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0001457"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0008994 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0008994">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">spatial transcriptomics</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0001457"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0008995 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0008995">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10X sequencing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10X</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10x</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009090 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009090">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">enrichment process</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0002694"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009091 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009091">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sample dissociation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0002694"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009106 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009106">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sample enrichment</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0009090"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009108 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009108">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fluorescence-activated cell sorting</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000512"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FAC sorting</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FACS</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009109 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009109">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">magnetic affinity cell sorting</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0009106"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MAC sorting</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MACS</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009110 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009110">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ficoll-Hypaque method</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0009112"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ficoll WBC Isolation</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ficoll gradient</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009111 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009111">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">laser capture microdissection</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000512"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LCM</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LMD</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">laser-assisted microdissection</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009112 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009112">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">density gradient centrifugation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0009106"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell separation by density gradient centrifugation</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">density gradient</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009128 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009128">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">enzymatic dissociation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0009091"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009129 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009129">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mechanical dissociation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0009091"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009294 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009294">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CITE-seq</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0001457"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cellular indexing of transcriptomes and epitopes by sequencing</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009310 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009310">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10X v2 sequencing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0008995"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10x v2</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10x_v2</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>10XV2</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009337 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009337">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell size selection</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0009106"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009897 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009897">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10x v1 sequencing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0008995"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10X v1</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>10XV1</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009898 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009898">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10x v3 sequencing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0008995"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10X v3</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>10XV3</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009899 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009899">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10X 3&#39; v2 sequencing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0009310"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10X 3&#39; v2</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009900 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009900">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10X 5&#39; v2 sequencing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0009310"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10X 5&#39; v2</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009901 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009901">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10X 3&#39; v1 sequencing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0009897"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10X 3&#39; v1</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009919 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009919">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SPLiT-seq</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0001457"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">split-pool ligation-based transcriptome sequencing</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009921 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009921">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10x 5&#39; v3 sequencing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0009898"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10X 5&#39; v3</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009922 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009922">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10x 3&#39; v3 sequencing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0009898"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10X 3&#39; v3</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009968 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009968">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ligation-free chromosome conformation capture assay</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0007688"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0009979 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0009979">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">single cell Hi-C</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0002697"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0007693"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0010004 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0010004">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SCRB-seq</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0001457"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Single cell RNA barcoding and sequencing</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0010010 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0010010">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CEL-seq2</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000070"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0010047 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0010047">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">assay by Fluidigm C1 microfluidics platform</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0002773"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0010048 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0010048">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fluidigm C1-based dissociation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000512"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010047"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0010058 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0010058">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fluidigm C1-based library preparation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010047"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0010172 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0010172">
+        <rdfs:label xml:lang="en">DNA library construction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000711"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0010175 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0010175">
+        <rdfs:label xml:lang="en">EasySep cell separation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000070"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0009109"/>
+        <oboInOwl:hasExactSynonym>EasySep live/dead separation</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0010180 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0010180">
+        <rdfs:label>droplet-based cell isolation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000512"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0010181 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0010181">
+        <rdfs:label>cell picking</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000512"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0010182 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0010182">
+        <rdfs:label>mouth pipette</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000512"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0010183 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0010183">
+        <rdfs:label>single cell library construction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000711"/>
+        <oboInOwl:hasExactSynonym>single cell library preparation</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>single-cell library preparation</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>single-cell library construction</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0010184 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0010184">
+        <rdfs:label>Smart-like</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0010550 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0010550">
+        <rdfs:label xml:lang="en">sci-RNA-seq</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0010713 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0010713">
+        <rdfs:label xml:lang="en">10X Immune profiling</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0009900"/>
+        <oboInOwl:hasExactSynonym>10X VDJ</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>Chromium Single Cell V(D)J</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>10X V(D)J</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0010714 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0010714">
+        <rdfs:label xml:lang="en">10X TCR enrichment</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010713"/>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0010715 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0010715">
+        <rdfs:label xml:lang="en">10X Ig enrichment</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010713"/>
+        <oboInOwl:hasExactSynonym>10X BCR enrichment</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0010891 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0010891">
+        <rdfs:label>scATAC-seq</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0007045"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <oboInOwl:hasExactSynonym>single cell ATAC-seq</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>ATAC-seq (single cell)</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>single cell assay for transposase-accessible chromatin using sequencing</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>single-cell ATAC-seq</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>single cell ATAC-sequencing</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0010961 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0010961">
+        <rdfs:label>Visium Spatial Gene Expression</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0008994"/>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0008995"/>
+        <oboInOwl:hasExactSynonym>10X Visium</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>Visium</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebi.ac.uk/efo/EFO_0010964 -->
+
+    <owl:Class rdf:about="http://www.ebi.ac.uk/efo/EFO_0010964">
+        <rdfs:label>barcoded plate-based single cell RNA-seq</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ebi.ac.uk/efo/EFO_0010183"/>
+        <oboInOwl:hasExactSynonym>barcoded plate-based single-cell RNA-seq</oboInOwl:hasExactSynonym>
+        <obo:IAO_0000412 rdf:resource="http://www.ebi.ac.uk/efo/efo.owl"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 1.3.5.1016) http://owlapi.sourceforge.net -->
+

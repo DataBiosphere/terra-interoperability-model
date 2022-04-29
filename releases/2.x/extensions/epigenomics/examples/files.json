@@ -1,0 +1,86 @@
+{
+    "id": "SequenceFile_CoPA_13999_1",
+    "type": "Sequencing",
+    "format": "fastq",
+    "generated_by": "Sequencing_CoPA_13999",
+    "used_by": ["Aln_37341"],
+    "read_length": 76
+}
+{
+    "id": "SequenceFile_CoPA_13999_2",
+    "type": "Sequencing",
+    "format": "fastq",
+    "generated_by": "Sequencing_CoPA_13999",
+    "used_by": ["Aln_37342"],
+    "read_length": 76
+}
+{
+    "id": "SequenceFile_CoPA_14339_1",
+    "type": "Sequencing",
+    "format": "fastq",
+    "generated_by": "Sequencing_CoPA_14339",
+    "used_by": ["Aln_37855"],
+    "read_length": 76
+}
+{
+    "id": "SequenceFile_CoPA_14339_2",
+    "type": "Sequencing",
+    "format": "fastq",
+    "generated_by": "Sequencing_CoPA_14339",
+    "used_by": ["Aln_37856"],
+    "read_length": 76
+}
+{
+    "id": "AlignmentFile_37341",
+    "type": "Alignment",
+    "format": "bam",
+    "reference_assembly": "hg19_picard",
+    "percent_duplicate_fragments": 0.051709,
+    "generated_by": "Aln_37341",
+    "used_by": ["AlignmentPostProcessing_19487"]
+}
+{
+    "id": "AlignmentFile_37342",
+    "type": "Alignment",
+    "format": "bam",
+    "reference_assembly": "hg19_picard",
+    "percent_duplicate_fragments": 0.052252,
+    "generated_by": "Aln_37342",
+    "used_by": ["AlignmentPostProcessing_19487"]
+}
+{
+    "id": "AlignmentFile_19487",
+    "type": "Alignment",
+    "format": "bam",
+    "reference_assembly": "hg19_picard",
+    "percent_duplicate_fragments": 0.088798,
+    "created_at": "2018-07-12T12:11:20.000Z",
+    "modified_at": "2019-06-04T17:53:38.000Z",
+    "generated_by": "AlignmentPostProcessing_19487"
+}
+{
+    "id": "AlignmentFile_37855",
+    "type": "Alignment",
+    "format": "bam",
+    "reference_assembly": "hg19_picard",
+    "percent_duplicate_fragments": 0.041652,
+    "generated_by": "Aln_37855",
+    "used_by": ["AlignmentPostProcessing_19667"]
+}
+{
+    "id": "AlignmentFile_37856",
+    "type": "Alignment",
+    "format": "bam",
+    "reference_assembly": "hg19_picard",
+    "percent_duplicate_fragments": 0.042536,
+    "generated_by": "Aln_37856",
+    "used_by": ["AlignmentPostProcessing_19667"]
+}
+{
+    "id": "AlignmentFile_19667",
+    "type": "Alignment",
+    "format": "bam",
+    "reference_assembly": "hg19_picard",
+    "percent_duplicate_fragments": 0.071352,
+    "generated_by": "AlignmentPostProcessing_19667"
+}

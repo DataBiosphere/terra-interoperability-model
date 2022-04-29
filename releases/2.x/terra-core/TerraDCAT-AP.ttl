@@ -1,0 +1,361 @@
+# baseURI: https://datamodel.terra.bio/TerraDCAT_ap
+# imports: http://www.w3.org/ns/dcat
+# imports: https://raw.githubusercontent.com/EBISPOT/DUO/master/duo-basic.owl
+# prefix: TerraDCAT_ap
+
+@prefix : <https://datamodel.terra.bio/TerraDCAT_ap#> .
+@prefix TerraDCAT_ap: <https://datamodel.terra.bio/TerraDCAT_ap#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix duo: <http://purl.obolibrary.org/obo/duo-basic.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+prov:value
+  rdfs:subPropertyOf prov:influenced ;
+.
+<https://datamodel.terra.bio/TerraDCAT_ap>
+  a owl:Ontology ;
+  rdfs:comment "Terra DCAT AP is the Broad Data Sciences Platform's application profile for data catalog.  It is an RDF vocabulary which extends the W3C's Data Catalog Vocabulary (https://www.w3.org/TR/vocab-dcat/)." ;
+  owl:imports <http://www.w3.org/ns/dcat> ;
+  owl:imports <https://raw.githubusercontent.com/EBISPOT/DUO/master/duo-basic.owl> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+TerraDCAT_ap:BiomedicalResearch
+  a skos:Concept ;
+  rdfs:label "BiomedicalResearch" ;
+  skos:prefLabel "BioMedicalResearch" ;
+  skos:topConceptOf TerraDCAT_ap:DSPThemeTaxonomy ;
+.
+TerraDCAT_ap:DSPThemeTaxonomy
+  a skos:ConceptScheme ;
+  rdfs:label "DSPThemeTaxonomy" ;
+  skos:hasTopConcept TerraDCAT_ap:BiomedicalResearch ;
+  skos:prefLabel "DSPThemeTaxonomy" ;
+.
+TerraDCAT_ap:DataCollection
+  a rdfs:Class ;
+  a owl:Class ;
+  rdfs:label "DataCollection" ;
+  rdfs:subClassOf dcat:Catalog ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasEntityDescription ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasEntityTitle ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:themeTaxonomy ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasDataUsePermission ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:theme ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasDataCollection ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasDataSnapshot ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasDataUseModifier ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasDataset ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasCustodian ;
+    ] ;
+  skos:prefLabel "DataCollection" ;
+  dcat:themeTaxonomy TerraDCAT_ap:DSPThemeTaxonomy ;
+  prov:definition "Extension of DCAT:Catalog to support Data Use Ontology terms and set required properties for Terra DCAT Application Profile. A collection of one or more TerraDCAT_ap:Dataset(s) or TerraDCAT_ap:DataCollection(s)." ;
+.
+TerraDCAT_ap:DataSnapshot
+  a rdfs:Class ;
+  a owl:Class ;
+  rdfs:label "DataSnapshot" ;
+  rdfs:subClassOf dcat:Distribution ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:decimal ;
+      owl:onProperty dcat:byteSize ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:string ;
+      owl:onProperty dcat:mediaType ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:accessURL ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasDataUsePermission ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasEntityDescription ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasEntityTitle ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasLastModifiedDate ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:landingPage ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:byteSize ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:compressFormat ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:downloadURL ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:mediaType ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasDataUseModifier ;
+    ] ;
+  skos:prefLabel "DataSnapshot" ;
+  prov:definition "Extension of DCAT:Distribution to support Data Use Ontology terms and set required properties for Terra DCAT Application Profile. A collection of one or more entities from one or more TerraDCAT_ap:Datasets or TerraDCAT_ap:DataCollections intended to be used for subsequent viewing or analysis." ;
+.
+TerraDCAT_ap:Dataset
+  a rdfs:Class ;
+  a owl:Class ;
+  rdfs:label "Dataset" ;
+  rdfs:subClassOf dcat:Dataset ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality 1 ;
+      owl:onProperty TerraDCAT_ap:hasDataUsePermission ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasEntityDescription ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasEntityTitle ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasLastModifiedDate ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:landingPage ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dct:hasPart ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:contactPoint ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasDataSnapshot ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasDataUseModifier ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasPrincipalInvestigator ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:theme ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty prov:wasGeneratedBy ;
+      owl:someValuesFrom prov:Activity ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasCustodian ;
+    ] ;
+  skos:prefLabel "Dataset" ;
+  prov:definition "An extension of DCAT:Dataset to support Data Use Ontology terms.  A collection of one or more entities submitted by a single responsible party or authorizing agent." ;
+.
+TerraDCAT_ap:hasConsentGroup
+  a owl:DatatypeProperty ;
+  rdfs:label "has consent group" ;
+  rdfs:range xsd:string ;
+  skos:definition "A reference to the consent group for datasets not yet using the Data Use Ontology; data use permission and data use modifier supersede this value if they are present." ;
+  skos:prefLabel "has consent group" ;
+.
+TerraDCAT_ap:hasCustodian
+  a rdf:Property ;
+  rdfs:domain TerraDCAT_ap:DataCollection ;
+  rdfs:domain TerraDCAT_ap:Dataset ;
+  rdfs:label "hasCustodian" ;
+  rdfs:range dct:Agent ;
+  rdfs:subPropertyOf dct:publisher ;
+  skos:definition "The entity operationally responsible for managing the item and responsible for authorizing users of the Dataset or DataCollection." ;
+.
+TerraDCAT_ap:hasDataCollection
+  a owl:ObjectProperty ;
+  rdfs:domain TerraDCAT_ap:DataCollection ;
+  rdfs:label "hasDataCollection" ;
+  rdfs:range TerraDCAT_ap:DataCollection ;
+  rdfs:subPropertyOf dcat:catalog ;
+  skos:definition "A collection of data that is included within this DataCollection." ;
+  skos:prefLabel "hasDataCollection" ;
+.
+TerraDCAT_ap:hasDataSnapshot
+  a owl:ObjectProperty ;
+  rdfs:domain TerraDCAT_ap:Dataset ;
+  rdfs:label "hasDataSnapshot" ;
+  rdfs:range TerraDCAT_ap:DataSnapshot ;
+  rdfs:subPropertyOf dcat:distribution ;
+  skos:definition "An available distribution of the Dataset. " ;
+  skos:prefLabel "hasDataSnapshot" ;
+.
+TerraDCAT_ap:hasDataUseModifier
+  a owl:ObjectProperty ;
+  rdfs:domain TerraDCAT_ap:DataCollection ;
+  rdfs:domain TerraDCAT_ap:DataSnapshot ;
+  rdfs:domain TerraDCAT_ap:Dataset ;
+  rdfs:label "hasDataUseModifier" ;
+  rdfs:range <http://purl.obolibrary.org/obo/DUO_0000017> ;
+  skos:definition "The Data Use Ontology term to indicate conditions for use of the data." ;
+  skos:prefLabel "hasDataUseModifier" ;
+.
+TerraDCAT_ap:hasDataUsePermission
+  a owl:ObjectProperty ;
+  rdfs:domain TerraDCAT_ap:DataCollection ;
+  rdfs:domain TerraDCAT_ap:DataSnapshot ;
+  rdfs:domain TerraDCAT_ap:Dataset ;
+  rdfs:label "hasDataUseLimitation" ;
+  rdfs:range <http://purl.obolibrary.org/obo/DUO_0000001> ;
+  skos:definition "The Data Use Ontology term to indicate consent permissions for the use of the data." ;
+  skos:prefLabel "hasDataUsePermission" ;
+.
+TerraDCAT_ap:hasDataset
+  a owl:ObjectProperty ;
+  rdfs:domain TerraDCAT_ap:DataCollection ;
+  rdfs:label "hasDataset" ;
+  rdfs:range TerraDCAT_ap:Dataset ;
+  rdfs:subPropertyOf dcat:dataset ;
+  skos:definition "A Dataset that is included within this DataCollection." ;
+  skos:prefLabel "hasDataset" ;
+.
+TerraDCAT_ap:hasEntityDescription
+  a owl:DatatypeProperty ;
+  rdfs:label "hasEntityDescription" ;
+  rdfs:range xsd:string ;
+  owl:equivalentProperty dct:description ;
+  skos:definition "A free-text account of the Entity." ;
+.
+TerraDCAT_ap:hasEntityTitle
+  a owl:DatatypeProperty ;
+  rdfs:comment "Recommended length is no more than 50 characters." ;
+  rdfs:label "hasEntityTitle" ;
+  rdfs:range xsd:string ;
+  owl:equivalentProperty dct:description ;
+  skos:definition "A short descriptive text name for this Entity." ;
+.
+TerraDCAT_ap:hasLastModifiedDate
+  a owl:DatatypeProperty ;
+  rdfs:label "hasLastModifiedDate" ;
+  rdfs:range xsd:dateTime ;
+  skos:definition "The date this Entity was last modified." ;
+.
+TerraDCAT_ap:hasOriginalPublication
+  a rdf:Property ;
+  rdfs:domain TerraDCAT_ap:DataCollection ;
+  rdfs:domain TerraDCAT_ap:Dataset ;
+  rdfs:label "hasOriginalPublication" ;
+  rdfs:range xsd:anyURI ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf dct:isReferencedBy ;
+  skos:definition "The original publication associated with this Dataset or DataCollection." ;
+.
+TerraDCAT_ap:hasOwner
+  a owl:ObjectProperty ;
+  rdfs:domain TerraDCAT_ap:DataCollection ;
+  rdfs:domain TerraDCAT_ap:Dataset ;
+  rdfs:label "hasOwner" ;
+  rdfs:range dct:Agent ;
+  skos:definition "The entity responsible for making the item available and responsible for identifying authorized users of the Dataset or DataCollection." ;
+.
+TerraDCAT_ap:hasPrincipalInvestigator
+  a owl:ObjectProperty ;
+  rdfs:label "has principal investigator" ;
+  rdfs:subPropertyOf prov:wasInfluencedBy ;
+  skos:definition "A Principal Investigator associated with this entity." ;
+.
+TerraDCAT_ap:hasRegisteredIdentifier
+  a owl:DatatypeProperty ;
+  rdfs:comment "Consider capturing the system of registration as well." ;
+  rdfs:label "has registered identifier" ;
+  rdfs:range xsd:anyURI ;
+  rdfs:range xsd:string ;
+  skos:definition "Identifies a system, database or registry where this dataset has been assigned an identifier.  Examples include dbGaP, Sequence Read Archive (SRA), GenBank, and the European Genome-phenomeArchive (EGA)." ;
+  skos:prefLabel "has registered identifier" ;
+.

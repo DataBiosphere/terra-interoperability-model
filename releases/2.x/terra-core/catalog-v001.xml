@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="https://datamodel.terra.bio/UBERON_subset" uri="TerraDCAT-AP.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://datamodel.terra.bio/CL_subset" uri="TerraDCAT-AP.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://datamodel.terra.bio/TerraCoreValueSets" uri="TerraCoreValueSets.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://datamodel.terra.bio/OBI_core" uri="TerraDCAT-AP.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://datamodel.terra.bio/OBI_assaySubset" uri="TerraDCAT-AP.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://datamodel.terra.bio/NCBITaxon_Organisms_subset" uri="TerraDCAT-AP.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://datamodel.terra.bio/EFO_subset" uri="TerraCoreDataModel.ttl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base=""/>
+</catalog>

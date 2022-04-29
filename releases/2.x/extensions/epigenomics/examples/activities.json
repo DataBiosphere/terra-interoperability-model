@@ -1,0 +1,68 @@
+{
+    "id": "ChIP_9523",
+    "type": "ChIP",
+    "used": ["BioSAli_6802"],
+    "generated": ["DNA_Lib_9367"]
+}
+{
+    "id": "Sequencing_CoPA_13999",
+    "type": "Sequencing",
+    "used": ["DNA_Lib_9367"],
+    "generated": [
+        "SequenceFile_CoPA_13999_1",
+        "SequenceFile_CoPA_13999_2"
+    ]
+}
+{
+    "id": "Sequencing_CoPA_14339",
+    "type": "Sequencing",
+    "used": ["DNA_Lib_9367"],
+    "generated": [
+        "SequenceFile_CoPA_14339_1",
+        "SequenceFile_CoPA_14339_2"
+    ]
+}
+{
+    "id": "Aln_37341",
+    "type": "Alignment",
+    "used": ["SequenceFile_CoPA_13999_1"],
+    "generated": ["AlignmentFile_37341"]
+}
+{
+    "id": "Aln_37342",
+    "type": "Alignment",
+    "used": ["SequenceFile_CoPA_13999_2"],
+    "generated": ["AlignmentFile_37342"]
+}
+{
+    "id": "Aln_37855",
+    "type": "Alignment",
+    "used": ["SequenceFile_CoPA_14339_1"],
+    "generated": ["AlignmentFile_37855"]
+}
+{
+    "id": "Aln_37856",
+    "type": "Alignment",
+    "used": ["SequenceFile_CoPA_14339_2"],
+    "generated": ["AlignmentFile_37856"]
+}
+{
+    "id": "AlignmentPostProcessing_19487",
+    "type": "AlignmentPostProcessing",
+    "used": [
+        "AlignmentFile_37341",
+        "AlignmentFile_37342"
+    ],
+    "generated": ["AlignmentFile_19487"]
+}
+{
+    "id": "AlignmentPostProcessing_19667",
+    "type": "AlignmentPostProcessing",
+    "used": [
+        "AlignmentFile_37855",
+        "AlignmentFile_37856"
+    ],
+    "generated": [
+        "AlignmentFile_19667"
+    ]
+}

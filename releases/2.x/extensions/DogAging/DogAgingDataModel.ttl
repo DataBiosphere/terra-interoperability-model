@@ -1,0 +1,1475 @@
+# baseURI: http://datamodel.terra.bio/DogAgingDataModel
+# imports: http://datamodel.terra.bio/AKCBreeds
+# imports: http://datamodel.terra.bio/TerraCore
+# prefix: dog
+
+@prefix : <http://datamodel.terra.bio/DogAgingDataModel#> .
+@prefix AKCBreeds: <http://datamodel.terra.bio/AKCBreeds#> .
+@prefix TerraCore: <http://datamodel.terra.bio/TerraCore#> .
+@prefix TerraDCAT_ap: <http://datamodel.terra.bio/TerraDCAT_ap#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dog: <http://datamodel.terra.bio/DogAgingDataModel#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://datamodel.terra.bio/Dog#Affenpinscher>
+  a AKCBreeds:Affenpinscher ;
+  rdfs:label "Affenpinscher" ;
+.
+<http://datamodel.terra.bio/Dog#Afghan_Hound>
+  a AKCBreeds:Afghan_Hound ;
+  rdfs:label "Afghan_Hound" ;
+.
+<http://datamodel.terra.bio/Dog#Airedale_Terrier>
+  a AKCBreeds:Airedale_Terrier ;
+  rdfs:label "Airedale_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Akita>
+  a AKCBreeds:Akita ;
+  rdfs:label "Akita" ;
+.
+<http://datamodel.terra.bio/Dog#Alaskan_Malamute>
+  a AKCBreeds:Alaskan_Malamute ;
+  rdfs:label "Alaskan_Malamute" ;
+.
+<http://datamodel.terra.bio/Dog#American>
+  a AKCBreeds:American ;
+  rdfs:label "American" ;
+.
+<http://datamodel.terra.bio/Dog#American_English_Coonhound>
+  a AKCBreeds:American_English_Coonhound ;
+  rdfs:label "American_English_Coonhound" ;
+.
+<http://datamodel.terra.bio/Dog#American_Eskimo_Dog>
+  a AKCBreeds:American_Eskimo_Dog ;
+  rdfs:label "American_Eskimo_Dog" ;
+.
+<http://datamodel.terra.bio/Dog#American_Foxhound>
+  a AKCBreeds:American_Foxhound ;
+  rdfs:label "American_Foxhound" ;
+.
+<http://datamodel.terra.bio/Dog#American_Hairless_Terrier>
+  a AKCBreeds:American_Hairless_Terrier ;
+  rdfs:label "American_Hairless_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#American_Leopard_Hound>
+  a AKCBreeds:American_Leopard_Hound ;
+  rdfs:label "American_Leopard_Hound" ;
+.
+<http://datamodel.terra.bio/Dog#American_Pitbull_Terrier>
+  a AKCBreeds:American_Pitbull_Terrier ;
+  rdfs:label "American_Pitbull_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#American_Water_Spaniel>
+  a AKCBreeds:American_Water_Spaniel ;
+  rdfs:label "American_Water_Spaniel" ;
+.
+<http://datamodel.terra.bio/Dog#Anatolian_Shepherd_Dog>
+  a AKCBreeds:Anatolian_Shepherd_Dog ;
+  rdfs:label "Anatolian_Shepherd_Dog" ;
+.
+<http://datamodel.terra.bio/Dog#Appenzeller_Sennenhund>
+  a AKCBreeds:Appenzeller_Sennenhund ;
+  rdfs:label "Appenzeller_Sennenhund" ;
+.
+<http://datamodel.terra.bio/Dog#Australian_Cattle_Dog>
+  a AKCBreeds:Australian_Cattle_Dog ;
+  rdfs:label "Australian_Cattle_Dog" ;
+.
+<http://datamodel.terra.bio/Dog#Australian_Kelpie>
+  a AKCBreeds:Australian_Kelpie ;
+  rdfs:label "Australian_Kelpie" ;
+.
+<http://datamodel.terra.bio/Dog#Australian_Shepherd>
+  a AKCBreeds:Australian_Shepherd ;
+  rdfs:label "Australian_Shepherd" ;
+.
+<http://datamodel.terra.bio/Dog#Australian_Terrier>
+  a AKCBreeds:Australian_Terrier ;
+  rdfs:label "Australian_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Azawakh>
+  a AKCBreeds:Azawakh ;
+  rdfs:label "Azawakh" ;
+.
+<http://datamodel.terra.bio/Dog#Barbet>
+  a AKCBreeds:Barbet ;
+  rdfs:label "Barbet" ;
+.
+<http://datamodel.terra.bio/Dog#Basenji>
+  a AKCBreeds:Basenji ;
+  rdfs:label "Basenji" ;
+.
+<http://datamodel.terra.bio/Dog#Basset_Fauve_de_Bretagne>
+  a AKCBreeds:Basset_Fauve_de_Bretagne ;
+  rdfs:label "Basset_Fauve_de_Bretagne" ;
+.
+<http://datamodel.terra.bio/Dog#Basset_Hound>
+  a AKCBreeds:Basset_Hound ;
+  rdfs:label "Basset_Hound" ;
+.
+<http://datamodel.terra.bio/Dog#Bavarian>
+  a AKCBreeds:Bavarian ;
+  rdfs:label "Bavarian" ;
+.
+<http://datamodel.terra.bio/Dog#Beagle>
+  a AKCBreeds:Beagle ;
+  rdfs:label "Beagle" ;
+.
+<http://datamodel.terra.bio/Dog#Bearded_Collie>
+  a AKCBreeds:Bearded_Collie ;
+  rdfs:label "Bearded_Collie" ;
+.
+<http://datamodel.terra.bio/Dog#Beauceron>
+  a AKCBreeds:Beauceron ;
+  rdfs:label "Beauceron" ;
+.
+<http://datamodel.terra.bio/Dog#Bedlington_Terrier>
+  a AKCBreeds:Bedlington_Terrier ;
+  rdfs:label "Bedlington_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Belgian_Laekenois>
+  a AKCBreeds:Belgian_Laekenois ;
+  rdfs:label "Belgian_Laekenois" ;
+.
+<http://datamodel.terra.bio/Dog#Belgian_Malinois>
+  a AKCBreeds:Belgian_Malinois ;
+  rdfs:label "Belgian_Malinois" ;
+.
+<http://datamodel.terra.bio/Dog#Belgian_Sheepdog>
+  a AKCBreeds:Belgian_Sheepdog ;
+  rdfs:label "Belgian_Sheepdog" ;
+.
+<http://datamodel.terra.bio/Dog#Belgian_Tervuren>
+  a AKCBreeds:Belgian_Tervuren ;
+  rdfs:label "Belgian_Tervuren" ;
+.
+<http://datamodel.terra.bio/Dog#Bergamasco>
+  a AKCBreeds:Bergamasco ;
+  rdfs:label "Bergamasco" ;
+.
+<http://datamodel.terra.bio/Dog#Berger_Picard>
+  a AKCBreeds:Berger_Picard ;
+  rdfs:label "Berger_Picard" ;
+.
+<http://datamodel.terra.bio/Dog#Bernese_Mountain_Dog>
+  a AKCBreeds:Bernese_Mountain_Dog ;
+  rdfs:label "Bernese_Mountain_Dog" ;
+.
+<http://datamodel.terra.bio/Dog#Bichon_Frise>
+  a AKCBreeds:Bichon_Frise ;
+  rdfs:label "Bichon_Frise" ;
+.
+<http://datamodel.terra.bio/Dog#Biewer_Terrier>
+  a AKCBreeds:Biewer_Terrier ;
+  rdfs:label "Biewer_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Black_Russian_Terrier>
+  a AKCBreeds:Black_Russian_Terrier ;
+  rdfs:label "Black_Russian_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Black_and_Tan_Coonhound>
+  a AKCBreeds:Black_and_Tan_Coonhound ;
+  rdfs:label "Black_and_Tan_Coonhound" ;
+.
+<http://datamodel.terra.bio/Dog#Bloodhound>
+  a AKCBreeds:Bloodhound ;
+  rdfs:label "Bloodhound" ;
+.
+<http://datamodel.terra.bio/Dog#Bluetick_Coonhound>
+  a AKCBreeds:Bluetick_Coonhound ;
+  rdfs:label "Bluetick_Coonhound" ;
+.
+<http://datamodel.terra.bio/Dog#Boerboel>
+  a AKCBreeds:Boerboel ;
+  rdfs:label "Boerboel" ;
+.
+<http://datamodel.terra.bio/Dog#Bolognese>
+  a AKCBreeds:Bolognese ;
+  rdfs:label "Bolognese" ;
+.
+<http://datamodel.terra.bio/Dog#Border_Collie>
+  a AKCBreeds:Border_Collie ;
+  rdfs:label "Border_Collie" ;
+.
+<http://datamodel.terra.bio/Dog#Border_Terrier>
+  a AKCBreeds:Border_Terrier ;
+  rdfs:label "Border_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Borzoi>
+  a AKCBreeds:Borzoi ;
+  rdfs:label "Borzoi" ;
+.
+<http://datamodel.terra.bio/Dog#Boston_Terrier>
+  a AKCBreeds:Boston_Terrier ;
+  rdfs:label "Boston_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Bouvier_des_Flandres>
+  a AKCBreeds:Bouvier_des_Flandres ;
+  rdfs:label "Bouvier_des_Flandres" ;
+.
+<http://datamodel.terra.bio/Dog#Boxer>
+  a AKCBreeds:Boxer ;
+  rdfs:label "Boxer" ;
+.
+<http://datamodel.terra.bio/Dog#Boykin_Spaniel>
+  a AKCBreeds:Boykin_Spaniel ;
+  rdfs:label "Boykin_Spaniel" ;
+.
+<http://datamodel.terra.bio/Dog#Bracco_Italiano>
+  a AKCBreeds:Bracco_Italiano ;
+  rdfs:label "Bracco_Italiano" ;
+.
+<http://datamodel.terra.bio/Dog#Braque_Francais_Pyrenean>
+  a AKCBreeds:Braque_Francais_Pyrenean ;
+  rdfs:label "Braque_Francais_Pyrenean" ;
+.
+<http://datamodel.terra.bio/Dog#Braque_de_Bourbonnais>
+  a AKCBreeds:Braque_de_Bourbonnais ;
+  rdfs:label "Braque_de_Bourbonnais" ;
+.
+<http://datamodel.terra.bio/Dog#Briard>
+  a AKCBreeds:Briard ;
+  rdfs:label "Briard" ;
+.
+<http://datamodel.terra.bio/Dog#Brittany>
+  a AKCBreeds:Brittany ;
+  rdfs:label "Brittany" ;
+.
+<http://datamodel.terra.bio/Dog#Broholmer>
+  a AKCBreeds:Broholmer ;
+  rdfs:label "Broholmer" ;
+.
+<http://datamodel.terra.bio/Dog#Brussels_Griffon>
+  a AKCBreeds:Brussels_Griffon ;
+  rdfs:label "Brussels_Griffon" ;
+.
+<http://datamodel.terra.bio/Dog#Bull_Terrier>
+  a AKCBreeds:Bull_Terrier ;
+  rdfs:label "Bull_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Bulldog>
+  a AKCBreeds:Bulldog ;
+  rdfs:label "Bulldog" ;
+.
+<http://datamodel.terra.bio/Dog#Bullmasti>
+  a AKCBreeds:Bullmasti ;
+  rdfs:label "Bullmasti" ;
+.
+<http://datamodel.terra.bio/Dog#Cairn_Terrier>
+  a AKCBreeds:Cairn_Terrier ;
+  rdfs:label "Cairn_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Canaan_Dog>
+  a AKCBreeds:Canaan_Dog ;
+  rdfs:label "Canaan_Dog" ;
+.
+<http://datamodel.terra.bio/Dog#Cane_Corso>
+  a AKCBreeds:Cane_Corso ;
+  rdfs:label "Cane_Corso" ;
+.
+<http://datamodel.terra.bio/Dog#Cardigan_Welsh_Corgi>
+  a AKCBreeds:Cardigan_Welsh_Corgi ;
+  rdfs:label "Cardigan_Welsh_Corgi" ;
+.
+<http://datamodel.terra.bio/Dog#Carolina_Dog>
+  a AKCBreeds:Carolina_Dog ;
+  rdfs:label "Carolina_Dog" ;
+.
+<http://datamodel.terra.bio/Dog#Catahoula_Leopard_Dog>
+  a AKCBreeds:Catahoula_Leopard_Dog ;
+  rdfs:label "Catahoula_Leopard_Dog" ;
+.
+<http://datamodel.terra.bio/Dog#Caucasian_Shepherd_Dog>
+  a AKCBreeds:Caucasian_Shepherd_Dog ;
+  rdfs:label "Caucasian_Shepherd_Dog" ;
+.
+<http://datamodel.terra.bio/Dog#Cavalier_King_Charles_Spaniel>
+  a AKCBreeds:Cavalier_King_Charles_Spaniel ;
+  rdfs:label "Cavalier_King_Charles_Spaniel" ;
+.
+<http://datamodel.terra.bio/Dog#Central_Asian_Shepherd_Dog>
+  a AKCBreeds:Central_Asian_Shepherd_Dog ;
+  rdfs:label "Central_Asian_Shepherd_Dog" ;
+.
+<http://datamodel.terra.bio/Dog#Cesky_Terrier>
+  a AKCBreeds:Cesky_Terrier ;
+  rdfs:label "Cesky_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Chesapeake_Bay_Retriever>
+  a AKCBreeds:Chesapeake_Bay_Retriever ;
+  rdfs:label "Chesapeake_Bay_Retriever" ;
+.
+<http://datamodel.terra.bio/Dog#Chihuahua>
+  a AKCBreeds:Chihuahua ;
+  rdfs:label "Chihuahua" ;
+.
+<http://datamodel.terra.bio/Dog#Chinese_Crested>
+  a AKCBreeds:Chinese_Crested ;
+  rdfs:label "Chinese_Crested" ;
+.
+<http://datamodel.terra.bio/Dog#Chinese_Shar-Pei>
+  a AKCBreeds:Chinese_Shar-Pei ;
+  rdfs:label "Chinese_Shar-Pei" ;
+.
+<http://datamodel.terra.bio/Dog#Chinook>
+  a AKCBreeds:Chinook ;
+  rdfs:label "Chinook" ;
+.
+<http://datamodel.terra.bio/Dog#Chow_Chow>
+  a AKCBreeds:Chow_Chow ;
+  rdfs:label "Chow_Chow" ;
+.
+<http://datamodel.terra.bio/Dog#Cirneco_Dell_Etna>
+  a AKCBreeds:Cirneco_Dell_Etna ;
+  rdfs:label "Cirneco_Dell_Etna" ;
+.
+<http://datamodel.terra.bio/Dog#Clumber_Spaniel>
+  a AKCBreeds:Clumber_Spaniel ;
+  rdfs:label "Clumber_Spaniel" ;
+.
+<http://datamodel.terra.bio/Dog#Cocker_Spaniel>
+  a AKCBreeds:Cocker_Spaniel ;
+  rdfs:label "Cocker_Spaniel" ;
+.
+<http://datamodel.terra.bio/Dog#Collie>
+  a AKCBreeds:Collie ;
+  rdfs:label "Collie" ;
+.
+<http://datamodel.terra.bio/Dog#Coton_De_Tulear>
+  a AKCBreeds:Coton_De_Tulear ;
+  rdfs:label "Coton_De_Tulear" ;
+.
+<http://datamodel.terra.bio/Dog#Croatian_Sheepdog>
+  a AKCBreeds:Croatian_Sheepdog ;
+  rdfs:label "Croatian_Sheepdog" ;
+.
+<http://datamodel.terra.bio/Dog#Curly-Coated_Retriever>
+  a AKCBreeds:Curly-Coated_Retriever ;
+  rdfs:label "Curly-Coated_Retriever" ;
+.
+<http://datamodel.terra.bio/Dog#Czechoslovakian_Vlack>
+  a AKCBreeds:Czechoslovakian_Vlack ;
+  rdfs:label "Czechoslovakian_Vlack" ;
+.
+<http://datamodel.terra.bio/Dog#Dachshund>
+  a AKCBreeds:Dachshund ;
+  rdfs:label "Dachshund" ;
+.
+<http://datamodel.terra.bio/Dog#Dalmatian>
+  a AKCBreeds:Dalmatian ;
+  rdfs:label "Dalmatian" ;
+.
+<http://datamodel.terra.bio/Dog#Dandie_Dinmont_Terrier>
+  a AKCBreeds:Dandie_Dinmont_Terrier ;
+  rdfs:label "Dandie_Dinmont_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Danish-Swedish_Farmdog>
+  a AKCBreeds:Danish-Swedish_Farmdog ;
+  rdfs:label "Danish-Swedish_Farmdog" ;
+.
+<http://datamodel.terra.bio/Dog#Deutscher_Wachtelhund>
+  a AKCBreeds:Deutscher_Wachtelhund ;
+  rdfs:label "Deutscher_Wachtelhund" ;
+.
+<http://datamodel.terra.bio/Dog#Doberman_Pinscher>
+  a AKCBreeds:Doberman_Pinscher ;
+  rdfs:label "Doberman_Pinscher" ;
+.
+<http://datamodel.terra.bio/Dog#DogAgingProject>
+  a TerraDCAT_ap:Dataset ;
+  TerraDCAT_ap:hasDataUseLimitation TerraCore:GeneralResearchUse ;
+  TerraDCAT_ap:hasDataUseRequirement TerraCore:UserRestriction ;
+  dct:modified "11-24-2019T12:47Z" ;
+  dct:title "Dog Aging Project" ;
+  rdfs:label "Dog Aging Project" ;
+  dcat:theme TerraDCAT_ap:BiomedicalResearch ;
+.
+<http://datamodel.terra.bio/Dog#DogBreed>
+  a AKCBreeds:DogBreed ;
+  rdfs:label "DogBreed" ;
+.
+<http://datamodel.terra.bio/Dog#Dogo_Argentino>
+  a AKCBreeds:Dogo_Argentino ;
+  rdfs:label "Dogo_Argentino" ;
+.
+<http://datamodel.terra.bio/Dog#Dogue_de_Bordeaux>
+  a AKCBreeds:Dogue_de_Bordeaux ;
+  rdfs:label "Dogue_de_Bordeaux" ;
+.
+<http://datamodel.terra.bio/Dog#Drentsche_Patrijshond>
+  a AKCBreeds:Drentsche_Patrijshond ;
+  rdfs:label "Drentsche_Patrijshond" ;
+.
+<http://datamodel.terra.bio/Dog#Drever>
+  a AKCBreeds:Drever ;
+  rdfs:label "Drever" ;
+.
+<http://datamodel.terra.bio/Dog#Dutch_Shepherd>
+  a AKCBreeds:Dutch_Shepherd ;
+  rdfs:label "Dutch_Shepherd" ;
+.
+<http://datamodel.terra.bio/Dog#English_Cocker_Spaniel>
+  a AKCBreeds:English_Cocker_Spaniel ;
+  rdfs:label "English_Cocker_Spaniel" ;
+.
+<http://datamodel.terra.bio/Dog#English_Foxhound>
+  a AKCBreeds:English_Foxhound ;
+  rdfs:label "English_Foxhound" ;
+.
+<http://datamodel.terra.bio/Dog#English_Setter>
+  a AKCBreeds:English_Setter ;
+  rdfs:label "English_Setter" ;
+.
+<http://datamodel.terra.bio/Dog#English_Springer_Spaniel>
+  a AKCBreeds:English_Springer_Spaniel ;
+  rdfs:label "English_Springer_Spaniel" ;
+.
+<http://datamodel.terra.bio/Dog#English_Toy_Spaniel>
+  a AKCBreeds:English_Toy_Spaniel ;
+  rdfs:label "English_Toy_Spaniel" ;
+.
+<http://datamodel.terra.bio/Dog#Entlebucher_Mountain_Dog>
+  a AKCBreeds:Entlebucher_Mountain_Dog ;
+  rdfs:label "Entlebucher_Mountain_Dog" ;
+.
+<http://datamodel.terra.bio/Dog#Estrela_Mountain_Dog>
+  a AKCBreeds:Estrela_Mountain_Dog ;
+  rdfs:label "Estrela_Mountain_Dog" ;
+.
+<http://datamodel.terra.bio/Dog#Eurasier>
+  a AKCBreeds:Eurasier ;
+  rdfs:label "Eurasier" ;
+.
+<http://datamodel.terra.bio/Dog#Field_Spaniel>
+  a AKCBreeds:Field_Spaniel ;
+  rdfs:label "Field_Spaniel" ;
+.
+<http://datamodel.terra.bio/Dog#Finish_Spitz>
+  a AKCBreeds:Finish_Spitz ;
+  rdfs:label "Finish_Spitz" ;
+.
+<http://datamodel.terra.bio/Dog#Finnish_Lapphund>
+  a AKCBreeds:Finnish_Lapphund ;
+  rdfs:label "Finnish_Lapphund" ;
+.
+<http://datamodel.terra.bio/Dog#Flat-Coated_Retriever>
+  a AKCBreeds:Flat-Coated_Retriever ;
+  rdfs:label "Flat-Coated_Retriever" ;
+.
+<http://datamodel.terra.bio/Dog#French_Bulldog>
+  a AKCBreeds:French_Bulldog ;
+  rdfs:label "French_Bulldog" ;
+.
+<http://datamodel.terra.bio/Dog#French_Spaniel>
+  a AKCBreeds:French_Spaniel ;
+  rdfs:label "French_Spaniel" ;
+.
+<http://datamodel.terra.bio/Dog#German_Longhaired_Pointer>
+  a AKCBreeds:German_Longhaired_Pointer ;
+  rdfs:label "German_Longhaired_Pointer" ;
+.
+<http://datamodel.terra.bio/Dog#German_Pinscher>
+  a AKCBreeds:German_Pinscher ;
+  rdfs:label "German_Pinscher" ;
+.
+<http://datamodel.terra.bio/Dog#German_Shepherd_Dog>
+  a AKCBreeds:German_Shepherd_Dog ;
+  rdfs:label "German_Shepherd_Dog" ;
+.
+<http://datamodel.terra.bio/Dog#German_Shorthaired_Pointer>
+  a AKCBreeds:German_Shorthaired_Pointer ;
+  rdfs:label "German_Shorthaired_Pointer" ;
+.
+<http://datamodel.terra.bio/Dog#German_Spitz>
+  a AKCBreeds:German_Spitz ;
+  rdfs:label "German_Spitz" ;
+.
+<http://datamodel.terra.bio/Dog#German_Wirehaired_Pointer>
+  a AKCBreeds:German_Wirehaired_Pointer ;
+  rdfs:label "German_Wirehaired_Pointer" ;
+.
+<http://datamodel.terra.bio/Dog#Giant_Schnauzer>
+  a AKCBreeds:Giant_Schnauzer ;
+  rdfs:label "Giant_Schnauzer" ;
+.
+<http://datamodel.terra.bio/Dog#Glen_of_Imaal_Terrier>
+  a AKCBreeds:Glen_of_Imaal_Terrier ;
+  rdfs:label "Glen_of_Imaal_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Golden_Retriever>
+  a AKCBreeds:Golden_Retriever ;
+  rdfs:label "Golden_Retriever" ;
+.
+<http://datamodel.terra.bio/Dog#Gordon_Setter>
+  a AKCBreeds:Gordon_Setter ;
+  rdfs:label "Gordon_Setter" ;
+.
+<http://datamodel.terra.bio/Dog#Grand_Basset_Gri_on_Vendeen>
+  a AKCBreeds:Grand_Basset_Gri_on_Vendeen ;
+  rdfs:label "Grand_Basset_Gri_on_Vendeen" ;
+.
+<http://datamodel.terra.bio/Dog#Great_Dane>
+  a AKCBreeds:Great_Dane ;
+  rdfs:label "Great_Dane" ;
+.
+<http://datamodel.terra.bio/Dog#Great_Pyrenees>
+  a AKCBreeds:Great_Pyrenees ;
+  rdfs:label "Great_Pyrenees" ;
+.
+<http://datamodel.terra.bio/Dog#Greater_Swiss_Mountain_Dog>
+  a AKCBreeds:Greater_Swiss_Mountain_Dog ;
+  rdfs:label "Greater_Swiss_Mountain_Dog" ;
+.
+<http://datamodel.terra.bio/Dog#Greyhound>
+  a AKCBreeds:Greyhound ;
+  rdfs:label "Greyhound" ;
+.
+<http://datamodel.terra.bio/Dog#Hamiltonstovare>
+  a AKCBreeds:Hamiltonstovare ;
+  rdfs:label "Hamiltonstovare" ;
+.
+<http://datamodel.terra.bio/Dog#Hanoverian_Scenthound>
+  a AKCBreeds:Hanoverian_Scenthound ;
+  rdfs:label "Hanoverian_Scenthound" ;
+.
+<http://datamodel.terra.bio/Dog#Harrier>
+  a AKCBreeds:Harrier ;
+  rdfs:label "Harrier" ;
+.
+<http://datamodel.terra.bio/Dog#Havanese>
+  a AKCBreeds:Havanese ;
+  rdfs:label "Havanese" ;
+.
+<http://datamodel.terra.bio/Dog#Hokkaido>
+  a AKCBreeds:Hokkaido ;
+  rdfs:label "Hokkaido" ;
+.
+<http://datamodel.terra.bio/Dog#Hovawart>
+  a AKCBreeds:Hovawart ;
+  rdfs:label "Hovawart" ;
+.
+<http://datamodel.terra.bio/Dog#Ibizan_Hound>
+  a AKCBreeds:Ibizan_Hound ;
+  rdfs:label "Ibizan_Hound" ;
+.
+<http://datamodel.terra.bio/Dog#Icelandic_Sheepdog>
+  a AKCBreeds:Icelandic_Sheepdog ;
+  rdfs:label "Icelandic_Sheepdog" ;
+.
+<http://datamodel.terra.bio/Dog#Irish_Red_and_White_Setter>
+  a AKCBreeds:Irish_Red_and_White_Setter ;
+  rdfs:label "Irish_Red_and_White_Setter" ;
+.
+<http://datamodel.terra.bio/Dog#Irish_Setter>
+  a AKCBreeds:Irish_Setter ;
+  rdfs:label "Irish_Setter" ;
+.
+<http://datamodel.terra.bio/Dog#Irish_Terrier>
+  a AKCBreeds:Irish_Terrier ;
+  rdfs:label "Irish_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Irish_Water_Spaniel>
+  a AKCBreeds:Irish_Water_Spaniel ;
+  rdfs:label "Irish_Water_Spaniel" ;
+.
+<http://datamodel.terra.bio/Dog#Irish_Wolfhound>
+  a AKCBreeds:Irish_Wolfhound ;
+  rdfs:label "Irish_Wolfhound" ;
+.
+<http://datamodel.terra.bio/Dog#Italian_Greyhound>
+  a AKCBreeds:Italian_Greyhound ;
+  rdfs:label "Italian_Greyhound" ;
+.
+<http://datamodel.terra.bio/Dog#Jack_Russell_Terrier>
+  a AKCBreeds:Jack_Russell_Terrier ;
+  rdfs:label "Jack_Russell_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Jagdterrier>
+  a AKCBreeds:Jagdterrier ;
+  rdfs:label "Jagdterrier" ;
+.
+<http://datamodel.terra.bio/Dog#Japanese_Chin>
+  a AKCBreeds:Japanese_Chin ;
+  rdfs:label "Japanese_Chin" ;
+.
+<http://datamodel.terra.bio/Dog#Jindo>
+  a AKCBreeds:Jindo ;
+  rdfs:label "Jindo" ;
+.
+<http://datamodel.terra.bio/Dog#Kai_Ken>
+  a AKCBreeds:Kai_Ken ;
+  rdfs:label "Kai_Ken" ;
+.
+<http://datamodel.terra.bio/Dog#Karelian_Bear_Dog>
+  a AKCBreeds:Karelian_Bear_Dog ;
+  rdfs:label "Karelian_Bear_Dog" ;
+.
+<http://datamodel.terra.bio/Dog#Keeshond>
+  a AKCBreeds:Keeshond ;
+  rdfs:label "Keeshond" ;
+.
+<http://datamodel.terra.bio/Dog#Kerry_Blue_Terrier>
+  a AKCBreeds:Kerry_Blue_Terrier ;
+  rdfs:label "Kerry_Blue_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Kishu_Ken>
+  a AKCBreeds:Kishu_Ken ;
+  rdfs:label "Kishu_Ken" ;
+.
+<http://datamodel.terra.bio/Dog#Komondor>
+  a AKCBreeds:Komondor ;
+  rdfs:label "Komondor" ;
+.
+<http://datamodel.terra.bio/Dog#Kromfohrlander>
+  a AKCBreeds:Kromfohrlander ;
+  rdfs:label "Kromfohrlander" ;
+.
+<http://datamodel.terra.bio/Dog#Kuvasz>
+  a AKCBreeds:Kuvasz ;
+  rdfs:label "Kuvasz" ;
+.
+<http://datamodel.terra.bio/Dog#Labrador_Retriever>
+  a AKCBreeds:Labrador_Retriever ;
+  rdfs:label "Labrador_Retriever" ;
+.
+<http://datamodel.terra.bio/Dog#Lagotto_Romagnolo>
+  a AKCBreeds:Lagotto_Romagnolo ;
+  rdfs:label "Lagotto_Romagnolo" ;
+.
+<http://datamodel.terra.bio/Dog#Lakeland_Terrier>
+  a AKCBreeds:Lakeland_Terrier ;
+  rdfs:label "Lakeland_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Lancashire_Heeler>
+  a AKCBreeds:Lancashire_Heeler ;
+  rdfs:label "Lancashire_Heeler" ;
+.
+<http://datamodel.terra.bio/Dog#Lapponian_Herder>
+  a AKCBreeds:Lapponian_Herder ;
+  rdfs:label "Lapponian_Herder" ;
+.
+<http://datamodel.terra.bio/Dog#Leonberger>
+  a AKCBreeds:Leonberger ;
+  rdfs:label "Leonberger" ;
+.
+<http://datamodel.terra.bio/Dog#Lhasa_Apso>
+  a AKCBreeds:Lhasa_Apso ;
+  rdfs:label "Lhasa_Apso" ;
+.
+<http://datamodel.terra.bio/Dog#Lowchen>
+  a AKCBreeds:Lowchen ;
+  rdfs:label "Lowchen" ;
+.
+<http://datamodel.terra.bio/Dog#Maltese>
+  a AKCBreeds:Maltese ;
+  rdfs:label "Maltese" ;
+.
+<http://datamodel.terra.bio/Dog#Manchester_Terrier>
+  a AKCBreeds:Manchester_Terrier ;
+  rdfs:label "Manchester_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Mastiff>
+  a AKCBreeds:Mastiff ;
+  rdfs:label "Mastiff" ;
+.
+<http://datamodel.terra.bio/Dog#Miniature_American_Shepherd>
+  a AKCBreeds:Miniature_American_Shepherd ;
+  rdfs:label "Miniature_American_Shepherd" ;
+.
+<http://datamodel.terra.bio/Dog#Miniature_Bull_Terrier>
+  a AKCBreeds:Miniature_Bull_Terrier ;
+  rdfs:label "Miniature_Bull_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Miniature_Pinscher>
+  a AKCBreeds:Miniature_Pinscher ;
+  rdfs:label "Miniature_Pinscher" ;
+.
+<http://datamodel.terra.bio/Dog#Miniature_Schnauzer>
+  a AKCBreeds:Miniature_Schnauzer ;
+  rdfs:label "Miniature_Schnauzer" ;
+.
+<http://datamodel.terra.bio/Dog#Mountain_Cur>
+  a AKCBreeds:Mountain_Cur ;
+  rdfs:label "Mountain_Cur" ;
+.
+<http://datamodel.terra.bio/Dog#Mudi>
+  a AKCBreeds:Mudi ;
+  rdfs:label "Mudi" ;
+.
+<http://datamodel.terra.bio/Dog#Neapolitan_Masti>
+  a AKCBreeds:Neapolitan_Masti ;
+  rdfs:label "Neapolitan_Masti" ;
+.
+<http://datamodel.terra.bio/Dog#Nederlandse_Kooikerhondje>
+  a AKCBreeds:Nederlandse_Kooikerhondje ;
+  rdfs:label "Nederlandse_Kooikerhondje" ;
+.
+<http://datamodel.terra.bio/Dog#Newfoundland>
+  a AKCBreeds:Newfoundland ;
+  rdfs:label "Newfoundland" ;
+.
+<http://datamodel.terra.bio/Dog#Norfolk_Terrier>
+  a AKCBreeds:Norfolk_Terrier ;
+  rdfs:label "Norfolk_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Norrbottenspets>
+  a AKCBreeds:Norrbottenspets ;
+  rdfs:label "Norrbottenspets" ;
+.
+<http://datamodel.terra.bio/Dog#Norwegian_Buhund>
+  a AKCBreeds:Norwegian_Buhund ;
+  rdfs:label "Norwegian_Buhund" ;
+.
+<http://datamodel.terra.bio/Dog#Norwegian_Elkhound>
+  a AKCBreeds:Norwegian_Elkhound ;
+  rdfs:label "Norwegian_Elkhound" ;
+.
+<http://datamodel.terra.bio/Dog#Norwegian_Lundhund>
+  a AKCBreeds:Norwegian_Lundhund ;
+  rdfs:label "Norwegian_Lundhund" ;
+.
+<http://datamodel.terra.bio/Dog#Norwich_Terrier>
+  a AKCBreeds:Norwich_Terrier ;
+  rdfs:label "Norwich_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Nova_Scotia_Duck_Tolling_Retriever>
+  a AKCBreeds:Nova_Scotia_Duck_Tolling_Retriever ;
+  rdfs:label "Nova_Scotia_Duck_Tolling_Retriever" ;
+.
+<http://datamodel.terra.bio/Dog#Old_English_Sheepdog>
+  a AKCBreeds:Old_English_Sheepdog ;
+  rdfs:label "Old_English_Sheepdog" ;
+.
+<http://datamodel.terra.bio/Dog#Otterhound>
+  a AKCBreeds:Otterhound ;
+  rdfs:label "Otterhound" ;
+.
+<http://datamodel.terra.bio/Dog#Papillon>
+  a AKCBreeds:Papillon ;
+  rdfs:label "Papillon" ;
+.
+<http://datamodel.terra.bio/Dog#Parson_Russell_Terrier>
+  a AKCBreeds:Parson_Russell_Terrier ;
+  rdfs:label "Parson_Russell_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Pekingese>
+  a AKCBreeds:Pekingese ;
+  rdfs:label "Pekingese" ;
+.
+<http://datamodel.terra.bio/Dog#Pembroke_Welsh_Corgi>
+  a AKCBreeds:Pembroke_Welsh_Corgi ;
+  rdfs:label "Pembroke_Welsh_Corgi" ;
+.
+<http://datamodel.terra.bio/Dog#Perro_de_Presa_Canario>
+  a AKCBreeds:Perro_de_Presa_Canario ;
+  rdfs:label "Perro_de_Presa_Canario" ;
+.
+<http://datamodel.terra.bio/Dog#Peruvian_Inca_Orchid>
+  a AKCBreeds:Peruvian_Inca_Orchid ;
+  rdfs:label "Peruvian_Inca_Orchid" ;
+.
+<http://datamodel.terra.bio/Dog#Petit_Basset_Gri_on_Vendeen>
+  a AKCBreeds:Petit_Basset_Gri_on_Vendeen ;
+  rdfs:label "Petit_Basset_Gri_on_Vendeen" ;
+.
+<http://datamodel.terra.bio/Dog#Pharaoh_Hound>
+  a AKCBreeds:Pharaoh_Hound ;
+  rdfs:label "Pharaoh_Hound" ;
+.
+<http://datamodel.terra.bio/Dog#Plott>
+  a AKCBreeds:Plott ;
+  rdfs:label "Plott" ;
+.
+<http://datamodel.terra.bio/Dog#Pointer>
+  a AKCBreeds:Pointer ;
+  rdfs:label "Pointer" ;
+.
+<http://datamodel.terra.bio/Dog#Polish_Lowland_Sheepdog>
+  a AKCBreeds:Polish_Lowland_Sheepdog ;
+  rdfs:label "Polish_Lowland_Sheepdog" ;
+.
+<http://datamodel.terra.bio/Dog#Pomeranian>
+  a AKCBreeds:Pomeranian ;
+  rdfs:label "Pomeranian" ;
+.
+<http://datamodel.terra.bio/Dog#Poodle>
+  a AKCBreeds:Poodle ;
+  rdfs:label "Poodle" ;
+.
+<http://datamodel.terra.bio/Dog#Poodle_Toy>
+  a AKCBreeds:Poodle_Toy ;
+  rdfs:label "Poodle_Toy" ;
+.
+<http://datamodel.terra.bio/Dog#Porcelaine>
+  a AKCBreeds:Porcelaine ;
+  rdfs:label "Porcelaine" ;
+.
+<http://datamodel.terra.bio/Dog#Portuguese_Podengo>
+  a AKCBreeds:Portuguese_Podengo ;
+  rdfs:label "Portuguese_Podengo" ;
+.
+<http://datamodel.terra.bio/Dog#Portuguese_Podengo_Pequeno>
+  a AKCBreeds:Portuguese_Podengo_Pequeno ;
+  rdfs:label "Portuguese_Podengo_Pequeno" ;
+.
+<http://datamodel.terra.bio/Dog#Portuguese_Pointer>
+  a AKCBreeds:Portuguese_Pointer ;
+  rdfs:label "Portuguese_Pointer" ;
+.
+<http://datamodel.terra.bio/Dog#Portuguese_Sheepdog>
+  a AKCBreeds:Portuguese_Sheepdog ;
+  rdfs:label "Portuguese_Sheepdog" ;
+.
+<http://datamodel.terra.bio/Dog#Portuguese_Water_Dog>
+  a AKCBreeds:Portuguese_Water_Dog ;
+  rdfs:label "Portuguese_Water_Dog" ;
+.
+<http://datamodel.terra.bio/Dog#Pudelpointer>
+  a AKCBreeds:Pudelpointer ;
+  rdfs:label "Pudelpointer" ;
+.
+<http://datamodel.terra.bio/Dog#Pug>
+  a AKCBreeds:Pug ;
+  rdfs:label "Pug" ;
+.
+<http://datamodel.terra.bio/Dog#Puli>
+  a AKCBreeds:Puli ;
+  rdfs:label "Puli" ;
+.
+<http://datamodel.terra.bio/Dog#Pumi>
+  a AKCBreeds:Pumi ;
+  rdfs:label "Pumi" ;
+.
+<http://datamodel.terra.bio/Dog#Pyrenean_Masti>
+  a AKCBreeds:Pyrenean_Masti ;
+  rdfs:label "Pyrenean_Masti" ;
+.
+<http://datamodel.terra.bio/Dog#Pyrenean_Shepherd>
+  a AKCBreeds:Pyrenean_Shepherd ;
+  rdfs:label "Pyrenean_Shepherd" ;
+.
+<http://datamodel.terra.bio/Dog#Rafeiro_de_Alentejo>
+  a AKCBreeds:Rafeiro_de_Alentejo ;
+  rdfs:label "Rafeiro_de_Alentejo" ;
+.
+<http://datamodel.terra.bio/Dog#Rat_Terrier>
+  a AKCBreeds:Rat_Terrier ;
+  rdfs:label "Rat_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Redbone_Coonhound>
+  a AKCBreeds:Redbone_Coonhound ;
+  rdfs:label "Redbone_Coonhound" ;
+.
+<http://datamodel.terra.bio/Dog#Rhodesian_Ridgeback>
+  a AKCBreeds:Rhodesian_Ridgeback ;
+  rdfs:label "Rhodesian_Ridgeback" ;
+.
+<http://datamodel.terra.bio/Dog#Romanian_Mioritic_Shepherd_Dog>
+  a AKCBreeds:Romanian_Mioritic_Shepherd_Dog ;
+  rdfs:label "Romanian_Mioritic_Shepherd_Dog" ;
+.
+<http://datamodel.terra.bio/Dog#Rottweiler>
+  a AKCBreeds:Rottweiler ;
+  rdfs:label "Rottweiler" ;
+.
+<http://datamodel.terra.bio/Dog#Russell_Terrier>
+  a AKCBreeds:Russell_Terrier ;
+  rdfs:label "Russell_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Russian_Toy>
+  a AKCBreeds:Russian_Toy ;
+  rdfs:label "Russian_Toy" ;
+.
+<http://datamodel.terra.bio/Dog#Russian_Tsvetnaya_Bolonka>
+  a AKCBreeds:Russian_Tsvetnaya_Bolonka ;
+  rdfs:label "Russian_Tsvetnaya_Bolonka" ;
+.
+<http://datamodel.terra.bio/Dog#Saluki>
+  a AKCBreeds:Saluki ;
+  rdfs:label "Saluki" ;
+.
+<http://datamodel.terra.bio/Dog#Samoyed>
+  a AKCBreeds:Samoyed ;
+  rdfs:label "Samoyed" ;
+.
+<http://datamodel.terra.bio/Dog#Schapendoes>
+  a AKCBreeds:Schapendoes ;
+  rdfs:label "Schapendoes" ;
+.
+<http://datamodel.terra.bio/Dog#Schipperke>
+  a AKCBreeds:Schipperke ;
+  rdfs:label "Schipperke" ;
+.
+<http://datamodel.terra.bio/Dog#Scottish_Deerhound>
+  a AKCBreeds:Scottish_Deerhound ;
+  rdfs:label "Scottish_Deerhound" ;
+.
+<http://datamodel.terra.bio/Dog#Scottish_Terrier>
+  a AKCBreeds:Scottish_Terrier ;
+  rdfs:label "Scottish_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Sealyham_Terrier>
+  a AKCBreeds:Sealyham_Terrier ;
+  rdfs:label "Sealyham_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Segugio_Italiano>
+  a AKCBreeds:Segugio_Italiano ;
+  rdfs:label "Segugio_Italiano" ;
+.
+<http://datamodel.terra.bio/Dog#Shetland_Sheepdog>
+  a AKCBreeds:Shetland_Sheepdog ;
+  rdfs:label "Shetland_Sheepdog" ;
+.
+<http://datamodel.terra.bio/Dog#Shiba_Inu>
+  a AKCBreeds:Shiba_Inu ;
+  rdfs:label "Shiba_Inu" ;
+.
+<http://datamodel.terra.bio/Dog#Shih_Tzu>
+  a AKCBreeds:Shih_Tzu ;
+  rdfs:label "Shih_Tzu" ;
+.
+<http://datamodel.terra.bio/Dog#Shikoku>
+  a AKCBreeds:Shikoku ;
+  rdfs:label "Shikoku" ;
+.
+<http://datamodel.terra.bio/Dog#Siberian_Husky>
+  a AKCBreeds:Siberian_Husky ;
+  rdfs:label "Siberian_Husky" ;
+.
+<http://datamodel.terra.bio/Dog#Silky_Terrier>
+  a AKCBreeds:Silky_Terrier ;
+  rdfs:label "Silky_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Skye_Terrier>
+  a AKCBreeds:Skye_Terrier ;
+  rdfs:label "Skye_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Sloughi>
+  a AKCBreeds:Sloughi ;
+  rdfs:label "Sloughi" ;
+.
+<http://datamodel.terra.bio/Dog#Slovakian_Wirehaired_Pointer>
+  a AKCBreeds:Slovakian_Wirehaired_Pointer ;
+  rdfs:label "Slovakian_Wirehaired_Pointer" ;
+.
+<http://datamodel.terra.bio/Dog#Slovensky_Cuvac>
+  a AKCBreeds:Slovensky_Cuvac ;
+  rdfs:label "Slovensky_Cuvac" ;
+.
+<http://datamodel.terra.bio/Dog#Slovensky_Kopov>
+  a AKCBreeds:Slovensky_Kopov ;
+  rdfs:label "Slovensky_Kopov" ;
+.
+<http://datamodel.terra.bio/Dog#Small_Musterlander_Pointer>
+  a AKCBreeds:Small_Musterlander_Pointer ;
+  rdfs:label "Small_Musterlander_Pointer" ;
+.
+<http://datamodel.terra.bio/Dog#Smooth_Fox_Terrier>
+  a AKCBreeds:Smooth_Fox_Terrier ;
+  rdfs:label "Smooth_Fox_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Soft_Coated_Wheaten_Terrier>
+  a AKCBreeds:Soft_Coated_Wheaten_Terrier ;
+  rdfs:label "Soft_Coated_Wheaten_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Spanish_Masti>
+  a AKCBreeds:Spanish_Masti ;
+  rdfs:label "Spanish_Masti" ;
+.
+<http://datamodel.terra.bio/Dog#Spanish_Water_Dog>
+  a AKCBreeds:Spanish_Water_Dog ;
+  rdfs:label "Spanish_Water_Dog" ;
+.
+<http://datamodel.terra.bio/Dog#Spinone_Italiano>
+  a AKCBreeds:Spinone_Italiano ;
+  rdfs:label "Spinone_Italiano" ;
+.
+<http://datamodel.terra.bio/Dog#Stabyhoun>
+  a AKCBreeds:Stabyhoun ;
+  rdfs:label "Stabyhoun" ;
+.
+<http://datamodel.terra.bio/Dog#Staffordshire_Bull_Terrier>
+  a AKCBreeds:Staffordshire_Bull_Terrier ;
+  rdfs:label "Staffordshire_Bull_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Standard_Schnauzer>
+  a AKCBreeds:Standard_Schnauzer ;
+  rdfs:label "Standard_Schnauzer" ;
+.
+<http://datamodel.terra.bio/Dog#Sussex_Spaniel>
+  a AKCBreeds:Sussex_Spaniel ;
+  rdfs:label "Sussex_Spaniel" ;
+.
+<http://datamodel.terra.bio/Dog#Swedish_Lapphund>
+  a AKCBreeds:Swedish_Lapphund ;
+  rdfs:label "Swedish_Lapphund" ;
+.
+<http://datamodel.terra.bio/Dog#Swedish_Vallhund>
+  a AKCBreeds:Swedish_Vallhund ;
+  rdfs:label "Swedish_Vallhund" ;
+.
+<http://datamodel.terra.bio/Dog#Taiwan_Dog>
+  a AKCBreeds:Taiwan_Dog ;
+  rdfs:label "Taiwan_Dog" ;
+.
+<http://datamodel.terra.bio/Dog#Teddy_Roosevelt_Terrier>
+  a AKCBreeds:Teddy_Roosevelt_Terrier ;
+  rdfs:label "Teddy_Roosevelt_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Thai_Ridgeback>
+  a AKCBreeds:Thai_Ridgeback ;
+  rdfs:label "Thai_Ridgeback" ;
+.
+<http://datamodel.terra.bio/Dog#Tibetan_Masti>
+  a AKCBreeds:Tibetan_Masti ;
+  rdfs:label "Tibetan_Masti" ;
+.
+<http://datamodel.terra.bio/Dog#Tibetan_Spaniel>
+  a AKCBreeds:Tibetan_Spaniel ;
+  rdfs:label "Tibetan_Spaniel" ;
+.
+<http://datamodel.terra.bio/Dog#Tibetan_Terrier>
+  a AKCBreeds:Tibetan_Terrier ;
+  rdfs:label "Tibetan_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Tornjak>
+  a AKCBreeds:Tornjak ;
+  rdfs:label "Tornjak" ;
+.
+<http://datamodel.terra.bio/Dog#Tosa>
+  a AKCBreeds:Tosa ;
+  rdfs:label "Tosa" ;
+.
+<http://datamodel.terra.bio/Dog#Toy_Fox_Terrier>
+  a AKCBreeds:Toy_Fox_Terrier ;
+  rdfs:label "Toy_Fox_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Transylvanian_Hound>
+  a AKCBreeds:Transylvanian_Hound ;
+  rdfs:label "Transylvanian_Hound" ;
+.
+<http://datamodel.terra.bio/Dog#Treeing_Tennessee_Brindle>
+  a AKCBreeds:Treeing_Tennessee_Brindle ;
+  rdfs:label "Treeing_Tennessee_Brindle" ;
+.
+<http://datamodel.terra.bio/Dog#Treeing_Walker_Coonhound>
+  a AKCBreeds:Treeing_Walker_Coonhound ;
+  rdfs:label "Treeing_Walker_Coonhound" ;
+.
+<http://datamodel.terra.bio/Dog#Village_Dog>
+  a AKCBreeds:Village_Dog ;
+  rdfs:label "Village_Dog" ;
+.
+<http://datamodel.terra.bio/Dog#Vizsla>
+  a AKCBreeds:Vizsla ;
+  rdfs:label "Vizsla" ;
+.
+<http://datamodel.terra.bio/Dog#WeightRange_0>
+  a TerraCore:Weight ;
+  TerraCore:hasLowerBound "0"^^xsd:decimal ;
+  TerraCore:hasUpperBound "10"^^xsd:decimal ;
+  TerraCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_0" ;
+.
+<http://datamodel.terra.bio/Dog#WeightRange_1>
+  a TerraCore:Weight ;
+  TerraCore:hasLowerBound "11"^^xsd:decimal ;
+  TerraCore:hasUpperBound "20"^^xsd:decimal ;
+  TerraCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_1" ;
+.
+<http://datamodel.terra.bio/Dog#WeightRange_10>
+  a TerraCore:Weight ;
+  TerraCore:hasLowerBound "100"^^xsd:decimal ;
+  TerraCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_10" ;
+.
+<http://datamodel.terra.bio/Dog#WeightRange_2>
+  a TerraCore:Weight ;
+  TerraCore:hasLowerBound "21"^^xsd:decimal ;
+  TerraCore:hasUpperBound "30"^^xsd:decimal ;
+  TerraCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_2" ;
+.
+<http://datamodel.terra.bio/Dog#WeightRange_3>
+  a TerraCore:Weight ;
+  TerraCore:hasLowerBound "31"^^xsd:decimal ;
+  TerraCore:hasUpperBound "40"^^xsd:decimal ;
+  TerraCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_3" ;
+.
+<http://datamodel.terra.bio/Dog#WeightRange_4>
+  a TerraCore:Weight ;
+  TerraCore:hasLowerBound "41"^^xsd:decimal ;
+  TerraCore:hasUpperBound "50"^^xsd:decimal ;
+  TerraCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_4" ;
+.
+<http://datamodel.terra.bio/Dog#WeightRange_5>
+  a TerraCore:Weight ;
+  TerraCore:hasLowerBound "51"^^xsd:decimal ;
+  TerraCore:hasUpperBound "60"^^xsd:decimal ;
+  TerraCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_5" ;
+.
+<http://datamodel.terra.bio/Dog#WeightRange_6>
+  a TerraCore:Weight ;
+  TerraCore:hasLowerBound "61"^^xsd:decimal ;
+  TerraCore:hasUpperBound "70"^^xsd:decimal ;
+  TerraCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_6" ;
+.
+<http://datamodel.terra.bio/Dog#WeightRange_7>
+  a TerraCore:Weight ;
+  TerraCore:hasLowerBound "71"^^xsd:decimal ;
+  TerraCore:hasUpperBound "80"^^xsd:decimal ;
+  TerraCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_7" ;
+.
+<http://datamodel.terra.bio/Dog#WeightRange_8>
+  a TerraCore:Weight ;
+  TerraCore:hasLowerBound "81"^^xsd:decimal ;
+  TerraCore:hasUpperBound "90"^^xsd:decimal ;
+  TerraCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_8" ;
+.
+<http://datamodel.terra.bio/Dog#WeightRange_9>
+  a TerraCore:Weight ;
+  TerraCore:hasLowerBound "91"^^xsd:decimal ;
+  TerraCore:hasUpperBound "100"^^xsd:decimal ;
+  TerraCore:hasWeightUnit "lbs" ;
+  rdfs:label "WeightRange_9" ;
+.
+<http://datamodel.terra.bio/Dog#Weimaraner>
+  a AKCBreeds:Weimaraner ;
+  rdfs:label "Weimaraner" ;
+.
+<http://datamodel.terra.bio/Dog#Welsh_Springer_Spaniel>
+  a AKCBreeds:Welsh_Springer_Spaniel ;
+  rdfs:label "Welsh_Springer_Spaniel" ;
+.
+<http://datamodel.terra.bio/Dog#Welsh_Terrier>
+  a AKCBreeds:Welsh_Terrier ;
+  rdfs:label "Welsh_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#West_Highland_White_Terrier>
+  a AKCBreeds:West_Highland_White_Terrier ;
+  rdfs:label "West_Highland_White_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Whippet>
+  a AKCBreeds:Whippet ;
+  rdfs:label "Whippet" ;
+.
+<http://datamodel.terra.bio/Dog#Wire_Fox_Terrier>
+  a AKCBreeds:Wire_Fox_Terrier ;
+  rdfs:label "Wire_Fox_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#Wirehaired_Pointing_Griffon>
+  a AKCBreeds:Wirehaired_Pointing_Griffon ;
+  rdfs:label "Wirehaired_Pointing_Griffon" ;
+.
+<http://datamodel.terra.bio/Dog#Wirehaired_Vizsla>
+  a AKCBreeds:Wirehaired_Vizsla ;
+  rdfs:label "Wirehaired_Vizsla" ;
+.
+<http://datamodel.terra.bio/Dog#Wolf>
+  a AKCBreeds:Wolf ;
+  rdfs:label "Wolf" ;
+.
+<http://datamodel.terra.bio/Dog#Working_Kelpie>
+  a AKCBreeds:Working_Kelpie ;
+  rdfs:label "Working_Kelpie" ;
+.
+<http://datamodel.terra.bio/Dog#Xoloitzcuintli>
+  a AKCBreeds:Xoloitzcuintli ;
+  rdfs:label "Xoloitzcuintli" ;
+.
+<http://datamodel.terra.bio/Dog#Yakutian_Laika>
+  a AKCBreeds:Yakutian_Laika ;
+  rdfs:label "Yakutian_Laika" ;
+.
+<http://datamodel.terra.bio/Dog#Yorkshire_Terrier>
+  a AKCBreeds:Yorkshire_Terrier ;
+  rdfs:label "Yorkshire_Terrier" ;
+.
+<http://datamodel.terra.bio/Dog#hasBreedType>
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:DogDonor ;
+  rdfs:label "hasBreedType" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "Mixed"
+          "Pure"
+        ) ;
+    ] ;
+.
+<http://datamodel.terra.bio/Dog#hasCensusGeography>
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:Address ;
+  rdfs:label "hasCensusGeography" ;
+  rdfs:range xsd:string ;
+.
+<http://datamodel.terra.bio/Dog#hasSleepLocation>
+  a owl:DatatypeProperty ;
+  rdfs:label "hasSleepLocation" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "In Your Room"
+          "Elsewhere in the House"
+          "In a Garage or Barn"
+          "Outside"
+          "Other"
+        ) ;
+    ] ;
+.
+<http://datamodel.terra.bio/Dog#hasVetFrequency>
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:DogDonor ;
+  rdfs:label "hasVetFrequency" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "Never"
+          "Less than Once per Year"
+          "About Once per Year"
+          "More than Once per Year"
+        ) ;
+    ] ;
+.
+<http://datamodel.terra.bio/Dog/United_States_of_America>
+  a TerraCore:Country ;
+  TerraCore:hasAlpha2Code "US" ;
+  rdfs:label "United States of America" ;
+.
+<http://datamodel.terra.bio/DogAgingDataModel>
+  a owl:Ontology ;
+  owl:imports <http://datamodel.terra.bio/AKCBreeds> ;
+  owl:imports <http://datamodel.terra.bio/TerraCore> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+dog:CensusGeography
+  a owl:Class ;
+  rdfs:comment "Placeholder for Dog Aging Project object to capture the geographical information for environmental data.  This may be a tracts or block group." ;
+  rdfs:label "CensusGeography" ;
+  rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+.
+dog:Owner
+  a owl:Class ;
+  rdfs:label "Owner" ;
+  rdfs:subClassOf <http://www.w3.org/ns/prov#Person> ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dog:hasHouseholdDogs ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dog:hasHouseholdMembers ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dog:ownsDog ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasCurrentAddress ;
+    ] ;
+  skos:altLabel "PetParent" ;
+.
+dog:hasActivityIntensity
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:DogDonor ;
+  rdfs:label "hasActivityIntensity" ;
+  rdfs:range xsd:string ;
+.
+dog:hasActivityLevel
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:DogDonor ;
+  rdfs:label "hasActivityLevel" ;
+  rdfs:range xsd:string ;
+.
+dog:hasBreed
+  a owl:ObjectProperty ;
+  rdfs:comment "Need to select ontology and make this an object property." ;
+  rdfs:domain TerraCore:DogDonor ;
+  rdfs:label "hasBreed" ;
+  rdfs:range AKCBreeds:DogBreed ;
+.
+dog:hasCensusGeography
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:Address ;
+  rdfs:label "hasCensusGeography" ;
+  rdfs:range dog:CensusGeography ;
+.
+dog:hasCohortAssignment
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:DogDonor ;
+  rdfs:label "hasCohortAssignment" ;
+  rdfs:range xsd:string ;
+.
+dog:hasHouseholdDogs
+  a rdf:Property ;
+  rdfs:domain dog:Owner ;
+  rdfs:label "hasHouseholdDogs" ;
+  rdfs:range xsd:integer ;
+.
+dog:hasHouseholdMembers
+  a rdf:Property ;
+  rdfs:domain dog:Owner ;
+  rdfs:label "hasHouseholdMembers" ;
+  rdfs:range xsd:integer ;
+.
+dog:hasOwner
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:DogDonor ;
+  rdfs:label "hasOwner" ;
+  rdfs:range dog:Owner ;
+  owl:inverseOf dog:ownsDog ;
+.
+dog:hasPrimaryBreed
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:DogDonor ;
+  rdfs:label "hasPrimaryBreed" ;
+  rdfs:range AKCBreeds:DogBreed ;
+  rdfs:subPropertyOf dog:hasBreed ;
+.
+dog:hasRole
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:DogDonor ;
+  rdfs:label "hasRole" ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf (
+          "Companion"
+          "Obedience"
+          "Show"
+          "Breeding"
+          "Agility"
+          "Hunting"
+          "Working"
+          "Field trials"
+          "Search&Rescue"
+          "Service"
+          "Assistance/Therapy"
+          "Other"
+        ) ;
+    ] ;
+.
+dog:hasSecondaryBreed
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:DogDonor ;
+  rdfs:label "hasSecondaryBreed" ;
+  rdfs:range AKCBreeds:DogBreed ;
+  rdfs:subPropertyOf dog:hasBreed ;
+.
+dog:isSpayedorNeutered
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:DogDonor ;
+  rdfs:label "is spayed or neutered" ;
+  rdfs:range xsd:boolean ;
+.
+dog:ownsDog
+  a owl:ObjectProperty ;
+  rdfs:domain dog:Owner ;
+  rdfs:label "ownsDog" ;
+  rdfs:range TerraCore:DogDonor ;
+  owl:inverseOf dog:hasOwner ;
+.
+TerraCore:Address
+  rdfs:comment "To allow for previous addresses, we have optional properties start and end date." ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://datamodel.terra.bio/Dog#hasCensusGeography> ;
+    ] ;
+.
+TerraCore:DogDonor
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://datamodel.terra.bio/Dog#hasBreedType> ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://datamodel.terra.bio/Dog#hasVetFrequency> ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dog:hasActivityIntensity ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dog:hasActivityLevel ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dog:hasOwner ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasMedicalHistory ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasWeightRange ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dog:hasRole ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty dog:hasPrimaryBreed ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:hasValue TerraCore:Dog ;
+      owl:onProperty TerraCore:hasOrganism ;
+    ] ;
+.
+TerraCore:hasCountry
+  rdfs:domain TerraCore:Address ;
+.
+TerraCore:hasCurrentAddress
+  rdfs:range TerraCore:Address ;
+.
+TerraCore:hasSecondaryAddress
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.w3.org/ns/prov#Organization> ;
+  rdfs:domain <http://www.w3.org/ns/prov#Person> ;
+  rdfs:label "hasSecondaryAddress" ;
+  rdfs:range TerraCore:Address ;
+.
+TerraCore:hasWeightRange
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:DogDonor ;
+  rdfs:label "hasWeightRange" ;
+  rdfs:range TerraCore:Weight ;
+  rdfs:subPropertyOf TerraCore:hasWeight ;
+.
+foaf:family_name
+  rdfs:domain dog:Owner ;
+.
+foaf:givenname
+  rdfs:domain dog:Owner ;
+  rdfs:domain foaf:Person ;
+.
