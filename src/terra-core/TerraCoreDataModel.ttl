@@ -2015,7 +2015,7 @@ TerraCore:hasGeneticModificationType
         ) ;
     ] ;
   skos:prefLabel "has genetic modification type" ;
-  TerraCore:hasColumnLabel "genetic_mod_method" ;
+  TerraCore:hasColumnLabel "genetic_mod_type" ;
 .
 TerraCore:hasGenotypicSex
   a owl:DatatypeProperty ;
