@@ -2318,12 +2318,6 @@ TerraCore:hasPreservationState
   skos:definition "Method used to preserve the BioSample, if relevant, or Fresh for BioSamples that were not preserved." ;
   TerraCore:hasColumnLabel "preservation_state" ;
 .
-TerraCore:hasPrimaryOrMetastaticIndicator
-  a owl:DatatypeProperty ;
-  rdfs:domain TerraCore:BioSample ;
-  rdfs:label "hasPrimaryOrMetastaticIndicator" ;
-  rdfs:range xsd:string ;
-.
 TerraCore:hasProtocol
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:Activity ;
