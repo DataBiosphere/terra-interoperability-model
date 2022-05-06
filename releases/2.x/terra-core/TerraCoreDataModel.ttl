@@ -383,17 +383,6 @@ TerraCore:BioSample
   rdfs:subClassOf TerraCore:Sample ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:allValuesFrom [
-          a rdfs:Datatype ;
-          owl:oneOf (
-              "primary"
-              "metastatic"
-            ) ;
-        ] ;
-      owl:onProperty TerraCore:hasPrimaryOrMetastaticIndicator ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:id ;
     ] ;
