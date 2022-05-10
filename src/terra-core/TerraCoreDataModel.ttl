@@ -2434,7 +2434,7 @@ TerraCore:hasSequencingActivity
 .
 TerraCore:hasServiceProvider
   a rdf:Property ;
-  a owl:DatatypeProperty ;
+  a owl:ObjectProperty ;
   rdfs:domain TerraCore:Activity ;
   rdfs:label "has service provider" ;
   rdfs:range xsd:string ;
@@ -2557,6 +2557,7 @@ TerraCore:hasUnit
   a owl:DatatypeProperty ;
   rdfs:label "hasUnit" ;
   skos:prefLabel "hasUnit" ;
+  rdfs:range xsd:string ;
 .
 TerraCore:hasUpperBound
   a owl:DatatypeProperty ;
@@ -2601,6 +2602,11 @@ TerraCore:hasWeightUnit
       owl:oneOf (
           "lbs"
           "kg"
+          "g"
+          "mg"
+          "ug"
+          "ng"
+          "pg"
         ) ;
     ] ;
   rdfs:subPropertyOf TerraCore:hasUnit ;
