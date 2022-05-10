@@ -1565,7 +1565,7 @@ TerraCore:hasAlpha2Code
 .
 TerraCore:hasAmount
   a owl:DatatypeProperty ;
-  rdfs:comment "Can replace this with a measurment ontology" ;
+  rdfs:comment "Can replace this with a measurment ontology; need to check what objects are a proper range for Amount (all of them?)" ;
   rdfs:label "has amount" ;
   rdfs:range xsd:decimal ;
   skos:definition "A property that identifies the numerical quantity of an entity." ;
@@ -1574,7 +1574,7 @@ TerraCore:hasAmount
 .
 TerraCore:hasAmountUnit
   a owl:DatatypeProperty ;
-  rdfs:comment "Can replace this with a measurement ontology" ;
+  rdfs:comment "Can replace this with a measurment ontology; need to check what objects are a proper range for Amount (all of them?)" ;
   rdfs:label "has amount unit" ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf TerraCore:hasUnit ;
@@ -2503,7 +2503,7 @@ TerraCore:hasStrain
 .
 TerraCore:hasTarget
   a owl:DatatypeProperty ;
-  rdfs:comment "Target is a string for now but will ultimately be a class." ;
+  rdfs:comment "Target is a string for now but will ultimately be a class, and this will change to an ObjectProperty." ;
   rdfs:domain TerraCore:Antibody ;
   rdfs:domain TerraCore:AssayActivity ;
   rdfs:domain TerraCore:SampleTreatmentActivity ;
@@ -2537,6 +2537,7 @@ TerraCore:hasTemperatureUnit
 .
 TerraCore:hasTermName
   a owl:DatatypeProperty ;
+    rdfs:comment "Is this in use, or deprecated by hasColumnLabel? Suggest use case" ;
   rdfs:domain TerraCore:OntologyReference ;
   rdfs:label "hasTermName" ;
   rdfs:range xsd:string ;
@@ -2583,6 +2584,8 @@ TerraCore:hasVariantReference
 .
 TerraCore:hasVersion
   a owl:DatatypeProperty ;
+  rdfs:comment "check if need to add anything else as domain";
+  rdfs:domain "TerraCore:File";
   rdfs:label "hasVersion" ;
   rdfs:range xsd:string ;
 .
