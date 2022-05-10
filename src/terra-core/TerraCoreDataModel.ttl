@@ -2368,7 +2368,7 @@ TerraCore:hasReportedEthnicity
   TerraCore:hasColumnLabel "reported_ethnicity" ;
 .
 TerraCore:hasSampleTreatment
-  a owl:DatatypeProperty ;
+  a owl:ObjectProperty ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "has sample treatment" ;
   rdfs:range TerraCore:SampleTreatmentActivity ;
