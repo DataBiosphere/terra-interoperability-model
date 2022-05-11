@@ -600,7 +600,7 @@ TerraCore:Donor
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasFamilyID ;
+      owl:onProperty TerraCore:hasFamilyIdentifier ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -852,7 +852,7 @@ TerraCore:HumanDonor
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasFamilyID ;
+      owl:onProperty TerraCore:hasFamilyIdentifier ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -1904,11 +1904,11 @@ TerraCore:hasEstimatedLibrarySize
   rdfs:range xsd:integer ;
   skos:prefLabel "hasEstimatedLibrarySize" ;
 .
-TerraCore:hasFamilyID
+TerraCore:hasFamilyIdentifier
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:FamilyMember ;
   rdfs:domain TerraCore:HumanDonor ;
-  rdfs:label "hasFamilyID" ;
+  rdfs:label "hasFamilyIdentifier" ;
   rdfs:range xsd:string ;
   skos:definition "A property identifies the family with whom this Donor is affiliated." ;
   TerraCore:hasColumnLabel "family_id" ;
@@ -2130,7 +2130,6 @@ TerraCore:hasLifeStage
   skos:prefLabel "has life stage" ;
   TerraCore:hasColumnLabel "life_stage" ;
 .
-
 TerraCore:hasSequenceLocation
   a owl:ObjectProperty ;
   rdfs:definition "Location of variation on a sequence.  For example, for human genome: chr7:140753336-140753337" ;
