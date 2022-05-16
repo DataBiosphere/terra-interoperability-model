@@ -333,7 +333,7 @@ TerraCore:Antibody
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasClonality ;
     ] ;
   rdfs:subClassOf [
