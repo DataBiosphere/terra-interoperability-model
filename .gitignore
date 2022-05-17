@@ -10,3 +10,6 @@ tools/data-model-exporter/.mypy_cache
 tools/data-model-exporter/.pytest_cache
 src/terra-core/.project
 #src/terra-core/schema/json/* #uncomment to remove schema output directories
+
+# Ignore generated credentials from google-github-actions/auth
+gha-creds-*.json
