@@ -102,7 +102,7 @@ jobs:
           github-token: ${{ secrets.BROADBOT_TOKEN }}
           script: |
             const { issue: { number: issue_number }, repo: { owner, repo }  } = context;
-            github.issues.createComment({ issue_number, owner, repo, body: 'Pushed image: ${{ steps.image-name.outputs.tagged }}' });
+            github.issues.createComment({ issue_number, owner, repo, body: 'Pushed image for DevOps testing: ${{ steps.image-name.outputs.tagged }} (versioned separately from the datamodel files themselves)' });
       
       # Add latest tag to image (optional)
       - name: Add latest tag to Docker image
