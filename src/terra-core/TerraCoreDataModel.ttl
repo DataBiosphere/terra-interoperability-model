@@ -1563,7 +1563,6 @@ TerraCore:hasAlpha2Code
 .
 TerraCore:hasAmount
   a owl:DatatypeProperty ;
-  rdfs:comment "Can replace this with a measurment ontology; need to check what objects are a proper range for Amount (all of them?)" ;
   rdfs:label "has amount" ;
   rdfs:range xsd:decimal ;
   skos:definition "A property that identifies the numerical quantity of an entity." ;
@@ -1572,7 +1571,6 @@ TerraCore:hasAmount
 .
 TerraCore:hasAmountUnit
   a owl:DatatypeProperty ;
-  rdfs:comment "Can replace this with a measurment ontology; need to check what objects are a proper range for Amount (all of them?)" ;
   rdfs:label "has amount unit" ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf TerraCore:hasUnit ;
