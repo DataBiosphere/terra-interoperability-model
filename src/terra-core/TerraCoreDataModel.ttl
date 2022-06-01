@@ -1659,7 +1659,6 @@ TerraCore:hasBioSampleType
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasBioSampleType" ;
   rdfs:range TerraCoreValueSets:BioSampleType ;
-  rdfs:comment "Shouldn't this be a DataType property if we are just referencing our own valuesets? Or no because it is technically an object that contains datatypes. Confused. "
   rdfs:subPropertyOf TerraCore:hasSampleType ;
   TerraCore:hasColumnLabel "biosample_type" ;
   rdfs:comment "Need definition" ;
@@ -1710,7 +1709,6 @@ TerraCore:hasChild
   rdfs:range TerraCore:FamilyMember ;
   rdfs:range TerraCore:HumanDonor ;
   rdfs:range TerraCore:Donor ;
-  rdfs:comment "Added Donor in range, though Dog and Mouse families might be a way off"
   skos:definition "A property that identifies genetic children." ;
 .
 TerraCore:hasChromosome
@@ -1771,7 +1769,7 @@ TerraCore:hasDataModality
   rdfs:domain TerraCore:Activity ;
   rdfs:domain TerraCore:File ;
   rdfs:label "hasDataModality" ;
-  skos:definition "The label category of a type of data. Described the approach to data collection. Particularly relevant for 'omics technologies, but does not go into the method detail."
+  skos:definition "Data modality describes the biological nature of the information gathered as the result of an Activity, independent of the technology or methods used to produce the information." ;
   rdfs:range TerraCoreValueSets:DataModality ;
   TerraCore:hasColumnLabel "data_modality" ;
 .
@@ -2078,7 +2076,6 @@ TerraCore:hasHalfSibling
   rdfs:range TerraCore:HumanDonor ;
   skos:definition "A property that identifies genetic half siblings." ;
   TerraCore:hasColumnLabel "half_sibling" ;
-  rdfs:comment "Need definition" ;
 .
 TerraCore:hasHostOrganism
   a owl:DatatypeProperty ;
@@ -2213,7 +2210,7 @@ TerraCore:hasMannerOfDeath
 .
 TerraCore:hasMissingValueReason
   a owl:AnnotationProperty ;
-  rdfs:comment "The reason choices are taken from the International Nucleotide Sequencing Data Collaborative (INSDC); see https://www.insdc.org/missing-value-reporting#. Not provided covers any other reason, such as lack of data modelling." ;
+  rdfs:comment "The reason choices are taken from the International Nucleotide Sequencing Data Collaborative (INSDC); see https://www.insdc.org/missing-value-reporting#." ;
   rdfs:label "has missing value reason" ;
   rdfs:range [
       a rdfs:Datatype ;
@@ -2221,7 +2218,6 @@ TerraCore:hasMissingValueReason
           "not applicable"
           "not collected"
           "restricted"
-          "not provided"
         ) ;
     ] ;
   TerraCore:hasColumnLabel "missing_value_reason" ;
@@ -2247,7 +2243,6 @@ TerraCore:hasNonDuplicatedFragments
   rdfs:label "hasNonDuplicatedFragments" ;
   rdfs:range xsd:integer ;
   skos:prefLabel "hasNonDuplicatedFragments" ;
-  TerraCore:hasColumnLabel "non_dup_fragments" ;
 .
 TerraCore:hasOrganismType
   a rdf:Property ;
@@ -2272,7 +2267,6 @@ TerraCore:hasPairedEndIdentifier
           2
         ) ;
     ] ;
-  TerraCore:hasColumnLabel "paired_end_id" ;
 .
 TerraCore:hasPairedNormal
   a rdf:Property ;
@@ -2314,7 +2308,6 @@ TerraCore:hasPercentAlignedReads
   rdfs:label "hasPercentAlignedReads" ;
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasPercentAlignedReads" ;
-  TerraCore:hasColumnLabel "percent_aligned_reads" ;
 .
 TerraCore:hasPercentDuplicateFragments
   a owl:DatatypeProperty ;
@@ -2323,7 +2316,6 @@ TerraCore:hasPercentDuplicateFragments
   rdfs:label "hasPercentDuplicateFragments" ;
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasPercentDuplicateFragments" ;
-  TerraCore:hasColumnLabel "percent_dup_fragments" ;
 .
 TerraCore:hasPhenotypicSex
   a owl:ObjectProperty ;
@@ -2411,7 +2403,6 @@ TerraCore:hasReadCount
   rdfs:label "hasReadCount" ;
   rdfs:range xsd:integer ;
   skos:prefLabel "hasReadCount" ;
-  TerraCore:hasColumnLabel "read_count" ;
 .
 TerraCore:hasReadLength
   a owl:DatatypeProperty ;
@@ -2420,7 +2411,6 @@ TerraCore:hasReadLength
   rdfs:label "hasReadLength" ;
   rdfs:range xsd:integer ;
   skos:prefLabel "hasReadLength" ;
-  TerraCore:hasColumnLabel "read_length" ;
 .
 TerraCore:hasReportedEthnicity
   a owl:DatatypeProperty ;
@@ -2679,11 +2669,6 @@ TerraCore:hasWeightUnit
       owl:oneOf (
           "lbs"
           "kg"
-          "g"
-          "mg"
-          "ug"
-          "ng"
-          "pg"
         ) ;
     ] ;
   rdfs:subPropertyOf TerraCore:hasUnit ;
@@ -2792,7 +2777,7 @@ TerraCore:usesSample
   a owl:ObjectProperty ;
   rdfs:label "usesSample" ;
   rdfs:range TerraCore:Sample ;
-  rdfs:comment "BioSample and Molecular sample both inherit range from Sample" ;
+  rdfs:comment "BioSample and MolecularSample both inherit range from Sample" ;
   rdfs:subPropertyOf prov:used ;
   skos:definition "A reference to the sample used by this activity." ;
   skos:prefLabel "usesSample" ;
