@@ -2581,7 +2581,7 @@ TerraCore:hasTemperatureUnit
 .
 TerraCore:hasTermName
   a owl:DatatypeProperty ;
-    rdfs:comment "Is this in use, or deprecated by hasColumnLabel? Suggest use case" ;
+  rdfs:comment "Is this in use, or deprecated by hasColumnLabel? Suggest use case" ;
   rdfs:domain TerraCore:OntologyReference ;
   rdfs:label "hasTermName" ;
   rdfs:range xsd:string ;
