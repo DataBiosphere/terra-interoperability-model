@@ -67,6 +67,7 @@ prov:hadDerivation
   rdfs:label "hadDerivation" ;
   owl:inverseOf prov:wasDerivedFrom ;
   prov:definition "Inverse of prov:wasDerivedFrom" ;
+  TerraCore:hasColumnLabel "derivation" ;
 .
 prov:used
   owl:inverseOf prov:wasUsedBy ;
@@ -331,11 +332,6 @@ TerraCore:Antibody
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasClonality ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasTarget ;
     ] ;
   prov:definition "A reference to the antibody/antibodies used in this Activity." ;
@@ -586,7 +582,7 @@ TerraCore:Donor
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasFamilyID ;
+      owl:onProperty TerraCore:hasFamilyIdentifier ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -907,7 +903,7 @@ TerraCore:HumanDonor
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasFamilyID ;
+      owl:onProperty TerraCore:hasFamilyIdentifier ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -1118,7 +1114,7 @@ TerraCore:NucleusIsolationActivity
   skos:definition "Activity to separate the nucleus or nuclei from the cell.  " ;
 .
 TerraCore:OntologyReference
-  a owl:Class ;
+  a xsd:anyURI ;
   rdfs:label "OntologyReference" ;
   rdfs:subClassOf obo:IAO_0000027 ;
 .
@@ -1577,10 +1573,10 @@ TerraCore:confirmsDisease
   rdfs:range obo:OGMS_0000031 ;
   rdfs:range TerraCore:OntologyReference ;
   skos:definition "A property that identifies a disease or condition has been confirmed through diagnosis.  Contrast with hasDisease." ;
-  TerraCore:hasColumnLabel "disease" ;
+  TerraCore:hasColumnLabel "confirms_disease" ;
 .
 TerraCore:hasActivityType
-  a owl:ObjectProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain TerraCore:Activity ;
   rdfs:label "hasActivityType" ;
   rdfs:range xsd:anyURI ;
@@ -1680,7 +1676,7 @@ TerraCore:hasAlpha2Code
 .
 TerraCore:hasAmount
   a owl:DatatypeProperty ;
-  rdfs:comment "Can replace this with a measurment ontology" ;
+  rdfs:comment "Consider replacing with a measurement ontology" ;
   rdfs:label "has amount" ;
   rdfs:range xsd:decimal ;
   skos:definition "A property that identifies the numerical quantity of an entity." ;
@@ -1689,7 +1685,6 @@ TerraCore:hasAmount
 .
 TerraCore:hasAmountUnit
   a owl:DatatypeProperty ;
-  rdfs:comment "Can replace this with a measurement ontology" ;
   rdfs:label "has amount unit" ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf TerraCore:hasUnit ;
@@ -1722,6 +1717,7 @@ TerraCore:hasAnatomicalSite
 .
 TerraCore:hasAprioriCellType
   a owl:ObjectProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:SingleCell ;
   rdfs:label "hasAprioriCellType" ;
   rdfs:range obo:CL_0000003 ;
@@ -1747,6 +1743,7 @@ TerraCore:hasAssayType
 .
 TerraCore:hasAverageReadLength
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:SequenceFile ;
   rdfs:label "hasAverageReadLength" ;
   rdfs:range xsd:decimal ;
@@ -1763,6 +1760,7 @@ TerraCore:hasBioSample
 .
 TerraCore:hasBioSampleType
   a owl:ObjectProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasBioSampleType" ;
   rdfs:range TerraCoreValueSets:BioSampleType ;
@@ -1772,6 +1770,7 @@ TerraCore:hasBioSampleType
 TerraCore:hasBirthYear
   a rdf:Property ;
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:Donor ;
   rdfs:domain TerraCore:FamilyMember ;
   rdfs:label "has birth year" ;
@@ -1785,6 +1784,7 @@ TerraCore:hasCellCycle
   rdfs:range xsd:string ;
   skos:definition "A property that describes the stage of the cell cycle at the time the sample was obtained." ;
   skos:prefLabel "hasCellCycle" ;
+  TerraCore:hasColumnLabel "cell_cycle" ;
 .
 TerraCore:hasCellState
   a owl:DatatypeProperty ;
@@ -1794,9 +1794,11 @@ TerraCore:hasCellState
   rdfs:range xsd:string ;
   skos:definition "A property that describes the cell’s metabolic or electrophysiological state." ;
   skos:prefLabel "hasCellState" ;
+  TerraCore:hasColumnLabel "cell_state" ;
 .
 TerraCore:hasChecksum
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:File ;
   rdfs:label "has checksum" ;
   rdfs:range xsd:string ;
@@ -1808,12 +1810,14 @@ TerraCore:hasChild
   rdfs:domain TerraCore:FamilyMember ;
   rdfs:domain TerraCore:HumanDonor ;
   rdfs:label "has child" ;
+  rdfs:range TerraCore:Donor ;
   rdfs:range TerraCore:FamilyMember ;
   rdfs:range TerraCore:HumanDonor ;
   skos:definition "A property that identifies genetic children." ;
 .
 TerraCore:hasChromosome
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:ChromosomalLocation ;
   rdfs:label "has chromosome" ;
   rdfs:range xsd:string ;
@@ -1822,6 +1826,7 @@ TerraCore:hasChromosome
 .
 TerraCore:hasClonality
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:Antibody ;
   rdfs:label "has clonality" ;
   rdfs:range [
@@ -1835,12 +1840,14 @@ TerraCore:hasClonality
 .
 TerraCore:hasColumnLabel
   a owl:AnnotationProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:label "has column label" ;
   rdfs:range xsd:string ;
   skos:prefLabel "has column label" ;
 .
 TerraCore:hasCountry
   a owl:ObjectProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:label "hasCountry" ;
 .
 TerraCore:hasCrossReference
@@ -1855,6 +1862,7 @@ TerraCore:hasCrossReference
 .
 TerraCore:hasCurrentAddress
   a owl:ObjectProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain prov:Organization ;
   rdfs:domain prov:Person ;
   rdfs:label "hasCurrentAddress" ;
@@ -1866,6 +1874,7 @@ TerraCore:hasDataModality
   rdfs:domain TerraCore:File ;
   rdfs:label "hasDataModality" ;
   rdfs:range TerraCoreValueSets:DataModality ;
+  skos:definition "Data modality describes the biological nature of the information gathered as the result of an Activity, independent of the technology or methods used to produce the information." ;
   TerraCore:hasColumnLabel "data_modality" ;
 .
 TerraCore:hasDateCollected
@@ -1893,6 +1902,7 @@ TerraCore:hasDateOfBirth
 TerraCore:hasDateOfDeath
   a rdf:Property ;
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:Donor ;
   rdfs:domain TerraCore:FamilyMember ;
   rdfs:label "has date of death" ;
@@ -1901,12 +1911,14 @@ TerraCore:hasDateOfDeath
   rdfs:subPropertyOf dct:date ;
 .
 TerraCore:hasDevelopmentalStage
-  a owl:ObjectProperty ;
+  a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasDevelopmentalStage" ;
   rdfs:range xsd:anyURI ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasDevelopmentalStage" ;
+  TerraCore:hasColumnLabel "developmental_stage" ;
 .
 TerraCore:hasDiagnosis
   a owl:ObjectProperty ;
@@ -1917,7 +1929,7 @@ TerraCore:hasDiagnosis
   rdfs:range TerraCore:Diagnosis ;
   skos:definition "A property that identifies a Diagnosis including provenance and the disease or condition diagnosed." ;
   skos:prefLabel "has diagnosis" ;
-  TerraCore:hasColumnLabel "diagnosis" ;
+  TerraCore:hasColumnLabel "diagnosis_id" ;
 .
 TerraCore:hasDisease
   a owl:DatatypeProperty ;
@@ -1928,10 +1940,11 @@ TerraCore:hasDisease
   rdfs:range TerraCore:OntologyReference ;
   skos:definition "A property that identifies a disease or condition has been reported in this entity." ;
   skos:prefLabel "hasDisease" ;
-  TerraCore:hasColumnLabel "disease" ;
+  TerraCore:hasColumnLabel "disease_id" ;
 .
 TerraCore:hasDiseaseStageType
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:Diagnosis ;
   rdfs:label "disease stage type" ;
   rdfs:range dct:URI ;
@@ -1941,6 +1954,7 @@ TerraCore:hasDiseaseStageType
 .
 TerraCore:hasDiseaseStageValue
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:Diagnosis ;
   rdfs:label "disease stage" ;
   rdfs:range xsd:string ;
@@ -1988,6 +2002,7 @@ TerraCore:hasDose
 TerraCore:hasDuplicateFragments
   a owl:DatatypeProperty ;
   rdfs:comment "For alignment data types." ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:AlignmentFile ;
   rdfs:domain TerraCore:File ;
   rdfs:label "hasDuplicateFragments" ;
@@ -1996,6 +2011,7 @@ TerraCore:hasDuplicateFragments
 .
 TerraCore:hasDuration
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:label "has duration" ;
   rdfs:range xsd:decimal ;
   skos:prefLabel "has duration" ;
@@ -2003,6 +2019,7 @@ TerraCore:hasDuration
 .
 TerraCore:hasDurationUnit
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:label "has duration unit" ;
   rdfs:range [
       a rdfs:Datatype ;
@@ -2020,17 +2037,18 @@ TerraCore:hasDurationUnit
 TerraCore:hasEstimatedLibrarySize
   a owl:DatatypeProperty ;
   rdfs:comment "For alignment file types." ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:AlignmentFile ;
   rdfs:domain TerraCore:File ;
   rdfs:label "hasEstimatedLibrarySize" ;
   rdfs:range xsd:integer ;
   skos:prefLabel "hasEstimatedLibrarySize" ;
 .
-TerraCore:hasFamilyID
-  a owl:ObjectProperty ;
+TerraCore:hasFamilyIdentifier
+  a owl:DatatypeProperty ;
   rdfs:domain TerraCore:FamilyMember ;
   rdfs:domain TerraCore:HumanDonor ;
-  rdfs:label "hasFamilyID" ;
+  rdfs:label "hasFamilyIdentifier" ;
   rdfs:range xsd:string ;
   skos:definition "A property identifies the family with whom this Donor is affiliated." ;
   TerraCore:hasColumnLabel "family_id" ;
@@ -2057,6 +2075,7 @@ TerraCore:hasFileSize
 TerraCore:hasFragments
   a owl:DatatypeProperty ;
   rdfs:comment "For alignment file types." ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:AlignmentFile ;
   rdfs:domain TerraCore:File ;
   rdfs:label "hasFragments" ;
@@ -2066,6 +2085,7 @@ TerraCore:hasFragments
 TerraCore:hasGRCName
   a owl:DatatypeProperty ;
   rdfs:comment "Name of the Reference Assembly in Genome Reference Consortium format (ncbi.nlm.nih.gov/grc.  Still draft." ;
+  rdfs:comment "Need definition" ;
   rdfs:label "hasGRCName" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasGRCName" ;
@@ -2078,6 +2098,7 @@ TerraCore:hasGeneExpressionProgram
   rdfs:range xsd:string ;
   skos:definition "A property that characterizes the gene expression patterns at work in the cell." ;
   skos:prefLabel "hasGeneExpressionProgram" ;
+  TerraCore:hasColumnLabel "gene_expression_program" ;
 .
 TerraCore:hasGeneticAncestry
   a owl:DatatypeProperty ;
@@ -2119,6 +2140,7 @@ TerraCore:hasGeneticModificationMethod
 .
 TerraCore:hasGeneticModificationType
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "has genetic modification type" ;
   rdfs:range [
@@ -2180,6 +2202,7 @@ TerraCore:hasHalfSibling
 .
 TerraCore:hasHostOrganism
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:Antibody ;
   rdfs:label "has host organism" ;
   rdfs:range obo:OBI_0100026 ;
@@ -2188,6 +2211,7 @@ TerraCore:hasHostOrganism
 .
 TerraCore:hasImmunogen
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:comment "Target is a string for now but will ultimately be a class. CHEBI term CHEBI:60816" ;
   rdfs:domain TerraCore:Antibody ;
   rdfs:domain TerraCore:AssayActivity ;
@@ -2217,23 +2241,27 @@ TerraCore:hasLibraryLayout
 .
 TerraCore:hasLibraryPrepActivity
   a owl:ObjectProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasLibraryPrep" ;
   rdfs:range TerraCore:LibraryPreparationActivity ;
   rdfs:subPropertyOf prov:wasUsedBy ;
   skos:definition "A subproperty of usedBy which indicates that LibraryPreparation was performed using this entity." ;
   skos:prefLabel "hasLibraryPrep" ;
-  TerraCore:hasColumnLabel "library_prep" ;
+  TerraCore:hasColumnLabel "library_prep_id" ;
 .
 TerraCore:hasLibraryPreparationType
   a owl:ObjectProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:Library ;
   rdfs:domain TerraCore:LibraryPreparationActivity ;
   rdfs:label "hasLibraryPreparationType" ;
   rdfs:range obo:OBI_0000711 ;
+  TerraCore:hasColumnLabel "library_prep_type" ;
 .
 TerraCore:hasLifeStage
   a rdf:Property ;
+  rdfs:comment "Need definition" ;
   rdfs:comment "Varies per species; temporary solution" ;
   rdfs:domain TerraCore:Age ;
   rdfs:label "hasLifeStage" ;
@@ -2250,13 +2278,6 @@ TerraCore:hasLifeStage
   skos:prefLabel "has life stage" ;
   TerraCore:hasColumnLabel "life_stage" ;
 .
-TerraCore:hasLocation
-  a owl:DatatypeProperty ;
-  rdfs:comment "Location of variation on a sequence.  For example, for human genome: chr7:140753336-140753337" ;
-  rdfs:domain TerraCore:SequenceLocation ;
-  rdfs:label "hasLocation" ;
-  rdfs:range xsd:string ;
-.
 TerraCore:hasLot
   a owl:DatatypeProperty ;
   rdfs:comment "A serial or lot number that was manufactured together. Added for Antibodies but domain can expand." ;
@@ -2270,11 +2291,13 @@ TerraCore:hasLot
 .
 TerraCore:hasLowerBound
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:Age ;
   rdfs:domain TerraCore:Weight ;
   rdfs:label "hasLowerBound" ;
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasLowerBound" ;
+  TerraCore:hasColumnLabel "lower_bound" ;
 .
 TerraCore:hasMailingAddress
   a rdf:Property ;
@@ -2282,14 +2305,17 @@ TerraCore:hasMailingAddress
   rdfs:label "hasMailingAddress" ;
   rdfs:range xsd:string ;
   skos:definition "Text form of the address, including country and postal code." ;
+  TerraCore:hasColumnLabel "mailing_address" ;
 .
 TerraCore:hasMannerOfDeath
-  a owl:ObjectProperty ;
+  a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:FamilyMember ;
   rdfs:domain TerraCore:HumanDonor ;
   rdfs:label "has manner of death" ;
   rdfs:range xsd:string ;
   skos:prefLabel "has manner of death" ;
+  TerraCore:hasColumnLabel "manner_of_death" ;
 .
 TerraCore:hasMeasurement
   a owl:ObjectProperty ;
@@ -2341,11 +2367,13 @@ TerraCore:hasMolecularSampleType
   rdfs:label "hasMolecularSampleType" ;
   rdfs:range TerraCoreValueSets:MolecularSampleType ;
   rdfs:subPropertyOf TerraCore:hasSampleType ;
+  TerraCore:hasColumnLabel "mol_sample_type" ;
 .
 TerraCore:hasMorphology
-  a owl:ObjectProperty ;
+  a owl:DatatypeProperty ;
   rdfs:label "hasMorphology" ;
   rdfs:range xsd:string ;
+  TerraCore:hasColumnLabel "morphology" ;
 .
 TerraCore:hasNonDuplicatedFragments
   a owl:DatatypeProperty ;
@@ -2384,12 +2412,14 @@ TerraCore:hasPairedNormal
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasPairedNormal" ;
   rdfs:range TerraCore:BioSample ;
+  TerraCore:hasColumnLabel "paired_normal" ;
 .
 TerraCore:hasPairedTumor
   a rdf:Property ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasPairedTumor" ;
   rdfs:range TerraCore:BioSample ;
+  TerraCore:hasColumnLabel "paired_tumor" ;
 .
 TerraCore:hasParent
   a owl:ObjectProperty ;
@@ -2463,6 +2493,7 @@ TerraCore:hasPostalCode
   rdfs:domain TerraCore:Address ;
   rdfs:label "hasPostalCode" ;
   rdfs:range xsd:string ;
+  TerraCore:hasColumnLabel "post_code" ;
 .
 TerraCore:hasPreservationState
   a owl:DatatypeProperty ;
@@ -2532,15 +2563,15 @@ TerraCore:hasReportedEthnicity
   TerraCore:hasColumnLabel "reported_ethnicity" ;
 .
 TerraCore:hasSampleTreatment
-  a owl:DatatypeProperty ;
+  a owl:ObjectProperty ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "has sample treatment" ;
   rdfs:range TerraCore:SampleTreatmentActivity ;
   rdfs:subPropertyOf prov:wasUsedBy ;
-  skos:definition "A subproperty of usedBy which indicates that a SampleTreatmentActivity was performed using this entity." ;
+  skos:definition "A subproperty of prov:usedBy which indicates that a SampleTreatmentActivity was performed using this entity." ;
   skos:prefLabel "has sample treatment" ;
   prov:definition "A sample treatment of a BioSample." ;
-  TerraCore:hasColumnLabel "sample_treatment" ;
+  TerraCore:hasColumnLabel "sample_treatment_id" ;
 .
 TerraCore:hasSampleTreatmentMethod
   a owl:DatatypeProperty ;
@@ -2576,16 +2607,22 @@ TerraCore:hasSampleTreatmentType
   TerraCore:hasColumnLabel "sample_treatment_type" ;
 .
 TerraCore:hasSampleType
-  a owl:ObjectProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain TerraCore:Sample ;
   rdfs:label "hasSampleType" ;
+  TerraCore:hasColumnLabel "sample_type" ;
 .
 TerraCore:hasSequenceLocation
   a owl:ObjectProperty ;
+  rdfs:definition "Location of variation on a sequence.  For example, for human genome: chr7:140753336-140753337" ;
+  rdfs:domain TerraCore:SequenceLocation ;
   rdfs:domain TerraCore:VariantCall ;
   rdfs:label "hasSequenceLocation" ;
+  rdfs:range xsd:string ;
   rdfs:range TerraCore:SequenceLocation ;
+  skos:altLabel "hasLocation" ;
   skos:prefLabel "hasSequenceLocation" ;
+  TerraCore:hasColumnLabel "seq_location" ;
 .
 TerraCore:hasSequencingActivity
   a owl:ObjectProperty ;
@@ -2598,7 +2635,7 @@ TerraCore:hasSequencingActivity
 .
 TerraCore:hasServiceProvider
   a rdf:Property ;
-  a owl:DatatypeProperty ;
+  a owl:ObjectProperty ;
   rdfs:domain TerraCore:Activity ;
   rdfs:label "has service provider" ;
   rdfs:range xsd:string ;
@@ -2667,7 +2704,8 @@ TerraCore:hasStrain
 .
 TerraCore:hasTarget
   a owl:DatatypeProperty ;
-  rdfs:comment "Target is a string for now but will ultimately be a class." ;
+  rdfs:comment "Need definition" ;
+  rdfs:comment "Target is a string for now but will ultimately be a class, and this will change to an ObjectProperty." ;
   rdfs:domain TerraCore:Antibody ;
   rdfs:domain TerraCore:AssayActivity ;
   rdfs:domain TerraCore:SampleTreatmentActivity ;
@@ -2679,6 +2717,7 @@ TerraCore:hasTarget
 .
 TerraCore:hasTemperature
   a rdf:Property ;
+  rdfs:comment "Need definition" ;
   rdfs:label "has temperature" ;
   rdfs:range xsd:decimal ;
   skos:prefLabel "has temperature" ;
@@ -2686,6 +2725,7 @@ TerraCore:hasTemperature
 .
 TerraCore:hasTemperatureUnit
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:label "has temperature unit" ;
   rdfs:range [
       a rdfs:Datatype ;
@@ -2726,35 +2766,39 @@ TerraCore:hasTreatmentOutcome
   skos:definition "A reference to the outcome of this Treatment." ;
   TerraCore:hasColumnLabel "treatment_outcome" ;
 .
-TerraCore:hasTreatmentType
+TerraCore:hasDonorTreatmentType
   a owl:DatatypeProperty ;
   rdfs:comment "Need to add recommended vocabulary." ;
   rdfs:domain TerraCore:DonorTreatmentActivity ;
-  rdfs:label "has treatment type" ;
+  rdfs:label "has donor treatment type" ;
   rdfs:range xsd:string ;
-  skos:prefLabel "has treatment type" ;
+  skos:prefLabel "has donor treatment type" ;
   TerraCore:hasColumnLabel "treatment_method" ;
 .
 TerraCore:hasTumorMorphology
-  a owl:ObjectProperty ;
+  a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:label "hasTumorMorphology" ;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf TerraCore:hasMorphology ;
 .
 TerraCore:hasURI
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:OntologyReference ;
   rdfs:label "hasURI" ;
   rdfs:range xsd:anyURI ;
 .
 TerraCore:hasUnit
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:label "hasUnit" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasUnit" ;
 .
 TerraCore:hasUpperBound
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:Age ;
   rdfs:domain TerraCore:Weight ;
   rdfs:label "hasUpperBound" ;
@@ -2763,13 +2807,15 @@ TerraCore:hasUpperBound
 .
 TerraCore:hasVariantCall
   a owl:ObjectProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:VariantCallSetFile ;
   rdfs:label "hasVariantCall" ;
   rdfs:range TerraCore:VariantCall ;
   skos:prefLabel "hasVariantCall" ;
 .
 TerraCore:hasVariantReference
-  a owl:ObjectProperty ;
+  a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:VariantCall ;
   rdfs:label "hasVariantReference" ;
   rdfs:range xsd:string ;
@@ -2777,6 +2823,9 @@ TerraCore:hasVariantReference
 .
 TerraCore:hasVersion
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
+  rdfs:comment "check if need to add anything else as domain" ;
+  rdfs:domain "TerraCore:File" ;
   rdfs:label "hasVersion" ;
   rdfs:range xsd:string ;
 .
@@ -2803,6 +2852,7 @@ TerraCore:hasWeightUnit
 .
 TerraCore:id
   a rdf:Property ;
+  rdfs:comment "Need definition" ;
   rdfs:domain prov:Entity ;
   rdfs:label "id" ;
   rdfs:range xsd:anyURI ;
@@ -2812,13 +2862,15 @@ TerraCore:id
 .
 TerraCore:isCauseOfDeath
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:Diagnosis ;
   rdfs:label "cause of death" ;
   rdfs:range xsd:boolean ;
   TerraCore:hasColumnLabel "cause_of_death" ;
 .
 TerraCore:isContributorToDeath
-  a owl:ObjectProperty ;
+  a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:Diagnosis ;
   rdfs:label "contributes to death" ;
   rdfs:range xsd:boolean ;
@@ -2826,34 +2878,41 @@ TerraCore:isContributorToDeath
 .
 TerraCore:isFundedBy
   a owl:ObjectProperty ;
+  rdfs: TerraCore:Project ;
   rdfs:label "isFundedBy" ;
+  rdfs:range prov:Organization ;
   skos:definition "A relationship defining the funding source.  The range is expected to include grants, organizations, or a string indicating the funding source." ;
   TerraCore:hasColumnLabel "funded_by" ;
 .
 TerraCore:isGeneratedByPipeline
   a owl:ObjectProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:label "isGeneratedByPipeline" ;
   rdfs:range TerraCore:AnalysisActivity ;
   rdfs:subPropertyOf prov:wasGeneratedBy ;
 .
 TerraCore:isPairedWith
   a owl:ObjectProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:Library ;
   rdfs:domain TerraCore:SequenceFile ;
   rdfs:label "isPairedWith" ;
   rdfs:range TerraCore:Library ;
   rdfs:range TerraCore:SequenceFile ;
+  TerraCore:hasColumnLabel "paired_with" ;
 .
 TerraCore:isWholeCell
   a owl:DatatypeProperty ;
+  rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:SingleCell ;
   rdfs:label "isWholeCell" ;
   rdfs:range xsd:boolean ;
 .
 TerraCore:usesAntibody
   a owl:ObjectProperty ;
-  rdfs:comment "Antibody should be linked to OBI in future." ;
+  rdfs:comment "Can be used as an ObjectProperty with the Antibody class or as a DataType property, depending on need. Antibody should be linked to OBI in future. Note this could link to nonassay activities like CHiP" ;
   rdfs:domain obo:OBI_0001954 ;
+  rdfs:domain TerraCore:Activity ;
   rdfs:domain TerraCore:AssayActivity ;
   rdfs:label "usesAntibody" ;
   rdfs:range xsd:string ;
@@ -2887,10 +2946,11 @@ TerraCore:usesReferenceAssembly
   rdfs:subPropertyOf prov:used ;
   skos:definition "A reference to the collection of sequences taken as the standard for a given organism. May be defined by https://www.ncbi.nlm.nih.gov/grc." ;
   skos:prefLabel "usesReferenceAssembly" ;
-  TerraCore:hasColumnLabel "reference_assembly" ;
+  TerraCore:hasColumnLabel "uses_reference_assembly" ;
 .
 TerraCore:usesSample
   a owl:ObjectProperty ;
+  rdfs:comment "BioSample and MolecularSample both inherit range from Sample" ;
   rdfs:label "usesSample" ;
   rdfs:range TerraCore:Sample ;
   rdfs:subPropertyOf prov:used ;
