@@ -1981,7 +1981,7 @@ TerraCore:hasDose
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:DonorTreatmentActivity ;
   rdfs:label "has dose" ;
-  skos:definition "A reference to the dosage information relevant to this Treatment or Medication." ;
+  skos:definition "A reference to the dosage information relevant to this Donor Treatment or Medication." ;
   skos:prefLabel "has dose" ;
   TerraCore:hasColumnLabel "dose" ;
 .
@@ -2149,7 +2149,7 @@ TerraCore:hasGeneticModificationType
         ) ;
     ] ;
   skos:prefLabel "has genetic modification type" ;
-  TerraCore:hasColumnLabel "genetic_mod_method" ;
+  TerraCore:hasColumnLabel "genetic_mod_type" ;
 .
 TerraCore:hasGenotypicSex
   a owl:DatatypeProperty ;
