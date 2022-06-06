@@ -602,6 +602,75 @@ TerraCore:Donor
   skos:definition "An organism from which a sample or test result is available" ;
   skos:prefLabel "Donor" ;
 .
+TerraCore:DonorTreatmentActivity
+  a owl:Class ;
+  rdfs:label "Donor Treatment" ;
+  rdfs:subClassOf TerraCore:Activity ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasTreatmentType ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:id ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasDonorAgeAtCollection ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasDose ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasDuration ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasDurationUnit ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasMedication ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasTreatmentOutcome ;
+    ] ;
+  skos:definition "Activities or processes undertaken with the expectation of therapeutic value to the Donor." ;
+  skos:prefLabel "Donor Treatment" ;
+.
+TerraCore:Dose
+  a owl:Class ;
+  rdfs:label "Dose" ;
+  rdfs:subClassOf obo:BFO_0000040 ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:decimal ;
+      owl:onProperty prov:value ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty prov:value ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasUnit ;
+    ] ;
+  skos:definition "A measured amount of a substance." ;
+  skos:prefLabel "Dose" ;
+.
 TerraCore:ExperimentActivity
   a owl:Class ;
   rdfs:label "Experiment" ;
@@ -839,12 +908,22 @@ TerraCore:HumanDonor
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasMeasurement ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasParent ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasSibling ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasTreatment ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -931,6 +1010,53 @@ TerraCore:MaleSex
   rdfs:subClassOf TerraCore:BiologicalSex ;
   owl:equivalentClass obo:PATO_0000384 ;
   skos:altLabel "M" ;
+.
+TerraCore:Measurement
+  a owl:Class ;
+  rdfs:label "Measurement" ;
+  rdfs:subClassOf obo:IAO_0000030 ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:decimal ;
+      owl:onProperty prov:value ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty prov:value ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasMeasurementType ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasMeasurementType ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasUnit ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:id ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty prov:generated ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty prov:generated ;
+      owl:someValuesFrom TerraCore:File ;
+    ] ;
+  skos:definition "The record of the size, quantity or outcome of a clinical or laboratory test." ;
+  skos:prefLabel "Measurement" ;
 .
 TerraCore:MolecularSample
   a owl:Class ;
@@ -1755,6 +1881,7 @@ TerraCore:hasDateCollected
   a rdf:Property ;
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:BioSample ;
+  rdfs:domain TerraCore:Measurement ;
   rdfs:label "has date collected" ;
   rdfs:range xsd:dateTime ;
   rdfs:subPropertyOf dct:date ;
@@ -1847,11 +1974,30 @@ TerraCore:hasDonor
 TerraCore:hasDonorAgeAtCollection
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:BioSample ;
+  rdfs:domain TerraCore:Measurement ;
   rdfs:label "hasDonorAgeAtCollection" ;
   rdfs:range TerraCore:Age ;
   skos:definition "A reference to the Age of the Donor at the point in time that the BioSample was obtained or other representative entity (test, diagnosis, treatment...) was created." ;
   skos:prefLabel "hasDonorAgeAtCollection" ;
   TerraCore:hasColumnLabel "donor_age_at_collection" ;
+.
+TerraCore:hasDonorAgeAtEvent
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:Activity ;
+  rdfs:domain TerraCore:DonorTreatmentActivity ;
+  rdfs:label "hasDonorAgeAtEvent" ;
+  rdfs:range TerraCore:Age ;
+  skos:definition "A reference to the Age of the Donor at the point in time that the event or administration occured." ;
+  skos:prefLabel "hasDonorAgeAtEvent" ;
+  TerraCore:hasColumnLabel "donor_age_at_event" ;
+.
+TerraCore:hasDose
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:DonorTreatmentActivity ;
+  rdfs:label "has dose" ;
+  skos:definition "A reference to the dosage information relevant to this Donor Treatment or Medication." ;
+  skos:prefLabel "has dose" ;
+  TerraCore:hasColumnLabel "dose" ;
 .
 TerraCore:hasDuplicateFragments
   a owl:DatatypeProperty ;
@@ -2171,6 +2317,36 @@ TerraCore:hasMannerOfDeath
   skos:prefLabel "has manner of death" ;
   TerraCore:hasColumnLabel "manner_of_death" ;
 .
+TerraCore:hasMeasurement
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:Donor ;
+  rdfs:label "has measurement" ;
+  rdfs:range TerraCore:Measurement ;
+  skos:definition "A reference to a Measurement related to this Donor." ;
+  skos:prefLabel "has measurement" ;
+  TerraCore:hasColumnLabel "measurement" ;
+.
+TerraCore:hasMeasurementType
+  a owl:DatatypeProperty ;
+  rdfs:comment "Recommend LOINC or SNOMED vocabularies." ;
+  rdfs:domain TerraCore:Measurement ;
+  rdfs:label "has measurement type" ;
+  rdfs:range dct:URI ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "has measurement type" ;
+  TerraCore:hasColumnLabel "measurement_type" ;
+.
+TerraCore:hasMedication
+  a owl:DatatypeProperty ;
+  rdfs:comment "Recommend term or URL from MEDDRA or RxNORM. Note that this model of a medication is subject to change." ;
+  rdfs:domain TerraCore:DonorTreatmentActivity ;
+  rdfs:label "has medication" ;
+  rdfs:range xsd:anyURI ;
+  rdfs:range xsd:string ;
+  skos:definition "A reference to the medication information relevant to this entity." ;
+  skos:prefLabel "has medication" ;
+  TerraCore:hasColumnLabel "medication" ;
+.
 TerraCore:hasMissingValueReason
   a owl:AnnotationProperty ;
   rdfs:comment "The reason choices are taken from the International Nucleotide Sequencing Data Collaborative (INSDC); see https://www.insdc.org/missing-value-reporting#." ;
@@ -2304,8 +2480,7 @@ TerraCore:hasPlatform
 TerraCore:hasPlatformIdentifier
   a rdf:Property ;
   a owl:DatatypeProperty ;
-  rdfs:domain TerraCore:Donor ;
-  rdfs:domain TerraCore:FamilyMember ;
+  rdfs:domain TerraCore:Activity ;
   rdfs:label "hasPlatformID" ;
   rdfs:range xsd:anyURI ;
   rdfs:range xsd:string ;
@@ -2564,6 +2739,42 @@ TerraCore:hasTemperatureUnit
   skos:prefLabel "has temperature unit" ;
   TerraCore:hasColumnLabel "temperature_unit" ;
 .
+TerraCore:hasTermName
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:OntologyReference ;
+  rdfs:label "hasTermName" ;
+  rdfs:range xsd:string ;
+.
+TerraCore:hasTreatment
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:Diagnosis ;
+  rdfs:domain TerraCore:Donor ;
+  rdfs:domain TerraCore:HumanDonor ;
+  rdfs:label "hasTreatment" ;
+  rdfs:range TerraCore:DonorTreatmentActivity ;
+  skos:definition "A reference to the therapeutic treatment undertaken for this Donor." ;
+  skos:prefLabel "has treatment" ;
+  TerraCore:hasColumnLabel "treatment" ;
+.
+TerraCore:hasTreatmentOutcome
+  a rdf:Property ;
+  a owl:DatatypeProperty ;
+  rdfs:comment "Should the model define a preferred vocabulary? e.g. positive, negative, no effect?  The specific outcome may need to be more specific, reduced tumor size by  .. but the categories listed are useful." ;
+  rdfs:domain TerraCore:DonorTreatmentActivity ;
+  rdfs:label "has treatment outcome" ;
+  rdfs:range xsd:string ;
+  skos:definition "A reference to the outcome of this Treatment." ;
+  TerraCore:hasColumnLabel "treatment_outcome" ;
+.
+TerraCore:hasDonorTreatmentType
+  a owl:DatatypeProperty ;
+  rdfs:comment "Need to add recommended vocabulary." ;
+  rdfs:domain TerraCore:DonorTreatmentActivity ;
+  rdfs:label "has donor treatment type" ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "has donor treatment type" ;
+  TerraCore:hasColumnLabel "treatment_method" ;
+.
 TerraCore:hasTumorMorphology
   a owl:DatatypeProperty ;
   rdfs:comment "Need definition" ;
@@ -2746,6 +2957,16 @@ TerraCore:usesSample
   skos:definition "A reference to the sample used by this activity." ;
   skos:prefLabel "usesSample" ;
   TerraCore:hasColumnLabel "uses_sample" ;
+.
+TerraCore:usesSoftware
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:AnalysisActivity ;
+  rdfs:label "uses software" ;
+  rdfs:range xsd:anyURI ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "uses software" ;
+  prov:definition "A reference to a software tool or command line " ;
+  TerraCore:hasColumnLabel "uses_software" ;
 .
 TerraDCAT_ap:DataCollection
   rdfs:subClassOf [
