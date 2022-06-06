@@ -1541,7 +1541,6 @@ TerraCore:hasAlignedFragments
   a owl:DatatypeProperty ;
   rdfs:comment "For alignment file types." ;
   rdfs:domain TerraCore:AlignmentFile ;
-  rdfs:domain TerraCore:File ;
   rdfs:label "hasAlignedFragments" ;
   rdfs:range xsd:integer ;
   skos:prefLabel "hasAlignedFragments" ;
@@ -1869,7 +1868,6 @@ TerraCore:hasDuplicateFragments
   rdfs:comment "For alignment data types." ;
   rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:AlignmentFile ;
-  rdfs:domain TerraCore:File ;
   rdfs:label "hasDuplicateFragments" ;
   rdfs:range xsd:integer ;
   skos:prefLabel "hasDuplicateFragments" ;
@@ -1904,7 +1902,6 @@ TerraCore:hasEstimatedLibrarySize
   rdfs:comment "For alignment file types." ;
   rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:AlignmentFile ;
-  rdfs:domain TerraCore:File ;
   rdfs:label "hasEstimatedLibrarySize" ;
   rdfs:range xsd:integer ;
   skos:prefLabel "hasEstimatedLibrarySize" ;
@@ -1942,7 +1939,6 @@ TerraCore:hasFragments
   rdfs:comment "For alignment file types." ;
   rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:AlignmentFile ;
-  rdfs:domain TerraCore:File ;
   rdfs:label "hasFragments" ;
   rdfs:range xsd:integer ;
   skos:prefLabel "hasFragments" ;
@@ -2624,8 +2620,7 @@ TerraCore:hasVariantReference
 TerraCore:hasVersion
   a owl:DatatypeProperty ;
   rdfs:comment "Need definition" ;
-  rdfs:comment "check if need to add anything else as domain" ;
-  rdfs:domain "TerraCore:File" ;
+  rdfs:domain TerraCore:File ;
   rdfs:label "hasVersion" ;
   rdfs:range xsd:string ;
 .
