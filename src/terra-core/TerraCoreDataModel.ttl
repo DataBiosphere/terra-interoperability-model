@@ -987,11 +987,7 @@ TerraCore:NucleusIsolationActivity
   owl:equivalentClass <http://www.ebi.ac.uk/efo/EFO_0007831> ;
   skos:definition "Activity to separate the nucleus or nuclei from the cell.  " ;
 .
-TerraCore:OntologyReference
-  a xsd:anyURI ;
-  rdfs:label "OntologyReference" ;
-  rdfs:subClassOf obo:IAO_0000027 ;
-.
+
 TerraCore:PrincipalInvestigator
   a owl:Class ;
   rdfs:label "Principal Investigator" ;
@@ -1445,7 +1441,7 @@ TerraCore:confirmsDisease
   rdfs:domain TerraCore:Diagnosis ;
   rdfs:label "confirmsDisease" ;
   rdfs:range obo:OGMS_0000031 ;
-  rdfs:range TerraCore:OntologyReference ;
+  rdfs:range xsd:anyURI ;
   skos:definition "A property that identifies a disease or condition has been confirmed through diagnosis.  Contrast with hasDisease." ;
   TerraCore:hasColumnLabel "confirms_disease" ;
 .
@@ -1810,7 +1806,7 @@ TerraCore:hasDisease
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasDisease" ;
   rdfs:range obo:OGMS_0000031 ;
-  rdfs:range TerraCore:OntologyReference ;
+  rdfs:range xsd:anyURI ;
   skos:definition "A property that identifies a disease or condition has been reported in this entity." ;
   skos:prefLabel "hasDisease" ;
   TerraCore:hasColumnLabel "disease_id" ;
@@ -2574,7 +2570,7 @@ TerraCore:hasTumorMorphology
 TerraCore:hasURI
   a owl:DatatypeProperty ;
   rdfs:comment "Need definition" ;
-  rdfs:domain TerraCore:OntologyReference ;
+  rdfs:domain xsd:anyURI ;
   rdfs:label "hasURI" ;
   rdfs:range xsd:anyURI ;
 .
