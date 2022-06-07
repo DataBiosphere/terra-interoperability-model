@@ -1603,11 +1603,13 @@ TerraCore:hasAssayActivity
 .
 TerraCore:hasAssayType
   a owl:ObjectProperty ;
-  rdfs:domain TerraCore:AssayActivity ;
-  rdfs:domain TerraCore:ExperimentActivity ;
+  rdfs:domain [ 
+    owl:unionOf (TerraCore:AssayActivity TerraCore:ExperimentActivity) 
+   ] ;
   rdfs:label "hasAssayType" ;
-  rdfs:range obo:OBI_0000070 ;
-  rdfs:range xsd:string ;
+  rdfs:range [
+    owl:unionOf (obo:OBI_0000070 xsd:string xsd:anyURI)
+   ] ;
   skos:definition "A reference to the type of assay, preferably using an identifier in the Ontology for Biomedical Investigations assay entity (http://purl.obolibrary.org/obo/OBI_0000070)." ;
   TerraCore:hasColumnLabel "assay_type" ;
 .
