@@ -1988,6 +1988,15 @@ TerraCore:hasDonorAgeAtEvent
   skos:prefLabel "hasDonorAgeAtEvent" ;
   TerraCore:hasColumnLabel "donor_age_at_event" ;
 .
+TerraCore:hasDonorTreatmentType
+  a owl:DatatypeProperty ;
+  rdfs:comment "Need to add recommended vocabulary." ;
+  rdfs:domain TerraCore:DonorTreatmentActivity ;
+  rdfs:label "has donor treatment type" ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "has donor treatment type" ;
+  TerraCore:hasColumnLabel "donor_treatment_type" ;
+.
 TerraCore:hasDose
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:DonorTreatmentActivity ;
@@ -2450,6 +2459,27 @@ TerraCore:hasPercentDuplicateFragments
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasPercentDuplicateFragments" ;
 .
+TerraCore:hasPhenopacket
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:Diagnosis ;
+  rdfs:range TerraCore:File ;
+  skos:definition "A reference to the phenopacket file." ;
+  TerraCore:hasColumnLabel "phenopacket" ;
+.
+TerraCore:hasPhenotype
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:Diagnosis ;
+  rdfs:range xsd:anyURI ;
+  skos:definition "A reference to the phenotype, preferably from the Human Phenotype Ontology. Phenopackets handled separately." ;
+  TerraCore:hasColumnLabel "phenotype" ;
+.
+TerraCore:hasPhenotypeDescription
+  a owl:AnnotationProperty ;
+  rdfs:domain TerraCore:Diagnosis ;
+  rdfs:range xsd:string ;
+  skos:definition "Phenotype term or free text description for additional phenotype information." ;
+  TerraCore:hasColumnLabel "phenotype_description" ;
+.
 TerraCore:hasPhenotypicSex
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:Donor ;
@@ -2748,7 +2778,7 @@ TerraCore:hasTreatment
   rdfs:range TerraCore:DonorTreatmentActivity ;
   skos:definition "A reference to the therapeutic treatment undertaken for this Donor." ;
   skos:prefLabel "has treatment" ;
-  TerraCore:hasColumnLabel "treatment" ;
+  TerraCore:hasColumnLabel "treatment_id" ;
 .
 TerraCore:hasTreatmentOutcome
   a rdf:Property ;
@@ -2759,15 +2789,6 @@ TerraCore:hasTreatmentOutcome
   rdfs:range xsd:string ;
   skos:definition "A reference to the outcome of this Treatment." ;
   TerraCore:hasColumnLabel "treatment_outcome" ;
-.
-TerraCore:hasDonorTreatmentType
-  a owl:DatatypeProperty ;
-  rdfs:comment "Need to add recommended vocabulary." ;
-  rdfs:domain TerraCore:DonorTreatmentActivity ;
-  rdfs:label "has donor treatment type" ;
-  rdfs:range xsd:string ;
-  skos:prefLabel "has donor treatment type" ;
-  TerraCore:hasColumnLabel "treatment_method" ;
 .
 TerraCore:hasTumorMorphology
   a owl:DatatypeProperty ;
