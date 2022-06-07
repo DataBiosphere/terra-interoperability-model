@@ -1,4 +1,5 @@
 # baseURI: https://datamodel.terra.bio/TerraCore
+# imports: http://datashapes.org/dash
 # imports: http://www.w3.org/2002/07/owl
 # imports: https://datamodel.terra.bio/EFO_subset
 # imports: https://datamodel.terra.bio/NCBITaxon_Organisms_subset
@@ -25,6 +26,7 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -91,6 +93,7 @@ prov:wasGeneratedBy
   dct:date "20 Jul 2020" ;
   dct:license <https://github.com/DataBiosphere/terra-interoperability-model/blob/master/LICENSE> ;
   rdfs:comment "Please cite The Broad Institute of Harvard and MIT, Data Sciences Platform." ;
+  owl:imports <http://datashapes.org/dash> ;
   owl:imports <http://www.w3.org/2002/07/owl> ;
   owl:imports <https://datamodel.terra.bio/EFO_subset> ;
   owl:imports <https://datamodel.terra.bio/NCBITaxon_Organisms_subset> ;
@@ -102,6 +105,7 @@ prov:wasGeneratedBy
 .
 TerraCore:Activity
   a owl:Class ;
+  a sh:NodeShape ;
   rdfs:label "Activity" ;
   rdfs:subClassOf prov:Activity ;
   rdfs:subClassOf [
@@ -156,6 +160,12 @@ TerraCore:Activity
     ] ;
   skos:prefLabel "Activity" ;
   prov:definition "An activity occurs over a period of time, generates an entity, and may include consuming, processing, transforming, modifying, relocating, or using entities.  This subclass of prov:Activity restricts members to those with a DataModality relevant to biomedical research." ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path TerraCore:hasActivityType ;
+      sh:minCount 1 ;
+      sh:datatype xsd:string ;
+    ] ;
 .
 TerraCore:Address
   a owl:Class ;
@@ -1450,12 +1460,9 @@ TerraCore:confirmsDisease
   TerraCore:hasColumnLabel "confirms_disease" ;
 .
 TerraCore:hasActivityType
-  a owl:DatatypeProperty ;
-  rdfs:domain TerraCore:Activity ;
-  rdfs:label "hasActivityType" ;
-  rdfs:range xsd:anyURI ;
-  skos:definition "A reference to the type of activity, preferably using an identifier in a recommended standard ontology." ;
-  TerraCore:hasColumnLabel "activity_type" ;
+  a rdf:Property ;
+  rdfs:comment "A reference to the type of activity, preferably using an identifier in a recommended standard ontology." ;
+  rdfs:label "has activity type" ;
 .
 TerraCore:hasAge
   a owl:ObjectProperty ;
