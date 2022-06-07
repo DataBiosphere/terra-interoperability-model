@@ -2465,6 +2465,7 @@ TerraCore:hasPhenopacket
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:Donor ;
   rdfs:range TerraCore:File ;
+  skos:definition "A reference to the phenopacket file." ;
   TerraCore:hasColumnLabel "phenopacket" ;
 .
 TerraCore:hasPhenotype
@@ -2478,6 +2479,7 @@ TerraCore:hasPhenotypeDescription
   a owl:AnnotationProperty ;
   rdfs:domain TerraCore:Donor ;
   rdfs:range xsd:string ;
+  skos:definition "Phenotype term or free text description for additional phenotype information." ;
   TerraCore:hasColumnLabel "phenotype_description" ;
 .
 TerraCore:hasPhenotypicSex
