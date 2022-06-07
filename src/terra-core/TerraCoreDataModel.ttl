@@ -315,6 +315,11 @@ TerraCore:AnalysisActivity
   skos:prefLabel "Analysis" ;
   prov:definition "An activity that records the output of a specific analysis method.  Software version, components, arguments are described in prov:SoftwareAgent." ;
 .
+TerraCore:AnnotationProperty_1
+  a owl:AnnotationProperty ;
+  rdfs:domain TerraCore:Donor ;
+  rdfs:range xsd:string ;
+.
 TerraCore:Antibody
   a owl:Class ;
   rdfs:label "Antibody" ;
@@ -1112,6 +1117,11 @@ TerraCore:NucleusIsolationActivity
     ] ;
   owl:equivalentClass <http://www.ebi.ac.uk/efo/EFO_0007831> ;
   skos:definition "Activity to separate the nucleus or nuclei from the cell.  " ;
+.
+TerraCore:ObjectProperty_1
+  a owl:ObjectProperty ;
+  rdfs:domain TerraCore:Donor ;
+  rdfs:range TerraCore:File ;
 .
 TerraCore:OntologyReference
   a xsd:anyURI ;
@@ -1990,6 +2000,15 @@ TerraCore:hasDonorAgeAtEvent
   skos:prefLabel "hasDonorAgeAtEvent" ;
   TerraCore:hasColumnLabel "donor_age_at_event" ;
 .
+TerraCore:hasDonorTreatmentType
+  a owl:DatatypeProperty ;
+  rdfs:comment "Need to add recommended vocabulary." ;
+  rdfs:domain TerraCore:DonorTreatmentActivity ;
+  rdfs:label "has donor treatment type" ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "has donor treatment type" ;
+  TerraCore:hasColumnLabel "treatment_method" ;
+.
 TerraCore:hasDose
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:DonorTreatmentActivity ;
@@ -2452,6 +2471,12 @@ TerraCore:hasPercentDuplicateFragments
   rdfs:range xsd:decimal ;
   skos:prefLabel "hasPercentDuplicateFragments" ;
 .
+TerraCore:hasPhenotype
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:Donor ;
+  rdfs:range xsd:anyURI ;
+  skos:definition "A reference to the phenotype, preferably from the Human Phenotype Ontology. Phenopackets handled separately." ;
+.
 TerraCore:hasPhenotypicSex
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:Donor ;
@@ -2761,15 +2786,6 @@ TerraCore:hasTreatmentOutcome
   rdfs:range xsd:string ;
   skos:definition "A reference to the outcome of this Treatment." ;
   TerraCore:hasColumnLabel "treatment_outcome" ;
-.
-TerraCore:hasDonorTreatmentType
-  a owl:DatatypeProperty ;
-  rdfs:comment "Need to add recommended vocabulary." ;
-  rdfs:domain TerraCore:DonorTreatmentActivity ;
-  rdfs:label "has donor treatment type" ;
-  rdfs:range xsd:string ;
-  skos:prefLabel "has donor treatment type" ;
-  TerraCore:hasColumnLabel "treatment_method" ;
 .
 TerraCore:hasTumorMorphology
   a owl:DatatypeProperty ;
