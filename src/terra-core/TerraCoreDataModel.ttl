@@ -2463,21 +2463,21 @@ TerraCore:hasPercentDuplicateFragments
 .
 TerraCore:hasPhenopacket
   a owl:ObjectProperty ;
-  rdfs:domain TerraCore:Donor ;
+  rdfs:domain TerraCore:Diagnosis ;
   rdfs:range TerraCore:File ;
   skos:definition "A reference to the phenopacket file." ;
   TerraCore:hasColumnLabel "phenopacket" ;
 .
 TerraCore:hasPhenotype
   a owl:DatatypeProperty ;
-  rdfs:domain TerraCore:Donor ;
+  rdfs:domain TerraCore:Diagnosis ;
   rdfs:range xsd:anyURI ;
   skos:definition "A reference to the phenotype, preferably from the Human Phenotype Ontology. Phenopackets handled separately." ;
   TerraCore:hasColumnLabel "phenotype" ;
 .
 TerraCore:hasPhenotypeDescription
   a owl:AnnotationProperty ;
-  rdfs:domain TerraCore:Donor ;
+  rdfs:domain TerraCore:Diagnosis ;
   rdfs:range xsd:string ;
   skos:definition "Phenotype term or free text description for additional phenotype information." ;
   TerraCore:hasColumnLabel "phenotype_description" ;
