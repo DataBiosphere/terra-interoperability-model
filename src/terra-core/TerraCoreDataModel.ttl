@@ -1997,7 +1997,7 @@ TerraCore:hasDonorTreatmentType
   rdfs:label "has donor treatment type" ;
   rdfs:range xsd:string ;
   skos:prefLabel "has donor treatment type" ;
-  TerraCore:hasColumnLabel "treatment_method" ;
+  TerraCore:hasColumnLabel "donor_treatment_type" ;
 .
 TerraCore:hasDose
   a owl:DatatypeProperty ;
@@ -2780,7 +2780,7 @@ TerraCore:hasTreatment
   rdfs:range TerraCore:DonorTreatmentActivity ;
   skos:definition "A reference to the therapeutic treatment undertaken for this Donor." ;
   skos:prefLabel "has treatment" ;
-  TerraCore:hasColumnLabel "treatment" ;
+  TerraCore:hasColumnLabel "treatment_id" ;
 .
 TerraCore:hasTreatmentOutcome
   a rdf:Property ;
