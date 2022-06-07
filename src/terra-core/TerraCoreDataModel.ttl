@@ -1913,7 +1913,7 @@ TerraCore:hasFamilyIdentifier
   rdfs:label "hasFamilyIdentifier" ;
   rdfs:range xsd:string ;
   skos:definition "A property identifies the family with whom this Donor is affiliated." ;
-  TerraCore:hasColumnLabel "family_id" ;
+  TerraCore:hasColumnLabel "family_identifier" ;
 .
 TerraCore:hasFileFormat
   a owl:DatatypeProperty ;
