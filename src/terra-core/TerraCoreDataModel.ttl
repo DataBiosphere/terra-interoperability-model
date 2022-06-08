@@ -1113,7 +1113,6 @@ TerraCore:NucleusIsolationActivity
   owl:equivalentClass <http://www.ebi.ac.uk/efo/EFO_0007831> ;
   skos:definition "Activity to separate the nucleus or nuclei from the cell.  " ;
 .
-
 TerraCore:PrincipalInvestigator
   a owl:Class ;
   rdfs:label "Principal Investigator" ;
@@ -1572,12 +1571,14 @@ TerraCore:confirmsDisease
   TerraCore:hasColumnLabel "confirms_disease" ;
 .
 TerraCore:hasActivityType
-  a owl:DatatypeProperty ;
   rdfs:domain TerraCore:Activity ;
   rdfs:label "hasActivityType" ;
   rdfs:range [
-    owl:unionOf(xsd:anyURI xsd:string)
-  ] ;
+      owl:unionOf (
+          xsd:anyURI
+          xsd:string
+        ) ;
+    ] ;
   skos:definition "A reference to the type of activity, preferably using an identifier in a recommended standard ontology." ;
   TerraCore:hasColumnLabel "activity_type" ;
 .
@@ -1729,13 +1730,20 @@ TerraCore:hasAssayActivity
 .
 TerraCore:hasAssayType
   a owl:ObjectProperty ;
-  rdfs:domain [ 
-    owl:unionOf (TerraCore:AssayActivity TerraCore:ExperimentActivity) 
-   ] ;
+  rdfs:domain [
+      owl:unionOf (
+          TerraCore:AssayActivity
+          TerraCore:ExperimentActivity
+        ) ;
+    ] ;
   rdfs:label "hasAssayType" ;
   rdfs:range [
-    owl:unionOf (obo:OBI_0000070 xsd:string xsd:anyURI)
-   ] ;
+      owl:unionOf (
+          obo:OBI_0000070
+          xsd:string
+          xsd:anyURI
+        ) ;
+    ] ;
   skos:definition "A reference to the type of assay, preferably using an identifier in the Ontology for Biomedical Investigations assay entity (http://purl.obolibrary.org/obo/OBI_0000070)." ;
   TerraCore:hasColumnLabel "assay_type" ;
 .
