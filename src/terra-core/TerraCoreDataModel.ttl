@@ -1575,8 +1575,9 @@ TerraCore:hasActivityType
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:Activity ;
   rdfs:label "hasActivityType" ;
-  rdfs:range xsd:anyURI ;
-  rdfs:range xsd:string ;
+  rdfs:range [
+    owl:unionOf(xsd:anyURI xsd:string)
+  ] ;
   skos:definition "A reference to the type of activity, preferably using an identifier in a recommended standard ontology." ;
   TerraCore:hasColumnLabel "activity_type" ;
 .
