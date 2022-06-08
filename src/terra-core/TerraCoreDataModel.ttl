@@ -1571,6 +1571,7 @@ TerraCore:confirmsDisease
   TerraCore:hasColumnLabel "confirms_disease" ;
 .
 TerraCore:hasActivityType
+  a owl:DatatypeProperty ;
   rdfs:domain TerraCore:Activity ;
   rdfs:label "hasActivityType" ;
   rdfs:range [
