@@ -1730,7 +1730,7 @@ TerraCore:hasAssayActivity
   skos:prefLabel "hasAssay" ;
 .
 TerraCore:hasAssayType
-  a owl:ObjectProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain [
       owl:unionOf (
           TerraCore:AssayActivity
