@@ -2,7 +2,7 @@
 # imports: http://www.w3.org/2002/07/owl
 # imports: https://datamodel.terra.bio/EFO_subset
 # imports: https://datamodel.terra.bio/NCBITaxon_Organisms_subset
-# imports: https://datamodel.terra.bio/OBI_assaySubset
+# imports: https://datamodel.terra.bio/OBIAssay_subset
 # imports: https://datamodel.terra.bio/OBI_core
 # imports: https://datamodel.terra.bio/TerraCoreValueSets
 # imports: https://datamodel.terra.bio/TerraDCAT_ap
@@ -10,7 +10,7 @@
 
 @prefix : <https://datamodel.terra.bio/TerraCore#> .
 @prefix NCBITaxon_Organisms: <https://datamodel.terra.bio/NCBITaxon_Organisms_subset#> .
-@prefix OBI_assaySubset: <https://datamodel.terra.bio/OBI_assaySubset#> .
+@prefix OBIAssay: <https://datamodel.terra.bio/OBIAssay_subset#> .
 @prefix TerraCore: <https://datamodel.terra.bio/TerraCore#> .
 @prefix TerraCoreValueSets: <https://datamodel.terra.bio/TerraCoreValueSets#> .
 @prefix TerraDCAT_ap: <https://datamodel.terra.bio/TerraDCAT_ap#> .
@@ -94,7 +94,7 @@ prov:wasGeneratedBy
   owl:imports <http://www.w3.org/2002/07/owl> ;
   owl:imports <https://datamodel.terra.bio/EFO_subset> ;
   owl:imports <https://datamodel.terra.bio/NCBITaxon_Organisms_subset> ;
-  owl:imports <https://datamodel.terra.bio/OBI_assaySubset> ;
+  owl:imports <https://datamodel.terra.bio/OBIAssay_subset> ;
   owl:imports <https://datamodel.terra.bio/OBI_core> ;
   owl:imports <https://datamodel.terra.bio/TerraCoreValueSets> ;
   owl:imports <https://datamodel.terra.bio/TerraDCAT_ap> ;
@@ -2185,6 +2185,15 @@ TerraCore:hasGeneticModificationType
     ] ;
   skos:prefLabel "has genetic modification type" ;
   TerraCore:hasColumnLabel "genetic_mod_type" ;
+.
+TerraCore:hasGeneticModificationReference
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain TerraCore:BioSample ;
+  rdfs:label "has genetic modification reference" ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "has genetic modification reference" ;
+  prov:definition "An external reference to a genetic modification method." ;
+  TerraCore:hasColumnLabel "genetic_mod_ref" ;
 .
 TerraCore:hasGenotypicSex
   a owl:DatatypeProperty ;
