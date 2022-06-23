@@ -11,6 +11,7 @@
 @prefix : <https://datamodel.terra.bio/TerraCore#> .
 @prefix NCBITaxon_Organisms: <https://datamodel.terra.bio/NCBITaxon_Organisms_subset#> .
 @prefix OBIAssay: <https://datamodel.terra.bio/OBIAssay_subset#> .
+@prefix OBI_assaySubset: <https://datamodel.terra.bio/OBI_assaySubset#> .
 @prefix TerraCore: <https://datamodel.terra.bio/TerraCore#> .
 @prefix TerraCoreValueSets: <https://datamodel.terra.bio/TerraCoreValueSets#> .
 @prefix TerraDCAT_ap: <https://datamodel.terra.bio/TerraDCAT_ap#> .
@@ -477,17 +478,6 @@ TerraCore:BiologicalSex
   rdfs:subClassOf obo:PATO_0001894 ;
   skos:definition "A quality of an organism indicating physical sexual characteristics. Equivalent of PATO's phenotypic sex but pseudohermaphrodite is not relevant to existing data and is not recommended." ;
 .
-TerraCore:ChromosomalLocation
-  a owl:Class ;
-  rdfs:label "ChromosomalLocation" ;
-  rdfs:subClassOf TerraCore:SequenceLocation ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasChromosome ;
-    ] ;
-  prov:definition "The location of a sequence feature defined by its start and end position on a chromosome in a reference coordinate system. " ;
-.
 TerraCore:Country
   a owl:Class ;
   rdfs:label "Country" ;
@@ -652,7 +642,7 @@ TerraCore:DonorTreatmentActivity
 TerraCore:Dose
   a owl:Class ;
   rdfs:label "Dose" ;
-  rdfs:subClassOf obo:BFO_0000040 ;
+  rdfs:subClassOf obo:IAO_0000027 ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:allValuesFrom xsd:decimal ;
@@ -1338,17 +1328,17 @@ TerraCore:SequenceLocation
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasLocation ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasStartPosition ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasStopPosition ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraCore:hasChromosome ;
     ] ;
   skos:prefLabel "SequenceLocation" ;
   prov:definition "The location of a sequence feature defined by its start and end position based on a reference coordinate system." ;
@@ -1460,7 +1450,7 @@ TerraCore:VariantCall
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasVariantReference ;
+      owl:onProperty TerraCore:hasStructuralVariationType ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -1825,7 +1815,7 @@ TerraCore:hasChild
 TerraCore:hasChromosome
   a owl:DatatypeProperty ;
   rdfs:comment "Need definition" ;
-  rdfs:domain TerraCore:ChromosomalLocation ;
+  rdfs:domain TerraCore:SequenceLocation ;
   rdfs:label "has chromosome" ;
   rdfs:range xsd:string ;
   skos:prefLabel "hasChromosome" ;
@@ -2103,6 +2093,15 @@ TerraCore:hasGRCName
   rdfs:range xsd:string ;
   skos:prefLabel "hasGRCName" ;
 .
+TerraCore:hasGeneContext
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:SequenceLocation ;
+  rdfs:label "has gene context" ;
+  rdfs:range xsd:anyURI ;
+  rdfs:range xsd:string ;
+  skos:definition "A specific gene context that applies to this variant." ;
+  TerraCore:hasColumnLabel "gene_context" ;
+.
 TerraCore:hasGeneExpressionProgram
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:SingleCell ;
@@ -2151,6 +2150,15 @@ TerraCore:hasGeneticModificationMethod
   prov:definition "The method of a GeneticModification, see ValueSets." ;
   TerraCore:hasColumnLabel "genetic_mod_method" ;
 .
+TerraCore:hasGeneticModificationReference
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:BioSample ;
+  rdfs:label "has genetic modification reference" ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "has genetic modification reference" ;
+  prov:definition "An external reference to a genetic modification method." ;
+  TerraCore:hasColumnLabel "genetic_mod_ref" ;
+.
 TerraCore:hasGeneticModificationType
   a owl:DatatypeProperty ;
   rdfs:comment "Need definition" ;
@@ -2185,15 +2193,6 @@ TerraCore:hasGeneticModificationType
     ] ;
   skos:prefLabel "has genetic modification type" ;
   TerraCore:hasColumnLabel "genetic_mod_type" ;
-.
-TerraCore:hasGeneticModificationReference
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain TerraCore:BioSample ;
-  rdfs:label "has genetic modification reference" ;
-  rdfs:range xsd:string ;
-  skos:prefLabel "has genetic modification reference" ;
-  prov:definition "An external reference to a genetic modification method." ;
-  TerraCore:hasColumnLabel "genetic_mod_ref" ;
 .
 TerraCore:hasGenotypicSex
   a owl:DatatypeProperty ;
@@ -2593,6 +2592,15 @@ TerraCore:hasReadLength
   rdfs:range xsd:integer ;
   skos:prefLabel "hasReadLength" ;
 .
+TerraCore:hasReferenceAllele
+  a owl:DatatypeProperty ;
+  rdfs:comment "See also https://vrs.ga4gh.org/en/stable/terms_and_model.html#allele for a more comprehensive model." ;
+  rdfs:domain TerraCore:VariantCall ;
+  rdfs:label "hasReferenceAllele" ;
+  rdfs:range xsd:string ;
+  skos:definition "The state of a molecule at a identified location." ;
+  skos:prefLabel "has reference allele" ;
+.
 TerraCore:hasReportedEthnicity
   a owl:DatatypeProperty ;
   rdfs:comment "Recommend using HANCESTRO ancestry category subclasses but a text string is also acceptable." ;
@@ -2655,10 +2663,19 @@ TerraCore:hasSampleType
   rdfs:label "hasSampleType" ;
   TerraCore:hasColumnLabel "sample_type" ;
 .
+TerraCore:hasSequenceExpression
+  a owl:DatatypeProperty ;
+  rdfs:comment "See https://vrs.ga4gh.org/en/stable/terms_and_model.html#sequence-expression and https://vrsatile.readthedocs.io/en/latest/value_object_descriptor/index.html#expression." ;
+  rdfs:domain TerraCore:VariantCall ;
+  rdfs:label "hasSequenceExpression" ;
+  rdfs:range xsd:string ;
+  skos:definition "An expression describing a Sequence, for example HGVS or ISCN." ;
+  skos:prefLabel "has sequence expression" ;
+  TerraCore:hasColumnLabel "sequence_expression" ;
+.
 TerraCore:hasSequenceLocation
   a owl:ObjectProperty ;
   rdfs:definition "Location of variation on a sequence.  For example, for human genome: chr7:140753336-140753337" ;
-  rdfs:domain TerraCore:SequenceLocation ;
   rdfs:domain TerraCore:VariantCall ;
   rdfs:label "hasSequenceLocation" ;
   rdfs:range xsd:string ;
@@ -2726,6 +2743,7 @@ TerraCore:hasStartPosition
   rdfs:domain TerraCore:SequenceLocation ;
   rdfs:label "hasStartPosition" ;
   rdfs:range xsd:integer ;
+  skos:definition "A reference to the start position on the chromosome identified." ;
   TerraCore:hasColumnLabel "start_position" ;
 .
 TerraCore:hasStopPosition
@@ -2733,6 +2751,7 @@ TerraCore:hasStopPosition
   rdfs:domain TerraCore:SequenceLocation ;
   rdfs:label "hasStopPosition" ;
   rdfs:range xsd:integer ;
+  TerraCore:hasColumnLabel "stop_position" ;
 .
 TerraCore:hasStrain
   a owl:DatatypeProperty ;
@@ -2744,6 +2763,14 @@ TerraCore:hasStrain
   rdfs:range xsd:string ;
   skos:definition "Text string to represent the strain." ;
   skos:prefLabel "hasStrain" ;
+.
+TerraCore:hasStructuralVariationType
+  a owl:DatatypeProperty ;
+  rdfs:domain TerraCore:VariantCall ;
+  rdfs:label "hasVariantReference" ;
+  rdfs:range xsd:anyURI ;
+  rdfs:range xsd:string ;
+  skos:definition "A sequence variant that changes one or more structural features. (Sequence Ontology)" ;
 .
 TerraCore:hasTarget
   a owl:DatatypeProperty ;
@@ -2846,14 +2873,6 @@ TerraCore:hasVariantCall
   rdfs:label "hasVariantCall" ;
   rdfs:range TerraCore:VariantCall ;
   skos:prefLabel "hasVariantCall" ;
-.
-TerraCore:hasVariantReference
-  a owl:DatatypeProperty ;
-  rdfs:comment "Need definition" ;
-  rdfs:domain TerraCore:VariantCall ;
-  rdfs:label "hasVariantReference" ;
-  rdfs:range xsd:string ;
-  rdfs:subPropertyOf skos:relatedMatch ;
 .
 TerraCore:hasVersion
   a owl:DatatypeProperty ;
@@ -2972,6 +2991,8 @@ TerraCore:usesReferenceAssembly
   rdfs:domain TerraCore:AlignmentFile ;
   rdfs:domain TerraCore:SequenceFile ;
   rdfs:domain TerraCore:SequencingActivity ;
+  rdfs:domain TerraCore:VariantCall ;
+  rdfs:domain TerraCore:VariantCallingActivity ;
   rdfs:label "usesReferenceAssembly" ;
   rdfs:range xsd:anyURI ;
   rdfs:range xsd:string ;
