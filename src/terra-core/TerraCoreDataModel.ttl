@@ -2292,7 +2292,7 @@ TerraCore:hasHostOrganism
   rdfs:domain TerraCore:Antibody ;
   rdfs:label "has host organism" ;
   rdfs:range [
-    owl:unionOf ()
+    owl:unionOf (
       obo:OBI_0100026 
       xsd:string 
     );
@@ -2747,8 +2747,6 @@ TerraCore:hasSampleTreatmentType
   rdfs:domain TerraCore:SampleTreatmentActivity ;
   rdfs:label "has sample treatment type" ;
   rdfs:range [
-    owl:unionOf (
-      xsd:string 
       a rdfs:Datatype ;
       owl:oneOf (
           "antibody"
@@ -2762,7 +2760,6 @@ TerraCore:hasSampleTreatmentType
           "RNAi"
           "CRISPRi"
         ) 
-      );
     ] ;
   skos:prefLabel "has sample treatment type" ;
   prov:definition "The type of a BioSample treatment type, see valuesets for examples." ;
