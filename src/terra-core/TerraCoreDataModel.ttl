@@ -1931,8 +1931,12 @@ TerraCore:hasDateOfDeath
   rdfs:domain TerraCore:Donor ;
   rdfs:domain TerraCore:FamilyMember ;
   rdfs:label "has date of death" ;
-  rdfs:range xsd:date ;
-  rdfs:range xsd:dateTime ;
+  rdfs:range [
+    owl:unionOf (
+      xsd:date 
+      xsd:dateTime 
+    );
+  ];
   rdfs:subPropertyOf dct:date ;
 .
 TerraCore:hasDevelopmentalStage
@@ -1965,8 +1969,12 @@ TerraCore:hasDisease
   rdfs:domain rdfs:Resource ;
   rdfs:domain TerraCore:BioSample ;
   rdfs:label "hasDisease" ;
-  rdfs:range obo:OGMS_0000031 ;
-  rdfs:range xsd:anyURI ;
+  rdfs:range [
+    owl:unionOf (
+      obo:OGMS_0000031 
+      xsd:anyURI 
+    );
+  ];
   skos:definition "A property that identifies a disease or condition has been reported in this entity." ;
   skos:prefLabel "hasDisease" ;
   TerraCore:hasColumnLabel "disease_id" ;
@@ -2260,8 +2268,12 @@ TerraCore:hasHalfSibling
   rdfs:domain TerraCore:FamilyMember ;
   rdfs:domain TerraCore:HumanDonor ;
   rdfs:label "hasHalfSibling" ;
-  rdfs:range TerraCore:FamilyMember ;
-  rdfs:range TerraCore:HumanDonor ;
+  rdfs:range [
+    owl:unionOf (
+      TerraCore:FamilyMember 
+      TerraCore:HumanDonor 
+    );
+  ];
   skos:definition "A property that identifies genetic half siblings." ;
   TerraCore:hasColumnLabel "half_sibling" ;
 .
@@ -2270,8 +2282,12 @@ TerraCore:hasHostOrganism
   rdfs:comment "Need definition" ;
   rdfs:domain TerraCore:Antibody ;
   rdfs:label "has host organism" ;
-  rdfs:range obo:OBI_0100026 ;
-  rdfs:range xsd:string ;
+  rdfs:range [
+    owl:unionOf ()
+      obo:OBI_0100026 
+      xsd:string 
+    );
+  ];
   TerraCore:hasColumnLabel "host_organism" ;
 .
 TerraCore:hasImmunogen
@@ -2511,8 +2527,12 @@ TerraCore:hasParent
   rdfs:domain TerraCore:FamilyMember ;
   rdfs:domain TerraCore:HumanDonor ;
   rdfs:label "hasParent" ;
-  rdfs:range TerraCore:FamilyMember ;
-  rdfs:range TerraCore:HumanDonor ;
+  rdfs:range [
+    owl:unionOf (
+      TerraCore:FamilyMember 
+      TerraCore:HumanDonor 
+    );
+  ];
   skos:definition "A property that identifies genetic parents." ;
   TerraCore:hasColumnLabel "parent" ;
 .
@@ -2717,8 +2737,9 @@ TerraCore:hasSampleTreatmentType
   a owl:DatatypeProperty ;
   rdfs:domain TerraCore:SampleTreatmentActivity ;
   rdfs:label "has sample treatment type" ;
-  rdfs:range xsd:string ;
   rdfs:range [
+    owl:unionOf (
+      xsd:string 
       a rdfs:Datatype ;
       owl:oneOf (
           "antibody"
@@ -2731,7 +2752,8 @@ TerraCore:hasSampleTreatmentType
           "transplantation"
           "RNAi"
           "CRISPRi"
-        ) ;
+        ) 
+      );
     ] ;
   skos:prefLabel "has sample treatment type" ;
   prov:definition "The type of a BioSample treatment type, see valuesets for examples." ;
@@ -2758,8 +2780,12 @@ TerraCore:hasSequenceLocation
   rdfs:definition "Location of variation on a sequence.  For example, for human genome: chr7:140753336-140753337" ;
   rdfs:domain TerraCore:VariantCall ;
   rdfs:label "hasSequenceLocation" ;
-  rdfs:range xsd:string ;
-  rdfs:range TerraCore:SequenceLocation ;
+  rdfs:range [
+    owl:unionOf (
+      xsd:string 
+      TerraCore:SequenceLocation 
+    );
+  ];
   skos:altLabel "hasLocation" ;
   skos:prefLabel "hasSequenceLocation" ;
   TerraCore:hasColumnLabel "seq_location" ;
@@ -2778,8 +2804,12 @@ TerraCore:hasServiceProvider
   a owl:ObjectProperty ;
   rdfs:domain TerraCore:Activity ;
   rdfs:label "has service provider" ;
-  rdfs:range xsd:string ;
-  rdfs:range prov:Organization ;
+  rdfs:range [
+    owl:unionOf (
+      xsd:string
+      prov:Organization 
+    );
+  ];
   skos:definition "A reference to the organization performing this activity." ;
   TerraCore:hasColumnLabel "service_provider" ;
 .
@@ -2797,8 +2827,12 @@ TerraCore:hasSibling
   rdfs:domain TerraCore:FamilyMember ;
   rdfs:domain TerraCore:HumanDonor ;
   rdfs:label "hasSibling" ;
-  rdfs:range TerraCore:FamilyMember ;
-  rdfs:range TerraCore:HumanDonor ;
+  rdfs:range [
+    owl:unionOf (
+      TerraCore:FamilyMember
+      TerraCore:HumanDonor 
+    );
+  ];
   skos:definition "A property that identifies full genetic siblings." ;
   TerraCore:hasColumnLabel "sibling" ;
 .
@@ -3045,8 +3079,12 @@ TerraCore:isPairedWith
   rdfs:domain TerraCore:Library ;
   rdfs:domain TerraCore:SequenceFile ;
   rdfs:label "isPairedWith" ;
-  rdfs:range TerraCore:Library ;
-  rdfs:range TerraCore:SequenceFile ;
+  rdfs:range [
+    owl:unionOf (
+      TerraCore:Library
+      TerraCore:SequenceFile 
+    );
+  ];
   TerraCore:hasColumnLabel "paired_with" ;
 .
 TerraCore:isWholeCell
@@ -3063,8 +3101,12 @@ TerraCore:usesAntibody
   rdfs:domain TerraCore:Activity ;
   rdfs:domain TerraCore:AssayActivity ;
   rdfs:label "usesAntibody" ;
-  rdfs:range xsd:string ;
-  rdfs:range TerraCore:Antibody ;
+  rdfs:range [
+    owl:unionOf (
+      xsd:string
+      TerraCore:Antibody 
+    );
+  ];
   rdfs:subPropertyOf prov:used ;
   skos:prefLabel "usesAntibody" ;
   prov:definition "May be a reference to an antibody used for a SampleTreatmentActivity or another Activity." ;
@@ -3207,8 +3249,12 @@ TerraDCAT_ap:hasOwner
   TerraCore:hasColumnLabel "owner" ;
 .
 TerraDCAT_ap:hasPrincipalInvestigator
-  rdfs:range xsd:string ;
-  rdfs:range TerraCore:PrincipalInvestigator ;
+  rdfs:range [
+    owl:unionOf (
+      xsd:string
+      TerraCore:PrincipalInvestigator 
+    );
+  ];
   TerraCore:hasColumnLabel "principal_investigator" ;
 .
 TerraDCAT_ap:hasRegisteredIdentifier
