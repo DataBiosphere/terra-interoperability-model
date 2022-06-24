@@ -2246,6 +2246,15 @@ TerraCore:hasGeneticModificationType
   skos:prefLabel "has genetic modification type" ;
   TerraCore:hasColumnLabel "genetic_mod_type" ;
 .
+TerraCore:hasGeneticModificationReference
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain TerraCore:BioSample ;
+  rdfs:label "has genetic modification reference" ;
+  rdfs:range xsd:anyURI ;
+  skos:prefLabel "has genetic modification reference" ;
+  prov:definition "An external reference to a genetic modification method." ;
+  TerraCore:hasColumnLabel "genetic_mod_ref" ;
+.
 TerraCore:hasGenotypicSex
   a owl:DatatypeProperty ;
   rdfs:comment "Add equivalence to http://purl.obolibrary.org/obo/PATO_0020000" ;
