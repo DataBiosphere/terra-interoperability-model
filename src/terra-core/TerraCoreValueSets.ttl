@@ -1,3 +1,9 @@
+# baseURI: https://datamodel.terra.bio/TerraCoreValueSets
+# imports: http://www.w3.org/2004/02/skos/core#
+# imports: https://datamodel.terra.bio/imports/CL_subset
+# imports: https://datamodel.terra.bio/imports/UBERON_subset
+# prefix: TerraCoreValueSets
+
 @prefix : <https://datamodel.terra.bio/TerraCoreValueSets#> .
 @prefix TerraCoreValueSets: <https://datamodel.terra.bio/TerraCoreValueSets#> .
 @prefix TerraDCAT_ap: <https://datamodel.terra.bio/TerraDCAT_ap#> .

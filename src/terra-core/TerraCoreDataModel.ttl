@@ -1,3 +1,13 @@
+# baseURI: https://datamodel.terra.bio/TerraCore
+# imports: http://www.w3.org/2002/07/owl
+# imports: https://datamodel.terra.bio/imports/EFO_subset
+# imports: https://datamodel.terra.bio/imports/NCBITaxon_Organisms_subset
+# imports: https://datamodel.terra.bio/imports/OBIAssay_subset
+# imports: https://datamodel.terra.bio/imports/OBI_core
+# imports: https://datamodel.terra.bio/TerraCoreValueSets
+# imports: https://datamodel.terra.bio/TerraDCAT_ap
+# prefix: TerraCore
+
 @prefix : <https://datamodel.terra.bio/TerraCore#> .
 @prefix NCBITaxon_Organisms: <https://datamodel.terra.bio/NCBITaxon_Organisms_subset#> .
 @prefix OBIAssay: <https://datamodel.terra.bio/OBIAssay_subset#> .
