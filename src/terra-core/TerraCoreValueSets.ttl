@@ -1,7 +1,7 @@
 # baseURI: https://datamodel.terra.bio/TerraCoreValueSets
 # imports: http://www.w3.org/2004/02/skos/core#
-# imports: https://datamodel.terra.bio/CL_subset
-# imports: https://datamodel.terra.bio/UBERON_subset
+# imports: https://datamodel.terra.bio/imports/CL_subset
+# imports: https://datamodel.terra.bio/imports/UBERON_subset
 # prefix: TerraCoreValueSets
 
 @prefix : <https://datamodel.terra.bio/TerraCoreValueSets#> .
@@ -17,8 +17,8 @@
 <https://datamodel.terra.bio/TerraCoreValueSets>
   a owl:Ontology ;
   owl:imports skos: ;
-  owl:imports <https://datamodel.terra.bio/CL_subset> ;
-  owl:imports <https://datamodel.terra.bio/UBERON_subset> ;
+  owl:imports <https://datamodel.terra.bio/imports/CL_subset> ;
+  owl:imports <https://datamodel.terra.bio/imports/UBERON_subset> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
 TerraCoreValueSets:AmnioticFluid
