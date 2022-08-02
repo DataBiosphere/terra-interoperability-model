@@ -79,7 +79,7 @@ We then formed a team of researchers from across the Broad Institute to ensure t
 Finally, we selected several datasets to test the model in our own pilot project.
 
 ### Using Terra Interoperability Model
-TIM is currently composed of three separate OWL/TTL files. TerraDCAT_ap.ttl is an extension of the (W3C's Data Catalog Vocabulary)[https://www.w3.org/TR/vocab-dcat-2/] which adds data use terms from the (Data Use Ontology)[https://github.com/EBISPOT/DUO].  TerraCoreValueSets.ttl provides controlled vocabulary terms to support TerraCoreDataModel.ttl which contains the classes and properties required to connect core biomedical data concepts.
+TIM is currently composed of three separate OWL/TTL files. TerraDCAT_ap.ttl is an extension of the [W3C's Data Catalog Vocabulary](https://www.w3.org/TR/vocab-dcat-2/) which adds data use terms from the [Data Use Ontology](https://github.com/EBISPOT/DUO).  TerraCoreValueSets.ttl provides controlled vocabulary terms to support TerraCoreDataModel.ttl which contains the classes and properties required to connect core biomedical data concepts.
 
 The list of external ontologies and vocabularies that are used in the Terra Interoperability Model can be found in the [Ontologies document](documents/Ontologies.md).
 
