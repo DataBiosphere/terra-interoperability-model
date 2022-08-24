@@ -1,4 +1,5 @@
 # baseURI: https://datamodel.terra.bio/TerraDCAT_ap
+# imports: https://datamodel.terra.bio/imports/dublin_core_terms
 # imports: http://www.w3.org/ns/dcat
 # imports: https://raw.githubusercontent.com/EBISPOT/DUO/master/duo-basic.owl
 # prefix: TerraDCAT_ap
@@ -21,6 +22,7 @@ prov:value
 <https://datamodel.terra.bio/TerraDCAT_ap>
   a owl:Ontology ;
   rdfs:comment "Terra DCAT AP is the Broad Data Sciences Platform's application profile for data catalog.  It is an RDF vocabulary which extends the W3C's Data Catalog Vocabulary (https://www.w3.org/TR/vocab-dcat/)." ;
+  owl:imports <https://datamodel.terra.bio/imports/dublin_core_terms> ;
   owl:imports <http://www.w3.org/ns/dcat> ;
   owl:imports <https://raw.githubusercontent.com/EBISPOT/DUO/master/duo-basic.owl> ;
   owl:versionInfo "Created with TopBraid Composer" ;
@@ -60,11 +62,6 @@ TerraDCAT_ap:DataCollection
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraDCAT_ap:hasDataUsePermission ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty dcat:theme ;
     ] ;
   rdfs:subClassOf [
@@ -81,6 +78,11 @@ TerraDCAT_ap:DataCollection
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraDCAT_ap:hasDataUseModifier ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasDataUsePermission ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -231,13 +233,13 @@ TerraDCAT_ap:Dataset
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:onProperty prov:wasGeneratedBy ;
-      owl:someValuesFrom prov:Activity ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasCustodian ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraDCAT_ap:hasCustodian ;
+      owl:onProperty prov:wasGeneratedBy ;
+      owl:someValuesFrom prov:Activity ;
     ] ;
   skos:prefLabel "Dataset" ;
   prov:definition "An extension of DCAT:Dataset to support Data Use Ontology terms.  A collection of one or more entities submitted by a single responsible party or authorizing agent." ;
