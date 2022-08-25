@@ -7,7 +7,8 @@
 @prefix : <https://datamodel.terra.bio/TerraDCAT_ap#> .
 @prefix TerraDCAT_ap: <https://datamodel.terra.bio/TerraDCAT_ap#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix dct: <http://purl.org/dc/terms/> .
+# @prefix dct: <http://purl.org/dc/terms/> .
+@prefix dct: <https://datamodel.terra.bio/imports/dublin_core_terms#> .
 @prefix duo: <http://purl.obolibrary.org/obo/duo-basic.owl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
