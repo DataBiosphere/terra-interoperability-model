@@ -22,8 +22,7 @@ prov:value
 <https://datamodel.terra.bio/TerraDCAT_ap>
   a owl:Ontology ;
   rdfs:comment "Terra DCAT AP is the Broad Data Sciences Platform's application profile for data catalog.  It is an RDF vocabulary which extends the W3C's Data Catalog Vocabulary (https://www.w3.org/TR/vocab-dcat/)." ;
-  owl:imports <https://datamodel.terra.bio/imports/dublin_core_terms> ;
-  owl:imports <http://www.w3.org/ns/dcat> ;
+  owl:imports <https://datamodel.terra.bio/imports/dcat2> ;
   owl:imports <https://raw.githubusercontent.com/EBISPOT/DUO/master/duo-basic.owl> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
