@@ -21,6 +21,7 @@ docker run -it --mount type=bind,source=$source,target="/source" <IMAGE_ID> -f "
 
 ```sh
 docker run -it --mount type=bind,source=$source,target="/source" $image_id -f "/source/TerraDCAT-AP.ttl" -l DataCollection
+docker run -it -v $source:"/source" $image_id -f "/source/TerraDCAT-AP.ttl" -l DataCollection
 ```
 
 ### Troubleshooting
