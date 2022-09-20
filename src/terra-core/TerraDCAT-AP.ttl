@@ -58,36 +58,36 @@ TerraDCAT_ap:DataCollection
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dcat:themeTaxonomy ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcat:theme ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraDCAT_ap:hasDataCollection ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraDCAT_ap:hasDataSnapshot ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraDCAT_ap:hasDataUseModifier ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraDCAT_ap:hasDataUsePermission ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraDCAT_ap:hasDataset ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty dcat:theme ;
+  #   ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty TerraDCAT_ap:hasDataCollection ;
+  #   ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty TerraDCAT_ap:hasDataSnapshot ;
+  #   ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty TerraDCAT_ap:hasDataUseModifier ;
+  #   ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty TerraDCAT_ap:hasDataUsePermission ;
+  #   ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty TerraDCAT_ap:hasDataset ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
@@ -200,11 +200,11 @@ TerraDCAT_ap:Dataset
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dcat:landingPage ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty dct:hasPart ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty dct:hasPart ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;

@@ -103,31 +103,31 @@ TerraCore:Activity
   a owl:Class ;
   rdfs:label "Activity" ;
   rdfs:subClassOf prov:Activity ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dct:created ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:id ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty prov:endedAtTime ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty prov:startedAtTime ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty prov:wasAssociatedWith ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:cardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty dct:created ;
+  #   ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:cardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty TerraCore:id ;
+  #   ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty prov:endedAtTime ;
+  #   ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty prov:startedAtTime ;
+  #   ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty prov:wasAssociatedWith ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
@@ -138,16 +138,16 @@ TerraCore:Activity
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:usesSample ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty prov:generated ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty prov:used ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty prov:generated ;
+  #   ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty prov:used ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
@@ -207,11 +207,11 @@ TerraCore:AlignmentActivity
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:id ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty prov:endedAtTime ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty prov:endedAtTime ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
@@ -381,11 +381,11 @@ TerraCore:BioSample
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:id ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dct:source ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty dct:source ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
@@ -599,11 +599,11 @@ TerraCore:DonorTreatmentActivity
   a owl:Class ;
   rdfs:label "Donor Treatment" ;
   rdfs:subClassOf TerraCore:Activity ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasTreatmentType ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:cardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty TerraCore:hasDonorTreatmentType ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -651,11 +651,11 @@ TerraCore:Dose
       owl:allValuesFrom xsd:decimal ;
       owl:onProperty prov:value ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty prov:value ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:cardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty prov:value ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -749,11 +749,11 @@ TerraCore:File
   rdfs:comment "Used definition from http://semanticscience.org/resource/SIO_000396 but equivalence to http://www.w3.org/ns/dcat#Distribution doesn't make sense in this context; thus we have our own class.  Also added electronic. " ;
   rdfs:label "File" ;
   rdfs:subClassOf obo:IAO_0000030 ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcat:byteSize ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:cardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty dcat:byteSize ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -1013,16 +1013,11 @@ TerraCore:Measurement
       owl:allValuesFrom xsd:decimal ;
       owl:onProperty prov:value ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty prov:value ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:hasMeasurementType ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:cardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty prov:value ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -1038,11 +1033,11 @@ TerraCore:Measurement
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:id ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty prov:generated ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty prov:generated ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty prov:generated ;
@@ -1115,57 +1110,57 @@ TerraCore:PrincipalInvestigator
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:id ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://xmlns.com/foaf/0.1/title> ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://xmlns.com/foaf/0.1/family_name> ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://xmlns.com/foaf/0.1/givenname> ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://xmlns.com/foaf/0.1/mbox> ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty <http://xmlns.com/foaf/0.1/title> ;
+  #   ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty <http://xmlns.com/foaf/0.1/family_name> ;
+  #   ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty <http://xmlns.com/foaf/0.1/givenname> ;
+  #   ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty <http://xmlns.com/foaf/0.1/mbox> ;
+  #   ] ;
   prov:definition "The principal or lead person who carries out an investigation assigned by a sponsor or authorizing agent." ;
 .
 TerraCore:Project
   a owl:Class ;
   rdfs:label "Project" ;
   rdfs:subClassOf prov:Activity ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dct:description ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dct:title ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:cardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty dct:description ;
+  #   ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:cardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty dct:title ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:id ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty dct:contributor ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty dct:isReferencedBy ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty dct:contributor ;
+  #   ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty dct:isReferencedBy ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1176,11 +1171,11 @@ TerraCore:Project
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:isFundedBy ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraDCAT_ap:hasOriginalPublication ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty TerraDCAT_ap:hasOriginalPublication ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
@@ -1251,11 +1246,11 @@ TerraCore:Sample
       owl:minCardinality "0"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraDCAT_ap:hasDataUseModifier ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dct:isPartOf ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty dct:isPartOf ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1355,11 +1350,11 @@ TerraCore:SequencingActivity
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:id ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty prov:endedAtTime ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty prov:endedAtTime ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
@@ -3177,24 +3172,24 @@ TerraCore:usesSoftware
   prov:definition "A reference to a software tool or command line " ;
   TerraCore:hasColumnLabel "uses_software" ;
 .
-TerraDCAT_ap:DataCollection
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraCore:id ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraDCAT_ap:hasCustodian ;
-    ] ;
-.
+# TerraDCAT_ap:DataCollection
+#   rdfs:subClassOf [
+#       a owl:Restriction ;
+#       owl:cardinality "1"^^xsd:nonNegativeInteger ;
+#       owl:onProperty TerraCore:id ;
+#     ] ;
+#   rdfs:subClassOf [
+#       a owl:Restriction ;
+#       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+#       owl:onProperty TerraDCAT_ap:hasCustodian ;
+#     ] ;
+# .
 TerraDCAT_ap:DataSnapshot
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dct:identifier ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:cardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty dct:identifier ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -3202,36 +3197,36 @@ TerraDCAT_ap:DataSnapshot
     ] ;
 .
 TerraDCAT_ap:Dataset
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dct:description ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dct:title ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:cardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty dct:description ;
+  #   ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:cardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty dct:title ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:id ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty dcat:contactPoint ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty dcat:contactPoint ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty TerraCore:hasDataModality ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraDCAT_ap:hasCustodian ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty TerraDCAT_ap:hasCustodian ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
