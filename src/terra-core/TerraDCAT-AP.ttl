@@ -58,43 +58,43 @@ TerraDCAT_ap:DataCollection
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dcat:themeTaxonomy ;
     ] ;
-  # rdfs:subClassOf [
-  #     a owl:Restriction ;
-  #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-  #     owl:onProperty dcat:theme ;
-  #   ] ;
-  # rdfs:subClassOf [
-  #     a owl:Restriction ;
-  #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-  #     owl:onProperty TerraDCAT_ap:hasDataCollection ;
-  #   ] ;
-  # rdfs:subClassOf [
-  #     a owl:Restriction ;
-  #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-  #     owl:onProperty TerraDCAT_ap:hasDataSnapshot ;
-  #   ] ;
-  # rdfs:subClassOf [
-  #     a owl:Restriction ;
-  #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-  #     owl:onProperty TerraDCAT_ap:hasDataUseModifier ;
-  #   ] ;
-  # rdfs:subClassOf [
-  #     a owl:Restriction ;
-  #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-  #     owl:onProperty TerraDCAT_ap:hasDataUsePermission ;
-  #   ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty dcat:theme ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasDataCollection ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasDataSnapshot ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasDataUseModifier ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty TerraDCAT_ap:hasDataUsePermission ;
+    ] ;
   # rdfs:subClassOf [
   #     a owl:Restriction ;
   #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
   #     owl:onProperty TerraDCAT_ap:hasDataset ;
   #   ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraDCAT_ap:hasCustodian ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty TerraDCAT_ap:hasCustodian ;
+  #   ] ;
   skos:prefLabel "DataCollection" ;
-  dcat:themeTaxonomy TerraDCAT_ap:DSPThemeTaxonomy ;
+  # dcat:themeTaxonomy TerraDCAT_ap:DSPThemeTaxonomy ;
   prov:definition "Extension of DCAT:Catalog to support Data Use Ontology terms and set required properties for Terra DCAT Application Profile. A collection of one or more TerraDCAT_ap:Dataset(s) or TerraDCAT_ap:DataCollection(s)." ;
 .
 TerraDCAT_ap:DataSnapshot
@@ -203,7 +203,7 @@ TerraDCAT_ap:Dataset
   # rdfs:subClassOf [
   #     a owl:Restriction ;
   #     owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-  #     owl:onProperty dct:hasPart ;
+  #     owl:onProperty dcterms:hasPart ;
   #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -230,11 +230,11 @@ TerraDCAT_ap:Dataset
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty dcat:theme ;
     ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty TerraDCAT_ap:hasCustodian ;
-    ] ;
+  # rdfs:subClassOf [
+  #     a owl:Restriction ;
+  #     owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+  #     owl:onProperty TerraDCAT_ap:hasCustodian ;
+  #   ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:onProperty prov:wasGeneratedBy ;
