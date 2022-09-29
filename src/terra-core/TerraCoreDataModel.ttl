@@ -3130,12 +3130,12 @@ TerraCore:usesLibrary
 .
 TerraCore:usesReferenceAssembly
   a owl:ObjectProperty ;
-  rdfs:domain TerraCore:AlignmentActivity ;
-  rdfs:domain TerraCore:AlignmentFile ;
-  rdfs:domain TerraCore:SequenceFile ;
-  rdfs:domain TerraCore:SequencingActivity ;
-  rdfs:domain TerraCore:VariantCall ;
-  rdfs:domain TerraCore:VariantCallingActivity ;
+  # rdfs:domain TerraCore:AlignmentActivity ;
+  # rdfs:domain TerraCore:AlignmentFile ;
+  # rdfs:domain TerraCore:SequenceFile ;
+  # rdfs:domain TerraCore:SequencingActivity ;
+  # rdfs:domain TerraCore:VariantCall ;
+  # rdfs:domain TerraCore:VariantCallingActivity ;
   rdfs:label "usesReferenceAssembly" ;
     rdfs:range [
     owl:unionOf (
