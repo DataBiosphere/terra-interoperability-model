@@ -1,4 +1,6 @@
 # baseURI: https://datamodel.terra.bio/TerraDCAT_ap
+# imports: https://datamodel.terra.bio/imports/dcat2
+# imports: https://raw.githubusercontent.com/EBISPOT/DUO/master/duo-basic.owl
 # prefix: TerraDCAT_ap
 
 @prefix : <https://datamodel.terra.bio/TerraDCAT_ap#> .
@@ -238,12 +240,11 @@ TerraDCAT_ap:hasConsentGroup
   skos:prefLabel "has consent group" ;
 .
 TerraDCAT_ap:hasCustodian
-  a rdf:Property ;
+  a owl:ObjectProperty ;
   rdfs:domain TerraDCAT_ap:DataCollection ;
   rdfs:domain TerraDCAT_ap:Dataset ;
   rdfs:label "hasCustodian" ;
   rdfs:range dct:Agent ;
-  rdfs:subPropertyOf dct:publisher ;
   skos:definition "The entity operationally responsible for managing the item and responsible for authorizing users of the Dataset or DataCollection." ;
 .
 TerraDCAT_ap:hasDataCollection
@@ -315,13 +316,12 @@ TerraDCAT_ap:hasLastModifiedDate
   skos:definition "The date this Entity was last modified." ;
 .
 TerraDCAT_ap:hasOriginalPublication
-  a rdf:Property ;
+  a owl:DatatypeProperty ;
   rdfs:domain TerraDCAT_ap:DataCollection ;
   rdfs:domain TerraDCAT_ap:Dataset ;
   rdfs:label "hasOriginalPublication" ;
   rdfs:range xsd:anyURI ;
   rdfs:range xsd:string ;
-  rdfs:subPropertyOf dct:isReferencedBy ;
   skos:definition "The original publication associated with this Dataset or DataCollection." ;
 .
 TerraDCAT_ap:hasOwner
