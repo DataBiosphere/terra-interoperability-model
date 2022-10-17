@@ -1,10 +1,10 @@
 # baseURI: https://datamodel.terra.bio/TerraCore
-# imports: https://datamodel.terra.bio/TerraCoreValueSets
-# imports: https://datamodel.terra.bio/TerraDCAT_ap
 # imports: https://datamodel.terra.bio/imports/EFO_subset
 # imports: https://datamodel.terra.bio/imports/NCBITaxon_Organisms_subset
 # imports: https://datamodel.terra.bio/imports/OBIAssay_subset
 # imports: https://datamodel.terra.bio/imports/OBI_core
+# imports: https://datamodel.terra.bio/TerraCoreValueSets
+# imports: https://datamodel.terra.bio/TerraDCAT_ap
 # prefix: TerraCore
 
 @prefix : <https://datamodel.terra.bio/TerraCore#> .
@@ -47,13 +47,9 @@ dcat:contactPoint
 .
 prov:Agent
   owl:equivalentClass dct:Agent ;
-  owl:equivalentClass <http://xmlns.com/foaf/0.1/Agent> ;
 .
 prov:Entity
   owl:equivalentClass obo:BFO_0000001 ;
-.
-prov:Person
-  owl:equivalentClass <http://xmlns.com/foaf/0.1/Person> ;
 .
 prov:endedAtTime
   TerraCore:hasColumnLabel "end_time" ;
@@ -81,9 +77,6 @@ prov:wasDerivedFrom
 prov:wasGeneratedBy
   TerraCore:hasColumnLabel "generated_by" ;
 .
-<http://xmlns.com/foaf/0.1/Agent>
-  owl:equivalentClass prov:Agent ;
-.
 <https://datamodel.terra.bio/TerraCore>
   a owl:Ontology ;
   dc:contributor "Sid Cox" ;
@@ -91,12 +84,12 @@ prov:wasGeneratedBy
   dct:date "20 Jul 2020" ;
   dct:license <https://github.com/DataBiosphere/terra-interoperability-model/blob/master/LICENSE> ;
   rdfs:comment "Please cite The Broad Institute of Harvard and MIT, Data Sciences Platform." ;
-  owl:imports <https://datamodel.terra.bio/TerraCoreValueSets> ;
-  owl:imports <https://datamodel.terra.bio/TerraDCAT_ap> ;
   owl:imports <https://datamodel.terra.bio/imports/EFO_subset> ;
   owl:imports <https://datamodel.terra.bio/imports/NCBITaxon_Organisms_subset> ;
   owl:imports <https://datamodel.terra.bio/imports/OBIAssay_subset> ;
   owl:imports <https://datamodel.terra.bio/imports/OBI_core> ;
+  owl:imports <https://datamodel.terra.bio/TerraCoreValueSets> ;
+  owl:imports <https://datamodel.terra.bio/TerraDCAT_ap> ;
   owl:versionInfo "Version 1.0.0" ;
 .
 TerraCore:Activity
@@ -501,7 +494,7 @@ TerraCore:Diagnosis
       owl:onProperty TerraCore:confirmsDisease ;
       owl:someValuesFrom obo:OGMS_0000031 ;
     ] ;
-  skos:definition "Result of a medical investigation that often identies a disease or condition." ;
+  skos:definition "Result of a medical investigation that often identifies a disease or condition." ;
 .
 TerraCore:Dog
   a obo:NCBITaxon_9615 ;
@@ -1685,8 +1678,9 @@ TerraCore:hasAssayActivity
   skos:prefLabel "hasAssay" ;
 .
 TerraCore:hasAssayType
-  a owl:DatatypeProperty ;
+  a owl:ObjectProperty ;
   rdfs:domain [
+      a owl:Class ;
       owl:unionOf (
           TerraCore:AssayActivity
           TerraCore:ExperimentActivity
@@ -1784,7 +1778,6 @@ TerraCore:hasChild
       owl:unionOf (
           TerraCore:Donor
           TerraCore:FamilyMember
-          TerraCore:HumanDonor
         ) ;
     ] ;
   skos:definition "A property that identifies genetic children." ;
